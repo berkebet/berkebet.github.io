@@ -1,969 +1,1046 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BerkeBet — Official</title>
+<title>BerkeBet</title>
 
 <link rel="icon" href="logo.jpeg.jpeg">
 
 <style>
 
-/* ==============================
-   TEMEL
-============================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
-body{
-    background:#0d0d0c;
-    color:#f4f1e8;
-    font-family:Arial, Helvetica, sans-serif;
-    overflow-x:hidden;
+body {
+    font-family: Arial, sans-serif;
+    background: #050208;
+    color: white;
+    overflow-x: hidden;
 }
 
-
-/* ==============================
+/* =========================
    ARKA PLAN
-============================== */
+========================= */
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-5;
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
 
     background:
         radial-gradient(
-            circle at 75% 15%,
-            rgba(190,145,65,.12),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 10% 70%,
-            rgba(130,100,50,.08),
-            transparent 30%
-        ),
-        #0d0d0c;
+            ellipse at 50% 0%,
+            #21083b 0%,
+            #0c0415 40%,
+            #050208 75%,
+            #020103 100%
+        );
 }
 
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-4;
-    pointer-events:none;
+.neon {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+}
 
-    opacity:.035;
+.neon.one {
+    width: 550px;
+    height: 550px;
+    left: -180px;
+    top: -180px;
+    background: rgba(164, 35, 255, .45);
+    animation: move1 10s ease-in-out infinite alternate;
+}
+
+.neon.two {
+    width: 600px;
+    height: 600px;
+    right: -250px;
+    top: 100px;
+    background: rgba(99, 25, 255, .38);
+    animation: move2 12s ease-in-out infinite alternate;
+}
+
+.neon.three {
+    width: 500px;
+    height: 500px;
+    left: 35%;
+    top: 40%;
+    background: rgba(221, 40, 255, .20);
+    animation: move3 11s ease-in-out infinite alternate;
+}
+
+@keyframes move1 {
+    to {
+        transform: translate(160px, 120px) scale(1.2);
+    }
+}
+
+@keyframes move2 {
+    to {
+        transform: translate(-130px, 140px) scale(1.15);
+    }
+}
+
+@keyframes move3 {
+    to {
+        transform: translate(120px, -100px) scale(1.2);
+    }
+}
+
+/* GRID */
+
+.grid {
+    position: absolute;
+    inset: -50%;
 
     background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        linear-gradient(
+            rgba(190, 60, 255, .07) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(190, 60, 255, .07) 1px,
+            transparent 1px
+        );
+
+    background-size: 65px 65px;
+
+    transform:
+        perspective(700px)
+        rotateX(62deg);
+
+    animation: gridMove 12s linear infinite;
 }
 
+@keyframes gridMove {
+    to {
+        transform:
+            perspective(700px)
+            rotateX(62deg)
+            translateY(65px);
+    }
+}
 
-/* ==============================
+/* =========================
    NAVBAR
-============================== */
+========================= */
 
-nav{
-    position:fixed;
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
 
-    top:0;
-    left:0;
+    width: 100%;
+    height: 74px;
 
-    width:100%;
+    padding: 0 7%;
 
-    height:82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    padding:0 5vw;
+    background: rgba(7, 2, 12, .68);
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    z-index:1000;
+    backdrop-filter: blur(22px);
 
     border-bottom:
         1px solid
-        rgba(255,255,255,.08);
+        rgba(213, 111, 255, .12);
 
-    background:
-        rgba(13,13,12,.78);
-
-    backdrop-filter:blur(20px);
+    z-index: 100;
 }
 
+.logo {
+    color: white;
+    text-decoration: none;
 
-/* logo */
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 2px;
 
-.logo{
-    color:#f4f1e8;
-    text-decoration:none;
-
-    font-size:19px;
-    font-weight:900;
-
-    letter-spacing:4px;
+    transition: .3s;
 }
 
-.logo span{
-    color:#c7a45c;
+.logo span {
+    color: #c34cff;
 }
 
-
-/* menu */
-
-.menu{
-    display:flex;
-    align-items:center;
-    gap:35px;
+.logo:hover {
+    text-shadow:
+        0 0 15px #c34cff,
+        0 0 35px rgba(195, 76, 255, .5);
 }
 
-.menu a{
-    color:#8f8d86;
-
-    text-decoration:none;
-
-    font-size:10px;
-    font-weight:bold;
-
-    letter-spacing:2px;
-
-    transition:.3s;
+.links {
+    display: flex;
+    gap: 34px;
 }
 
-.menu a:hover{
-    color:#d4b36b;
+.links a {
+    position: relative;
+
+    color: #958ba2;
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: .3s;
 }
 
-
-/* ==============================
-   HERO
-============================== */
-
-.hero{
-
-    min-height:100vh;
-
-    padding:
-        160px 7vw 100px;
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-
-    position:relative;
+.links a:hover {
+    color: white;
 }
 
+.links a::after {
+    content: "";
 
-/* üst küçük yazı */
+    position: absolute;
 
-.kicker{
+    left: 50%;
+    bottom: -9px;
 
-    color:#b99958;
+    width: 0;
+    height: 2px;
 
-    font-size:10px;
-
-    font-weight:bold;
-
-    letter-spacing:5px;
-
-    margin-bottom:35px;
-
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.kicker::before{
-
-    content:"";
-
-    width:42px;
-    height:1px;
-
-    background:#b99958;
-}
-
-
-/* dev yazı */
-
-.hero h1{
-
-    max-width:1100px;
-
-    font-family:Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            70px,
-            12vw,
-            180px
-        );
-
-    line-height:.78;
-
-    font-weight:400;
-
-    letter-spacing:-9px;
-}
-
-
-.hero h1 em{
-
-    color:#c5a15b;
-
-    font-style:italic;
-}
-
-
-/* alt bölüm */
-
-.hero-bottom{
-
-    margin-top:65px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:end;
-
-    max-width:1050px;
-}
-
-
-.hero-description{
-
-    max-width:470px;
-
-    color:#85837d;
-
-    font-size:14px;
-
-    line-height:1.9;
-}
-
-
-.hero-description strong{
-
-    color:#eeeae0;
-
-    font-weight:normal;
-}
-
-
-/* buton */
-
-.hero-button{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    color:#0d0d0c;
-
-    text-decoration:none;
-
-    padding:17px 25px;
-
-    background:#c5a15b;
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    letter-spacing:2px;
-
-    transition:.35s;
-}
-
-.hero-button:hover{
-
-    background:#e0c27b;
-
-    transform:
-        translateY(-4px);
-}
-
-
-/* ==============================
-   DECORASYON
-============================== */
-
-.gold-line{
-
-    position:absolute;
-
-    right:7vw;
-    top:23%;
-
-    width:1px;
-    height:260px;
+    transform: translateX(-50%);
 
     background:
         linear-gradient(
-            transparent,
-            #c5a15b,
-            transparent
+            90deg,
+            #8b35ff,
+            #e85cff
         );
 
-    opacity:.6;
+    box-shadow:
+        0 0 10px #c341ff;
+
+    transition: .3s;
 }
 
-
-.gold-circle{
-
-    position:absolute;
-
-    right:9vw;
-    top:24%;
-
-    width:190px;
-    height:190px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(197,161,91,.25);
+.links a:hover::after {
+    width: 100%;
 }
 
-.gold-circle::before{
+/* =========================
+   HERO
+========================= */
 
-    content:"";
+.hero {
+    min-height: 100vh;
 
-    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    inset:20px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(197,161,91,.12);
+    padding: 120px 20px 80px;
 }
 
+.hero-content {
+    width: 100%;
+    max-width: 1100px;
 
-/* ==============================
-   AYIRICI
-============================== */
+    display: grid;
+    grid-template-columns: 1fr 390px;
 
-.divider{
+    align-items: center;
 
-    width:86%;
+    gap: 90px;
+}
 
-    margin:auto;
+.small-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-    height:1px;
+    color: #988ba7;
+
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+    margin-bottom: 24px;
+}
+
+.small-title::before {
+    content: "";
+
+    width: 32px;
+    height: 2px;
 
     background:
-        rgba(255,255,255,.09);
-}
-
-
-/* ==============================
-   KANAL
-============================== */
-
-.section{
-
-    width:86%;
-
-    margin:auto;
-
-    padding:
-        130px 0;
-}
-
-
-.section-head{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:end;
-
-    margin-bottom:65px;
-}
-
-
-.section-number{
-
-    color:#5f5d57;
-
-    font-family:Georgia,serif;
-
-    font-size:13px;
-
-    margin-bottom:15px;
-}
-
-
-.section-title{
-
-    font-family:Georgia,serif;
-
-    font-size:
-        clamp(
-            50px,
-            7vw,
-            95px
+        linear-gradient(
+            90deg,
+            #9a32ff,
+            #e45cff
         );
 
-    font-weight:400;
-
-    letter-spacing:-5px;
+    box-shadow:
+        0 0 12px #c23fff;
 }
 
+h1 {
+    font-size: clamp(65px, 9vw, 120px);
 
-.section-info{
+    line-height: .82;
 
-    max-width:320px;
+    letter-spacing: -7px;
 
-    color:#77756f;
+    font-weight: 950;
 
-    font-size:12px;
+    margin-bottom: 35px;
 
-    line-height:1.8;
+    background:
+        linear-gradient(
+            180deg,
+            #fff,
+            #efd9ff 45%,
+            #9363aa
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
 }
 
+.description {
+    max-width: 540px;
 
-/* videolar */
+    color: #a196ad;
 
-.videos{
+    font-size: 16px;
 
-    display:grid;
+    line-height: 1.85;
 
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:70px 30px;
+    margin-bottom: 35px;
 }
 
+.yapistir {
+    display: block;
 
-.video{
+    margin-top: 15px;
 
-    text-decoration:none;
+    font-size: 40px;
 
-    color:white;
+    font-weight: 950;
 
-    display:block;
+    letter-spacing: 4px;
+
+    color: #d54cff;
+
+    text-shadow:
+        0 0 10px #d54cff,
+        0 0 30px rgba(179, 50, 255, .7),
+        0 0 60px rgba(179, 50, 255, .3);
+
+    animation: pulse 2s ease-in-out infinite alternate;
 }
 
-
-.thumbnail{
-
-    position:relative;
-
-    overflow:hidden;
-
-    aspect-ratio:16/9;
-
-    background:#171715;
+@keyframes pulse {
+    to {
+        text-shadow:
+            0 0 15px #e66aff,
+            0 0 40px rgba(179, 50, 255, .8),
+            0 0 75px rgba(179, 50, 255, .4);
+    }
 }
 
+/* =========================
+   BUTONLAR
+========================= */
 
-.thumbnail img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    filter:
-        grayscale(35%)
-        brightness(.75);
-
-    transition:
-        .7s;
+.buttons {
+    display: flex;
+    gap: 12px;
 }
 
+.youtube-btn,
+.about-btn {
+    display: inline-flex;
 
-.video:hover .thumbnail img{
+    align-items: center;
+    justify-content: center;
 
-    transform:scale(1.05);
+    padding: 14px 23px;
 
-    filter:
-        grayscale(0%)
-        brightness(.9);
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    transition: .35s;
 }
 
+.youtube-btn {
+    color: white;
 
-/* numara */
+    background:
+        linear-gradient(
+            135deg,
+            #9b31ff,
+            #d34cff
+        );
 
-.video-number{
-
-    position:absolute;
-
-    left:20px;
-    top:20px;
-
-    font-family:Georgia,serif;
-
-    font-size:12px;
-
-    color:#ddd7c9;
-
-    z-index:2;
+    box-shadow:
+        0 10px 35px
+        rgba(173, 42, 255, .3);
 }
 
+.youtube-btn:hover {
+    transform: translateY(-5px);
 
-/* play */
-
-.play{
-
-    position:absolute;
-
-    right:20px;
-    bottom:20px;
-
-    width:52px;
-    height:52px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    background:#c5a15b;
-
-    color:#0d0d0c;
-
-    font-size:15px;
-
-    transform:
-        translateY(10px);
-
-    opacity:0;
-
-    transition:.4s;
+    box-shadow:
+        0 15px 45px
+        rgba(173, 42, 255, .5);
 }
 
-.video:hover .play{
+.about-btn {
+    color: #b6aabd;
 
-    transform:
-        translateY(0);
+    background:
+        rgba(255,255,255,.025);
 
-    opacity:1;
+    border:
+        1px solid
+        rgba(221,146,255,.1);
 }
 
+.about-btn:hover {
+    color: white;
 
-/* video altı */
+    transform: translateY(-5px);
 
-.video-info{
+    background:
+        rgba(190,60,255,.08);
+}
 
-    padding-top:18px;
+/* =========================
+   KANAL KARTI
+========================= */
 
-    display:flex;
+.channel-card {
+    padding: 30px;
 
-    justify-content:space-between;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22,10,31,.8),
+            rgba(7,4,11,.92)
+        );
 
-    align-items:start;
+    border:
+        1px solid
+        rgba(221,124,255,.13);
+
+    border-radius: 22px;
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.65),
+        0 0 70px rgba(147,32,255,.1);
+
+    transition: .4s;
+}
+
+.channel-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(215,103,255,.35);
+
+    box-shadow:
+        0 45px 110px rgba(0,0,0,.7),
+        0 0 80px rgba(171,35,255,.18);
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding-bottom: 25px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+.channel-icon {
+    width: 68px;
+    height: 68px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border:
+        2px solid
+        rgba(207,83,255,.55);
+
+    box-shadow:
+        0 0 20px rgba(194,47,255,.35);
+}
+
+.channel-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.channel-name {
+    font-size: 19px;
+    font-weight: 900;
+
+    margin-bottom: 5px;
+}
+
+.channel-handle {
+    color: #71677b;
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+}
+
+.verified {
+    color: #c24cff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.card-info {
+    padding-top: 22px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+.info {
+    padding: 17px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,.018);
+
+    border:
+        1px solid
+        rgba(255,255,255,.055);
+
+    transition: .3s;
+}
+
+.info:hover {
+    background:
+        rgba(180,50,255,.07);
+
+    border-color:
+        rgba(211,84,255,.2);
+}
+
+.info-icon {
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.info-title {
+    color: #f4eff7;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    margin-bottom: 4px;
+}
+
+.info-text {
+    color: #756b80;
+
+    font-size: 11px;
+}
+
+.card-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 14px;
+
+    border-radius: 9px;
+
+    color: #e3d8e9;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    transition: .35s;
+}
+
+.card-button:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #9b31ff,
+            #d34cff
+        );
+
+    color: white;
+
+    border-color: transparent;
+
+    box-shadow:
+        0 10px 35px
+        rgba(179,45,255,.3);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    position: relative;
+
+    padding: 125px 7%;
 
     border-top:
         1px solid
-        rgba(255,255,255,.09);
-
-    margin-top:15px;
-
-    padding-top:18px;
+        rgba(230,150,255,.05);
 }
 
+.section-container {
+    max-width: 1100px;
 
-.video-title{
-
-    font-family:Georgia,serif;
-
-    font-size:20px;
-
-    color:#e9e4d9;
+    margin: auto;
 }
 
+.section-title {
+    font-size: 44px;
 
-.video-watch{
+    letter-spacing: -2px;
 
-    color:#66645e;
-
-    font-size:9px;
-
-    letter-spacing:2px;
+    margin-bottom: 12px;
 }
 
+.section-description {
+    color: #756b80;
 
-/* ==============================
-   FEATURE
-============================== */
+    font-size: 15px;
 
-.feature{
+    line-height: 1.7;
+}
 
-    margin-top:120px;
+/* =========================
+   VİDEOLAR
+========================= */
 
-    min-height:430px;
+.video-heading {
+    margin-bottom: 45px;
+}
 
-    display:grid;
+.video-grid {
+    display: grid;
 
     grid-template-columns:
-        1fr 1fr;
+        repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.video-card {
+    display: block;
+
+    background:
+        rgba(10,5,15,.8);
+
+    border:
+        1px solid
+        rgba(255,255,255,.065);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    color: white;
+
+    transition: .4s;
+}
+
+.video-card:hover {
+    transform: translateY(-9px);
+
+    border-color:
+        rgba(207,79,255,.35);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.55),
+        0 0 40px rgba(176,37,255,.12);
+}
+
+.thumbnail {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #050207;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: .5s;
+}
+
+.video-card:hover .thumbnail img {
+    transform: scale(1.07);
+}
+
+.play-button {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(183,48,255,.95);
+
+    color: white;
+
+    font-size: 20px;
+
+    opacity: 0;
+
+    transition: .3s;
+
+    box-shadow:
+        0 0 40px
+        rgba(200,50,255,.6);
+}
+
+.video-card:hover .play-button {
+    opacity: 1;
+}
+
+.video-content {
+    padding: 20px;
+}
+
+.video-label {
+    color: #c34cff;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.video-content h3 {
+    font-size: 17px;
+
+    margin-bottom: 15px;
+}
+
+.watch {
+    color: #71687a;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.video-card:hover .watch {
+    color: #d24cff;
+}
+
+.all-videos {
+    display: inline-flex;
+
+    margin-top: 35px;
+
+    padding: 14px 22px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,.025);
 
     border:
         1px solid
         rgba(255,255,255,.08);
+
+    color: #b8adbe;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition: .35s;
 }
 
+.all-videos:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #9b31ff,
+            #d34cff
+        );
 
-.feature-left{
+    color: white;
 
-    padding:65px;
+    border-color: transparent;
 
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    background:#11110f;
+    transform: translateY(-4px);
 }
 
+/* =========================
+   INSTAGRAM
+========================= */
 
-.feature-label{
+.instagram-card {
+    display: flex;
 
-    color:#b99755;
+    align-items: center;
 
-    font-size:9px;
+    width: 100%;
+    max-width: 600px;
 
-    font-weight:bold;
+    margin-top: 35px;
 
-    letter-spacing:4px;
-}
-
-
-.feature h3{
-
-    font-family:Georgia,serif;
-
-    font-weight:400;
-
-    font-size:55px;
-
-    line-height:.95;
-
-    letter-spacing:-3px;
-}
-
-
-.feature-right{
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:#171714;
-}
-
-
-.feature-right::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
+    padding: 21px 23px;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(197,161,91,.25),
-            transparent 50%
+        rgba(12,6,17,.8);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius: 16px;
+
+    text-decoration: none;
+
+    color: white;
+
+    transition: .4s;
+}
+
+.instagram-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(235,130,255,.25);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.5),
+        0 0 35px rgba(190,50,255,.1);
+}
+
+.instagram-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #fd1d1d,
+            #fcb045
         );
 }
 
-
-.feature-symbol{
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-family:Georgia,serif;
-
-    font-size:150px;
-
-    color:#c5a15b;
-
-    opacity:.8;
+.instagram-icon svg {
+    width: 26px;
+    height: 26px;
 }
 
+.instagram-info {
+    margin-left: 16px;
 
-/* ==============================
-   İLETİŞİM
-============================== */
-
-.contact-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:1px;
-
-    background:
-        rgba(255,255,255,.1);
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
+    flex: 1;
 }
 
+.instagram-label {
+    color: #766a7e;
 
-.contact{
+    font-size: 10px;
 
-    padding:45px;
+    font-weight: 900;
 
-    background:#0d0d0c;
+    letter-spacing: 2px;
 
-    color:white;
-
-    text-decoration:none;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    transition:.35s;
+    margin-bottom: 5px;
 }
 
+.instagram-name {
+    color: #f5f0f7;
 
-.contact:hover{
+    font-size: 17px;
 
-    background:#151512;
+    font-weight: 800;
 }
 
+.instagram-arrow {
+    color: #71687a;
 
-.contact-left{
+    font-size: 22px;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
+    transition: .3s;
 }
 
+.instagram-card:hover .instagram-arrow {
+    color: white;
 
-.contact-icon{
-
-    width:48px;
-    height:48px;
-
-    border:
-        1px solid
-        rgba(197,161,91,.4);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    color:#c5a15b;
-
-    font-size:18px;
+    transform: translateX(6px);
 }
 
-
-.contact-label{
-
-    color:#5f5d57;
-
-    font-size:8px;
-
-    letter-spacing:3px;
-
-    margin-bottom:6px;
-}
-
-
-.contact-name{
-
-    font-family:Georgia,serif;
-
-    font-size:20px;
-}
-
-
-.contact-arrow{
-
-    color:#c5a15b;
-
-    font-size:20px;
-}
-
-
-/* ==============================
+/* =========================
    FOOTER
-============================== */
+========================= */
 
-footer{
-
-    width:86%;
-
-    margin:auto;
-
-    padding:
-        40px 0;
+footer {
+    padding: 40px 7%;
 
     border-top:
         1px solid
-        rgba(255,255,255,.08);
+        rgba(255,255,255,.045);
 
-    display:flex;
+    text-align: center;
 
-    justify-content:space-between;
+    color: #514957;
 
-    color:#55534e;
-
-    font-size:9px;
-
-    letter-spacing:2px;
+    font-size: 12px;
 }
 
+/* =========================
+   MOBİL
+========================= */
 
-/* ==============================
-   RESPONSIVE
-============================== */
+@media (max-width: 900px) {
 
-@media(max-width:800px){
-
-    .menu{
-        gap:15px;
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 55px;
+        max-width: 620px;
     }
 
-    .menu a{
-        display:none;
+    .video-grid {
+        grid-template-columns: repeat(2,1fr);
     }
-
-    .menu a:last-child{
-        display:block;
-    }
-
-    .hero h1{
-
-        letter-spacing:-6px;
-
-    }
-
-    .hero-bottom{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:30px;
-    }
-
-    .gold-circle,
-    .gold-line{
-        display:none;
-    }
-
-    .videos{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .feature{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .feature-right{
-
-        min-height:300px;
-
-    }
-
-    .contact-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
 }
 
+@media (max-width: 600px) {
 
-@media(max-width:500px){
-
-    .hero{
-
-        padding-left:7vw;
-        padding-right:7vw;
+    nav {
+        padding: 0 25px;
     }
 
-    .hero h1{
-
-        font-size:64px;
-
-        letter-spacing:-5px;
-
+    .links {
+        display: none;
     }
 
-    .section{
-
-        padding:
-            90px 0;
+    h1 {
+        font-size: 58px;
+        letter-spacing: -4px;
     }
 
-    .section-head{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:25px;
+    .yapistir {
+        font-size: 28px;
     }
 
-    .feature-left{
-
-        padding:35px;
+    .buttons {
+        flex-direction: column;
     }
 
-    .feature h3{
-
-        font-size:42px;
+    .youtube-btn,
+    .about-btn {
+        width: 100%;
     }
 
-    footer{
-
-        flex-direction:column;
-
-        gap:12px;
+    .video-grid {
+        grid-template-columns: 1fr;
     }
 
+    .section-title {
+        font-size: 34px;
+    }
 }
 
 </style>
@@ -972,10 +1049,20 @@ footer{
 
 <body>
 
+<!-- ARKA PLAN -->
 
-<!-- ==============================
-     NAV
-============================== -->
+<div class="background">
+
+    <div class="neon one"></div>
+    <div class="neon two"></div>
+    <div class="neon three"></div>
+
+    <div class="grid"></div>
+
+</div>
+
+
+<!-- NAVBAR -->
 
 <nav>
 
@@ -983,26 +1070,18 @@ footer{
         BERKE<span>BET</span>
     </a>
 
-
-    <div class="menu">
+    <div class="links">
 
         <a href="#home">
-            ANA SAYFA
+            Ana Sayfa
         </a>
 
         <a href="#kanal">
-            KANAL
+            Kanal
         </a>
 
         <a href="#iletisim">
-            İLETİŞİM
-        </a>
-
-        <a
-            href="https://www.youtube.com/@BerkeBet"
-            target="_blank"
-        >
-            YOUTUBE ↗
+            İletişim
         </a>
 
     </div>
@@ -1010,469 +1089,85 @@ footer{
 </nav>
 
 
-<!-- ==============================
-     HERO
-============================== -->
+<!-- ANA SAYFA -->
 
-<section
-    class="hero"
-    id="home"
->
+<section class="hero" id="home">
 
-
-    <div class="kicker">
-        BERKEBET / OFFICIAL
-    </div>
-
-
-    <h1>
-
-        MERHABA<br>
-
-        <em>KUMARBAZLAR.</em>
-
-    </h1>
-
-
-    <div class="hero-bottom">
-
-        <p class="hero-description">
-
-            Berkebet'in resmi internet sitesine hoş geldin.
-            Yeni videolar, içerikler ve kanal hakkında
-            her şeyi burada bulabilirsin.
-
-            <br><br>
-
-            <strong>
-                Merhaba kumarbazlar ben BerkeBet.
-            </strong>
-
-        </p>
-
-
-        <a
-            href="https://www.youtube.com/@BerkeBet"
-            target="_blank"
-            class="hero-button"
-        >
-            YOUTUBE KANALINA GİT
-            →
-        </a>
-
-    </div>
-
-
-    <div class="gold-line"></div>
-
-    <div class="gold-circle"></div>
-
-</section>
-
-
-<div class="divider"></div>
-
-
-<!-- ==============================
-     KANAL
-============================== -->
-
-<section
-    class="section"
-    id="kanal"
->
-
-
-    <div class="section-head">
+    <div class="hero-content">
 
         <div>
 
-            <div class="section-number">
-                01 / 02
+            <div class="small-title">
+                OFFICIAL WEBSITE
             </div>
 
-            <h2 class="section-title">
-                Kanal.
-            </h2>
-
-        </div>
-
-
-        <p class="section-info">
-
-            BerkeBet'in YouTube içerikleri.
-            Videolara tıklayarak doğrudan
-            YouTube üzerinden izleyebilirsin.
-
-        </p>
-
-    </div>
-
-
-    <div class="videos">
-
-
-        <!-- VIDEO 01 -->
-
-        <a
-            href="https://www.youtube.com/watch?v=6OySAaaEvHE"
-            target="_blank"
-            class="video"
-        >
-
-            <div class="thumbnail">
-
-                <span class="video-number">
-                    01
-                </span>
-
-                <img
-                    src="https://img.youtube.com/vi/6OySAaaEvHE/maxresdefault.jpg"
-                    alt="BerkeBet"
-                >
-
-                <div class="play">
-                    ▶
-                </div>
-
-            </div>
-
-
-            <div class="video-info">
-
-                <div class="video-title">
-                    BerkeBet
-                </div>
-
-                <div class="video-watch">
-                    İZLE ↗
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- VIDEO 02 -->
-
-        <a
-            href="https://www.youtube.com/watch?v=4SiVGLpki0s"
-            target="_blank"
-            class="video"
-        >
-
-            <div class="thumbnail">
-
-                <span class="video-number">
-                    02
-                </span>
-
-                <img
-                    src="https://img.youtube.com/vi/4SiVGLpki0s/maxresdefault.jpg"
-                    alt="BerkeBet"
-                >
-
-                <div class="play">
-                    ▶
-                </div>
-
-            </div>
-
-
-            <div class="video-info">
-
-                <div class="video-title">
-                    BerkeBet
-                </div>
-
-                <div class="video-watch">
-                    İZLE ↗
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- VIDEO 03 -->
-
-        <a
-            href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
-            target="_blank"
-            class="video"
-        >
-
-            <div class="thumbnail">
-
-                <span class="video-number">
-                    03
-                </span>
-
-                <img
-                    src="https://img.youtube.com/vi/Ai5G_2FH3hI/maxresdefault.jpg"
-                    alt="BerkeBet"
-                >
-
-                <div class="play">
-                    ▶
-                </div>
-
-            </div>
-
-
-            <div class="video-info">
-
-                <div class="video-title">
-                    BerkeBet
-                </div>
-
-                <div class="video-watch">
-                    İZLE ↗
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- VIDEO 04 -->
-
-        <a
-            href="https://www.youtube.com/watch?v=VkUS6WVPWic"
-            target="_blank"
-            class="video"
-        >
-
-            <div class="thumbnail">
-
-                <span class="video-number">
-                    04
-                </span>
-
-                <img
-                    src="https://img.youtube.com/vi/VkUS6WVPWic/maxresdefault.jpg"
-                    alt="BerkeBet"
-                >
-
-                <div class="play">
-                    ▶
-                </div>
-
-            </div>
-
-
-            <div class="video-info">
-
-                <div class="video-title">
-                    BerkeBet
-                </div>
-
-                <div class="video-watch">
-                    İZLE ↗
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- VIDEO 05 -->
-
-        <a
-            href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
-            target="_blank"
-            class="video"
-        >
-
-            <div class="thumbnail">
-
-                <span class="video-number">
-                    05
-                </span>
-
-                <img
-                    src="https://img.youtube.com/vi/NawRXjwjtYQ/maxresdefault.jpg"
-                    alt="BerkeBet"
-                >
-
-                <div class="play">
-                    ▶
-                </div>
-
-            </div>
-
-
-            <div class="video-info">
-
-                <div class="video-title">
-                    BerkeBet
-                </div>
-
-                <div class="video-watch">
-                    İZLE ↗
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- KANAL -->
-
-        <a
-            href="https://www.youtube.com/@BerkeBet"
-            target="_blank"
-            class="video"
-        >
-
-            <div
-                class="thumbnail"
-                style="
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    background:
-                    linear-gradient(
-                        135deg,
-                        #1a1813,
-                        #0b0b0a
-                    );
-                "
-            >
-
-                <div
-                    style="
-                        color:#c5a15b;
-                        font-family:Georgia,serif;
-                        font-size:90px;
-                    "
-                >
-                    B
-                </div>
-
-            </div>
-
-
-            <div class="video-info">
-
-                <div class="video-title">
-                    Tüm Videolar
-                </div>
-
-                <div class="video-watch">
-                    KANALA GİT ↗
-                </div>
-
-            </div>
-
-        </a>
-
-    </div>
-
-
-    <!-- FEATURE -->
-
-    <div class="feature">
-
-        <div class="feature-left">
-
-            <div class="feature-label">
+            <h1>
                 BERKEBET
+            </h1>
+
+            <p class="description">
+
+                Berkebet'in resmi internet sitesine hoş geldin.
+                Yeni videolar, içerikler ve kanal hakkında
+                her şeyi burada bulabilirsin.
+
+                Merhaba kumarbazlar ben BerkeBet
+
+                <span class="yapistir">
+                    YAPIŞTIR!
+                </span>
+
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    href="https://www.youtube.com/@BerkeBet"
+                    target="_blank"
+                    class="youtube-btn"
+                >
+                    ▶ YouTube Kanalı
+                </a>
+
+                <a
+                    href="#kanal"
+                    class="about-btn"
+                >
+                    Kanalı Keşfet →
+                </a>
+
             </div>
-
-            <h3>
-                Daha fazlası<br>
-                YouTube'da.
-            </h3>
-
-            <a
-                href="https://www.youtube.com/@BerkeBet"
-                target="_blank"
-                class="hero-button"
-                style="width:max-content"
-            >
-                KANALI KEŞFET →
-            </a>
 
         </div>
 
 
-        <div class="feature-right">
+        <!-- KANAL KARTI -->
 
-            <div class="feature-symbol">
-                B
-            </div>
+        <div class="channel-card">
 
-        </div>
+            <div class="card-top">
 
-    </div>
+                <div class="channel-icon">
 
-</section>
+                    <img
+                        src="berkebet.jpg.jpeg"
+                        alt="BerkeBet"
+                    >
 
-
-<div class="divider"></div>
-
-
-<!-- ==============================
-     İLETİŞİM
-============================== -->
-
-<section
-    class="section"
-    id="iletisim"
->
-
-
-    <div class="section-head">
-
-        <div>
-
-            <div class="section-number">
-                02 / 02
-            </div>
-
-            <h2 class="section-title">
-                İletişim.
-            </h2>
-
-        </div>
-
-
-        <p class="section-info">
-
-            BerkeBet'in sosyal medya hesaplarına
-            buradan ulaşabilirsin.
-
-        </p>
-
-    </div>
-
-
-    <div class="contact-grid">
-
-
-        <!-- INSTAGRAM -->
-
-        <a
-            href="https://www.instagram.com/berkeya_/"
-            target="_blank"
-            class="contact"
-        >
-
-            <div class="contact-left">
-
-                <div class="contact-icon">
-                    ◎
                 </div>
 
                 <div>
 
-                    <div class="contact-label">
-                        INSTAGRAM
+                    <div class="channel-name">
+                        BerkeBet
                     </div>
 
-                    <div class="contact-name">
-                        berkeya_
+                    <div class="channel-handle">
+                        @BerkeBet
+                    </div>
+
+                    <div class="verified">
+                        ● Resmi YouTube Kanalı
                     </div>
 
                 </div>
@@ -1480,34 +1175,70 @@ footer{
             </div>
 
 
-            <div class="contact-arrow">
-                ↗
-            </div>
+            <div class="card-info">
 
-        </a>
+                <div class="info">
 
-
-        <!-- YOUTUBE -->
-
-        <a
-            href="https://www.youtube.com/@BerkeBet"
-            target="_blank"
-            class="contact"
-        >
-
-            <div class="contact-left">
-
-                <div class="contact-icon">
-                    ▶
-                </div>
-
-                <div>
-
-                    <div class="contact-label">
-                        YOUTUBE
+                    <div class="info-icon">
+                        🎥
                     </div>
 
-                    <div class="contact-name">
+                    <div class="info-title">
+                        İçerik
+                    </div>
+
+                    <div class="info-text">
+                        YouTube videoları
+                    </div>
+
+                </div>
+
+
+                <div class="info">
+
+                    <div class="info-icon">
+                        ▶
+                    </div>
+
+                    <div class="info-title">
+                        Platform
+                    </div>
+
+                    <div class="info-text">
+                        YouTube
+                    </div>
+
+                </div>
+
+
+                <div class="info">
+
+                    <div class="info-icon">
+                        🔮
+                    </div>
+
+                    <div class="info-title">
+                        Durum
+                    </div>
+
+                    <div class="info-text">
+                        Aktif kanal
+                    </div>
+
+                </div>
+
+
+                <div class="info">
+
+                    <div class="info-icon">
+                        👑
+                    </div>
+
+                    <div class="info-title">
+                        Kanal
+                    </div>
+
+                    <div class="info-text">
                         BerkeBet
                     </div>
 
@@ -1516,8 +1247,329 @@ footer{
             </div>
 
 
-            <div class="contact-arrow">
-                ↗
+            <a
+                href="https://www.youtube.com/@BerkeBet"
+                target="_blank"
+                class="card-button"
+            >
+                YouTube Kanalına Git →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- KANAL -->
+
+<section class="section" id="kanal">
+
+    <div class="section-container">
+
+        <div class="video-heading">
+
+            <div class="small-title">
+                BERKEBET
+            </div>
+
+            <h2 class="section-title">
+                Son Videolar
+            </h2>
+
+            <p class="section-description">
+                BerkeBet'in YouTube içeriklerine göz at.
+            </p>
+
+        </div>
+
+
+        <div class="video-grid">
+
+
+            <a
+                href="https://www.youtube.com/watch?v=6OySAaaEvHE"
+                target="_blank"
+                class="video-card"
+            >
+
+                <div class="thumbnail">
+
+                    <img
+                        src="https://img.youtube.com/vi/6OySAaaEvHE/maxresdefault.jpg"
+                        alt="BerkeBet"
+                    >
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+                </div>
+
+                <div class="video-content">
+
+                    <div class="video-label">
+                        YOUTUBE
+                    </div>
+
+                    <h3>
+                        BerkeBet
+                    </h3>
+
+                    <span class="watch">
+                        Videoyu İzle →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="https://www.youtube.com/watch?v=4SiVGLpki0s"
+                target="_blank"
+                class="video-card"
+            >
+
+                <div class="thumbnail">
+
+                    <img
+                        src="https://img.youtube.com/vi/4SiVGLpki0s/maxresdefault.jpg"
+                        alt="BerkeBet"
+                    >
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+                </div>
+
+                <div class="video-content">
+
+                    <div class="video-label">
+                        YOUTUBE
+                    </div>
+
+                    <h3>
+                        BerkeBet
+                    </h3>
+
+                    <span class="watch">
+                        Videoyu İzle →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
+                target="_blank"
+                class="video-card"
+            >
+
+                <div class="thumbnail">
+
+                    <img
+                        src="https://img.youtube.com/vi/Ai5G_2FH3hI/maxresdefault.jpg"
+                        alt="BerkeBet"
+                    >
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+                </div>
+
+                <div class="video-content">
+
+                    <div class="video-label">
+                        YOUTUBE
+                    </div>
+
+                    <h3>
+                        BerkeBet
+                    </h3>
+
+                    <span class="watch">
+                        Videoyu İzle →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="https://www.youtube.com/watch?v=VkUS6WVPWic"
+                target="_blank"
+                class="video-card"
+            >
+
+                <div class="thumbnail">
+
+                    <img
+                        src="https://img.youtube.com/vi/VkUS6WVPWic/maxresdefault.jpg"
+                        alt="BerkeBet"
+                    >
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+                </div>
+
+                <div class="video-content">
+
+                    <div class="video-label">
+                        YOUTUBE
+                    </div>
+
+                    <h3>
+                        BerkeBet
+                    </h3>
+
+                    <span class="watch">
+                        Videoyu İzle →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
+                target="_blank"
+                class="video-card"
+            >
+
+                <div class="thumbnail">
+
+                    <img
+                        src="https://img.youtube.com/vi/NawRXjwjtYQ/maxresdefault.jpg"
+                        alt="BerkeBet"
+                    >
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+                </div>
+
+                <div class="video-content">
+
+                    <div class="video-label">
+                        YOUTUBE
+                    </div>
+
+                    <h3>
+                        BerkeBet
+                    </h3>
+
+                    <span class="watch">
+                        Videoyu İzle →
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <a
+            href="https://www.youtube.com/@BerkeBet"
+            target="_blank"
+            class="all-videos"
+        >
+            Tüm Videoları Gör →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- İLETİŞİM -->
+
+<section class="section" id="iletisim">
+
+    <div class="section-container">
+
+        <div class="small-title">
+            BERKEBET
+        </div>
+
+        <h2 class="section-title">
+            İletişim
+        </h2>
+
+        <p class="section-description">
+            BerkeBet'i sosyal medyada takip et.
+        </p>
+
+
+        <a
+            href="https://www.instagram.com/berkeya_/"
+            target="_blank"
+            class="instagram-card"
+        >
+
+            <div class="instagram-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                >
+
+                    <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="4"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+
+                    <circle
+                        cx="17.5"
+                        cy="6.5"
+                        r="1"
+                        fill="currentColor"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <div class="instagram-info">
+
+                <div class="instagram-label">
+                    INSTAGRAM
+                </div>
+
+                <div class="instagram-name">
+                    berkeya_
+                </div>
+
+            </div>
+
+
+            <div class="instagram-arrow">
+                →
             </div>
 
         </a>
@@ -1527,21 +1579,52 @@ footer{
 </section>
 
 
-<!-- ==============================
-     FOOTER
-============================== -->
-
 <footer>
 
-    <span>
-        © 2026 BERKEBET
-    </span>
-
-    <span>
-        OFFICIAL WEBSITE
-    </span>
+    © 2026 BerkeBet — Tüm hakları saklıdır.
 
 </footer>
+
+
+<!-- =========================
+     EXTRA SMOOTH SCROLL
+========================= -->
+
+<script>
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener('click', function(event) {
+
+        event.preventDefault();
+
+        const target =
+            document.querySelector(
+                this.getAttribute('href')
+            );
+
+        if (!target) return;
+
+        const navbarHeight = 74;
+
+        const targetPosition =
+            target.getBoundingClientRect().top
+            + window.scrollY
+            - navbarHeight;
+
+        window.scrollTo({
+
+            top: targetPosition,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+});
+
+</script>
 
 
 </body>
