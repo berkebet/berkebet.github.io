@@ -2,19 +2,18 @@
 <html lang="tr">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>BerkeBet</title>
 
-<link rel="icon" href="logo.jpeg.jpeg?v=20">
+<link rel="icon" href="logo.jpeg.jpeg">
 
 <style>
 
-/* =========================================================
+/* =========================
    TEMEL
-========================================================= */
+========================= */
 
 * {
     margin: 0;
@@ -24,7 +23,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -35,197 +34,101 @@ body {
 }
 
 
-/* =========================================================
-   NEON MOR ARKA PLAN
-========================================================= */
+/* =========================
+   ARKA PLAN
+========================= */
 
 .background {
     position: fixed;
     inset: 0;
-
     z-index: -10;
-
     overflow: hidden;
 
     background:
         radial-gradient(
-            ellipse at 50% 0%,
-            #18072d 0%,
-            #0b0413 35%,
-            #050208 70%,
-            #030105 100%
+            circle at 50% 0%,
+            #26083f 0%,
+            #10051b 35%,
+            #050208 75%
         );
 }
 
 
-/* Büyük neon ışıklar */
+/* Neon ışıklar */
 
-.neon {
+.glow {
     position: absolute;
-
     border-radius: 50%;
-
-    filter: blur(110px);
-
+    filter: blur(120px);
     pointer-events: none;
-
-    opacity: 0.8;
 }
 
+.glow1 {
+    width: 550px;
+    height: 550px;
+    left: -200px;
+    top: -200px;
 
-/* SOL ÜST */
+    background: rgba(170, 40, 255, 0.45);
 
-.neon.one {
-    width: 520px;
-    height: 520px;
-
-    left: -170px;
-    top: -180px;
-
-    background:
-        rgba(157, 38, 255, 0.42);
-
-    animation:
-        neonOne 9s ease-in-out infinite alternate;
+    animation: glow1 10s ease-in-out infinite alternate;
 }
 
-
-/* SAĞ ÜST */
-
-.neon.two {
+.glow2 {
     width: 600px;
     height: 600px;
-
     right: -250px;
-    top: 120px;
+    top: 100px;
 
-    background:
-        rgba(88, 25, 255, 0.35);
+    background: rgba(100, 30, 255, 0.38);
 
-    animation:
-        neonTwo 12s ease-in-out infinite alternate;
+    animation: glow2 12s ease-in-out infinite alternate;
 }
 
-
-/* ORTA */
-
-.neon.three {
-    width: 450px;
-    height: 450px;
-
-    left: 40%;
-    top: 35%;
-
-    background:
-        rgba(210, 30, 255, 0.20);
-
-    animation:
-        neonThree 10s ease-in-out infinite alternate;
-}
-
-
-/* ALT */
-
-.neon.four {
+.glow3 {
     width: 500px;
     height: 500px;
+    left: 35%;
+    top: 45%;
 
-    left: 5%;
-    bottom: -280px;
+    background: rgba(220, 40, 255, 0.18);
 
-    background:
-        rgba(120, 30, 255, 0.28);
-
-    animation:
-        neonFour 13s ease-in-out infinite alternate;
+    animation: glow3 11s ease-in-out infinite alternate;
 }
 
-
-@keyframes neonOne {
-
-    from {
-        transform:
-            translate(0, 0)
-            scale(1);
-    }
-
+@keyframes glow1 {
     to {
-        transform:
-            translate(160px, 100px)
-            scale(1.2);
+        transform: translate(170px, 130px) scale(1.2);
     }
-
 }
 
-
-@keyframes neonTwo {
-
-    from {
-        transform:
-            translate(0, 0)
-            scale(1);
-    }
-
+@keyframes glow2 {
     to {
-        transform:
-            translate(-130px, 130px)
-            scale(1.15);
+        transform: translate(-150px, 130px) scale(1.15);
     }
-
 }
 
-
-@keyframes neonThree {
-
-    from {
-        transform:
-            translate(-80px, -50px)
-            scale(0.9);
-    }
-
+@keyframes glow3 {
     to {
-        transform:
-            translate(100px, 80px)
-            scale(1.25);
+        transform: translate(120px, -100px) scale(1.2);
     }
-
 }
 
 
-@keyframes neonFour {
-
-    from {
-        transform:
-            translate(0, 0);
-    }
-
-    to {
-        transform:
-            translate(180px, -100px);
-    }
-
-}
-
-
-/* =========================================================
-   MOR GRID
-========================================================= */
+/* Grid */
 
 .grid {
     position: absolute;
-
     inset: -50%;
 
     background-image:
-
         linear-gradient(
-            rgba(183, 71, 255, 0.07) 1px,
+            rgba(190, 60, 255, 0.07) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
-            rgba(183, 71, 255, 0.07) 1px,
+            rgba(190, 60, 255, 0.07) 1px,
             transparent 1px
         );
 
@@ -233,126 +136,27 @@ body {
 
     transform:
         perspective(700px)
-        rotateX(62deg)
-        translateY(20%);
+        rotateX(62deg);
 
-    transform-origin: center;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            transparent 5%,
-            black 35%,
-            black 70%,
-            transparent 100%
-        );
-
-    animation:
-        gridMove 12s linear infinite;
+    animation: gridMove 10s linear infinite;
 }
 
-
 @keyframes gridMove {
-
-    from {
-        transform:
-            perspective(700px)
-            rotateX(62deg)
-            translateY(0);
-    }
-
     to {
         transform:
             perspective(700px)
             rotateX(62deg)
             translateY(65px);
     }
-
 }
 
 
-/* =========================================================
-   ORTA RADYAL GLOW
-========================================================= */
-
-.center-glow {
-
-    position: absolute;
-
-    width: 1000px;
-    height: 600px;
-
-    left: 50%;
-    top: 10%;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(181, 42, 255, 0.15),
-            transparent 68%
-        );
-
-    filter: blur(20px);
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   NEON ÇİZGİ
-========================================================= */
-
-.light-line {
-
-    position: absolute;
-
-    width: 100%;
-
-    height: 1px;
-
-    top: 45%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(190, 65, 255, 0.35),
-            transparent
-        );
-
-    filter:
-        blur(1px);
-
-    animation:
-        linePulse 4s ease-in-out infinite;
-}
-
-
-@keyframes linePulse {
-
-    0%,
-    100% {
-        opacity: 0.25;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-}
-
-
-/* =========================================================
+/* =========================
    NAVBAR
-========================================================= */
+========================= */
 
 nav {
-
     position: fixed;
-
     top: 0;
     left: 0;
 
@@ -362,32 +166,25 @@ nav {
     padding: 0 7%;
 
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
-    background:
-        rgba(7, 2, 12, 0.62);
+    background: rgba(7, 2, 12, 0.72);
 
-    backdrop-filter:
-        blur(22px);
+    backdrop-filter: blur(20px);
 
     border-bottom:
         1px solid
-        rgba(213, 111, 255, 0.10);
+        rgba(210, 100, 255, 0.12);
 
-    z-index: 100;
+    z-index: 1000;
 }
 
-
 .logo {
-
     color: white;
-
     text-decoration: none;
 
     font-size: 21px;
-
     font-weight: 900;
 
     letter-spacing: 2px;
@@ -395,479 +192,292 @@ nav {
     transition: 0.3s;
 }
 
-
 .logo span {
-
-    color: #c34cff;
-
+    color: #c94cff;
 }
-
 
 .logo:hover {
-
     text-shadow:
-        0 0 12px
-        rgba(195, 76, 255, 0.9),
-
-        0 0 35px
-        rgba(195, 76, 255, 0.45);
-
+        0 0 12px #c94cff,
+        0 0 30px rgba(201, 76, 255, 0.6);
 }
 
-
-.links {
-
+.menu {
     display: flex;
-
-    gap: 34px;
-
+    gap: 32px;
 }
 
-
-.links a {
-
+.menu a {
     position: relative;
 
-    color: #958ba2;
+    color: #9b90a5;
 
     text-decoration: none;
 
     font-size: 14px;
 
     transition: 0.3s;
-
 }
 
+.menu a:hover {
+    color: white;
+}
 
-.links a::after {
-
+.menu a::after {
     content: "";
 
     position: absolute;
 
     left: 50%;
-
     bottom: -9px;
 
     width: 0;
-
     height: 2px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
-    border-radius: 5px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #8b35ff,
-            #e85cff
-        );
+    background: #c94cff;
 
     box-shadow:
-        0 0 10px
-        rgba(196, 65, 255, 0.8);
+        0 0 10px #c94cff;
 
     transition: 0.3s;
-
 }
 
-
-.links a:hover {
-
-    color: white;
-
-}
-
-
-.links a:hover::after {
-
+.menu a:hover::after {
     width: 100%;
-
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* =========================
+   ANA SAYFA
+========================= */
 
 .hero {
-
     min-height: 100vh;
 
-    position: relative;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    padding:
-        120px 20px 80px;
-
+    padding: 120px 20px 80px;
 }
 
-
-.hero-content {
-
+.hero-inner {
     width: 100%;
-
     max-width: 1100px;
 
     display: grid;
 
-    grid-template-columns:
-        1fr 390px;
+    grid-template-columns: 1fr 390px;
+
+    gap: 80px;
 
     align-items: center;
-
-    gap: 90px;
-
-    position: relative;
-
-    z-index: 2;
-
 }
 
 
-/* =========================================================
-   HERO YAZI
-========================================================= */
+/* Sol taraf */
 
-.small-title {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    color: #988ba7;
+.eyebrow {
+    color: #9c8ca9;
 
     font-size: 12px;
 
-    text-transform: uppercase;
-
     letter-spacing: 4px;
 
-    margin-bottom: 24px;
-
+    margin-bottom: 25px;
 }
 
+.eyebrow::before {
+    content: "— ";
 
-.small-title::before {
-
-    content: "";
-
-    width: 32px;
-
-    height: 2px;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #9a32ff,
-            #e45cff
-        );
-
-    box-shadow:
-        0 0 12px
-        rgba(202, 63, 255, 0.9);
-
+    color: #c94cff;
 }
-
 
 h1 {
+    font-size: clamp(65px, 9vw, 115px);
 
-    font-size:
-        clamp(65px, 9vw, 120px);
+    line-height: 0.85;
 
-    line-height: 0.82;
+    letter-spacing: -6px;
 
-    letter-spacing: -7px;
-
-    font-weight: 950;
-
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 
     background:
         linear-gradient(
             180deg,
-            #ffffff 10%,
-            #f0d9ff 45%,
-            #9d68b8 100%
+            #ffffff,
+            #f0d7ff 45%,
+            #9662a9
         );
 
     -webkit-background-clip: text;
-
     background-clip: text;
 
     color: transparent;
 
     filter:
         drop-shadow(
-            0 0 35px
-            rgba(183, 63, 255, 0.16)
+            0 0 30px
+            rgba(190, 50, 255, 0.15)
         );
-
 }
 
-
 .description {
-
     max-width: 540px;
 
-    color: #a196ad;
+    color: #a69aaa;
 
     font-size: 16px;
 
-    line-height: 1.85;
+    line-height: 1.8;
 
-    margin-bottom: 35px;
-
+    margin-bottom: 30px;
 }
 
-
 .yapistir {
-
     display: block;
 
-    margin-top: 16px;
+    margin-top: 12px;
+
+    color: #d454ff;
 
     font-size: 40px;
 
-    font-weight: 950;
+    font-weight: 900;
 
     letter-spacing: 4px;
 
-    color: #d54cff;
-
     text-shadow:
+        0 0 10px #d454ff,
+        0 0 30px rgba(212, 84, 255, 0.7),
+        0 0 60px rgba(212, 84, 255, 0.35);
 
-        0 0 8px
-        rgba(213, 76, 255, 0.8),
-
-        0 0 25px
-        rgba(179, 50, 255, 0.55),
-
-        0 0 55px
-        rgba(179, 50, 255, 0.3);
-
-    animation:
-        purplePulse 2s
-        ease-in-out
-        infinite alternate;
-
+    animation: pulse 2s infinite alternate;
 }
 
-
-@keyframes purplePulse {
-
+@keyframes pulse {
     from {
-
-        text-shadow:
-
-            0 0 8px
-            rgba(213, 76, 255, 0.6),
-
-            0 0 20px
-            rgba(179, 50, 255, 0.35);
-
-        transform:
-            scale(1);
-
+        opacity: 0.8;
     }
 
     to {
-
+        opacity: 1;
         text-shadow:
-
-            0 0 14px
-            rgba(230, 102, 255, 1),
-
-            0 0 35px
-            rgba(179, 50, 255, 0.7),
-
-            0 0 70px
-            rgba(179, 50, 255, 0.35);
-
-        transform:
-            scale(1.015);
-
+            0 0 15px #e06aff,
+            0 0 40px #c94cff,
+            0 0 70px rgba(201, 76, 255, 0.4);
     }
-
 }
 
 
-/* =========================================================
-   BUTONLAR
-========================================================= */
+/* Butonlar */
 
 .buttons {
-
     display: flex;
-
     gap: 12px;
-
 }
 
-
-.youtube-btn,
-.about-btn {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding:
-        14px 23px;
+.btn {
+    padding: 14px 23px;
 
     border-radius: 9px;
 
     text-decoration: none;
 
     font-size: 13px;
-
     font-weight: 800;
 
-    transition: 0.35s;
-
+    transition: 0.3s;
 }
 
-
-.youtube-btn {
-
+.youtube {
     color: white;
 
     background:
         linear-gradient(
             135deg,
-            #9b31ff,
+            #9d32ff,
             #d34cff
         );
 
     box-shadow:
         0 10px 35px
-        rgba(173, 42, 255, 0.25);
-
+        rgba(170, 40, 255, 0.3);
 }
 
-
-.youtube-btn:hover {
-
-    transform:
-        translateY(-5px);
+.youtube:hover {
+    transform: translateY(-5px);
 
     box-shadow:
-
         0 15px 45px
-        rgba(173, 42, 255, 0.42),
-
-        0 0 30px
-        rgba(213, 76, 255, 0.18);
-
+        rgba(190, 50, 255, 0.5);
 }
 
-
-.about-btn {
-
-    color: #b6aabd;
-
-    background:
-        rgba(255,255,255,0.025);
+.explore {
+    color: #b9adbf;
 
     border:
         1px solid
-        rgba(221, 146, 255, 0.10);
-
-}
-
-
-.about-btn:hover {
-
-    color: white;
-
-    border-color:
-        rgba(221, 146, 255, 0.3);
+        rgba(255,255,255,0.08);
 
     background:
-        rgba(190, 60, 255, 0.06);
+        rgba(255,255,255,0.025);
+}
 
-    transform:
-        translateY(-5px);
+.explore:hover {
+    color: white;
 
+    background:
+        rgba(190,50,255,0.08);
+
+    transform: translateY(-5px);
 }
 
 
-/* =========================================================
+/* =========================
    KANAL KARTI
-========================================================= */
+========================= */
 
 .channel-card {
-
     padding: 30px;
+
+    border-radius: 22px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(22, 10, 31, 0.78),
-            rgba(7, 4, 11, 0.9)
+            rgba(25,10,35,0.82),
+            rgba(7,3,11,0.92)
         );
 
     border:
         1px solid
-        rgba(221, 124, 255, 0.12);
+        rgba(220,120,255,0.13);
 
-    border-radius: 22px;
-
-    backdrop-filter:
-        blur(25px);
+    backdrop-filter: blur(20px);
 
     box-shadow:
-
-        0 40px 100px
-        rgba(0,0,0,0.65),
-
-        0 0 70px
-        rgba(147, 32, 255, 0.08),
-
-        inset 0 1px 0
-        rgba(255,255,255,0.05);
+        0 35px 90px rgba(0,0,0,0.6),
+        0 0 60px rgba(170,40,255,0.08);
 
     transition: 0.4s;
-
 }
-
 
 .channel-card:hover {
-
-    transform:
-        translateY(-8px);
+    transform: translateY(-8px);
 
     border-color:
-        rgba(215, 103, 255, 0.3);
+        rgba(220,100,255,0.3);
 
     box-shadow:
-
-        0 45px 110px
-        rgba(0,0,0,0.7),
-
-        0 0 80px
-        rgba(171, 35, 255, 0.14);
-
+        0 45px 100px rgba(0,0,0,0.7),
+        0 0 70px rgba(180,40,255,0.15);
 }
 
-
-.card-top {
-
+.channel-top {
     display: flex;
-
     align-items: center;
 
     gap: 15px;
@@ -877,17 +487,11 @@ h1 {
     border-bottom:
         1px solid
         rgba(255,255,255,0.06);
-
 }
 
-
-.channel-icon {
-
+.profile {
     width: 68px;
-
     height: 68px;
-
-    flex-shrink: 0;
 
     border-radius: 50%;
 
@@ -895,155 +499,100 @@ h1 {
 
     border:
         2px solid
-        rgba(207, 83, 255, 0.55);
+        rgba(205,70,255,0.6);
 
     box-shadow:
-
-        0 0 20px
-        rgba(194, 47, 255, 0.35),
-
-        0 0 50px
-        rgba(150, 30, 255, 0.18);
-
+        0 0 25px
+        rgba(200,50,255,0.35);
 }
 
-
-.channel-icon img {
-
+.profile img {
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
-
-    display: block;
-
 }
 
-
 .channel-name {
-
     font-size: 19px;
-
     font-weight: 900;
 
     margin-bottom: 5px;
-
 }
 
-
-.channel-handle {
-
-    color: #71677b;
+.handle {
+    color: #756b80;
 
     font-size: 12px;
 
     margin-bottom: 7px;
-
 }
 
-
 .verified {
-
-    color: #c24cff;
+    color: #ca4cff;
 
     font-size: 11px;
 
     font-weight: 700;
-
 }
 
 
-/* =========================================================
-   INFO
-========================================================= */
+/* Bilgiler */
 
-.card-info {
-
-    padding-top: 22px;
-
+.stats {
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 10px;
 
+    margin-top: 22px;
 }
 
-
-.info {
-
-    padding: 17px;
+.stat {
+    padding: 16px;
 
     border-radius: 11px;
 
     background:
-        rgba(255,255,255,0.018);
+        rgba(255,255,255,0.02);
 
     border:
         1px solid
-        rgba(255,255,255,0.055);
+        rgba(255,255,255,0.06);
 
     transition: 0.3s;
-
 }
 
-
-.info:hover {
-
+.stat:hover {
     background:
-        rgba(180, 50, 255, 0.065);
+        rgba(190,50,255,0.07);
 
     border-color:
-        rgba(211, 84, 255, 0.20);
-
-    transform:
-        translateY(-2px);
-
+        rgba(210,80,255,0.2);
 }
 
-
-.info-icon {
-
-    font-size: 17px;
-
-    margin-bottom: 9px;
-
+.stat-icon {
+    margin-bottom: 8px;
 }
 
-
-.info-title {
-
-    color: #f4eff7;
-
+.stat-title {
     font-size: 13px;
-
     font-weight: 800;
 
     margin-bottom: 4px;
-
 }
 
-
-.info-text {
-
+.stat-text {
     color: #756b80;
 
     font-size: 11px;
-
 }
 
+.channel-button {
+    display: block;
 
-.card-button {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 100%;
+    text-align: center;
 
     margin-top: 18px;
 
@@ -1051,14 +600,14 @@ h1 {
 
     border-radius: 9px;
 
-    color: #e3d8e9;
+    color: white;
 
     background:
-        rgba(255,255,255,0.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.07);
+        linear-gradient(
+            135deg,
+            #9d32ff,
+            #d34cff
+        );
 
     text-decoration: none;
 
@@ -1066,93 +615,57 @@ h1 {
 
     font-weight: 800;
 
-    transition: 0.35s;
-
+    transition: 0.3s;
 }
 
-
-.card-button:hover {
-
-    background:
-        linear-gradient(
-            135deg,
-            #9b31ff,
-            #d34cff
-        );
-
-    border-color:
-        transparent;
-
-    color: white;
+.channel-button:hover {
+    transform: translateY(-3px);
 
     box-shadow:
         0 10px 35px
-        rgba(179, 45, 255, 0.25);
-
+        rgba(190,50,255,0.35);
 }
 
 
-/* =========================================================
+/* =========================
    BÖLÜMLER
-========================================================= */
+========================= */
 
 .section {
-
-    position: relative;
-
-    padding:
-        125px 7%;
+    padding: 120px 7%;
 
     border-top:
         1px solid
-        rgba(230, 150, 255, 0.045);
-
+        rgba(255,255,255,0.04);
 }
 
-
-.section-container {
-
+.container {
     max-width: 1100px;
 
     margin: auto;
-
 }
 
-
 .section-title {
-
-    font-size: 44px;
+    font-size: 45px;
 
     letter-spacing: -2px;
 
-    margin-bottom: 12px;
-
+    margin-bottom: 10px;
 }
 
-
-.section-description {
-
-    color: #756b80;
-
-    font-size: 15px;
+.section-text {
+    color: #786e82;
 
     line-height: 1.7;
-
 }
 
 
-/* =========================================================
+/* =========================
    VİDEOLAR
-========================================================= */
+========================= */
 
-.video-heading {
-
-    margin-bottom: 45px;
-
-}
-
-
-.video-grid {
+.videos {
+    margin-top: 45px;
 
     display: grid;
 
@@ -1160,154 +673,101 @@ h1 {
         repeat(3, 1fr);
 
     gap: 20px;
-
 }
 
-
-.video-card {
-
-    display: block;
-
-    background:
-        rgba(10, 5, 15, 0.78);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.065);
+.video {
+    overflow: hidden;
 
     border-radius: 16px;
 
-    overflow: hidden;
+    background:
+        rgba(10,5,15,0.8);
 
-    text-decoration: none;
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
 
     color: white;
 
-    backdrop-filter:
-        blur(15px);
+    text-decoration: none;
 
     transition: 0.4s;
-
 }
 
-
-.video-card:hover {
-
-    transform:
-        translateY(-9px);
+.video:hover {
+    transform: translateY(-8px);
 
     border-color:
-        rgba(207, 79, 255, 0.35);
+        rgba(210,80,255,0.35);
 
     box-shadow:
-
         0 25px 60px
-        rgba(0,0,0,0.55),
-
-        0 0 40px
-        rgba(176, 37, 255, 0.10);
-
+        rgba(0,0,0,0.5),
+        0 0 35px
+        rgba(180,40,255,0.12);
 }
 
-
 .thumbnail {
-
     position: relative;
-
-    width: 100%;
 
     aspect-ratio: 16 / 9;
 
     overflow: hidden;
-
-    background: #050207;
-
 }
 
-
 .thumbnail img {
-
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
 
-    display: block;
-
     transition: 0.5s;
-
 }
 
-
-.video-card:hover
-.thumbnail img {
-
-    transform:
-        scale(1.07);
-
+.video:hover .thumbnail img {
+    transform: scale(1.07);
 }
 
-
-.play-button {
-
+.play {
     position: absolute;
 
+    left: 50%;
     top: 50%;
 
-    left: 50%;
-
     transform:
-        translate(-50%, -50%);
+        translate(-50%,-50%);
 
     width: 58px;
-
     height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border-radius: 50%;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
     background:
-        rgba(183, 48, 255, 0.93);
+        rgba(190,50,255,0.95);
 
-    color: white;
-
-    font-size: 20px;
+    box-shadow:
+        0 0 40px
+        rgba(200,50,255,0.6);
 
     opacity: 0;
 
     transition: 0.3s;
-
-    box-shadow:
-        0 0 40px
-        rgba(200, 50, 255, 0.55);
-
 }
 
-
-.video-card:hover
-.play-button {
-
+.video:hover .play {
     opacity: 1;
-
 }
 
-
-.video-content {
-
+.video-info {
     padding: 20px;
-
 }
-
 
 .video-label {
-
-    color: #c34cff;
+    color: #c94cff;
 
     font-size: 10px;
 
@@ -1316,49 +776,34 @@ h1 {
     letter-spacing: 2px;
 
     margin-bottom: 8px;
-
 }
 
-
-.video-content h3 {
-
+.video-info h3 {
     font-size: 17px;
 
     margin-bottom: 15px;
-
 }
 
-
 .watch {
-
-    color: #71687a;
+    color: #756b80;
 
     font-size: 12px;
-
-    font-weight: 700;
-
-    transition: 0.25s;
-
 }
 
-
-.video-card:hover
-.watch {
-
-    color: #d24cff;
-
+.video:hover .watch {
+    color: #d454ff;
 }
-
 
 .all-videos {
-
-    display: inline-flex;
+    display: inline-block;
 
     margin-top: 35px;
 
     padding: 14px 22px;
 
     border-radius: 9px;
+
+    color: #b9adbf;
 
     background:
         rgba(255,255,255,0.025);
@@ -1367,115 +812,78 @@ h1 {
         1px solid
         rgba(255,255,255,0.08);
 
-    color: #b8adbe;
-
     text-decoration: none;
 
     font-size: 13px;
 
     font-weight: 800;
 
-    transition: 0.35s;
-
+    transition: 0.3s;
 }
 
-
 .all-videos:hover {
+    color: white;
 
     background:
         linear-gradient(
             135deg,
-            #9b31ff,
+            #9d32ff,
             #d34cff
         );
 
-    border-color:
-        transparent;
-
-    color: white;
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 10px 35px
-        rgba(179, 45, 255, 0.25);
-
+    transform: translateY(-4px);
 }
 
 
-/* =========================================================
+/* =========================
    INSTAGRAM
-========================================================= */
+========================= */
 
-.instagram-card {
-
+.instagram {
     display: flex;
 
     align-items: center;
-
-    width: 100%;
 
     max-width: 600px;
 
     margin-top: 35px;
 
-    padding:
-        21px 23px;
+    padding: 20px;
+
+    border-radius: 16px;
 
     background:
-        rgba(12, 6, 17, 0.78);
+        rgba(10,5,15,0.8);
 
     border:
         1px solid
         rgba(255,255,255,0.07);
 
-    border-radius: 16px;
+    color: white;
 
     text-decoration: none;
 
-    color: white;
-
-    backdrop-filter:
-        blur(18px);
-
     transition: 0.4s;
-
 }
 
-
-.instagram-card:hover {
-
-    transform:
-        translateY(-6px);
+.instagram:hover {
+    transform: translateY(-6px);
 
     border-color:
-        rgba(235, 130, 255, 0.20);
+        rgba(220,100,255,0.25);
 
     box-shadow:
-
         0 25px 60px
-        rgba(0,0,0,0.5),
-
-        0 0 35px
-        rgba(190, 50, 255, 0.08);
-
+        rgba(0,0,0,0.5);
 }
 
-
 .instagram-icon {
-
     width: 48px;
-
     height: 48px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    flex-shrink: 0;
 
     border-radius: 13px;
 
@@ -1487,36 +895,17 @@ h1 {
             #fcb045
         );
 
-    color: white;
-
-    box-shadow:
-        0 8px 30px
-        rgba(253,29,29,0.18);
-
+    font-size: 25px;
 }
-
-
-.instagram-icon svg {
-
-    width: 26px;
-
-    height: 26px;
-
-}
-
 
 .instagram-info {
-
-    margin-left: 16px;
-
     flex: 1;
 
+    margin-left: 16px;
 }
 
-
 .instagram-label {
-
-    color: #766a7e;
+    color: #756b80;
 
     font-size: 10px;
 
@@ -1525,55 +914,35 @@ h1 {
     letter-spacing: 2px;
 
     margin-bottom: 5px;
-
 }
 
-
 .instagram-name {
-
-    color: #f5f0f7;
-
     font-size: 17px;
 
     font-weight: 800;
-
 }
 
-
-.instagram-arrow {
-
-    color: #71687a;
-
+.arrow {
     font-size: 22px;
 
-    transition: 0.3s;
+    color: #756b80;
 
+    transition: 0.3s;
 }
 
-
-.instagram-card:hover
-.instagram-arrow {
-
+.instagram:hover .arrow {
     color: white;
 
-    transform:
-        translateX(6px);
-
+    transform: translateX(6px);
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 footer {
-
-    padding:
-        40px 7%;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.045);
+    padding: 40px;
 
     text-align: center;
 
@@ -1581,178 +950,98 @@ footer {
 
     font-size: 12px;
 
+    border-top:
+        1px solid
+        rgba(255,255,255,0.04);
 }
 
 
-/* =========================================================
+/* =========================
    MOBİL
-========================================================= */
+========================= */
 
 @media (max-width: 900px) {
 
-    .hero-content {
-
+    .hero-inner {
         grid-template-columns: 1fr;
-
-        gap: 55px;
-
-        max-width: 620px;
-
     }
 
-
-    .channel-card {
-
-        width: 100%;
-
+    .videos {
+        grid-template-columns: repeat(2, 1fr);
     }
-
-
-    .video-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
 }
-
 
 @media (max-width: 600px) {
 
     nav {
-
-        padding:
-            0 25px;
-
+        padding: 0 25px;
     }
 
-
-    .links {
-
+    .menu {
         display: none;
-
     }
-
-
-    .hero {
-
-        padding:
-            110px 20px 70px;
-
-    }
-
 
     h1 {
-
         font-size: 58px;
-
         letter-spacing: -4px;
-
     }
-
-
-    .description {
-
-        font-size: 14px;
-
-    }
-
 
     .yapistir {
-
         font-size: 28px;
-
-        letter-spacing: 2px;
-
     }
-
 
     .buttons {
-
         flex-direction: column;
-
     }
 
-
-    .youtube-btn,
-    .about-btn {
-
-        width: 100%;
-
+    .btn {
+        text-align: center;
     }
 
-
-    .video-grid {
-
+    .videos {
         grid-template-columns: 1fr;
-
     }
-
 
     .section-title {
-
-        font-size: 34px;
-
+        font-size: 35px;
     }
-
-
-    .grid {
-
-        background-size:
-            45px 45px;
-
-    }
-
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      ARKA PLAN
-===================================================== -->
+========================= -->
 
 <div class="background">
 
-    <div class="neon one"></div>
+    <div class="glow glow1"></div>
 
-    <div class="neon two"></div>
+    <div class="glow glow2"></div>
 
-    <div class="neon three"></div>
-
-    <div class="neon four"></div>
-
-    <div class="center-glow"></div>
-
-    <div class="light-line"></div>
+    <div class="glow glow3"></div>
 
     <div class="grid"></div>
 
 </div>
 
 
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+<!-- =========================
+     MENÜ
+========================= -->
 
 <nav>
 
-    <a
-        href="#home"
-        class="logo"
-    >
+    <a href="#home" class="logo">
         BERKE<span>BET</span>
     </a>
 
-
-    <div class="links">
+    <div class="menu">
 
         <a href="#home">
             Ana Sayfa
@@ -1771,30 +1060,24 @@ footer {
 </nav>
 
 
-
-<!-- =====================================================
+<!-- =========================
      ANA SAYFA
-===================================================== -->
+========================= -->
 
-<section
-    class="hero"
-    id="home"
->
+<section class="hero" id="home">
 
-    <div class="hero-content">
+    <div class="hero-inner">
 
 
         <div>
 
-            <div class="small-title">
-                Official Website
+            <div class="eyebrow">
+                OFFICIAL WEBSITE
             </div>
-
 
             <h1>
                 BERKEBET
             </h1>
-
 
             <p class="description">
 
@@ -1816,15 +1099,14 @@ footer {
                 <a
                     href="https://www.youtube.com/@BerkeBet"
                     target="_blank"
-                    class="youtube-btn"
+                    class="btn youtube"
                 >
                     ▶ YouTube Kanalı
                 </a>
 
-
                 <a
                     href="#kanal"
-                    class="about-btn"
+                    class="btn explore"
                 >
                     Kanalı Keşfet →
                 </a>
@@ -1834,16 +1116,13 @@ footer {
         </div>
 
 
-
-        <!-- KANAL KARTI -->
+        <!-- KANAL -->
 
         <div class="channel-card">
 
+            <div class="channel-top">
 
-            <div class="card-top">
-
-
-                <div class="channel-icon">
+                <div class="profile">
 
                     <img
                         src="berkebet.jpg.jpeg"
@@ -1852,14 +1131,13 @@ footer {
 
                 </div>
 
-
                 <div>
 
                     <div class="channel-name">
                         BerkeBet
                     </div>
 
-                    <div class="channel-handle">
+                    <div class="handle">
                         @BerkeBet
                     </div>
 
@@ -1872,72 +1150,70 @@ footer {
             </div>
 
 
+            <div class="stats">
 
-            <div class="card-info">
+                <div class="stat">
 
-
-                <div class="info">
-
-                    <div class="info-icon">
+                    <div class="stat-icon">
                         🎥
                     </div>
 
-                    <div class="info-title">
+                    <div class="stat-title">
                         İçerik
                     </div>
 
-                    <div class="info-text">
+                    <div class="stat-text">
                         YouTube videoları
                     </div>
 
                 </div>
 
 
-                <div class="info">
+                <div class="stat">
 
-                    <div class="info-icon">
+                    <div class="stat-icon">
                         ▶
                     </div>
 
-                    <div class="info-title">
+                    <div class="stat-title">
                         Platform
                     </div>
 
-                    <div class="info-text">
+                    <div class="stat-text">
                         YouTube
                     </div>
 
                 </div>
 
 
-                <div class="info">
+                <div class="stat">
 
-                    <div class="info-icon">
+                    <div class="stat-icon">
                         🔮
                     </div>
 
-                    <div class="info-title">
+                    <div class="stat-title">
                         Durum
                     </div>
 
-                    <div class="info-text">
+                    <div class="stat-text">
                         Aktif kanal
                     </div>
 
                 </div>
 
 
-                <div class="info">
+                <div class="stat">
 
-                    <div class="info-icon">
+                    <div class="stat-icon">
                         👑
                     </div>
 
-                    <div class="info-title">
+                    <div class="stat-title">
                         Kanal
                     </div>
 
-                    <div class="info-text">
+                    <div class="stat-text">
                         BerkeBet
                     </div>
 
@@ -1949,7 +1225,7 @@ footer {
             <a
                 href="https://www.youtube.com/@BerkeBet"
                 target="_blank"
-                class="card-button"
+                class="channel-button"
             >
                 YouTube Kanalına Git →
             </a>
@@ -1961,63 +1237,52 @@ footer {
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================
      KANAL
-===================================================== -->
+========================= -->
 
-<section
-    class="section"
-    id="kanal"
->
+<section class="section" id="kanal">
 
-    <div class="section-container">
+    <div class="container">
 
-
-        <div class="video-heading">
-
-            <div class="small-title">
-                BERKEBET
-            </div>
-
-            <h2 class="section-title">
-                Son Videolar
-            </h2>
-
-            <p class="section-description">
-                BerkeBet'in YouTube içeriklerine göz at.
-            </p>
-
+        <div class="eyebrow">
+            BERKEBET
         </div>
 
+        <h2 class="section-title">
+            Son Videolar
+        </h2>
+
+        <p class="section-text">
+            BerkeBet'in YouTube içerikleri burada.
+        </p>
 
 
-        <div class="video-grid">
+        <div class="videos">
 
 
-            <!-- VİDEO 1 -->
+            <!-- 1 -->
 
             <a
                 href="https://www.youtube.com/watch?v=6OySAaaEvHE"
                 target="_blank"
-                class="video-card"
+                class="video"
             >
 
                 <div class="thumbnail">
 
                     <img
                         src="https://img.youtube.com/vi/6OySAaaEvHE/maxresdefault.jpg"
-                        alt="BerkeBet video"
+                        alt="BerkeBet"
                     >
 
-                    <div class="play-button">
+                    <div class="play">
                         ▶
                     </div>
 
                 </div>
 
-
-                <div class="video-content">
+                <div class="video-info">
 
                     <div class="video-label">
                         YOUTUBE
@@ -2036,30 +1301,28 @@ footer {
             </a>
 
 
-
-            <!-- VİDEO 2 -->
+            <!-- 2 -->
 
             <a
                 href="https://www.youtube.com/watch?v=4SiVGLpki0s"
                 target="_blank"
-                class="video-card"
+                class="video"
             >
 
                 <div class="thumbnail">
 
                     <img
                         src="https://img.youtube.com/vi/4SiVGLpki0s/maxresdefault.jpg"
-                        alt="BerkeBet video"
+                        alt="BerkeBet"
                     >
 
-                    <div class="play-button">
+                    <div class="play">
                         ▶
                     </div>
 
                 </div>
 
-
-                <div class="video-content">
+                <div class="video-info">
 
                     <div class="video-label">
                         YOUTUBE
@@ -2078,30 +1341,28 @@ footer {
             </a>
 
 
-
-            <!-- VİDEO 3 -->
+            <!-- 3 -->
 
             <a
                 href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
                 target="_blank"
-                class="video-card"
+                class="video"
             >
 
                 <div class="thumbnail">
 
                     <img
                         src="https://img.youtube.com/vi/Ai5G_2FH3hI/maxresdefault.jpg"
-                        alt="BerkeBet video"
+                        alt="BerkeBet"
                     >
 
-                    <div class="play-button">
+                    <div class="play">
                         ▶
                     </div>
 
                 </div>
 
-
-                <div class="video-content">
+                <div class="video-info">
 
                     <div class="video-label">
                         YOUTUBE
@@ -2120,30 +1381,28 @@ footer {
             </a>
 
 
-
-            <!-- VİDEO 4 -->
+            <!-- 4 -->
 
             <a
                 href="https://www.youtube.com/watch?v=VkUS6WVPWic"
                 target="_blank"
-                class="video-card"
+                class="video"
             >
 
                 <div class="thumbnail">
 
                     <img
                         src="https://img.youtube.com/vi/VkUS6WVPWic/maxresdefault.jpg"
-                        alt="BerkeBet video"
+                        alt="BerkeBet"
                     >
 
-                    <div class="play-button">
+                    <div class="play">
                         ▶
                     </div>
 
                 </div>
 
-
-                <div class="video-content">
+                <div class="video-info">
 
                     <div class="video-label">
                         YOUTUBE
@@ -2162,30 +1421,28 @@ footer {
             </a>
 
 
-
-            <!-- VİDEO 5 -->
+            <!-- 5 -->
 
             <a
                 href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
                 target="_blank"
-                class="video-card"
+                class="video"
             >
 
                 <div class="thumbnail">
 
                     <img
                         src="https://img.youtube.com/vi/NawRXjwjtYQ/maxresdefault.jpg"
-                        alt="BerkeBet video"
+                        alt="BerkeBet"
                     >
 
-                    <div class="play-button">
+                    <div class="play">
                         ▶
                     </div>
 
                 </div>
 
-
-                <div class="video-content">
+                <div class="video-info">
 
                     <div class="video-label">
                         YOUTUBE
@@ -2204,7 +1461,6 @@ footer {
             </a>
 
         </div>
-
 
 
         <a
@@ -2220,80 +1476,39 @@ footer {
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================
      İLETİŞİM
-===================================================== -->
+========================= -->
 
 <section
     class="section"
     id="iletisim"
 >
 
-    <div class="section-container">
+    <div class="container">
 
-
-        <div class="small-title">
+        <div class="eyebrow">
             BERKEBET
         </div>
-
 
         <h2 class="section-title">
             İletişim
         </h2>
 
-
-        <p class="section-description">
+        <p class="section-text">
             BerkeBet'i sosyal medyada takip et.
         </p>
-
 
 
         <a
             href="https://www.instagram.com/berkeya_/"
             target="_blank"
-            rel="noopener noreferrer"
-            class="instagram-card"
+            class="instagram"
         >
 
-
             <div class="instagram-icon">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-
-                    <rect
-                        x="3"
-                        y="3"
-                        width="18"
-                        height="18"
-                        rx="5"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="4"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                    <circle
-                        cx="17.5"
-                        cy="6.5"
-                        r="1"
-                        fill="currentColor"
-                    />
-
-                </svg>
-
+                ◎
             </div>
-
 
             <div class="instagram-info">
 
@@ -2307,11 +1522,9 @@ footer {
 
             </div>
 
-
-            <div class="instagram-arrow">
+            <div class="arrow">
                 →
             </div>
-
 
         </a>
 
@@ -2320,10 +1533,9 @@ footer {
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
@@ -2332,6 +1544,43 @@ footer {
 </footer>
 
 
-</body>
+<!-- =========================
+     SMOOTH SCROLL
+========================= -->
 
+<script>
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener('click', function(e) {
+
+        e.preventDefault();
+
+        const target =
+            document.querySelector(
+                this.getAttribute('href')
+            );
+
+        if (!target) return;
+
+        const navbarHeight = 74;
+
+        const position =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            navbarHeight;
+
+        window.scrollTo({
+            top: position,
+            behavior: "smooth"
+        });
+
+    });
+
+});
+
+</script>
+
+
+</body>
 </html>
