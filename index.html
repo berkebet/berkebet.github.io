@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BerkeBet</title>
+<title>BerkeBet — Official</title>
 
 <link rel="icon" href="logo.jpeg.jpeg">
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
+/* ==============================
+   TEMEL
+============================== */
 
 *{
     margin:0;
@@ -25,190 +25,66 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#050505;
-    color:white;
+    background:#0d0d0c;
+    color:#f4f1e8;
+    font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
 }
 
 
-/* =====================================================
-   RGB BACKGROUND
-===================================================== */
+/* ==============================
+   ARKA PLAN
+============================== */
 
-.background{
+body::before{
+    content:"";
     position:fixed;
     inset:0;
-    z-index:-10;
-    overflow:hidden;
-    background:#050505;
-}
+    z-index:-5;
 
-
-/* Büyük renk topları */
-
-.orb{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(100px);
-    opacity:.45;
-    mix-blend-mode:screen;
-}
-
-.orb1{
-    width:600px;
-    height:600px;
-    background:#ff0080;
-    top:-300px;
-    left:-250px;
-    animation:
-        orb1 12s ease-in-out infinite alternate;
-}
-
-.orb2{
-    width:550px;
-    height:550px;
-    background:#6100ff;
-    right:-250px;
-    top:10%;
-    animation:
-        orb2 14s ease-in-out infinite alternate;
-}
-
-.orb3{
-    width:500px;
-    height:500px;
-    background:#00d9ff;
-    left:25%;
-    bottom:-300px;
-    animation:
-        orb3 11s ease-in-out infinite alternate;
-}
-
-.orb4{
-    width:350px;
-    height:350px;
-    background:#ff5e00;
-    right:25%;
-    bottom:10%;
-    opacity:.22;
-    animation:
-        orb4 16s ease-in-out infinite alternate;
-}
-
-
-@keyframes orb1{
-
-    to{
-        transform:
-            translate(350px,220px)
-            scale(1.2);
-    }
-
-}
-
-@keyframes orb2{
-
-    to{
-        transform:
-            translate(-250px,250px)
-            scale(1.3);
-    }
-
-}
-
-@keyframes orb3{
-
-    to{
-        transform:
-            translate(250px,-200px)
-            scale(1.25);
-    }
-
-}
-
-@keyframes orb4{
-
-    to{
-        transform:
-            translate(-250px,-150px)
-            scale(1.4);
-    }
-
-}
-
-
-/* Grid */
-
-.grid{
-    position:absolute;
-    inset:-50%;
-
-    opacity:.09;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.2) 1px,
-            transparent 1px
+    background:
+        radial-gradient(
+            circle at 75% 15%,
+            rgba(190,145,65,.12),
+            transparent 28%
         ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.2) 1px,
-            transparent 1px
-        );
-
-    background-size:70px 70px;
-
-    transform:
-        perspective(700px)
-        rotateX(60deg);
-
-    animation:gridMove 18s linear infinite;
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(130,100,50,.08),
+            transparent 30%
+        ),
+        #0d0d0c;
 }
 
-@keyframes gridMove{
-
-    from{
-        background-position:0 0;
-    }
-
-    to{
-        background-position:0 70px;
-    }
-
-}
-
-
-/* Noise */
-
-.noise{
-    position:absolute;
+body::after{
+    content:"";
+    position:fixed;
     inset:0;
+    z-index:-4;
+    pointer-events:none;
 
     opacity:.035;
 
     background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 
-/* =====================================================
+/* ==============================
    NAVBAR
-===================================================== */
+============================== */
 
 nav{
     position:fixed;
 
-    top:18px;
-    left:50%;
+    top:0;
+    left:0;
 
-    transform:translateX(-50%);
+    width:100%;
 
-    width:min(1180px,92%);
+    height:82px;
 
-    height:70px;
-
-    padding:0 20px;
+    padding:0 5vw;
 
     display:flex;
     align-items:center;
@@ -216,510 +92,592 @@ nav{
 
     z-index:1000;
 
-    border:
+    border-bottom:
         1px solid
-        rgba(255,255,255,.13);
-
-    border-radius:20px;
+        rgba(255,255,255,.08);
 
     background:
-        rgba(8,8,10,.62);
+        rgba(13,13,12,.78);
 
-    backdrop-filter:blur(25px);
-
-    box-shadow:
-        0 20px 80px
-        rgba(0,0,0,.55);
+    backdrop-filter:blur(20px);
 }
 
 
-/* Logo */
+/* logo */
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    color:white;
-
+    color:#f4f1e8;
     text-decoration:none;
 
-    font-size:20px;
-    font-weight:1000;
+    font-size:19px;
+    font-weight:900;
 
-    letter-spacing:-1px;
-}
-
-.logo-icon{
-    width:36px;
-    height:36px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:11px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff007f,
-            #7b00ff,
-            #00d9ff
-        );
-
-    box-shadow:
-        0 0 25px
-        rgba(160,0,255,.45);
-
-    font-weight:1000;
+    letter-spacing:4px;
 }
 
 .logo span{
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff36a9,
-            #a060ff,
-            #42eaff
-        );
-
-    -webkit-background-clip:text;
-
-    color:transparent;
+    color:#c7a45c;
 }
 
 
-/* Menü */
+/* menu */
 
 .menu{
     display:flex;
-    gap:5px;
+    align-items:center;
+    gap:35px;
 }
 
 .menu a{
-    padding:11px 15px;
-
-    color:#9c9ca4;
+    color:#8f8d86;
 
     text-decoration:none;
 
-    font-size:12px;
-    font-weight:800;
+    font-size:10px;
+    font-weight:bold;
 
-    border-radius:10px;
+    letter-spacing:2px;
 
     transition:.3s;
 }
 
 .menu a:hover{
-    color:white;
-
-    background:
-        rgba(255,255,255,.07);
+    color:#d4b36b;
 }
 
 
-.menu .special{
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff0080,
-            #7100ff
-        );
-
-    box-shadow:
-        0 0 25px
-        rgba(150,0,255,.25);
-}
-
-
-/* =====================================================
+/* ==============================
    HERO
-===================================================== */
+============================== */
 
 .hero{
 
     min-height:100vh;
 
-    width:min(1180px,92%);
+    padding:
+        160px 7vw 100px;
 
-    margin:auto;
+    display:flex;
+    flex-direction:column;
 
-    padding-top:130px;
+    justify-content:center;
+
+    position:relative;
+}
+
+
+/* üst küçük yazı */
+
+.kicker{
+
+    color:#b99958;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:5px;
+
+    margin-bottom:35px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.kicker::before{
+
+    content:"";
+
+    width:42px;
+    height:1px;
+
+    background:#b99958;
+}
+
+
+/* dev yazı */
+
+.hero h1{
+
+    max-width:1100px;
+
+    font-family:Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            70px,
+            12vw,
+            180px
+        );
+
+    line-height:.78;
+
+    font-weight:400;
+
+    letter-spacing:-9px;
+}
+
+
+.hero h1 em{
+
+    color:#c5a15b;
+
+    font-style:italic;
+}
+
+
+/* alt bölüm */
+
+.hero-bottom{
+
+    margin-top:65px;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:space-between;
 
-    gap:70px;
+    align-items:end;
+
+    max-width:1050px;
 }
 
 
-/* Sol taraf */
+.hero-description{
 
-.hero-left{
-    max-width:720px;
+    max-width:470px;
+
+    color:#85837d;
+
+    font-size:14px;
+
+    line-height:1.9;
 }
 
 
-.eyebrow{
+.hero-description strong{
+
+    color:#eeeae0;
+
+    font-weight:normal;
+}
+
+
+/* buton */
+
+.hero-button{
 
     display:inline-flex;
 
     align-items:center;
 
-    gap:8px;
+    gap:15px;
 
-    padding:8px 13px;
-
-    margin-bottom:25px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-
-    border-radius:100px;
-
-    background:
-        rgba(255,255,255,.04);
-
-    color:#aaaab3;
-
-    font-size:9px;
-
-    font-weight:900;
-
-    letter-spacing:3px;
-}
-
-.eyebrow i{
-
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:#00ff9d;
-
-    box-shadow:
-        0 0 15px
-        #00ff9d;
-}
-
-
-.hero h1{
-
-    font-size:
-        clamp(
-            70px,
-            10vw,
-            135px
-        );
-
-    line-height:.78;
-
-    letter-spacing:-10px;
-
-    font-weight:1000;
-
-    margin-bottom:38px;
-}
-
-
-.hero h1 .line2{
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff0080 0%,
-            #ff3caf 25%,
-            #8a4dff 55%,
-            #00d9ff 100%
-        );
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-    background-size:200% auto;
-
-    animation:
-        gradientMove
-        5s
-        linear
-        infinite;
-}
-
-@keyframes gradientMove{
-
-    0%{
-        background-position:0% center;
-    }
-
-    100%{
-        background-position:200% center;
-    }
-
-}
-
-
-.hero-text{
-
-    max-width:570px;
-
-    color:#85858e;
-
-    font-size:15px;
-
-    line-height:1.8;
-
-    margin-bottom:32px;
-}
-
-.hero-text strong{
-    color:white;
-}
-
-
-/* Butonlar */
-
-.buttons{
-
-    display:flex;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-}
-
-
-.btn{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:9px;
-
-    padding:15px 22px;
-
-    border-radius:12px;
+    color:#0d0d0c;
 
     text-decoration:none;
 
-    font-size:12px;
+    padding:17px 25px;
 
-    font-weight:900;
+    background:#c5a15b;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
 
     transition:.35s;
 }
 
+.hero-button:hover{
 
-.btn-primary{
-
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff0080,
-            #7b00ff
-        );
-
-    box-shadow:
-        0 15px 45px
-        rgba(190,0,150,.25);
-}
-
-.btn-primary:hover{
+    background:#e0c27b;
 
     transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 20px 60px
-        rgba(190,0,200,.45);
+        translateY(-4px);
 }
 
 
-.btn-secondary{
+/* ==============================
+   DECORASYON
+============================== */
 
-    color:#bbbcc4;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-}
-
-.btn-secondary:hover{
-
-    color:white;
-
-    transform:
-        translateY(-5px);
-
-    background:
-        rgba(255,255,255,.07);
-}
-
-
-/* =====================================================
-   HERO VISUAL
-===================================================== */
-
-.visual{
-
-    position:relative;
-
-    width:390px;
-
-    height:500px;
-
-    flex-shrink:0;
-}
-
-
-/* Dış RGB halka */
-
-.ring{
+.gold-line{
 
     position:absolute;
 
-    width:370px;
-    height:370px;
+    right:7vw;
+    top:23%;
 
-    left:10px;
-    top:55px;
-
-    border-radius:50%;
+    width:1px;
+    height:260px;
 
     background:
-        conic-gradient(
-            #ff0080,
-            #ff5c00,
-            #ffe600,
-            #00ff9d,
-            #00d9ff,
-            #7b00ff,
-            #ff0080
+        linear-gradient(
+            transparent,
+            #c5a15b,
+            transparent
         );
 
-    animation:
-        spin
-        8s
-        linear
-        infinite;
-
-    filter:
-        blur(1px);
-
-    box-shadow:
-        0 0 70px
-        rgba(255,0,150,.25);
+    opacity:.6;
 }
 
 
-.ring::after{
+.gold-circle{
+
+    position:absolute;
+
+    right:9vw;
+    top:24%;
+
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(197,161,91,.25);
+}
+
+.gold-circle::before{
 
     content:"";
 
     position:absolute;
 
-    inset:4px;
+    inset:20px;
 
     border-radius:50%;
 
-    background:#070708;
-}
-
-
-@keyframes spin{
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-
-/* Profil kart */
-
-.profile-card{
-
-    position:absolute;
-
-    left:35px;
-    top:80px;
-
-    width:320px;
-
-    padding:14px;
-
-    border-radius:27px;
-
-    background:
-        rgba(12,12,15,.82);
-
     border:
         1px solid
-        rgba(255,255,255,.15);
-
-    backdrop-filter:
-        blur(25px);
-
-    box-shadow:
-        0 40px 100px
-        rgba(0,0,0,.65);
-
-    z-index:2;
-
-    transform:
-        rotate(3deg);
-
-    transition:.5s;
-}
-
-.profile-card:hover{
-
-    transform:
-        rotate(0deg)
-        translateY(-12px);
+        rgba(197,161,91,.12);
 }
 
 
-.profile-image{
+/* ==============================
+   AYIRICI
+============================== */
 
-    height:315px;
+.divider{
+
+    width:86%;
+
+    margin:auto;
+
+    height:1px;
+
+    background:
+        rgba(255,255,255,.09);
+}
+
+
+/* ==============================
+   KANAL
+============================== */
+
+.section{
+
+    width:86%;
+
+    margin:auto;
+
+    padding:
+        130px 0;
+}
+
+
+.section-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-bottom:65px;
+}
+
+
+.section-number{
+
+    color:#5f5d57;
+
+    font-family:Georgia,serif;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+}
+
+
+.section-title{
+
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(
+            50px,
+            7vw,
+            95px
+        );
+
+    font-weight:400;
+
+    letter-spacing:-5px;
+}
+
+
+.section-info{
+
+    max-width:320px;
+
+    color:#77756f;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+
+/* videolar */
+
+.videos{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:70px 30px;
+}
+
+
+.video{
+
+    text-decoration:none;
+
+    color:white;
+
+    display:block;
+}
+
+
+.thumbnail{
+
+    position:relative;
 
     overflow:hidden;
 
-    border-radius:19px;
+    aspect-ratio:16/9;
 
-    position:relative;
+    background:#171715;
 }
 
 
-.profile-image img{
+.thumbnail img{
 
     width:100%;
     height:100%;
 
     object-fit:cover;
+
+    filter:
+        grayscale(35%)
+        brightness(.75);
+
+    transition:
+        .7s;
 }
 
 
-.profile-image::after{
+.video:hover .thumbnail img{
+
+    transform:scale(1.05);
+
+    filter:
+        grayscale(0%)
+        brightness(.9);
+}
+
+
+/* numara */
+
+.video-number{
+
+    position:absolute;
+
+    left:20px;
+    top:20px;
+
+    font-family:Georgia,serif;
+
+    font-size:12px;
+
+    color:#ddd7c9;
+
+    z-index:2;
+}
+
+
+/* play */
+
+.play{
+
+    position:absolute;
+
+    right:20px;
+    bottom:20px;
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#c5a15b;
+
+    color:#0d0d0c;
+
+    font-size:15px;
+
+    transform:
+        translateY(10px);
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.video:hover .play{
+
+    transform:
+        translateY(0);
+
+    opacity:1;
+}
+
+
+/* video altı */
+
+.video-info{
+
+    padding-top:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:start;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.09);
+
+    margin-top:15px;
+
+    padding-top:18px;
+}
+
+
+.video-title{
+
+    font-family:Georgia,serif;
+
+    font-size:20px;
+
+    color:#e9e4d9;
+}
+
+
+.video-watch{
+
+    color:#66645e;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+
+/* ==============================
+   FEATURE
+============================== */
+
+.feature{
+
+    margin-top:120px;
+
+    min-height:430px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+
+.feature-left{
+
+    padding:65px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    background:#11110f;
+}
+
+
+.feature-label{
+
+    color:#b99755;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+}
+
+
+.feature h3{
+
+    font-family:Georgia,serif;
+
+    font-weight:400;
+
+    font-size:55px;
+
+    line-height:.95;
+
+    letter-spacing:-3px;
+}
+
+
+.feature-right{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#171714;
+}
+
+
+.feature-right::before{
 
     content:"";
 
@@ -728,558 +686,282 @@ nav{
     inset:0;
 
     background:
-        linear-gradient(
-            transparent 55%,
-            rgba(0,0,0,.75)
+        radial-gradient(
+            circle at center,
+            rgba(197,161,91,.25),
+            transparent 50%
         );
 }
 
 
-.profile-info{
+.feature-symbol{
 
-    padding:
-        16px 7px 5px;
-}
+    position:absolute;
 
-
-.profile-name{
-
-    font-size:22px;
-
-    font-weight:1000;
-}
-
-
-.profile-handle{
-
-    color:#6d6d76;
-
-    font-size:11px;
-
-    margin-top:5px;
-}
-
-
-.profile-status{
-
-    margin-top:15px;
+    inset:0;
 
     display:flex;
 
     align-items:center;
 
-    gap:7px;
+    justify-content:center;
 
-    color:#888891;
+    font-family:Georgia,serif;
 
-    font-size:10px;
-}
+    font-size:150px;
 
-.status-dot{
+    color:#c5a15b;
 
-    width:6px;
-    height:6px;
-
-    border-radius:50%;
-
-    background:#00ff9d;
-
-    box-shadow:
-        0 0 12px
-        #00ff9d;
+    opacity:.8;
 }
 
 
-/* =====================================================
-   SECTION
-===================================================== */
+/* ==============================
+   İLETİŞİM
+============================== */
 
-.section{
-
-    width:min(1180px,92%);
-
-    margin:auto;
-
-    padding:
-        120px 0;
-}
-
-
-.section-top{
-
-    display:flex;
-
-    align-items:end;
-
-    justify-content:space-between;
-
-    margin-bottom:45px;
-
-    gap:30px;
-}
-
-
-.section-label{
-
-    color:#ff36a9;
-
-    font-size:9px;
-
-    font-weight:1000;
-
-    letter-spacing:4px;
-
-    margin-bottom:12px;
-}
-
-
-.section-title{
-
-    font-size:
-        clamp(
-            40px,
-            5vw,
-            65px
-        );
-
-    letter-spacing:-4px;
-
-    font-weight:1000;
-}
-
-
-.section-description{
-
-    max-width:430px;
-
-    color:#72727b;
-
-    font-size:13px;
-
-    line-height:1.8;
-}
-
-
-/* =====================================================
-   VIDEO
-===================================================== */
-
-.videos{
+.contact-grid{
 
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(2,1fr);
 
-    gap:20px;
+    gap:1px;
+
+    background:
+        rgba(255,255,255,.1);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
 }
 
 
-.video{
+.contact{
+
+    padding:45px;
+
+    background:#0d0d0c;
 
     color:white;
 
     text-decoration:none;
 
-    overflow:hidden;
-
-    border-radius:20px;
-
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    transition:.4s;
-}
-
-
-.video:hover{
-
-    transform:
-        translateY(-9px);
-
-    border-color:
-        rgba(255,50,180,.35);
-
-    box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.5);
-}
-
-
-.thumbnail{
-
-    position:relative;
-
-    aspect-ratio:16/9;
-
-    overflow:hidden;
-}
-
-
-.thumbnail img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.5s;
-}
-
-
-.video:hover
-.thumbnail img{
-
-    transform:
-        scale(1.08);
-}
-
-
-.play{
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.7);
-
-    width:58px;
-    height:58px;
-
-    border-radius:50%;
-
     display:flex;
 
+    justify-content:space-between;
+
     align-items:center;
-    justify-content:center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff0080,
-            #7200ff
-        );
-
-    box-shadow:
-        0 0 40px
-        rgba(180,0,255,.6);
-
-    opacity:0;
 
     transition:.35s;
 }
 
 
-.video:hover .play{
+.contact:hover{
 
-    opacity:1;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1);
+    background:#151512;
 }
 
 
-.video-info{
-
-    padding:19px;
-}
-
-
-.video-label{
-
-    color:#8c65ff;
-
-    font-size:9px;
-
-    font-weight:1000;
-
-    letter-spacing:3px;
-
-    margin-bottom:8px;
-}
-
-
-.video-title{
-
-    font-size:16px;
-
-    font-weight:900;
-
-    margin-bottom:13px;
-}
-
-
-.video-watch{
-
-    color:#66666f;
-
-    font-size:10px;
-}
-
-.video:hover
-.video-watch{
-
-    color:#ff36a9;
-}
-
-
-/* =====================================================
-   SOCIAL
-===================================================== */
-
-.socials{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:20px;
-}
-
-
-.social{
+.contact-left{
 
     display:flex;
 
     align-items:center;
 
-    padding:25px;
+    gap:20px;
+}
 
-    color:white;
 
-    text-decoration:none;
+.contact-icon{
 
-    border-radius:20px;
-
-    background:
-        rgba(255,255,255,.025);
+    width:48px;
+    height:48px;
 
     border:
         1px solid
-        rgba(255,255,255,.08);
-
-    transition:.4s;
-}
-
-
-.social:hover{
-
-    transform:
-        translateY(-7px);
-
-    border-color:
-        rgba(255,255,255,.18);
-
-    background:
-        rgba(255,255,255,.06);
-}
-
-
-.social-icon{
-
-    width:54px;
-    height:54px;
+        rgba(197,161,91,.4);
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    border-radius:16px;
+    color:#c5a15b;
 
-    margin-right:16px;
-
-    font-size:23px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff0080,
-            #7200ff
-        );
-
-    box-shadow:
-        0 0 25px
-        rgba(180,0,255,.2);
+    font-size:18px;
 }
 
 
-.social-info{
+.contact-label{
 
-    flex:1;
-}
-
-
-.social-label{
-
-    color:#65656e;
+    color:#5f5d57;
 
     font-size:8px;
 
-    font-weight:1000;
-
     letter-spacing:3px;
 
-    margin-bottom:5px;
+    margin-bottom:6px;
 }
 
 
-.social-name{
+.contact-name{
 
-    font-size:17px;
+    font-family:Georgia,serif;
 
-    font-weight:900;
+    font-size:20px;
 }
 
 
-.social-arrow{
+.contact-arrow{
 
-    color:#66666f;
+    color:#c5a15b;
 
-    font-size:22px;
-
-    transition:.3s;
+    font-size:20px;
 }
 
 
-.social:hover
-.social-arrow{
-
-    color:white;
-
-    transform:
-        translateX(6px);
-}
-
-
-/* =====================================================
+/* ==============================
    FOOTER
-===================================================== */
+============================== */
 
 footer{
 
-    width:min(1180px,92%);
+    width:86%;
 
     margin:auto;
 
     padding:
-        35px 0 45px;
+        40px 0;
 
     border-top:
         1px solid
-        rgba(255,255,255,.07);
+        rgba(255,255,255,.08);
 
     display:flex;
 
-    align-items:center;
-
     justify-content:space-between;
 
-    color:#4f4f57;
+    color:#55534e;
 
-    font-size:10px;
+    font-size:9px;
+
+    letter-spacing:2px;
 }
 
 
-/* =====================================================
+/* ==============================
    RESPONSIVE
-===================================================== */
+============================== */
 
-@media(max-width:950px){
+@media(max-width:800px){
 
-    .hero{
+    .menu{
+        gap:15px;
+    }
+
+    .menu a{
+        display:none;
+    }
+
+    .menu a:last-child{
+        display:block;
+    }
+
+    .hero h1{
+
+        letter-spacing:-6px;
+
+    }
+
+    .hero-bottom{
 
         flex-direction:column;
 
         align-items:flex-start;
 
-        padding-top:140px;
+        gap:30px;
     }
 
-    .visual{
-
-        margin:
-            0 auto;
+    .gold-circle,
+    .gold-line{
+        display:none;
     }
 
     .videos{
 
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:1fr;
+
+    }
+
+    .feature{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .feature-right{
+
+        min-height:300px;
+
+    }
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
     }
 
 }
 
 
-@media(max-width:650px){
+@media(max-width:500px){
 
-    nav{
+    .hero{
 
-        top:10px;
-
-        width:94%;
-    }
-
-    .menu a:not(.special){
-
-        display:none;
+        padding-left:7vw;
+        padding-right:7vw;
     }
 
     .hero h1{
 
-        font-size:65px;
+        font-size:64px;
 
-        letter-spacing:-6px;
-    }
+        letter-spacing:-5px;
 
-    .visual{
-
-        transform:
-            scale(.85);
-
-        transform-origin:
-            top center;
-
-        margin-bottom:-60px;
-    }
-
-    .videos{
-
-        grid-template-columns:1fr;
-    }
-
-    .socials{
-
-        grid-template-columns:1fr;
     }
 
     .section{
 
         padding:
-            85px 0;
+            90px 0;
     }
 
-    .section-top{
+    .section-head{
+
+        flex-direction:column;
 
         align-items:flex-start;
 
-        flex-direction:column;
+        gap:25px;
+    }
+
+    .feature-left{
+
+        padding:35px;
+    }
+
+    .feature h3{
+
+        font-size:42px;
     }
 
     footer{
 
         flex-direction:column;
 
-        gap:10px;
+        gap:12px;
     }
 
 }
@@ -1291,61 +973,36 @@ footer{
 <body>
 
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
-
-<div class="background">
-
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
-    <div class="orb orb4"></div>
-
-    <div class="grid"></div>
-
-    <div class="noise"></div>
-
-</div>
-
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+<!-- ==============================
+     NAV
+============================== -->
 
 <nav>
 
     <a href="#home" class="logo">
-
-        <div class="logo-icon">
-            B
-        </div>
-
         BERKE<span>BET</span>
-
     </a>
 
 
     <div class="menu">
 
         <a href="#home">
-            Ana Sayfa
+            ANA SAYFA
         </a>
 
         <a href="#kanal">
-            Kanal
+            KANAL
         </a>
 
         <a href="#iletisim">
-            İletişim
+            İLETİŞİM
         </a>
 
         <a
             href="https://www.youtube.com/@BerkeBet"
             target="_blank"
-            class="special"
         >
-            YouTube ↗
+            YOUTUBE ↗
         </a>
 
     </div>
@@ -1353,36 +1010,33 @@ footer{
 </nav>
 
 
-<!-- =====================================================
+<!-- ==============================
      HERO
-===================================================== -->
+============================== -->
 
-<section class="hero" id="home">
-
-
-    <div class="hero-left">
-
-        <div class="eyebrow">
-
-            <i></i>
-
-            BERKEBET OFFICIAL WEBSITE
-
-        </div>
+<section
+    class="hero"
+    id="home"
+>
 
 
-        <h1>
-
-            MERHABA<br>
-
-            <span class="line2">
-                KUMARBAZLAR.
-            </span>
-
-        </h1>
+    <div class="kicker">
+        BERKEBET / OFFICIAL
+    </div>
 
 
-        <p class="hero-text">
+    <h1>
+
+        MERHABA<br>
+
+        <em>KUMARBAZLAR.</em>
+
+    </h1>
+
+
+    <div class="hero-bottom">
+
+        <p class="hero-description">
 
             Berkebet'in resmi internet sitesine hoş geldin.
             Yeni videolar, içerikler ve kanal hakkında
@@ -1397,81 +1051,31 @@ footer{
         </p>
 
 
-        <div class="buttons">
-
-            <a
-                href="https://www.youtube.com/@BerkeBet"
-                target="_blank"
-                class="btn btn-primary"
-            >
-                ▶ YouTube Kanalı
-            </a>
-
-
-            <a
-                href="#kanal"
-                class="btn btn-secondary"
-            >
-                Videoları Gör ↓
-            </a>
-
-        </div>
+        <a
+            href="https://www.youtube.com/@BerkeBet"
+            target="_blank"
+            class="hero-button"
+        >
+            YOUTUBE KANALINA GİT
+            →
+        </a>
 
     </div>
 
 
-    <!-- =================================================
-         PROFILE
-    ================================================== -->
+    <div class="gold-line"></div>
 
-    <div class="visual">
-
-        <div class="ring"></div>
-
-
-        <div class="profile-card">
-
-            <div class="profile-image">
-
-                <img
-                    src="berkebet.jpg.jpeg"
-                    alt="BerkeBet"
-                >
-
-            </div>
-
-
-            <div class="profile-info">
-
-                <div class="profile-name">
-                    BerkeBet
-                </div>
-
-                <div class="profile-handle">
-                    @BerkeBet
-                </div>
-
-
-                <div class="profile-status">
-
-                    <span class="status-dot"></span>
-
-                    Resmi YouTube Kanalı
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+    <div class="gold-circle"></div>
 
 </section>
 
 
-<!-- =====================================================
+<div class="divider"></div>
+
+
+<!-- ==============================
      KANAL
-===================================================== -->
+============================== -->
 
 <section
     class="section"
@@ -1479,26 +1083,26 @@ footer{
 >
 
 
-    <div class="section-top">
+    <div class="section-head">
 
         <div>
 
-            <div class="section-label">
-                LATEST CONTENT
+            <div class="section-number">
+                01 / 02
             </div>
 
             <h2 class="section-title">
-                Kanal
+                Kanal.
             </h2>
 
         </div>
 
 
-        <p class="section-description">
+        <p class="section-info">
 
-            BerkeBet'in YouTube içerikleri burada.
-            Kartlara tıklayarak videoları doğrudan
-            YouTube'da açabilirsin.
+            BerkeBet'in YouTube içerikleri.
+            Videolara tıklayarak doğrudan
+            YouTube üzerinden izleyebilirsin.
 
         </p>
 
@@ -1508,7 +1112,7 @@ footer{
     <div class="videos">
 
 
-        <!-- 1 -->
+        <!-- VIDEO 01 -->
 
         <a
             href="https://www.youtube.com/watch?v=6OySAaaEvHE"
@@ -1517,6 +1121,10 @@ footer{
         >
 
             <div class="thumbnail">
+
+                <span class="video-number">
+                    01
+                </span>
 
                 <img
                     src="https://img.youtube.com/vi/6OySAaaEvHE/maxresdefault.jpg"
@@ -1532,16 +1140,12 @@ footer{
 
             <div class="video-info">
 
-                <div class="video-label">
-                    YOUTUBE
-                </div>
-
                 <div class="video-title">
                     BerkeBet
                 </div>
 
                 <div class="video-watch">
-                    Videoyu izle →
+                    İZLE ↗
                 </div>
 
             </div>
@@ -1549,7 +1153,7 @@ footer{
         </a>
 
 
-        <!-- 2 -->
+        <!-- VIDEO 02 -->
 
         <a
             href="https://www.youtube.com/watch?v=4SiVGLpki0s"
@@ -1558,6 +1162,10 @@ footer{
         >
 
             <div class="thumbnail">
+
+                <span class="video-number">
+                    02
+                </span>
 
                 <img
                     src="https://img.youtube.com/vi/4SiVGLpki0s/maxresdefault.jpg"
@@ -1573,16 +1181,12 @@ footer{
 
             <div class="video-info">
 
-                <div class="video-label">
-                    YOUTUBE
-                </div>
-
                 <div class="video-title">
                     BerkeBet
                 </div>
 
                 <div class="video-watch">
-                    Videoyu izle →
+                    İZLE ↗
                 </div>
 
             </div>
@@ -1590,7 +1194,7 @@ footer{
         </a>
 
 
-        <!-- 3 -->
+        <!-- VIDEO 03 -->
 
         <a
             href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
@@ -1599,6 +1203,10 @@ footer{
         >
 
             <div class="thumbnail">
+
+                <span class="video-number">
+                    03
+                </span>
 
                 <img
                     src="https://img.youtube.com/vi/Ai5G_2FH3hI/maxresdefault.jpg"
@@ -1614,16 +1222,12 @@ footer{
 
             <div class="video-info">
 
-                <div class="video-label">
-                    YOUTUBE
-                </div>
-
                 <div class="video-title">
                     BerkeBet
                 </div>
 
                 <div class="video-watch">
-                    Videoyu izle →
+                    İZLE ↗
                 </div>
 
             </div>
@@ -1631,7 +1235,7 @@ footer{
         </a>
 
 
-        <!-- 4 -->
+        <!-- VIDEO 04 -->
 
         <a
             href="https://www.youtube.com/watch?v=VkUS6WVPWic"
@@ -1640,6 +1244,10 @@ footer{
         >
 
             <div class="thumbnail">
+
+                <span class="video-number">
+                    04
+                </span>
 
                 <img
                     src="https://img.youtube.com/vi/VkUS6WVPWic/maxresdefault.jpg"
@@ -1655,16 +1263,12 @@ footer{
 
             <div class="video-info">
 
-                <div class="video-label">
-                    YOUTUBE
-                </div>
-
                 <div class="video-title">
                     BerkeBet
                 </div>
 
                 <div class="video-watch">
-                    Videoyu izle →
+                    İZLE ↗
                 </div>
 
             </div>
@@ -1672,7 +1276,7 @@ footer{
         </a>
 
 
-        <!-- 5 -->
+        <!-- VIDEO 05 -->
 
         <a
             href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
@@ -1681,6 +1285,10 @@ footer{
         >
 
             <div class="thumbnail">
+
+                <span class="video-number">
+                    05
+                </span>
 
                 <img
                     src="https://img.youtube.com/vi/NawRXjwjtYQ/maxresdefault.jpg"
@@ -1696,16 +1304,12 @@ footer{
 
             <div class="video-info">
 
-                <div class="video-label">
-                    YOUTUBE
-                </div>
-
                 <div class="video-title">
                     BerkeBet
                 </div>
 
                 <div class="video-watch">
-                    Videoyu izle →
+                    İZLE ↗
                 </div>
 
             </div>
@@ -1728,25 +1332,22 @@ footer{
                     align-items:center;
                     justify-content:center;
                     background:
-                    radial-gradient(
-                        circle at center,
-                        #7800a8,
-                        #080509 65%
+                    linear-gradient(
+                        135deg,
+                        #1a1813,
+                        #0b0b0a
                     );
                 "
             >
 
                 <div
                     style="
-                        font-size:55px;
-                        filter:
-                        drop-shadow(
-                            0 0 25px
-                            #ff00aa
-                        );
+                        color:#c5a15b;
+                        font-family:Georgia,serif;
+                        font-size:90px;
                     "
                 >
-                    ▶
+                    B
                 </div>
 
             </div>
@@ -1754,16 +1355,12 @@ footer{
 
             <div class="video-info">
 
-                <div class="video-label">
-                    BERKEBET
-                </div>
-
                 <div class="video-title">
                     Tüm Videolar
                 </div>
 
                 <div class="video-watch">
-                    YouTube kanalına git →
+                    KANALA GİT ↗
                 </div>
 
             </div>
@@ -1772,12 +1369,53 @@ footer{
 
     </div>
 
+
+    <!-- FEATURE -->
+
+    <div class="feature">
+
+        <div class="feature-left">
+
+            <div class="feature-label">
+                BERKEBET
+            </div>
+
+            <h3>
+                Daha fazlası<br>
+                YouTube'da.
+            </h3>
+
+            <a
+                href="https://www.youtube.com/@BerkeBet"
+                target="_blank"
+                class="hero-button"
+                style="width:max-content"
+            >
+                KANALI KEŞFET →
+            </a>
+
+        </div>
+
+
+        <div class="feature-right">
+
+            <div class="feature-symbol">
+                B
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 
-<!-- =====================================================
+<div class="divider"></div>
+
+
+<!-- ==============================
      İLETİŞİM
-===================================================== -->
+============================== -->
 
 <section
     class="section"
@@ -1785,22 +1423,22 @@ footer{
 >
 
 
-    <div class="section-top">
+    <div class="section-head">
 
         <div>
 
-            <div class="section-label">
-                SOCIALS
+            <div class="section-number">
+                02 / 02
             </div>
 
             <h2 class="section-title">
-                İletişim
+                İletişim.
             </h2>
 
         </div>
 
 
-        <p class="section-description">
+        <p class="section-info">
 
             BerkeBet'in sosyal medya hesaplarına
             buradan ulaşabilirsin.
@@ -1810,7 +1448,7 @@ footer{
     </div>
 
 
-    <div class="socials">
+    <div class="contact-grid">
 
 
         <!-- INSTAGRAM -->
@@ -1818,29 +1456,32 @@ footer{
         <a
             href="https://www.instagram.com/berkeya_/"
             target="_blank"
-            class="social"
+            class="contact"
         >
 
-            <div class="social-icon">
-                ◎
+            <div class="contact-left">
+
+                <div class="contact-icon">
+                    ◎
+                </div>
+
+                <div>
+
+                    <div class="contact-label">
+                        INSTAGRAM
+                    </div>
+
+                    <div class="contact-name">
+                        berkeya_
+                    </div>
+
+                </div>
+
             </div>
 
 
-            <div class="social-info">
-
-                <div class="social-label">
-                    INSTAGRAM
-                </div>
-
-                <div class="social-name">
-                    berkeya_
-                </div>
-
-            </div>
-
-
-            <div class="social-arrow">
-                →
+            <div class="contact-arrow">
+                ↗
             </div>
 
         </a>
@@ -1851,29 +1492,32 @@ footer{
         <a
             href="https://www.youtube.com/@BerkeBet"
             target="_blank"
-            class="social"
+            class="contact"
         >
 
-            <div class="social-icon">
-                ▶
+            <div class="contact-left">
+
+                <div class="contact-icon">
+                    ▶
+                </div>
+
+                <div>
+
+                    <div class="contact-label">
+                        YOUTUBE
+                    </div>
+
+                    <div class="contact-name">
+                        BerkeBet
+                    </div>
+
+                </div>
+
             </div>
 
 
-            <div class="social-info">
-
-                <div class="social-label">
-                    YOUTUBE
-                </div>
-
-                <div class="social-name">
-                    BerkeBet
-                </div>
-
-            </div>
-
-
-            <div class="social-arrow">
-                →
+            <div class="contact-arrow">
+                ↗
             </div>
 
         </a>
@@ -1883,21 +1527,22 @@ footer{
 </section>
 
 
-<!-- =====================================================
+<!-- ==============================
      FOOTER
-===================================================== -->
+============================== -->
 
 <footer>
 
     <span>
-        © 2026 BerkeBet
+        © 2026 BERKEBET
     </span>
 
     <span>
-        Official Website
+        OFFICIAL WEBSITE
     </span>
 
 </footer>
+
 
 </body>
 </html>
