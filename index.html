@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -6,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BerkeBet</title>
 
-<!-- FAVICON -->
 <link rel="icon" type="image/jpeg" href="berkebet.jpg.jpeg">
 
 <style>
@@ -766,8 +764,6 @@ h1 {
     font-weight: 800;
 
     transition: .35s;
-
-    cursor: pointer;
 }
 
 .card-button:hover {
@@ -1136,345 +1132,6 @@ footer {
 }
 
 /* =========================
-   RANDOM VIDEO MODAL
-========================= */
-
-.random-modal {
-    position: fixed;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    background: rgba(0,0,0,.78);
-    backdrop-filter: blur(14px);
-
-    z-index: 99998;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transition: .35s;
-}
-
-.random-modal.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.random-box {
-    position: relative;
-
-    width: 100%;
-    max-width: 470px;
-
-    padding: 35px;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(30,23,7,.97),
-            rgba(6,5,2,.98)
-        );
-
-    border:
-        1px solid
-        rgba(255,200,50,.28);
-
-    border-radius: 24px;
-
-    box-shadow:
-        0 40px 120px rgba(0,0,0,.8),
-        0 0 80px rgba(255,190,0,.12);
-
-    transform: scale(.85) translateY(20px);
-
-    transition: .4s;
-}
-
-.random-modal.active .random-box {
-    transform: scale(1) translateY(0);
-}
-
-.random-close {
-    position: absolute;
-
-    top: 14px;
-    right: 17px;
-
-    width: 35px;
-    height: 35px;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.05);
-    color: #aaa;
-
-    font-size: 20px;
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.random-close:hover {
-    background: rgba(255,190,0,.15);
-    color: white;
-}
-
-.random-title {
-    color: #ffd000;
-
-    font-size: 27px;
-    font-weight: 950;
-
-    margin-bottom: 7px;
-
-    text-shadow:
-        0 0 20px
-        rgba(255,190,0,.4);
-}
-
-.random-subtitle {
-    color: #81786a;
-
-    font-size: 12px;
-
-    margin-bottom: 25px;
-}
-
-/* ÇARK */
-
-.wheel-area {
-    position: relative;
-
-    width: 280px;
-    height: 280px;
-
-    margin: 0 auto 25px;
-}
-
-.wheel {
-    width: 280px;
-    height: 280px;
-
-    border-radius: 50%;
-
-    border:
-        7px solid
-        rgba(255,193,7,.7);
-
-    background:
-        conic-gradient(
-            #ff9f00 0deg 72deg,
-            #ffc107 72deg 144deg,
-            #ffb300 144deg 216deg,
-            #ffe082 216deg 288deg,
-            #ff9f00 288deg 360deg
-        );
-
-    box-shadow:
-        0 0 25px rgba(255,190,0,.35),
-        0 0 70px rgba(255,190,0,.12);
-
-    position: relative;
-
-    transition:
-        transform 4s cubic-bezier(.12,.75,.12,1);
-
-    overflow: hidden;
-}
-
-.wheel::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 50%;
-
-    width: 62px;
-    height: 62px;
-
-    transform: translate(-50%,-50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #ffe082,
-            #ff9f00
-        );
-
-    border:
-        5px solid
-        #050402;
-
-    box-shadow:
-        0 0 25px
-        rgba(255,220,80,.7);
-}
-
-.wheel-label {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    width: 100%;
-    height: 100%;
-
-    transform: translate(-50%,-50%);
-
-    pointer-events: none;
-
-    z-index: 2;
-}
-
-.wheel-label span {
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 90px;
-
-    margin-left: -45px;
-
-    text-align: center;
-
-    color: #171000;
-
-    font-size: 10px;
-    font-weight: 950;
-
-    text-shadow:
-        0 1px rgba(255,255,255,.35);
-}
-
-.wheel-label span:nth-child(1) {
-    transform:
-        translateY(-112px)
-        rotate(0deg);
-}
-
-.wheel-label span:nth-child(2) {
-    transform:
-        translate(92px,-34px)
-        rotate(72deg);
-}
-
-.wheel-label span:nth-child(3) {
-    transform:
-        translate(57px,86px)
-        rotate(144deg);
-}
-
-.wheel-label span:nth-child(4) {
-    transform:
-        translate(-65px,82px)
-        rotate(216deg);
-}
-
-.wheel-label span:nth-child(5) {
-    transform:
-        translate(-97px,-38px)
-        rotate(288deg);
-}
-
-/* ÇARK İŞARETÇİ */
-
-.wheel-pointer {
-    position: absolute;
-
-    z-index: 5;
-
-    top: -15px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    width: 0;
-    height: 0;
-
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-
-    border-top: 30px solid #ffe04a;
-
-    filter:
-        drop-shadow(
-            0 0 10px
-            rgba(255,210,50,.8)
-        );
-}
-
-/* SPIN BUTTON */
-
-.spin-button {
-    width: 100%;
-
-    padding: 15px;
-
-    border: none;
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff9f00,
-            #ffd000
-        );
-
-    color: #171000;
-
-    font-size: 14px;
-    font-weight: 950;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 10px 35px
-        rgba(255,179,0,.25);
-
-    transition: .3s;
-}
-
-.spin-button:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 15px 45px
-        rgba(255,190,0,.45);
-}
-
-.spin-button:disabled {
-    opacity: .5;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.random-result {
-    min-height: 22px;
-
-    margin-top: 17px;
-
-    color: #ffd000;
-
-    font-size: 13px;
-    font-weight: 800;
-}
-
-/* =========================
    MOBILE
 ========================= */
 
@@ -1529,46 +1186,6 @@ footer {
 
     .section-title {
         font-size: 34px;
-    }
-
-    .random-box {
-        padding: 30px 20px;
-    }
-
-    .wheel-area,
-    .wheel {
-        width: 245px;
-        height: 245px;
-    }
-
-    .wheel-label span:nth-child(1) {
-        transform:
-            translateY(-98px)
-            rotate(0deg);
-    }
-
-    .wheel-label span:nth-child(2) {
-        transform:
-            translate(80px,-30px)
-            rotate(72deg);
-    }
-
-    .wheel-label span:nth-child(3) {
-        transform:
-            translate(49px,76px)
-            rotate(144deg);
-    }
-
-    .wheel-label span:nth-child(4) {
-        transform:
-            translate(-57px,72px)
-            rotate(216deg);
-    }
-
-    .wheel-label span:nth-child(5) {
-        transform:
-            translate(-84px,-34px)
-            rotate(288deg);
     }
 }
 </style>
@@ -1706,16 +1323,16 @@ footer {
 
                 <div
                     class="info"
-                    onclick="openRandomModal()"
+                    onclick="openChannel()"
                 >
-                    <div class="info-icon">🎡</div>
+                    <div class="info-icon">▶️</div>
 
                     <div class="info-title">
-                        Rasgele Video!
+                        YouTube
                     </div>
 
                     <div class="info-text">
-                        Keyfini Çıkarın!
+                        Kanalı ziyaret et
                     </div>
                 </div>
 
@@ -1752,13 +1369,13 @@ footer {
 
             </div>
 
-            <!-- RANDOM VIDEO BUTTON -->
-            <button
+            <a
+                href="https://www.youtube.com/@BerkeBet"
+                target="_blank"
                 class="card-button"
-                onclick="openRandomModal()"
             >
-                🎡 Rasgele Video! — Keyfini Çıkarın!
-            </button>
+                YouTube Kanalına Git →
+            </a>
 
         </div>
 
@@ -2068,78 +1685,12 @@ footer {
 
 </footer>
 
-<!-- =========================
-     RANDOM VIDEO MODAL
-========================= -->
-
-<div
-    class="random-modal"
-    id="randomModal"
-    onclick="closeRandomModalOutside(event)"
->
-
-    <div class="random-box">
-
-        <button
-            class="random-close"
-            onclick="closeRandomModal()"
-            aria-label="Kapat"
-        >
-            ×
-        </button>
-
-        <div class="random-title">
-            RASGELE VİDEO!
-        </div>
-
-        <div class="random-subtitle">
-            Çarkı çevir, videonu şansa bırak!
-        </div>
-
-        <div class="wheel-area">
-
-            <div class="wheel-pointer"></div>
-
-            <div
-                class="wheel"
-                id="wheel"
-            >
-
-                <div class="wheel-label">
-
-                    <span>VİDEO 1</span>
-                    <span>VİDEO 2</span>
-                    <span>VİDEO 3</span>
-                    <span>VİDEO 4</span>
-                    <span>VİDEO 5</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <button
-            class="spin-button"
-            id="spinButton"
-            onclick="spinWheel()"
-        >
-            🎡 ÇARKI ÇEVİR!
-        </button>
-
-        <div
-            class="random-result"
-            id="randomResult"
-        ></div>
-
-    </div>
-
-</div>
-
 <script>
 
 /* =========================
    INTRO
+   İlk girişte gösterilir.
+   F5'te tekrar gösterilmez.
 ========================= */
 
 window.addEventListener("load", function () {
@@ -2166,18 +1717,6 @@ window.addEventListener("load", function () {
 });
 
 /* =========================
-   VIDEO LİSTESİ
-========================= */
-
-const videos = [
-    "https://www.youtube.com/watch?v=6OySAaaEvHE",
-    "https://www.youtube.com/watch?v=4SiVGLpki0s",
-    "https://www.youtube.com/watch?v=Ai5G_2FH3hI",
-    "https://www.youtube.com/watch?v=VkUS6WVPWic",
-    "https://www.youtube.com/watch?v=NawRXjwjtYQ"
-];
-
-/* =========================
    NAVIGATION
 ========================= */
 
@@ -2199,130 +1738,6 @@ function openChannel() {
     );
 
 }
-
-/* =========================
-   RANDOM VIDEO MODAL
-========================= */
-
-const randomModal =
-    document.getElementById("randomModal");
-
-const wheel =
-    document.getElementById("wheel");
-
-const spinButton =
-    document.getElementById("spinButton");
-
-const randomResult =
-    document.getElementById("randomResult");
-
-let isSpinning = false;
-let currentRotation = 0;
-
-function openRandomModal() {
-
-    randomModal.classList.add("active");
-
-    document.body.style.overflow = "hidden";
-
-}
-
-function closeRandomModal() {
-
-    randomModal.classList.remove("active");
-
-    document.body.style.overflow = "";
-
-}
-
-function closeRandomModalOutside(event) {
-
-    if (event.target === randomModal) {
-        closeRandomModal();
-    }
-
-}
-
-function spinWheel() {
-
-    if (isSpinning) return;
-
-    isSpinning = true;
-
-    spinButton.disabled = true;
-
-    randomResult.textContent =
-        "Çark dönüyor...";
-
-    /*
-       5 bölüm var.
-       Her bölüm 72 derece.
-       Rastgele bir bölüm seçiyoruz.
-    */
-
-    const selectedIndex =
-        Math.floor(Math.random() * videos.length);
-
-    const segmentAngle = 72;
-
-    /*
-       Seçilen bölümün merkezini üst tarafa
-       getirmek için hesaplama.
-    */
-
-    const targetAngle =
-        360 -
-        (selectedIndex * segmentAngle + segmentAngle / 2);
-
-    /*
-       En az 5 tam tur.
-    */
-
-    const extraSpins =
-        360 * 5;
-
-    currentRotation +=
-        extraSpins + targetAngle;
-
-    wheel.style.transform =
-        "rotate(" + currentRotation + "deg)";
-
-    setTimeout(function () {
-
-        randomResult.textContent =
-            "Video " + (selectedIndex + 1) +
-            " seçildi! Açılıyor...";
-
-        setTimeout(function () {
-
-            window.open(
-                videos[selectedIndex],
-                "_blank"
-            );
-
-            isSpinning = false;
-            spinButton.disabled = false;
-
-        }, 900);
-
-    }, 4100);
-
-}
-
-/* =========================
-   ESC İLE KAPAT
-========================= */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Escape") {
-            closeRandomModal();
-        }
-
-    }
-);
 
 /* =========================
    MOUSE GLOW
@@ -2386,4 +1801,3 @@ document
 
 </body>
 </html>
-```
