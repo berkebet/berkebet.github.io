@@ -29,6 +29,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* =========================
    ARKA PLAN
 ========================= */
@@ -101,6 +102,7 @@ body {
     }
 }
 
+
 /* GRID */
 
 .grid {
@@ -135,6 +137,7 @@ body {
             translateY(65px);
     }
 }
+
 
 /* =========================
    NAVBAR
@@ -236,6 +239,7 @@ nav {
     width: 100%;
 }
 
+
 /* =========================
    HERO
 ========================= */
@@ -293,6 +297,11 @@ nav {
         0 0 12px #c23fff;
 }
 
+
+/* =========================
+   BÜYÜK BERKEBET YAZISI
+========================= */
+
 h1 {
     font-size: clamp(65px, 9vw, 120px);
 
@@ -304,19 +313,57 @@ h1 {
 
     margin-bottom: 35px;
 
+    /* MOR GRADIENT */
+
     background:
         linear-gradient(
-            180deg,
-            #fff,
-            #efd9ff 45%,
-            #9363aa
+            90deg,
+            #6515ff 0%,
+            #8b24ff 18%,
+            #bd36ff 36%,
+            #f05cff 50%,
+            #bd36ff 64%,
+            #8b24ff 82%,
+            #6515ff 100%
         );
+
+    /* GRADIENTİN HAREKET ALANI */
+
+    background-size: 250% 100%;
 
     -webkit-background-clip: text;
     background-clip: text;
 
     color: transparent;
+
+    /* SOLDAN SAĞA YUMUŞAK HAREKET */
+
+    animation:
+        berkeGradient 6s ease-in-out infinite;
 }
+
+
+/* GRADIENT ANİMASYONU */
+
+@keyframes berkeGradient {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =========================
+   AÇIKLAMA
+========================= */
 
 .description {
     max-width: 540px;
@@ -348,17 +395,22 @@ h1 {
         0 0 30px rgba(179, 50, 255, .7),
         0 0 60px rgba(179, 50, 255, .3);
 
-    animation: pulse 2s ease-in-out infinite alternate;
+    animation:
+        pulse 2s ease-in-out infinite alternate;
 }
 
 @keyframes pulse {
+
     to {
+
         text-shadow:
             0 0 15px #e66aff,
             0 0 40px rgba(179, 50, 255, .8),
             0 0 75px rgba(179, 50, 255, .4);
+
     }
 }
+
 
 /* =========================
    BUTONLAR
@@ -371,6 +423,7 @@ h1 {
 
 .youtube-btn,
 .about-btn {
+
     display: inline-flex;
 
     align-items: center;
@@ -389,6 +442,7 @@ h1 {
 }
 
 .youtube-btn {
+
     color: white;
 
     background:
@@ -404,6 +458,7 @@ h1 {
 }
 
 .youtube-btn:hover {
+
     transform: translateY(-5px);
 
     box-shadow:
@@ -412,6 +467,7 @@ h1 {
 }
 
 .about-btn {
+
     color: #b6aabd;
 
     background:
@@ -423,6 +479,7 @@ h1 {
 }
 
 .about-btn:hover {
+
     color: white;
 
     transform: translateY(-5px);
@@ -431,11 +488,13 @@ h1 {
         rgba(190,60,255,.08);
 }
 
+
 /* =========================
    KANAL KARTI
 ========================= */
 
 .channel-card {
+
     padding: 30px;
 
     background:
@@ -461,6 +520,7 @@ h1 {
 }
 
 .channel-card:hover {
+
     transform: translateY(-8px);
 
     border-color:
@@ -472,8 +532,11 @@ h1 {
 }
 
 .card-top {
+
     display: flex;
+
     align-items: center;
+
     gap: 15px;
 
     padding-bottom: 25px;
@@ -484,6 +547,7 @@ h1 {
 }
 
 .channel-icon {
+
     width: 68px;
     height: 68px;
 
@@ -502,6 +566,7 @@ h1 {
 }
 
 .channel-icon img {
+
     width: 100%;
     height: 100%;
 
@@ -511,6 +576,7 @@ h1 {
 }
 
 .channel-name {
+
     font-size: 19px;
     font-weight: 900;
 
@@ -518,6 +584,7 @@ h1 {
 }
 
 .channel-handle {
+
     color: #71677b;
 
     font-size: 12px;
@@ -526,6 +593,7 @@ h1 {
 }
 
 .verified {
+
     color: #c24cff;
 
     font-size: 11px;
@@ -534,16 +602,19 @@ h1 {
 }
 
 .card-info {
+
     padding-top: 22px;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 10px;
 }
 
 .info {
+
     padding: 17px;
 
     border-radius: 11px;
@@ -559,6 +630,7 @@ h1 {
 }
 
 .info:hover {
+
     background:
         rgba(180,50,255,.07);
 
@@ -567,11 +639,14 @@ h1 {
 }
 
 .info-icon {
+
     font-size: 17px;
+
     margin-bottom: 9px;
 }
 
 .info-title {
+
     color: #f4eff7;
 
     font-size: 13px;
@@ -581,12 +656,14 @@ h1 {
 }
 
 .info-text {
+
     color: #756b80;
 
     font-size: 11px;
 }
 
 .card-button {
+
     display: flex;
 
     align-items: center;
@@ -618,6 +695,7 @@ h1 {
 }
 
 .card-button:hover {
+
     background:
         linear-gradient(
             135deg,
@@ -634,11 +712,13 @@ h1 {
         rgba(179,45,255,.3);
 }
 
+
 /* =========================
    SECTIONS
 ========================= */
 
 .section {
+
     position: relative;
 
     padding: 125px 7%;
@@ -649,12 +729,14 @@ h1 {
 }
 
 .section-container {
+
     max-width: 1100px;
 
     margin: auto;
 }
 
 .section-title {
+
     font-size: 44px;
 
     letter-spacing: -2px;
@@ -663,6 +745,7 @@ h1 {
 }
 
 .section-description {
+
     color: #756b80;
 
     font-size: 15px;
@@ -670,15 +753,18 @@ h1 {
     line-height: 1.7;
 }
 
+
 /* =========================
    VİDEOLAR
 ========================= */
 
 .video-heading {
+
     margin-bottom: 45px;
 }
 
 .video-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -688,6 +774,7 @@ h1 {
 }
 
 .video-card {
+
     display: block;
 
     background:
@@ -709,6 +796,7 @@ h1 {
 }
 
 .video-card:hover {
+
     transform: translateY(-9px);
 
     border-color:
@@ -720,6 +808,7 @@ h1 {
 }
 
 .thumbnail {
+
     position: relative;
 
     width: 100%;
@@ -732,6 +821,7 @@ h1 {
 }
 
 .thumbnail img {
+
     width: 100%;
     height: 100%;
 
@@ -743,10 +833,12 @@ h1 {
 }
 
 .video-card:hover .thumbnail img {
+
     transform: scale(1.07);
 }
 
 .play-button {
+
     position: absolute;
 
     top: 50%;
@@ -782,14 +874,17 @@ h1 {
 }
 
 .video-card:hover .play-button {
+
     opacity: 1;
 }
 
 .video-content {
+
     padding: 20px;
 }
 
 .video-label {
+
     color: #c34cff;
 
     font-size: 10px;
@@ -802,12 +897,14 @@ h1 {
 }
 
 .video-content h3 {
+
     font-size: 17px;
 
     margin-bottom: 15px;
 }
 
 .watch {
+
     color: #71687a;
 
     font-size: 12px;
@@ -816,10 +913,12 @@ h1 {
 }
 
 .video-card:hover .watch {
+
     color: #d24cff;
 }
 
 .all-videos {
+
     display: inline-flex;
 
     margin-top: 35px;
@@ -847,6 +946,7 @@ h1 {
 }
 
 .all-videos:hover {
+
     background:
         linear-gradient(
             135deg,
@@ -861,11 +961,13 @@ h1 {
     transform: translateY(-4px);
 }
 
+
 /* =========================
    INSTAGRAM
 ========================= */
 
 .instagram-card {
+
     display: flex;
 
     align-items: center;
@@ -894,6 +996,7 @@ h1 {
 }
 
 .instagram-card:hover {
+
     transform: translateY(-6px);
 
     border-color:
@@ -905,6 +1008,7 @@ h1 {
 }
 
 .instagram-icon {
+
     width: 48px;
     height: 48px;
 
@@ -927,17 +1031,20 @@ h1 {
 }
 
 .instagram-icon svg {
+
     width: 26px;
     height: 26px;
 }
 
 .instagram-info {
+
     margin-left: 16px;
 
     flex: 1;
 }
 
 .instagram-label {
+
     color: #766a7e;
 
     font-size: 10px;
@@ -950,6 +1057,7 @@ h1 {
 }
 
 .instagram-name {
+
     color: #f5f0f7;
 
     font-size: 17px;
@@ -958,6 +1066,7 @@ h1 {
 }
 
 .instagram-arrow {
+
     color: #71687a;
 
     font-size: 22px;
@@ -966,16 +1075,19 @@ h1 {
 }
 
 .instagram-card:hover .instagram-arrow {
+
     color: white;
 
     transform: translateX(6px);
 }
+
 
 /* =========================
    FOOTER
 ========================= */
 
 footer {
+
     padding: 40px 7%;
 
     border-top:
@@ -989,6 +1101,7 @@ footer {
     font-size: 12px;
 }
 
+
 /* =========================
    MOBİL
 ========================= */
@@ -996,49 +1109,64 @@ footer {
 @media (max-width: 900px) {
 
     .hero-content {
+
         grid-template-columns: 1fr;
+
         gap: 55px;
+
         max-width: 620px;
     }
 
     .video-grid {
-        grid-template-columns: repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 }
+
 
 @media (max-width: 600px) {
 
     nav {
+
         padding: 0 25px;
     }
 
     .links {
+
         display: none;
     }
 
     h1 {
+
         font-size: 58px;
+
         letter-spacing: -4px;
     }
 
     .yapistir {
+
         font-size: 28px;
     }
 
     .buttons {
+
         flex-direction: column;
     }
 
     .youtube-btn,
     .about-btn {
+
         width: 100%;
     }
 
     .video-grid {
+
         grid-template-columns: 1fr;
     }
 
     .section-title {
+
         font-size: 34px;
     }
 }
@@ -1049,12 +1177,17 @@ footer {
 
 <body>
 
-<!-- ARKA PLAN -->
+
+<!-- =========================
+     ARKA PLAN
+========================= -->
 
 <div class="background">
 
     <div class="neon one"></div>
+
     <div class="neon two"></div>
+
     <div class="neon three"></div>
 
     <div class="grid"></div>
@@ -1062,13 +1195,19 @@ footer {
 </div>
 
 
-<!-- NAVBAR -->
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <nav>
 
-    <a href="#home" class="logo">
+    <a
+        href="#home"
+        class="logo"
+    >
         BERKE<span>BET</span>
     </a>
+
 
     <div class="links">
 
@@ -1089,21 +1228,30 @@ footer {
 </nav>
 
 
-<!-- ANA SAYFA -->
+<!-- =========================
+     ANA SAYFA
+========================= -->
 
-<section class="hero" id="home">
+<section
+    class="hero"
+    id="home"
+>
 
     <div class="hero-content">
 
+
         <div>
+
 
             <div class="small-title">
                 OFFICIAL WEBSITE
             </div>
 
+
             <h1>
                 BERKEBET
             </h1>
+
 
             <p class="description">
 
@@ -1113,13 +1261,16 @@ footer {
 
                 Merhaba kumarbazlar ben BerkeBet
 
+
                 <span class="yapistir">
                     YAPIŞTIR!
                 </span>
 
             </p>
 
+
             <div class="buttons">
+
 
                 <a
                     href="https://www.youtube.com/@BerkeBet"
@@ -1129,6 +1280,7 @@ footer {
                     ▶ YouTube Kanalı
                 </a>
 
+
                 <a
                     href="#kanal"
                     class="about-btn"
@@ -1136,7 +1288,9 @@ footer {
                     Kanalı Keşfet →
                 </a>
 
+
             </div>
+
 
         </div>
 
@@ -1145,7 +1299,9 @@ footer {
 
         <div class="channel-card">
 
+
             <div class="card-top">
+
 
                 <div class="channel-icon">
 
@@ -1156,15 +1312,18 @@ footer {
 
                 </div>
 
+
                 <div>
 
                     <div class="channel-name">
                         BerkeBet
                     </div>
 
+
                     <div class="channel-handle">
                         @BerkeBet
                     </div>
+
 
                     <div class="verified">
                         ● Resmi YouTube Kanalı
@@ -1172,10 +1331,12 @@ footer {
 
                 </div>
 
+
             </div>
 
 
             <div class="card-info">
+
 
                 <div class="info">
 
@@ -1244,6 +1405,7 @@ footer {
 
                 </div>
 
+
             </div>
 
 
@@ -1255,38 +1417,53 @@ footer {
                 YouTube Kanalına Git →
             </a>
 
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- KANAL -->
+<!-- =========================
+     KANAL
+========================= -->
 
-<section class="section" id="kanal">
+<section
+    class="section"
+    id="kanal"
+>
+
 
     <div class="section-container">
 
+
         <div class="video-heading">
+
 
             <div class="small-title">
                 BERKEBET
             </div>
 
+
             <h2 class="section-title">
                 Son Videolar
             </h2>
 
+
             <p class="section-description">
                 BerkeBet'in YouTube içeriklerine göz at.
             </p>
+
 
         </div>
 
 
         <div class="video-grid">
 
+
+            <!-- VIDEO 1 -->
 
             <a
                 href="https://www.youtube.com/watch?v=6OySAaaEvHE"
@@ -1307,6 +1484,7 @@ footer {
 
                 </div>
 
+
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1325,6 +1503,8 @@ footer {
 
             </a>
 
+
+            <!-- VIDEO 2 -->
 
             <a
                 href="https://www.youtube.com/watch?v=4SiVGLpki0s"
@@ -1345,6 +1525,7 @@ footer {
 
                 </div>
 
+
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1363,6 +1544,8 @@ footer {
 
             </a>
 
+
+            <!-- VIDEO 3 -->
 
             <a
                 href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
@@ -1383,6 +1566,7 @@ footer {
 
                 </div>
 
+
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1401,6 +1585,8 @@ footer {
 
             </a>
 
+
+            <!-- VIDEO 4 -->
 
             <a
                 href="https://www.youtube.com/watch?v=VkUS6WVPWic"
@@ -1421,6 +1607,7 @@ footer {
 
                 </div>
 
+
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1439,6 +1626,8 @@ footer {
 
             </a>
 
+
+            <!-- VIDEO 5 -->
 
             <a
                 href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
@@ -1459,6 +1648,7 @@ footer {
 
                 </div>
 
+
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1477,6 +1667,7 @@ footer {
 
             </a>
 
+
         </div>
 
 
@@ -1488,24 +1679,34 @@ footer {
             Tüm Videoları Gör →
         </a>
 
+
     </div>
 
 </section>
 
 
-<!-- İLETİŞİM -->
+<!-- =========================
+     İLETİŞİM
+========================= -->
 
-<section class="section" id="iletisim">
+<section
+    class="section"
+    id="iletisim"
+>
+
 
     <div class="section-container">
+
 
         <div class="small-title">
             BERKEBET
         </div>
 
+
         <h2 class="section-title">
             İletişim
         </h2>
+
 
         <p class="section-description">
             BerkeBet'i sosyal medyada takip et.
@@ -1518,7 +1719,9 @@ footer {
             class="instagram-card"
         >
 
+
             <div class="instagram-icon">
+
 
                 <svg
                     viewBox="0 0 24 24"
@@ -1535,6 +1738,7 @@ footer {
                         stroke-width="2"
                     />
 
+
                     <circle
                         cx="12"
                         cy="12"
@@ -1542,6 +1746,7 @@ footer {
                         stroke="currentColor"
                         stroke-width="2"
                     />
+
 
                     <circle
                         cx="17.5"
@@ -1551,6 +1756,7 @@ footer {
                     />
 
                 </svg>
+
 
             </div>
 
@@ -1572,12 +1778,18 @@ footer {
                 →
             </div>
 
+
         </a>
+
 
     </div>
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1587,42 +1799,49 @@ footer {
 
 
 <!-- =========================
-     EXTRA SMOOTH SCROLL
+     SMOOTH SCROLL
 ========================= -->
 
 <script>
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(link => {
 
-    link.addEventListener('click', function(event) {
+        link.addEventListener(
+            'click',
+            function(event) {
 
-        event.preventDefault();
+                event.preventDefault();
 
-        const target =
-            document.querySelector(
-                this.getAttribute('href')
-            );
+                const target =
+                    document.querySelector(
+                        this.getAttribute('href')
+                    );
 
-        if (!target) return;
+                if (!target) return;
 
-        const navbarHeight = 74;
+                const navbarHeight = 74;
 
-        const targetPosition =
-            target.getBoundingClientRect().top
-            + window.scrollY
-            - navbarHeight;
+                const targetPosition =
+                    target.getBoundingClientRect().top
+                    +
+                    window.scrollY
+                    -
+                    navbarHeight;
 
-        window.scrollTo({
+                window.scrollTo({
 
-            top: targetPosition,
+                    top: targetPosition,
 
-            behavior: "smooth"
+                    behavior: "smooth"
 
-        });
+                });
+
+            }
+        );
 
     });
-
-});
 
 </script>
 
