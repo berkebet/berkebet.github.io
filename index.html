@@ -11,1332 +11,1442 @@
 
 <style>
 
-/* =====================================================
-   TEMEL
-===================================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:90px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #050208;
-    color: white;
-    overflow-x: hidden;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050208;
+    color:white;
+    overflow-x:hidden;
 }
 
-
-/* =====================================================
+/* =========================
    ARKA PLAN
-===================================================== */
+========================= */
 
-.background {
-    position: fixed;
-    inset: 0;
-    z-index: -10;
-    overflow: hidden;
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
 
     background:
-        radial-gradient(
-            ellipse at 50% 0%,
-            #21083b 0%,
-            #0c0415 40%,
-            #050208 75%,
-            #020103 100%
-        );
+    radial-gradient(
+        ellipse at 50% 0%,
+        #21083b 0%,
+        #0c0415 40%,
+        #050208 75%,
+        #020103 100%
+    );
 }
 
-.neon {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
+.neon{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+    pointer-events:none;
 }
 
-.neon.one {
-    width: 550px;
-    height: 550px;
-    left: -180px;
-    top: -180px;
-
-    background: rgba(164, 35, 255, .45);
-
-    animation:
-        move1 10s ease-in-out infinite alternate;
+.neon.one{
+    width:550px;
+    height:550px;
+    left:-180px;
+    top:-180px;
+    background:rgba(164,35,255,.45);
+    animation:move1 10s ease-in-out infinite alternate;
 }
 
-.neon.two {
-    width: 600px;
-    height: 600px;
-    right: -250px;
-    top: 100px;
-
-    background: rgba(99, 25, 255, .38);
-
-    animation:
-        move2 12s ease-in-out infinite alternate;
+.neon.two{
+    width:600px;
+    height:600px;
+    right:-250px;
+    top:100px;
+    background:rgba(99,25,255,.38);
+    animation:move2 12s ease-in-out infinite alternate;
 }
 
-.neon.three {
-    width: 500px;
-    height: 500px;
-    left: 35%;
-    top: 40%;
-
-    background: rgba(221, 40, 255, .20);
-
-    animation:
-        move3 11s ease-in-out infinite alternate;
+.neon.three{
+    width:500px;
+    height:500px;
+    left:35%;
+    top:40%;
+    background:rgba(221,40,255,.20);
+    animation:move3 11s ease-in-out infinite alternate;
 }
 
-@keyframes move1 {
-
-    to {
-        transform:
-            translate(160px, 120px)
-            scale(1.2);
+@keyframes move1{
+    to{
+        transform:translate(160px,120px) scale(1.2);
     }
 }
 
-@keyframes move2 {
-
-    to {
-        transform:
-            translate(-130px, 140px)
-            scale(1.15);
+@keyframes move2{
+    to{
+        transform:translate(-130px,140px) scale(1.15);
     }
 }
 
-@keyframes move3 {
-
-    to {
-        transform:
-            translate(120px, -100px)
-            scale(1.2);
+@keyframes move3{
+    to{
+        transform:translate(120px,-100px) scale(1.2);
     }
 }
 
-
-/* =====================================================
-   GRID
-===================================================== */
-
-.grid {
-    position: absolute;
-    inset: -50%;
+.grid{
+    position:absolute;
+    inset:-50%;
 
     background-image:
-        linear-gradient(
-            rgba(190, 60, 255, .07) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(190, 60, 255, .07) 1px,
-            transparent 1px
-        );
+    linear-gradient(
+        rgba(190,60,255,.07) 1px,
+        transparent 1px
+    ),
+    linear-gradient(
+        90deg,
+        rgba(190,60,255,.07) 1px,
+        transparent 1px
+    );
 
-    background-size: 65px 65px;
+    background-size:65px 65px;
 
     transform:
         perspective(700px)
         rotateX(62deg);
 
-    animation:
-        gridMove 12s linear infinite;
+    animation:gridMove 12s linear infinite;
 }
 
-@keyframes gridMove {
-
-    to {
-
+@keyframes gridMove{
+    to{
         transform:
-            perspective(700px)
-            rotateX(62deg)
-            translateY(65px);
-
+        perspective(700px)
+        rotateX(62deg)
+        translateY(65px);
     }
 }
 
-
-/* =====================================================
+/* =========================
    NAVBAR
-===================================================== */
+========================= */
 
-nav {
+nav{
+    position:fixed;
+    top:0;
+    left:0;
 
-    position: fixed;
+    width:100%;
+    height:74px;
 
-    top: 0;
-    left: 0;
+    padding:0 7%;
 
-    width: 100%;
-    height: 74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    padding: 0 7%;
+    background:rgba(7,2,12,.68);
 
-    display: flex;
+    backdrop-filter:blur(22px);
 
-    align-items: center;
-    justify-content: space-between;
+    border-bottom:1px solid rgba(213,111,255,.12);
 
-    background:
-        rgba(7, 2, 12, .68);
-
-    backdrop-filter: blur(22px);
-
-    border-bottom:
-        1px solid
-        rgba(213, 111, 255, .12);
-
-    z-index: 100;
+    z-index:100;
 }
 
-.logo {
+.logo{
+    color:white;
+    text-decoration:none;
 
-    color: white;
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:2px;
 
-    text-decoration: none;
-
-    font-size: 21px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    transition: .3s;
+    transition:.3s;
 }
 
-.logo span {
-    color: #c34cff;
+.logo span{
+    color:#c34cff;
 }
 
-.logo:hover {
-
+.logo:hover{
     text-shadow:
-        0 0 15px #c34cff,
-        0 0 35px rgba(195, 76, 255, .5);
+    0 0 15px #c34cff,
+    0 0 35px rgba(195,76,255,.5);
 }
 
-.links {
-
-    display: flex;
-
-    gap: 34px;
+.links{
+    display:flex;
+    gap:34px;
 }
 
-.links a {
+.links a{
+    position:relative;
 
-    position: relative;
+    color:#958ba2;
+    text-decoration:none;
 
-    color: #958ba2;
+    font-size:14px;
 
-    text-decoration: none;
-
-    font-size: 14px;
-
-    transition: .3s;
+    transition:.3s;
 }
 
-.links a:hover {
-    color: white;
+.links a:hover{
+    color:white;
 }
 
-.links a::after {
+.links a::after{
+    content:"";
 
-    content: "";
+    position:absolute;
 
-    position: absolute;
+    left:50%;
+    bottom:-9px;
 
-    left: 50%;
-    bottom: -9px;
+    width:0;
+    height:2px;
 
-    width: 0;
-    height: 2px;
-
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
 
     background:
-        linear-gradient(
-            90deg,
-            #8b35ff,
-            #e85cff
-        );
+    linear-gradient(
+        90deg,
+        #8b35ff,
+        #e85cff
+    );
 
-    box-shadow:
-        0 0 10px #c341ff;
+    box-shadow:0 0 10px #c341ff;
 
-    transition: .3s;
+    transition:.3s;
 }
 
-.links a:hover::after {
-    width: 100%;
+.links a:hover::after{
+    width:100%;
 }
 
-
-/* =====================================================
+/* =========================
    HERO
-===================================================== */
+========================= */
 
-.hero {
+.hero{
+    min-height:100vh;
 
-    min-height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding:
-        120px
-        20px
-        80px;
+    padding:120px 20px 80px;
 }
 
-.hero-content {
+.hero-content{
+    width:100%;
+    max-width:1100px;
 
-    width: 100%;
+    display:grid;
+    grid-template-columns:1fr 390px;
 
-    max-width: 1100px;
+    align-items:center;
 
-    display: grid;
-
-    grid-template-columns:
-        1fr 390px;
-
-    align-items: center;
-
-    gap: 90px;
+    gap:90px;
 }
 
-.small-title {
+.small-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    display: flex;
+    color:#988ba7;
 
-    align-items: center;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:4px;
 
-    gap: 10px;
-
-    color: #988ba7;
-
-    font-size: 12px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 24px;
+    margin-bottom:24px;
 }
 
-.small-title::before {
+.small-title::before{
+    content:"";
 
-    content: "";
-
-    width: 32px;
-    height: 2px;
+    width:32px;
+    height:2px;
 
     background:
-        linear-gradient(
-            90deg,
-            #9a32ff,
-            #e45cff
-        );
+    linear-gradient(
+        90deg,
+        #9a32ff,
+        #e45cff
+    );
 
-    box-shadow:
-        0 0 12px #c23fff;
+    box-shadow:0 0 12px #c23fff;
 }
 
+h1{
+    font-size:clamp(65px,9vw,120px);
 
-/* =====================================================
-   BÜYÜK BERKEBET
-===================================================== */
+    line-height:.82;
 
-h1 {
+    letter-spacing:-7px;
 
-    font-size:
-        clamp(
-            65px,
-            9vw,
-            120px
-        );
+    font-weight:950;
 
-    line-height: .82;
-
-    letter-spacing: -7px;
-
-    font-weight: 950;
-
-    margin-bottom: 35px;
+    margin-bottom:35px;
 
     background:
-        linear-gradient(
-            90deg,
-            #6515ff 0%,
-            #8b24ff 18%,
-            #bd36ff 36%,
-            #f05cff 50%,
-            #bd36ff 64%,
-            #8b24ff 82%,
-            #6515ff 100%
-        );
+    linear-gradient(
+        90deg,
+        #7d20ff,
+        #c84cff,
+        #f06cff,
+        #9d39ff,
+        #7d20ff
+    );
 
-    background-size:
-        250% 100%;
+    background-size:300% 100%;
 
-    -webkit-background-clip: text;
+    -webkit-background-clip:text;
+    background-clip:text;
 
-    background-clip: text;
+    color:transparent;
 
-    color: transparent;
-
-    animation:
-        berkeGradient
-        6s
-        ease-in-out
-        infinite;
+    animation:titleGradient 7s ease infinite;
 }
 
-@keyframes berkeGradient {
+@keyframes titleGradient{
 
-    0% {
-        background-position:
-            0% 50%;
+    0%{
+        background-position:0% 50%;
     }
 
-    50% {
-        background-position:
-            100% 50%;
+    50%{
+        background-position:100% 50%;
     }
 
-    100% {
-        background-position:
-            0% 50%;
+    100%{
+        background-position:0% 50%;
     }
+
 }
 
+.description{
+    max-width:540px;
 
-/* =====================================================
-   AÇIKLAMA
-===================================================== */
+    color:#a196ad;
 
-.description {
+    font-size:16px;
 
-    max-width: 540px;
+    line-height:1.85;
 
-    color: #a196ad;
-
-    font-size: 16px;
-
-    line-height: 1.85;
-
-    margin-bottom: 35px;
+    margin-bottom:35px;
 }
 
-.yapistir {
+.yapistir{
+    display:block;
 
-    display: block;
+    margin-top:15px;
 
-    margin-top: 15px;
+    font-size:40px;
 
-    font-size: 40px;
+    font-weight:950;
 
-    font-weight: 950;
+    letter-spacing:4px;
 
-    letter-spacing: 4px;
-
-    color: #d54cff;
+    color:#d54cff;
 
     text-shadow:
-        0 0 10px #d54cff,
-        0 0 30px rgba(179, 50, 255, .7),
-        0 0 60px rgba(179, 50, 255, .3);
+    0 0 10px #d54cff,
+    0 0 30px rgba(179,50,255,.7),
+    0 0 60px rgba(179,50,255,.3);
 
-    animation:
-        pulse
-        2s
-        ease-in-out
-        infinite alternate;
+    animation:pulse 2s ease-in-out infinite alternate;
 }
 
-@keyframes pulse {
+@keyframes pulse{
 
-    to {
-
+    to{
         text-shadow:
-            0 0 15px #e66aff,
-            0 0 40px rgba(179, 50, 255, .8),
-            0 0 75px rgba(179, 50, 255, .4);
-
+        0 0 15px #e66aff,
+        0 0 40px rgba(179,50,255,.8),
+        0 0 75px rgba(179,50,255,.4);
     }
+
 }
 
-
-/* =====================================================
+/* =========================
    BUTONLAR
-===================================================== */
+========================= */
 
-.buttons {
-
-    display: flex;
-
-    gap: 12px;
+.buttons{
+    display:flex;
+    gap:12px;
 }
 
 .youtube-btn,
-.about-btn {
+.about-btn{
+    display:inline-flex;
 
-    display: inline-flex;
+    align-items:center;
+    justify-content:center;
 
-    align-items: center;
-    justify-content: center;
+    padding:14px 23px;
 
-    padding:
-        14px
-        23px;
+    border-radius:9px;
 
-    border-radius: 9px;
+    text-decoration:none;
 
-    text-decoration: none;
+    font-size:13px;
+    font-weight:800;
 
-    font-size: 13px;
-
-    font-weight: 800;
-
-    transition: .35s;
+    transition:.35s;
 }
 
-.youtube-btn {
-
-    color: white;
+.youtube-btn{
+    color:white;
 
     background:
-        linear-gradient(
-            135deg,
-            #9b31ff,
-            #d34cff
-        );
+    linear-gradient(
+        135deg,
+        #9b31ff,
+        #d34cff
+    );
 
     box-shadow:
-        0 10px 35px
-        rgba(173, 42, 255, .3);
+    0 10px 35px rgba(173,42,255,.3);
 }
 
-.youtube-btn:hover {
-
-    transform:
-        translateY(-5px);
+.youtube-btn:hover{
+    transform:translateY(-5px);
 
     box-shadow:
-        0 15px 45px
-        rgba(173, 42, 255, .5);
+    0 15px 45px rgba(173,42,255,.5);
 }
 
-.about-btn {
+.about-btn{
+    color:#b6aabd;
 
-    color: #b6aabd;
+    background:rgba(255,255,255,.025);
 
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(221,146,255,.1);
+    border:1px solid rgba(221,146,255,.1);
 }
 
-.about-btn:hover {
+.about-btn:hover{
+    color:white;
 
-    color: white;
+    transform:translateY(-5px);
 
-    transform:
-        translateY(-5px);
-
-    background:
-        rgba(190,60,255,.08);
+    background:rgba(190,60,255,.08);
 }
 
-
-/* =====================================================
+/* =========================
    KANAL KARTI
-===================================================== */
+========================= */
 
-.channel-card {
-
-    padding: 30px;
+.channel-card{
+    padding:30px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(22,10,31,.8),
-            rgba(7,4,11,.92)
-        );
+    linear-gradient(
+        145deg,
+        rgba(22,10,31,.8),
+        rgba(7,4,11,.92)
+    );
 
-    border:
-        1px solid
-        rgba(221,124,255,.13);
+    border:1px solid rgba(221,124,255,.13);
 
-    border-radius: 22px;
+    border-radius:22px;
 
-    backdrop-filter: blur(25px);
+    backdrop-filter:blur(25px);
 
     box-shadow:
-        0 40px 100px rgba(0,0,0,.65),
-        0 0 70px rgba(147,32,255,.1);
+    0 40px 100px rgba(0,0,0,.65),
+    0 0 70px rgba(147,32,255,.1);
 
-    transition: .4s;
+    transition:.4s;
 }
 
-.channel-card:hover {
+.channel-card:hover{
+    transform:translateY(-8px);
 
-    transform:
-        translateY(-8px);
-
-    border-color:
-        rgba(215,103,255,.35);
+    border-color:rgba(215,103,255,.35);
 
     box-shadow:
-        0 45px 110px rgba(0,0,0,.7),
-        0 0 80px rgba(171,35,255,.18);
+    0 45px 110px rgba(0,0,0,.7),
+    0 0 80px rgba(171,35,255,.18);
 }
 
-.card-top {
+.card-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
 
-    display: flex;
+    padding-bottom:25px;
 
-    align-items: center;
-
-    gap: 15px;
-
-    padding-bottom: 25px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.06);
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.channel-icon {
+.channel-icon{
+    width:68px;
+    height:68px;
 
-    width: 68px;
-    height: 68px;
+    flex-shrink:0;
 
-    flex-shrink: 0;
+    border-radius:50%;
 
-    border-radius: 50%;
+    overflow:hidden;
 
-    overflow: hidden;
-
-    border:
-        2px solid
-        rgba(207,83,255,.55);
+    border:2px solid rgba(207,83,255,.55);
 
     box-shadow:
-        0 0 20px
-        rgba(194,47,255,.35);
+    0 0 20px rgba(194,47,255,.35);
 }
 
-.channel-icon img {
+.channel-icon img{
+    width:100%;
+    height:100%;
 
-    width: 100%;
-    height: 100%;
+    object-fit:cover;
 
-    object-fit: cover;
-
-    display: block;
+    display:block;
 }
 
-.channel-name {
+.channel-name{
+    font-size:19px;
+    font-weight:900;
 
-    font-size: 19px;
-
-    font-weight: 900;
-
-    margin-bottom: 5px;
+    margin-bottom:5px;
 }
 
-.channel-handle {
+.channel-handle{
+    color:#71677b;
 
-    color: #71677b;
+    font-size:12px;
 
-    font-size: 12px;
-
-    margin-bottom: 7px;
+    margin-bottom:7px;
 }
 
-.verified {
+.verified{
+    color:#c24cff;
 
-    color: #c24cff;
+    font-size:11px;
 
-    font-size: 11px;
-
-    font-weight: 700;
+    font-weight:700;
 }
 
+.card-info{
+    padding-top:22px;
 
-/* =====================================================
-   BİLGİ KARTLARI
-===================================================== */
+    display:grid;
 
-.card-info {
+    grid-template-columns:1fr 1fr;
 
-    padding-top: 22px;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 10px;
+    gap:10px;
 }
 
-.info {
+.info{
+    padding:17px;
 
-    padding: 17px;
+    border-radius:11px;
 
-    border-radius: 11px;
+    background:rgba(255,255,255,.018);
 
+    border:1px solid rgba(255,255,255,.055);
+
+    transition:.3s;
+
+    cursor:pointer;
+}
+
+.info:hover{
+    background:rgba(180,50,255,.07);
+
+    border-color:rgba(211,84,255,.2);
+
+    transform:translateY(-3px);
+}
+
+.info-icon{
+    font-size:17px;
+    margin-bottom:9px;
+}
+
+.info-title{
+    color:#f4eff7;
+
+    font-size:13px;
+    font-weight:800;
+
+    margin-bottom:4px;
+}
+
+.info-text{
+    color:#756b80;
+
+    font-size:11px;
+}
+
+.card-button{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:14px;
+
+    border-radius:9px;
+
+    color:#e3d8e9;
+
+    background:rgba(255,255,255,.025);
+
+    border:1px solid rgba(255,255,255,.07);
+
+    text-decoration:none;
+
+    font-size:13px;
+    font-weight:800;
+
+    transition:.35s;
+}
+
+.card-button:hover{
     background:
-        rgba(255,255,255,.018);
+    linear-gradient(
+        135deg,
+        #9b31ff,
+        #d34cff
+    );
 
-    border:
-        1px solid
-        rgba(255,255,255,.055);
+    color:white;
 
-    transition: .3s;
-}
-
-
-/* TIKLANABİLİR KART */
-
-.info-link {
-
-    display: block;
-
-    text-decoration: none;
-
-    color: inherit;
-
-    cursor: pointer;
-}
-
-.info-link:hover {
-
-    transform:
-        translateY(-4px);
-
-    background:
-        rgba(180,50,255,.10);
-
-    border-color:
-        rgba(211,84,255,.35);
+    border-color:transparent;
 
     box-shadow:
-        0 8px 25px
-        rgba(180,50,255,.12);
+    0 10px 35px rgba(179,45,255,.3);
 }
 
-.info-link:hover .info-title {
-    color: white;
-}
-
-.info-link:hover .info-icon {
-
-    transform:
-        scale(1.1);
-}
-
-
-/* NORMAL BİLGİ KARTI */
-
-.info:not(.info-link):hover {
-
-    background:
-        rgba(180,50,255,.07);
-
-    border-color:
-        rgba(211,84,255,.2);
-}
-
-.info-icon {
-
-    font-size: 17px;
-
-    margin-bottom: 9px;
-
-    transition: .3s;
-}
-
-.info-title {
-
-    color: #f4eff7;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    margin-bottom: 4px;
-}
-
-.info-text {
-
-    color: #756b80;
-
-    font-size: 11px;
-}
-
-
-/* =====================================================
-   KANAL BUTONU
-===================================================== */
-
-.card-button {
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-
-    margin-top: 18px;
-
-    padding: 14px;
-
-    border-radius: 9px;
-
-    color: #e3d8e9;
-
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    transition: .35s;
-}
-
-.card-button:hover {
-
-    background:
-        linear-gradient(
-            135deg,
-            #9b31ff,
-            #d34cff
-        );
-
-    color: white;
-
-    border-color: transparent;
-
-    box-shadow:
-        0 10px 35px
-        rgba(179,45,255,.3);
-}
-
-
-/* =====================================================
+/* =========================
    SECTIONS
-===================================================== */
+========================= */
 
-.section {
+.section{
+    position:relative;
 
-    position: relative;
+    padding:125px 7%;
 
-    padding:
-        125px 7%;
-
-    border-top:
-        1px solid
-        rgba(230,150,255,.05);
+    border-top:1px solid rgba(230,150,255,.05);
 }
 
-.section-container {
+.section-container{
+    max-width:1100px;
 
-    max-width: 1100px;
-
-    margin: auto;
+    margin:auto;
 }
 
-.section-title {
+.section-title{
+    font-size:44px;
 
-    font-size: 44px;
+    letter-spacing:-2px;
 
-    letter-spacing: -2px;
-
-    margin-bottom: 12px;
+    margin-bottom:12px;
 }
 
-.section-description {
+.section-description{
+    color:#756b80;
 
-    color: #756b80;
+    font-size:15px;
 
-    font-size: 15px;
-
-    line-height: 1.7;
+    line-height:1.7;
 }
 
-
-/* =====================================================
+/* =========================
    VİDEOLAR
-===================================================== */
+========================= */
 
-.video-heading {
-
-    margin-bottom: 45px;
+.video-heading{
+    margin-bottom:45px;
 }
 
-.video-grid {
+.video-grid{
+    display:grid;
 
-    display: grid;
+    grid-template-columns:repeat(3,1fr);
 
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 20px;
+    gap:20px;
 }
 
-.video-card {
+.video-card{
+    display:block;
 
-    display: block;
+    background:rgba(10,5,15,.8);
 
-    background:
-        rgba(10,5,15,.8);
+    border:1px solid rgba(255,255,255,.065);
 
-    border:
-        1px solid
-        rgba(255,255,255,.065);
+    border-radius:16px;
 
-    border-radius: 16px;
+    overflow:hidden;
 
-    overflow: hidden;
+    text-decoration:none;
 
-    text-decoration: none;
+    color:white;
 
-    color: white;
-
-    transition: .4s;
+    transition:.4s;
 }
 
-.video-card:hover {
+.video-card:hover{
+    transform:translateY(-9px);
 
-    transform:
-        translateY(-9px);
-
-    border-color:
-        rgba(207,79,255,.35);
+    border-color:rgba(207,79,255,.35);
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,.55),
-        0 0 40px rgba(176,37,255,.12);
+    0 25px 60px rgba(0,0,0,.55),
+    0 0 40px rgba(176,37,255,.12);
 }
 
-.thumbnail {
+.thumbnail{
+    position:relative;
 
-    position: relative;
+    width:100%;
 
-    width: 100%;
+    aspect-ratio:16/9;
 
-    aspect-ratio:
-        16 / 9;
+    overflow:hidden;
 
-    overflow: hidden;
-
-    background:
-        #050207;
+    background:#050207;
 }
 
-.thumbnail img {
+.thumbnail img{
+    width:100%;
+    height:100%;
 
-    width: 100%;
-    height: 100%;
+    object-fit:cover;
 
-    object-fit: cover;
+    display:block;
 
-    display: block;
-
-    transition: .5s;
+    transition:.5s;
 }
 
-.video-card:hover .thumbnail img {
-
-    transform:
-        scale(1.07);
+.video-card:hover .thumbnail img{
+    transform:scale(1.07);
 }
 
-.play-button {
+.play-button{
+    position:absolute;
 
-    position: absolute;
+    top:50%;
+    left:50%;
 
-    top: 50%;
-    left: 50%;
+    transform:translate(-50%,-50%);
 
-    transform:
-        translate(-50%,-50%);
+    width:58px;
+    height:58px;
 
-    width: 58px;
-    height: 58px;
+    border-radius:50%;
 
-    border-radius: 50%;
+    display:flex;
 
-    display: flex;
+    align-items:center;
+    justify-content:center;
 
-    align-items: center;
-    justify-content: center;
+    background:rgba(183,48,255,.95);
 
-    background:
-        rgba(183,48,255,.95);
+    color:white;
 
-    color: white;
+    font-size:20px;
 
-    font-size: 20px;
+    opacity:0;
 
-    opacity: 0;
-
-    transition: .3s;
+    transition:.3s;
 
     box-shadow:
-        0 0 40px
-        rgba(200,50,255,.6);
+    0 0 40px rgba(200,50,255,.6);
 }
 
-.video-card:hover .play-button {
-
-    opacity: 1;
+.video-card:hover .play-button{
+    opacity:1;
 }
 
-.video-content {
-
-    padding: 20px;
+.video-content{
+    padding:20px;
 }
 
-.video-label {
+.video-label{
+    color:#c34cff;
 
-    color: #c34cff;
+    font-size:10px;
 
-    font-size: 10px;
+    font-weight:900;
 
-    font-weight: 900;
+    letter-spacing:2px;
 
-    letter-spacing: 2px;
-
-    margin-bottom: 8px;
+    margin-bottom:8px;
 }
 
-.video-content h3 {
+.video-content h3{
+    font-size:17px;
 
-    font-size: 17px;
-
-    margin-bottom: 15px;
+    margin-bottom:15px;
 }
 
-.watch {
+.watch{
+    color:#71687a;
 
-    color: #71687a;
+    font-size:12px;
 
-    font-size: 12px;
-
-    font-weight: 700;
+    font-weight:700;
 }
 
-.video-card:hover .watch {
-
-    color: #d24cff;
+.video-card:hover .watch{
+    color:#d24cff;
 }
 
-.all-videos {
+.all-videos{
+    display:inline-flex;
 
-    display: inline-flex;
+    margin-top:35px;
 
-    margin-top: 35px;
+    padding:14px 22px;
 
-    padding:
-        14px 22px;
+    border-radius:9px;
 
-    border-radius: 9px;
+    background:rgba(255,255,255,.025);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#b8adbe;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    transition:.35s;
+}
+
+.all-videos:hover{
+    background:
+    linear-gradient(
+        135deg,
+        #9b31ff,
+        #d34cff
+    );
+
+    color:white;
+
+    border-color:transparent;
+
+    transform:translateY(-4px);
+}
+
+/* =========================
+   RASTGELE İZLE PENCERESİ
+========================= */
+
+.random-overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(3,0,7,.82);
+
+    backdrop-filter:blur(15px);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:500;
+}
+
+.random-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.random-box{
+    width:100%;
+    max-width:560px;
+
+    padding:30px;
+
+    border-radius:25px;
 
     background:
-        rgba(255,255,255,.025);
+    linear-gradient(
+        145deg,
+        rgba(27,10,40,.96),
+        rgba(7,3,12,.98)
+    );
 
-    border:
-        1px solid
-        rgba(255,255,255,.08);
+    border:1px solid rgba(205,80,255,.28);
 
-    color: #b8adbe;
+    box-shadow:
+    0 40px 120px rgba(0,0,0,.8),
+    0 0 80px rgba(167,42,255,.2);
 
-    text-decoration: none;
+    text-align:center;
 
-    font-size: 13px;
+    transform:scale(.85) translateY(20px);
 
-    font-weight: 800;
-
-    transition: .35s;
+    transition:.4s;
 }
 
-.all-videos:hover {
+.random-overlay.active .random-box{
+    transform:scale(1) translateY(0);
+}
+
+.random-title{
+    font-size:26px;
+
+    font-weight:950;
+
+    margin-bottom:7px;
+}
+
+.random-subtitle{
+    color:#83758d;
+
+    font-size:13px;
+
+    margin-bottom:25px;
+}
+
+/* ÇARK */
+
+.wheel-area{
+    position:relative;
+
+    width:300px;
+    height:300px;
+
+    margin:10px auto 25px;
+}
+
+.wheel-pointer{
+    position:absolute;
+
+    z-index:10;
+
+    top:-8px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:0;
+    height:0;
+
+    border-left:15px solid transparent;
+    border-right:15px solid transparent;
+
+    border-top:32px solid #f0b7ff;
+
+    filter:
+    drop-shadow(0 0 8px #c43dff);
+}
+
+.wheel{
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    border:7px solid #b83cff;
 
     background:
-        linear-gradient(
-            135deg,
-            #9b31ff,
-            #d34cff
-        );
+    conic-gradient(
+        #791bd1 0deg 72deg,
+        #a933ef 72deg 144deg,
+        #6413b9 144deg 216deg,
+        #c348ff 216deg 288deg,
+        #851fe1 288deg 360deg
+    );
 
-    color: white;
+    position:relative;
 
-    border-color: transparent;
+    box-shadow:
+    0 0 20px #a82dff,
+    0 0 55px rgba(170,43,255,.55),
+    inset 0 0 30px rgba(0,0,0,.4);
 
-    transform:
-        translateY(-4px);
+    transition:transform 5s cubic-bezier(.12,.7,.08,1);
 }
 
+.wheel::after{
+    content:"";
 
-/* =====================================================
+    position:absolute;
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:
+    radial-gradient(
+        circle,
+        #f2b8ff,
+        #a72eea 65%,
+        #64119a
+    );
+
+    border:3px solid #e7a6ff;
+
+    box-shadow:
+    0 0 20px #d044ff;
+}
+
+.wheel-label{
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    inset:0;
+
+    pointer-events:none;
+}
+
+.wheel-label span{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:90px;
+
+    margin-left:-45px;
+    margin-top:-9px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:11px;
+    font-weight:900;
+
+    text-shadow:
+    0 2px 5px #26002f;
+}
+
+.wheel-label span:nth-child(1){
+    transform:rotate(36deg) translateY(-105px);
+}
+
+.wheel-label span:nth-child(2){
+    transform:rotate(108deg) translateY(-105px);
+}
+
+.wheel-label span:nth-child(3){
+    transform:rotate(180deg) translateY(-105px);
+}
+
+.wheel-label span:nth-child(4){
+    transform:rotate(252deg) translateY(-105px);
+}
+
+.wheel-label span:nth-child(5){
+    transform:rotate(324deg) translateY(-105px);
+}
+
+/* RASTGELE BUTONU */
+
+.spin-button{
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-size:14px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+        135deg,
+        #8d24dc,
+        #d34cff
+    );
+
+    box-shadow:
+    0 10px 35px rgba(173,42,255,.35);
+
+    transition:.3s;
+}
+
+.spin-button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 15px 45px rgba(173,42,255,.55);
+}
+
+.spin-button:disabled{
+    opacity:.5;
+
+    cursor:not-allowed;
+
+    transform:none;
+}
+
+.close-random{
+    position:absolute;
+
+    top:18px;
+    right:22px;
+
+    border:none;
+
+    background:none;
+
+    color:#a998b0;
+
+    font-size:27px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.close-random:hover{
+    color:white;
+
+    transform:rotate(90deg);
+}
+
+/* SONUÇ */
+
+.random-result{
+    display:none;
+
+    margin-top:25px;
+
+    animation:resultIn .5s ease;
+}
+
+.random-result.show{
+    display:block;
+}
+
+@keyframes resultIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.result-text{
+    color:#c84cff;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+}
+
+.result-video{
+    display:block;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(204,79,255,.25);
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#09040d;
+
+    transition:.3s;
+}
+
+.result-video:hover{
+    transform:translateY(-4px);
+
+    border-color:#c84cff;
+
+    box-shadow:
+    0 15px 40px rgba(167,40,255,.25);
+}
+
+.result-video img{
+    display:block;
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+}
+
+.result-name{
+    padding:13px;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+/* =========================
    INSTAGRAM
-===================================================== */
+========================= */
 
-.instagram-card {
+.instagram-card{
+    display:flex;
 
-    display: flex;
+    align-items:center;
 
-    align-items: center;
+    width:100%;
+    max-width:600px;
 
-    width: 100%;
+    margin-top:35px;
 
-    max-width: 600px;
+    padding:21px 23px;
 
-    margin-top: 35px;
+    background:rgba(12,6,17,.8);
 
-    padding:
-        21px 23px;
+    border:1px solid rgba(255,255,255,.07);
 
-    background:
-        rgba(12,6,17,.8);
+    border-radius:16px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    text-decoration:none;
 
-    border-radius: 16px;
+    color:white;
 
-    text-decoration: none;
-
-    color: white;
-
-    transition: .4s;
+    transition:.4s;
 }
 
-.instagram-card:hover {
+.instagram-card:hover{
+    transform:translateY(-6px);
 
-    transform:
-        translateY(-6px);
-
-    border-color:
-        rgba(235,130,255,.25);
+    border-color:rgba(235,130,255,.25);
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,.5),
-        0 0 35px rgba(190,50,255,.1);
+    0 25px 60px rgba(0,0,0,.5),
+    0 0 35px rgba(190,50,255,.1);
 }
 
-.instagram-icon {
+.instagram-icon{
+    width:48px;
+    height:48px;
 
-    width: 48px;
-    height: 48px;
+    display:flex;
 
-    display: flex;
+    align-items:center;
+    justify-content:center;
 
-    align-items: center;
-    justify-content: center;
+    flex-shrink:0;
 
-    flex-shrink: 0;
-
-    border-radius: 13px;
+    border-radius:13px;
 
     background:
-        linear-gradient(
-            135deg,
-            #833ab4,
-            #fd1d1d,
-            #fcb045
-        );
+    linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
 }
 
-.instagram-icon svg {
-
-    width: 26px;
-    height: 26px;
+.instagram-icon svg{
+    width:26px;
+    height:26px;
 }
 
-.instagram-info {
+.instagram-info{
+    margin-left:16px;
 
-    margin-left: 16px;
-
-    flex: 1;
+    flex:1;
 }
 
-.instagram-label {
+.instagram-label{
+    color:#766a7e;
 
-    color: #766a7e;
+    font-size:10px;
 
-    font-size: 10px;
+    font-weight:900;
 
-    font-weight: 900;
+    letter-spacing:2px;
 
-    letter-spacing: 2px;
-
-    margin-bottom: 5px;
+    margin-bottom:5px;
 }
 
-.instagram-name {
+.instagram-name{
+    color:#f5f0f7;
 
-    color: #f5f0f7;
+    font-size:17px;
 
-    font-size: 17px;
-
-    font-weight: 800;
+    font-weight:800;
 }
 
-.instagram-arrow {
+.instagram-arrow{
+    color:#71687a;
 
-    color: #71687a;
+    font-size:22px;
 
-    font-size: 22px;
-
-    transition: .3s;
+    transition:.3s;
 }
 
-.instagram-card:hover .instagram-arrow {
+.instagram-card:hover .instagram-arrow{
+    color:white;
 
-    color: white;
-
-    transform:
-        translateX(6px);
+    transform:translateX(6px);
 }
 
-
-/* =====================================================
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
-footer {
+footer{
+    padding:40px 7%;
 
-    padding:
-        40px 7%;
+    border-top:1px solid rgba(255,255,255,.045);
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.045);
+    text-align:center;
 
-    text-align: center;
+    color:#514957;
 
-    color: #514957;
-
-    font-size: 12px;
+    font-size:12px;
 }
 
-
-/* =====================================================
+/* =========================
    MOBİL
-===================================================== */
+========================= */
 
-@media (max-width: 900px) {
+@media(max-width:900px){
 
-    .hero-content {
+    .hero-content{
+        grid-template-columns:1fr;
 
-        grid-template-columns:
-            1fr;
+        gap:55px;
 
-        gap: 55px;
-
-        max-width: 620px;
+        max-width:620px;
     }
 
-    .video-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
+    .video-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-    nav {
-
-        padding:
-            0 25px;
+    nav{
+        padding:0 25px;
     }
 
-    .links {
-
-        display: none;
+    .links{
+        display:none;
     }
 
-    h1 {
+    h1{
+        font-size:58px;
 
-        font-size: 58px;
-
-        letter-spacing: -4px;
+        letter-spacing:-4px;
     }
 
-    .yapistir {
-
-        font-size: 28px;
+    .yapistir{
+        font-size:28px;
     }
 
-    .buttons {
-
-        flex-direction: column;
+    .buttons{
+        flex-direction:column;
     }
 
     .youtube-btn,
-    .about-btn {
-
-        width: 100%;
+    .about-btn{
+        width:100%;
     }
 
-    .video-grid {
-
-        grid-template-columns:
-            1fr;
+    .video-grid{
+        grid-template-columns:1fr;
     }
 
-    .section-title {
+    .section-title{
+        font-size:34px;
+    }
 
-        font-size: 34px;
+    .wheel-area,
+    .wheel{
+        width:250px;
+        height:250px;
+    }
+
+    .wheel-label span:nth-child(1){
+        transform:rotate(36deg) translateY(-85px);
+    }
+
+    .wheel-label span:nth-child(2){
+        transform:rotate(108deg) translateY(-85px);
+    }
+
+    .wheel-label span:nth-child(3){
+        transform:rotate(180deg) translateY(-85px);
+    }
+
+    .wheel-label span:nth-child(4){
+        transform:rotate(252deg) translateY(-85px);
+    }
+
+    .wheel-label span:nth-child(5){
+        transform:rotate(324deg) translateY(-85px);
+    }
+
+    .random-box{
+        padding:25px 15px;
     }
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
+<!-- =========================
      ARKA PLAN
-===================================================== -->
+========================= -->
 
 <div class="background">
 
     <div class="neon one"></div>
-
     <div class="neon two"></div>
-
     <div class="neon three"></div>
 
     <div class="grid"></div>
@@ -1344,19 +1454,15 @@ footer {
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      NAVBAR
-===================================================== -->
+========================= -->
 
 <nav>
 
-    <a
-        href="#home"
-        class="logo"
-    >
+    <a href="#home" class="logo">
         BERKE<span>BET</span>
     </a>
-
 
     <div class="links">
 
@@ -1364,7 +1470,7 @@ footer {
             Ana Sayfa
         </a>
 
-        <a href="#kanal">
+        <a href="https://www.youtube.com/@BerkeBet" target="_blank">
             Kanal
         </a>
 
@@ -1377,30 +1483,23 @@ footer {
 </nav>
 
 
-<!-- =====================================================
+<!-- =========================
      ANA SAYFA
-===================================================== -->
+========================= -->
 
-<section
-    class="hero"
-    id="home"
->
+<section class="hero" id="home">
 
     <div class="hero-content">
 
-
         <div>
-
 
             <div class="small-title">
                 OFFICIAL WEBSITE
             </div>
 
-
             <h1>
                 BERKEBET
             </h1>
-
 
             <p class="description">
 
@@ -1410,16 +1509,13 @@ footer {
 
                 Merhaba kumarbazlar ben BerkeBet
 
-
                 <span class="yapistir">
                     YAPIŞTIR!
                 </span>
 
             </p>
 
-
             <div class="buttons">
-
 
                 <a
                     href="https://www.youtube.com/@BerkeBet"
@@ -1429,7 +1525,6 @@ footer {
                     ▶ YouTube Kanalı
                 </a>
 
-
                 <a
                     href="#kanal"
                     class="about-btn"
@@ -1437,22 +1532,16 @@ footer {
                     Kanalı Keşfet →
                 </a>
 
-
             </div>
-
 
         </div>
 
 
-        <!-- =================================================
-             KANAL KARTI
-        ================================================= -->
+        <!-- KANAL KARTI -->
 
         <div class="channel-card">
 
-
             <div class="card-top">
-
 
                 <div class="channel-icon">
 
@@ -1462,7 +1551,6 @@ footer {
                     >
 
                 </div>
-
 
                 <div>
 
@@ -1480,24 +1568,16 @@ footer {
 
                 </div>
 
-
             </div>
 
 
-            <!-- =================================================
-                 BİLGİ KARTLARI
-            ================================================= -->
-
             <div class="card-info">
 
+                <!-- İÇERİK -->
 
-                <!-- İÇERİK
-                     TIKLAYINCA SON VİDEOLARA GİDER
-                -->
-
-                <a
-                    href="#kanal"
-                    class="info info-link"
+                <div
+                    class="info"
+                    onclick="goToVideos()"
                 >
 
                     <div class="info-icon">
@@ -1512,23 +1592,26 @@ footer {
                         YouTube videoları
                     </div>
 
-                </a>
+                </div>
 
 
-                <!-- PLATFORM -->
+                <!-- RASTGELE İZLE -->
 
-                <div class="info">
+                <div
+                    class="info"
+                    onclick="openRandom()"
+                >
 
                     <div class="info-icon">
-                        ▶
+                        🎰
                     </div>
 
                     <div class="info-title">
-                        Platform
+                        Rasgele İzle!
                     </div>
 
                     <div class="info-text">
-                        YouTube
+                        Keyfini çıkarın!
                     </div>
 
                 </div>
@@ -1553,14 +1636,11 @@ footer {
                 </div>
 
 
-                <!-- KANAL
-                     TIKLAYINCA YOUTUBE'A GİDER
-                -->
+                <!-- KANAL -->
 
-                <a
-                    href="https://www.youtube.com/@BerkeBet"
-                    target="_blank"
-                    class="info info-link"
+                <div
+                    class="info"
+                    onclick="goToChannel()"
                 >
 
                     <div class="info-icon">
@@ -1572,16 +1652,13 @@ footer {
                     </div>
 
                     <div class="info-text">
-                        BerkeBet
+                        YouTube kanalı
                     </div>
 
-                </a>
-
+                </div>
 
             </div>
 
-
-            <!-- KANALA GİT BUTONU -->
 
             <a
                 href="https://www.youtube.com/@BerkeBet"
@@ -1591,7 +1668,6 @@ footer {
                 YouTube Kanalına Git →
             </a>
 
-
         </div>
 
     </div>
@@ -1599,44 +1675,33 @@ footer {
 </section>
 
 
-<!-- =====================================================
-     KANAL / SON VİDEOLAR
-===================================================== -->
+<!-- =========================
+     KANAL / VİDEOLAR
+========================= -->
 
-<section
-    class="section"
-    id="kanal"
->
-
+<section class="section" id="kanal">
 
     <div class="section-container">
 
-
         <div class="video-heading">
-
 
             <div class="small-title">
                 BERKEBET
             </div>
 
-
             <h2 class="section-title">
                 Son Videolar
             </h2>
 
-
             <p class="section-description">
                 BerkeBet'in YouTube içeriklerine göz at.
             </p>
-
 
         </div>
 
 
         <div class="video-grid">
 
-
-            <!-- VIDEO 1 -->
 
             <a
                 href="https://www.youtube.com/watch?v=6OySAaaEvHE"
@@ -1657,7 +1722,6 @@ footer {
 
                 </div>
 
-
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1676,8 +1740,6 @@ footer {
 
             </a>
 
-
-            <!-- VIDEO 2 -->
 
             <a
                 href="https://www.youtube.com/watch?v=4SiVGLpki0s"
@@ -1698,7 +1760,6 @@ footer {
 
                 </div>
 
-
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1717,8 +1778,6 @@ footer {
 
             </a>
 
-
-            <!-- VIDEO 3 -->
 
             <a
                 href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
@@ -1739,7 +1798,6 @@ footer {
 
                 </div>
 
-
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1758,8 +1816,6 @@ footer {
 
             </a>
 
-
-            <!-- VIDEO 4 -->
 
             <a
                 href="https://www.youtube.com/watch?v=VkUS6WVPWic"
@@ -1780,7 +1836,6 @@ footer {
 
                 </div>
 
-
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1799,8 +1854,6 @@ footer {
 
             </a>
 
-
-            <!-- VIDEO 5 -->
 
             <a
                 href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
@@ -1821,7 +1874,6 @@ footer {
 
                 </div>
 
-
                 <div class="video-content">
 
                     <div class="video-label">
@@ -1840,7 +1892,6 @@ footer {
 
             </a>
 
-
         </div>
 
 
@@ -1852,34 +1903,26 @@ footer {
             Tüm Videoları Gör →
         </a>
 
-
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      İLETİŞİM
-===================================================== -->
+========================= -->
 
-<section
-    class="section"
-    id="iletisim"
->
-
+<section class="section" id="iletisim">
 
     <div class="section-container">
-
 
         <div class="small-title">
             BERKEBET
         </div>
 
-
         <h2 class="section-title">
             İletişim
         </h2>
-
 
         <p class="section-description">
             BerkeBet'i sosyal medyada takip et.
@@ -1892,12 +1935,12 @@ footer {
             class="instagram-card"
         >
 
-
             <div class="instagram-icon">
 
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
+                    stroke="white"
                 >
 
                     <rect
@@ -1906,7 +1949,6 @@ footer {
                         width="18"
                         height="18"
                         rx="5"
-                        stroke="currentColor"
                         stroke-width="2"
                     />
 
@@ -1914,7 +1956,6 @@ footer {
                         cx="12"
                         cy="12"
                         r="4"
-                        stroke="currentColor"
                         stroke-width="2"
                     />
 
@@ -1922,7 +1963,7 @@ footer {
                         cx="17.5"
                         cy="6.5"
                         r="1"
-                        fill="currentColor"
+                        fill="white"
                     />
 
                 </svg>
@@ -1947,18 +1988,12 @@ footer {
                 →
             </div>
 
-
         </a>
-
 
     </div>
 
 </section>
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer>
 
@@ -1967,53 +2002,449 @@ footer {
 </footer>
 
 
-<!-- =====================================================
-     SMOOTH SCROLL
-===================================================== -->
+<!-- =========================
+     RASTGELE VİDEO POPUP
+========================= -->
+
+<div
+    class="random-overlay"
+    id="randomOverlay"
+>
+
+    <div class="random-box">
+
+        <button
+            class="close-random"
+            onclick="closeRandom()"
+        >
+            ×
+        </button>
+
+
+        <div class="random-title">
+            🎰 Rasgele İzle!
+        </div>
+
+        <div class="random-subtitle">
+            Çarkı çevir, hangi videonun çıkacağını görelim.
+        </div>
+
+
+        <div class="wheel-area">
+
+            <div class="wheel-pointer"></div>
+
+            <div
+                class="wheel"
+                id="wheel"
+            >
+
+                <div class="wheel-label">
+
+                    <span>
+                        VİDEO 1
+                    </span>
+
+                    <span>
+                        VİDEO 2
+                    </span>
+
+                    <span>
+                        VİDEO 3
+                    </span>
+
+                    <span>
+                        VİDEO 4
+                    </span>
+
+                    <span>
+                        VİDEO 5
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="spin-button"
+            id="spinButton"
+            onclick="spinWheel()"
+        >
+            ÇARKI ÇEVİR!
+        </button>
+
+
+        <div
+            class="random-result"
+            id="randomResult"
+        >
+
+            <div class="result-text">
+                ŞANSINA BU VİDEO ÇIKTI
+            </div>
+
+
+            <a
+                href="#"
+                target="_blank"
+                class="result-video"
+                id="resultVideo"
+            >
+
+                <img
+                    id="resultImage"
+                    src=""
+                    alt="Rastgele video"
+                >
+
+                <div
+                    class="result-name"
+                    id="resultName"
+                >
+                    BerkeBet
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <script>
 
-document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(link => {
+/* =========================
+   VİDEO LİSTESİ
+========================= */
 
-        link.addEventListener(
-            'click',
-            function(event) {
+const videos = [
 
-                event.preventDefault();
+    {
+        id:"6OySAaaEvHE",
+        name:"BerkeBet"
+    },
 
-                const target =
-                    document.querySelector(
-                        this.getAttribute('href')
-                    );
+    {
+        id:"4SiVGLpki0s",
+        name:"BerkeBet"
+    },
 
-                if (!target) return;
+    {
+        id:"Ai5G_2FH3hI",
+        name:"BerkeBet"
+    },
 
-                const navbarHeight = 74;
+    {
+        id:"VkUS6WVPWic",
+        name:"BerkeBet"
+    },
 
-                const targetPosition =
-                    target.getBoundingClientRect().top
-                    +
-                    window.scrollY
-                    -
-                    navbarHeight;
+    {
+        id:"NawRXjwjtYQ",
+        name:"BerkeBet"
+    }
 
-                window.scrollTo({
+];
 
-                    top: targetPosition,
 
-                    behavior: "smooth"
+/* =========================
+   SAYFAYA VİDEOLARA GİT
+========================= */
 
-                });
+function goToVideos(){
 
-            }
-        );
+    const target =
+        document.getElementById("kanal");
+
+    const navbarHeight = 74;
+
+    const position =
+        target.getBoundingClientRect().top
+        + window.scrollY
+        - navbarHeight;
+
+    window.scrollTo({
+
+        top:position,
+
+        behavior:"smooth"
 
     });
 
-</script>
+}
 
+
+/* =========================
+   YOUTUBE KANALINA GİT
+========================= */
+
+function goToChannel(){
+
+    window.open(
+        "https://www.youtube.com/@BerkeBet",
+        "_blank"
+    );
+
+}
+
+
+/* =========================
+   RASTGELE PENCERE
+========================= */
+
+function openRandom(){
+
+    const overlay =
+        document.getElementById("randomOverlay");
+
+    overlay.classList.add("active");
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+function closeRandom(){
+
+    const overlay =
+        document.getElementById("randomOverlay");
+
+    overlay.classList.remove("active");
+
+    document.body.style.overflow="";
+
+}
+
+
+/* =========================
+   ÇARK
+========================= */
+
+let spinning = false;
+
+let currentRotation = 0;
+
+
+function spinWheel(){
+
+    if(spinning){
+        return;
+    }
+
+    spinning = true;
+
+
+    const button =
+        document.getElementById("spinButton");
+
+    const wheel =
+        document.getElementById("wheel");
+
+    const result =
+        document.getElementById("randomResult");
+
+
+    button.disabled=true;
+
+    button.innerText="ÇARK DÖNÜYOR...";
+
+
+    result.classList.remove("show");
+
+
+    /*
+       5 bölüm olduğu için
+       her bölüm 72 derece.
+    */
+
+    const selected =
+        Math.floor(
+            Math.random() * videos.length
+        );
+
+
+    const segment = 72;
+
+
+    /*
+       Pointer üstte.
+       Seçilen bölümü pointer'a getirmek
+       için yaklaşık açı hesaplıyoruz.
+    */
+
+    const targetAngle =
+        360
+        - (
+            selected * segment
+            + segment / 2
+        );
+
+
+    /*
+       Birkaç tam tur + hedef açı
+    */
+
+    const extraSpins =
+        6 + Math.floor(Math.random() * 3);
+
+
+    currentRotation +=
+        extraSpins * 360
+        + targetAngle;
+
+
+    wheel.style.transform =
+        "rotate(" + currentRotation + "deg)";
+
+
+    /*
+       Çark animasyonu yaklaşık 5 saniye.
+    */
+
+    setTimeout(function(){
+
+        const video =
+            videos[selected];
+
+
+        const resultVideo =
+            document.getElementById("resultVideo");
+
+        const resultImage =
+            document.getElementById("resultImage");
+
+        const resultName =
+            document.getElementById("resultName");
+
+
+        resultVideo.href =
+            "https://www.youtube.com/watch?v="
+            + video.id;
+
+
+        resultImage.src =
+            "https://img.youtube.com/vi/"
+            + video.id
+            + "/maxresdefault.jpg";
+
+
+        resultName.innerText =
+            video.name
+            + " • Videoyu İzle →";
+
+
+        result.classList.add("show");
+
+
+        button.disabled=false;
+
+        button.innerText="TEKRAR ÇEVİR";
+
+        spinning=false;
+
+
+    },5200);
+
+}
+
+
+/* =========================
+   DIŞARI TIKLAYINCA KAPAT
+========================= */
+
+document
+.getElementById("randomOverlay")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            this
+        ){
+
+            closeRandom();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   ESC İLE KAPAT
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeRandom();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   NAVBAR SMOOTH SCROLL
+========================= */
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        function(event){
+
+            event.preventDefault();
+
+
+            const target =
+                document.querySelector(
+                    this.getAttribute("href")
+                );
+
+
+            if(!target){
+                return;
+            }
+
+
+            const navbarHeight = 74;
+
+
+            const targetPosition =
+                target.getBoundingClientRect().top
+                + window.scrollY
+                - navbarHeight;
+
+
+            window.scrollTo({
+
+                top:targetPosition,
+
+                behavior:"smooth"
+
+            });
+
+        }
+    );
+
+});
+
+</script>
 
 </body>
 </html>
