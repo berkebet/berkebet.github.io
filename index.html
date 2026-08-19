@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Berkebet | YouTube</title>
+    <title>Berkebet</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -18,341 +19,492 @@
         }
 
         body {
-            min-height: 100vh;
             font-family: Arial, Helvetica, sans-serif;
+            background: #030406;
             color: white;
             overflow-x: hidden;
+        }
+
+        /* =========================
+           ARKA PLAN
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
 
             background:
-                radial-gradient(circle at 20% 20%, rgba(0, 140, 255, 0.25), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(120, 0, 255, 0.25), transparent 30%),
-                linear-gradient(135deg, #030712, #07152b, #080414);
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(0, 110, 255, 0.10),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 10% 90%,
+                    rgba(0, 70, 255, 0.07),
+                    transparent 30%
+                );
 
-            background-size: 200% 200%;
-            animation: backgroundMove 12s ease infinite;
+            pointer-events: none;
+            z-index: -2;
         }
 
-        @keyframes backgroundMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* ARKA PLAN IŞIKLARI */
-
-        .light {
+        body::after {
+            content: "";
             position: fixed;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.18;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px
+                );
+
+            background-size: 50px 50px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 80%
+            );
+
             pointer-events: none;
             z-index: -1;
         }
 
-        .light1 {
-            background: #008cff;
-            top: -100px;
-            left: -100px;
-            animation: float1 8s ease-in-out infinite;
-        }
 
-        .light2 {
-            background: #7b00ff;
-            right: -100px;
-            bottom: -100px;
-            animation: float2 10s ease-in-out infinite;
-        }
-
-        @keyframes float1 {
-            0%, 100% {
-                transform: translate(0, 0);
-            }
-
-            50% {
-                transform: translate(100px, 80px);
-            }
-        }
-
-        @keyframes float2 {
-            0%, 100% {
-                transform: translate(0, 0);
-            }
-
-            50% {
-                transform: translate(-100px, -80px);
-            }
-        }
-
-        /* NAVBAR */
+        /* =========================
+           NAVBAR
+        ========================= */
 
         nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
             width: 100%;
-            height: 80px;
+            height: 74px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 8%;
+            padding: 0 7%;
 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(3, 4, 6, 0.72);
+            backdrop-filter: blur(18px);
 
-            background: rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+
+            z-index: 100;
         }
 
         .logo {
-            font-size: 25px;
+            font-size: 21px;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
 
-            background: linear-gradient(90deg, #00aaff, #8b5cff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: white;
+        }
+
+        .logo span {
+            color: #168cff;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 34px;
         }
 
         nav a {
-            color: #ddd;
+            color: #858b98;
             text-decoration: none;
-            margin-left: 30px;
-            font-size: 15px;
+            font-size: 14px;
 
-            transition: 0.3s;
+            transition: 0.25s;
         }
 
         nav a:hover {
             color: white;
         }
 
-        /* ANA ALAN */
+
+        /* =========================
+           ANA ALAN
+        ========================= */
 
         .hero {
-            min-height: calc(100vh - 80px);
+            min-height: 100vh;
 
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
 
-            text-align: center;
-            padding: 40px 20px;
+            padding: 120px 20px 70px;
+
+            position: relative;
         }
 
-        .badge {
-            display: inline-block;
+        .hero-content {
+            width: 100%;
+            max-width: 1050px;
 
-            padding: 8px 18px;
-            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
 
-            border: 1px solid rgba(0, 170, 255, 0.4);
-            border-radius: 50px;
+            align-items: center;
+            gap: 80px;
+        }
 
-            background: rgba(0, 140, 255, 0.08);
 
-            color: #6bcaff;
-            font-size: 14px;
+        /* SOL TARAF */
 
-            box-shadow: 0 0 25px rgba(0, 140, 255, 0.12);
+        .small-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #6d7480;
+
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+
+            margin-bottom: 22px;
+        }
+
+        .small-title::before {
+            content: "";
+
+            width: 25px;
+            height: 1px;
+
+            background: #168cff;
         }
 
         h1 {
-            font-size: clamp(65px, 12vw, 150px);
-            line-height: 0.9;
+            font-size: clamp(65px, 8vw, 115px);
+
+            line-height: 0.85;
+
+            letter-spacing: -6px;
+
             font-weight: 900;
-            letter-spacing: -5px;
 
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #66c7ff,
-                #a879ff,
-                #ffffff
-            );
+            color: #f4f7fb;
 
-            background-size: 300%;
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            animation: textMove 6s linear infinite;
-
-            text-shadow: 0 0 60px rgba(0, 150, 255, 0.15);
+            margin-bottom: 30px;
         }
 
-        @keyframes textMove {
-            0% {
-                background-position: 0%;
-            }
+        .description {
+            max-width: 520px;
 
-            100% {
-                background-position: 300%;
-            }
-        }
+            color: #858b98;
 
-        .subtitle {
-            max-width: 600px;
-            margin-top: 30px;
-
-            color: #aeb8c8;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        /* BUTON */
-
-        .buttons {
-            margin-top: 40px;
-
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .youtube-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 15px 28px;
-
-            border-radius: 12px;
-
-            background: linear-gradient(135deg, #ff1744, #d50000);
-
-            color: white;
-            text-decoration: none;
-
-            font-weight: bold;
             font-size: 16px;
 
-            box-shadow:
-                0 10px 30px rgba(255, 0, 50, 0.25);
+            line-height: 1.8;
 
-            transition: 0.3s;
+            margin-bottom: 35px;
         }
 
-        .youtube-button:hover {
-            transform: translateY(-5px) scale(1.03);
 
-            box-shadow:
-                0 15px 40px rgba(255, 0, 50, 0.4);
+        /* BUTONLAR */
+
+        .buttons {
+            display: flex;
+            gap: 12px;
         }
 
-        .more-button {
+        .youtube-btn {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
-            padding: 15px 28px;
+            padding: 14px 22px;
 
-            border-radius: 12px;
-
-            border: 1px solid rgba(255, 255, 255, 0.15);
-
-            background: rgba(255, 255, 255, 0.05);
+            background: #087eff;
 
             color: white;
+
             text-decoration: none;
 
-            font-weight: bold;
+            border-radius: 8px;
 
-            backdrop-filter: blur(10px);
+            font-size: 14px;
+            font-weight: 700;
 
-            transition: 0.3s;
+            box-shadow: 0 8px 30px rgba(0,126,255,0.18);
+
+            transition: 0.25s;
         }
 
-        .more-button:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
+        .youtube-btn:hover {
+            transform: translateY(-3px);
+
+            background: #168cff;
+
+            box-shadow: 0 12px 35px rgba(0,126,255,0.3);
         }
 
-        /* ALT BİLGİ */
+        .about-btn {
+            display: inline-flex;
 
-        .stats {
-            margin-top: 80px;
+            align-items: center;
+            justify-content: center;
 
-            display: flex;
-            gap: 60px;
+            padding: 14px 22px;
 
-            color: #8994a7;
+            border: 1px solid #20242b;
+
+            background: #090b0f;
+
+            color: #a2a8b2;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.25s;
         }
 
-        .stat {
-            text-align: center;
-        }
-
-        .stat strong {
-            display: block;
+        .about-btn:hover {
+            border-color: #343a44;
 
             color: white;
-            font-size: 25px;
+
+            background: #0d1015;
+        }
+
+
+        /* =========================
+           SAĞ KART
+        ========================= */
+
+        .channel-card {
+            position: relative;
+
+            padding: 32px;
+
+            background: rgba(8, 10, 14, 0.82);
+
+            border: 1px solid #191d24;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.45);
+
+            backdrop-filter: blur(20px);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            padding-bottom: 25px;
+
+            border-bottom: 1px solid #181b21;
+        }
+
+        .channel-icon {
+            width: 58px;
+            height: 58px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(
+                135deg,
+                #087eff,
+                #0054b8
+            );
+
+            font-size: 22px;
+            font-weight: 900;
+
+            box-shadow:
+                0 0 30px rgba(0,126,255,0.18);
+        }
+
+        .channel-name {
+            font-weight: 700;
+            font-size: 17px;
+
             margin-bottom: 5px;
         }
 
-        .stat span {
-            font-size: 13px;
+        .channel-label {
+            color: #656c78;
+            font-size: 12px;
         }
 
-        /* MOBİL */
 
-        @media (max-width: 600px) {
+        /* KART BİLGİLERİ */
+
+        .card-info {
+            padding-top: 25px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .info {
+            background: #0b0d11;
+
+            border: 1px solid #15181e;
+
+            border-radius: 10px;
+
+            padding: 17px;
+        }
+
+        .info-number {
+            font-size: 20px;
+
+            font-weight: 800;
+
+            margin-bottom: 5px;
+        }
+
+        .info-text {
+            color: #626a76;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           ALT BÖLÜM
+        ========================= */
+
+        .section {
+            min-height: 500px;
+
+            padding: 100px 7%;
+
+            border-top: 1px solid #111419;
+        }
+
+        .section-container {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: #666d78;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================
+           MOBİL
+        ========================= */
+
+        @media (max-width: 850px) {
 
             nav {
-                padding: 0 20px;
+                padding: 0 25px;
             }
 
-            nav div:last-child {
+            nav .links {
                 display: none;
             }
 
+            .hero-content {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+                max-width: 600px;
+            }
+
             h1 {
-                letter-spacing: -3px;
+                font-size: 70px;
             }
 
-            .subtitle {
-                font-size: 16px;
-            }
-
-            .stats {
-                gap: 25px;
-            }
-
-            .stat strong {
-                font-size: 20px;
+            .channel-card {
+                max-width: 500px;
             }
         }
+
+        @media (max-width: 500px) {
+
+            .hero {
+                padding: 110px 20px 60px;
+            }
+
+            h1 {
+                font-size: 58px;
+
+                letter-spacing: -4px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .youtube-btn,
+            .about-btn {
+                width: 100%;
+            }
+
+            .card-info {
+                gap: 10px;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- ARKA PLAN IŞIKLARI -->
 
-    <div class="light light1"></div>
-    <div class="light light2"></div>
-
-
-    <!-- MENÜ -->
+    <!-- NAVBAR -->
 
     <nav>
 
         <div class="logo">
-            BERKEBET
+            BERKE<span>BET</span>
         </div>
 
-        <div>
-            <a href="#anasayfa">Ana Sayfa</a>
+        <div class="links">
+            <a href="#home">Ana Sayfa</a>
             <a href="#kanal">Kanal</a>
             <a href="#iletisim">İletişim</a>
         </div>
@@ -360,72 +512,180 @@
     </nav>
 
 
+
     <!-- ANA SAYFA -->
 
-    <main class="hero" id="anasayfa">
+    <section class="hero" id="home">
 
-        <div class="badge">
-            🎬 YouTube Kanalı
-        </div>
-
-        <h1>
-            BERKEBET
-        </h1>
-
-        <p class="subtitle">
-            Eğlence, videolar ve daha fazlası.
-            Berkebet'in resmi internet sitesine hoş geldin.
-        </p>
+        <div class="hero-content">
 
 
-        <div class="buttons">
+            <!-- SOL -->
 
-            <!-- BURAYA KENDİ YOUTUBE LİNKİNİ KOYACAĞIZ -->
+            <div>
 
-            <a
-                class="youtube-button"
-                href="https://youtube.com"
-                target="_blank"
-            >
-                ▶ YouTube Kanalına Git
-            </a>
+                <div class="small-title">
+                    Official Website
+                </div>
 
-            <a
-                class="more-button"
-                href="#kanal"
-            >
-                Daha Fazla ↓
-            </a>
+                <h1>
+                    BERKEBET
+                </h1>
 
-        </div>
+                <p class="description">
+                    Berkebet'in resmi internet sitesine hoş geldin.
+                    Yeni videolar, içerikler ve kanal hakkında
+                    her şeyi burada bulabilirsin.
+                </p>
 
+                <div class="buttons">
 
-        <div class="stats">
+                    <a
+                        href="https://youtube.com"
+                        target="_blank"
+                        class="youtube-btn"
+                    >
+                        ▶ YouTube Kanalı
+                    </a>
 
-            <div class="stat">
-                <strong>BERKEBET</strong>
-                <span>YouTube</span>
+                    <a
+                        href="#kanal"
+                        class="about-btn"
+                    >
+                        Kanalı Keşfet →
+                    </a>
+
+                </div>
+
             </div>
 
-            <div class="stat">
-                <strong>∞</strong>
-                <span>Eğlence</span>
-            </div>
 
-            <div class="stat">
-                <strong>2026</strong>
-                <span>Yeni Başlangıç</span>
+
+            <!-- SAĞ KART -->
+
+            <div class="channel-card">
+
+                <div class="card-top">
+
+                    <div class="channel-icon">
+                        B
+                    </div>
+
+                    <div>
+
+                        <div class="channel-name">
+                            Berkebet
+                        </div>
+
+                        <div class="channel-label">
+                            Official YouTube Channel
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-info">
+
+                    <div class="info">
+
+                        <div class="info-number">
+                            YouTube
+                        </div>
+
+                        <div class="info-text">
+                            Platform
+                        </div>
+
+                    </div>
+
+
+                    <div class="info">
+
+                        <div class="info-number">
+                            2026
+                        </div>
+
+                        <div class="info-text">
+                            Since
+                        </div>
+
+                    </div>
+
+
+                    <div class="info">
+
+                        <div class="info-number">
+                            ∞
+                        </div>
+
+                        <div class="info-text">
+                            Content
+                        </div>
+
+                    </div>
+
+
+                    <div class="info">
+
+                        <div class="info-number">
+                            🔵
+                        </div>
+
+                        <div class="info-text">
+                            Online
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
-    </main>
+    </section>
 
 
-    <!-- ŞİMDİLİK BOŞ BÖLÜMLER -->
 
-    <section id="kanal"></section>
-    <section id="iletisim"></section>
+    <!-- KANAL -->
+
+    <section class="section" id="kanal">
+
+        <div class="section-container">
+
+            <h2 class="section-title">
+                Kanal
+            </h2>
+
+            <p class="section-description">
+                Berkebet içerikleri burada olacak.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- İLETİŞİM -->
+
+    <section class="section" id="iletisim">
+
+        <div class="section-container">
+
+            <h2 class="section-title">
+                İletişim
+            </h2>
+
+            <p class="section-description">
+                İletişim bilgileri yakında burada.
+            </p>
+
+        </div>
+
+    </section>
 
 
 </body>
