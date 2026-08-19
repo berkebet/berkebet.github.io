@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -6,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BerkeBet</title>
 
-<link rel="icon" type="image/jpeg" href="berkebet.jpg.jpeg">
+<link rel="icon" type="image/jpeg" href="logo.jpg.jpeg">
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -26,29 +26,73 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
-   INTRO
-========================= */
+/* =========================================================
+   CINEMATIC INTRO
+========================================================= */
 
 #intro {
     position: fixed;
     inset: 0;
     z-index: 99999;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
+    overflow: hidden;
+
     background:
         radial-gradient(
-            circle at center,
-            rgba(255,190,0,.18),
-            transparent 42%
+            circle at 50% 50%,
+            rgba(255,190,0,.14),
+            transparent 28%
         ),
-        #050402;
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,140,0,.06),
+            transparent 55%
+        ),
+        #030201;
 
     transition:
-        opacity 1s ease,
-        visibility 1s ease;
+        opacity 1.2s cubic-bezier(.76,0,.24,1),
+        visibility 1.2s;
+}
+
+/* Üst ve alt sinematik siyah barlar */
+
+#intro::before,
+#intro::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 14vh;
+
+    background: #020201;
+
+    z-index: 5;
+
+    transition:
+        transform 1.2s cubic-bezier(.76,0,.24,1);
+}
+
+#intro::before {
+    top: 0;
+}
+
+#intro::after {
+    bottom: 0;
+}
+
+/* Intro kapanırken sinema barları açılır */
+
+#intro.hide::before {
+    transform: translateY(-100%);
+}
+
+#intro.hide::after {
+    transform: translateY(100%);
 }
 
 #intro.hide {
@@ -57,26 +101,106 @@ body {
     pointer-events: none;
 }
 
-.intro-content {
-    text-align: center;
-    animation: introEnter 1.4s cubic-bezier(.16,1,.3,1) forwards;
+/* Ortadaki ışık */
+
+.intro-light {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,210,60,.20),
+            rgba(255,170,0,.08) 30%,
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    opacity: 0;
+
+    animation:
+        introLight 2.4s ease forwards;
+
+    pointer-events: none;
 }
 
+/* Hareket eden ışık çizgisi */
+
+.intro-scan {
+    position: absolute;
+
+    width: 0;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ffb300,
+            #ffe082,
+            #ffb300,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px #ffc107,
+        0 0 40px rgba(255,190,0,.7);
+
+    opacity: 0;
+
+    animation:
+        introScan 1.5s ease .4s forwards;
+
+    pointer-events: none;
+}
+
+/* Ana içerik */
+
+.intro-content {
+    position: relative;
+    z-index: 10;
+
+    text-align: center;
+
+    transform:
+        scale(.72)
+        translateY(35px);
+
+    opacity: 0;
+
+    filter: blur(16px);
+
+    animation:
+        cinematicEnter 1.5s cubic-bezier(.16,1,.3,1) .15s forwards;
+}
+
+/* BERKEBET */
+
 .intro-title {
+    position: relative;
+
     font-size: clamp(55px,11vw,130px);
+
     line-height: .9;
+
     font-weight: 950;
+
     letter-spacing: -7px;
 
     color: transparent;
 
     background:
         linear-gradient(
-            90deg,
-            #ff9f00,
+            100deg,
+            #ff8f00,
             #ffc107,
-            #ffe082,
-            #ffb300,
+            #fff0a6,
+            #ffc107,
             #ff9f00
         );
 
@@ -88,54 +212,173 @@ body {
     animation:
         introGradient 2.5s ease infinite,
         introGlow 1.4s ease-in-out infinite alternate;
+
+    text-shadow:
+        0 0 40px rgba(255,190,0,.25);
 }
+
+/* Başlığın üzerinden geçen parlaklık */
+
+.intro-title::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.8),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        titleShine 1.5s ease 1.2s forwards;
+
+    pointer-events: none;
+}
+
+/* ALT YAZI */
 
 .intro-subtitle {
     margin-top: 22px;
+
     color: #9b917e;
+
     font-size: 11px;
+
     font-weight: 800;
+
     letter-spacing: 5px;
+
     opacity: 0;
 
     animation:
-        introSubtitle .8s ease .7s forwards;
+        introSubtitle .8s ease .85s forwards;
 }
+
+/* Çizgi */
 
 .intro-line {
     width: 0;
     height: 2px;
+
     margin: 22px auto 0;
 
     background:
         linear-gradient(
             90deg,
+            transparent,
             #ff9f00,
-            #ffe04a
+            #ffe04a,
+            #ff9f00,
+            transparent
         );
 
     box-shadow:
-        0 0 15px #ffc107;
+        0 0 15px #ffc107,
+        0 0 30px rgba(255,190,0,.5);
 
     animation:
-        introLine 1s ease .5s forwards;
+        introLine 1s ease .7s forwards;
 }
 
-@keyframes introEnter {
+/* Intro giriş */
+
+@keyframes cinematicEnter {
+
     0% {
         opacity: 0;
-        transform: scale(.7) translateY(30px);
-        filter: blur(14px);
+
+        transform:
+            scale(.72)
+            translateY(35px);
+
+        filter: blur(16px);
+    }
+
+    60% {
+        opacity: 1;
+
+        filter: blur(0);
+
+        transform:
+            scale(1.04)
+            translateY(0);
     }
 
     100% {
         opacity: 1;
-        transform: scale(1) translateY(0);
+
+        transform:
+            scale(1)
+            translateY(0);
+
         filter: blur(0);
     }
 }
 
+/* Ortadaki ışık */
+
+@keyframes introLight {
+
+    0% {
+        opacity: 0;
+        transform: scale(.2);
+    }
+
+    35% {
+        opacity: 1;
+        transform: scale(.8);
+    }
+
+    70% {
+        opacity: .65;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: .25;
+        transform: scale(1.4);
+    }
+}
+
+/* Scan line */
+
+@keyframes introScan {
+
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        width: 80vw;
+        opacity: 1;
+    }
+
+    100% {
+        width: 100vw;
+        opacity: 0;
+    }
+}
+
+/* Gradient */
+
 @keyframes introGradient {
+
     0% {
         background-position: 0% 50%;
     }
@@ -149,7 +392,10 @@ body {
     }
 }
 
+/* Glow */
+
 @keyframes introGlow {
+
     from {
         text-shadow:
             0 0 15px rgba(255,190,0,.4),
@@ -159,11 +405,15 @@ body {
     to {
         text-shadow:
             0 0 25px rgba(255,210,60,.8),
-            0 0 65px rgba(255,180,0,.45);
+            0 0 65px rgba(255,180,0,.45),
+            0 0 110px rgba(255,160,0,.2);
     }
 }
 
+/* Subtitle */
+
 @keyframes introSubtitle {
+
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -175,7 +425,10 @@ body {
     }
 }
 
+/* Çizgi */
+
 @keyframes introLine {
+
     from {
         width: 0;
     }
@@ -185,14 +438,29 @@ body {
     }
 }
 
-/* =========================
+/* Parlak geçiş */
+
+@keyframes titleShine {
+
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+/* =========================================================
    BACKGROUND
-========================= */
+========================================================= */
 
 .background {
     position: fixed;
     inset: 0;
+
     z-index: -20;
+
     overflow: hidden;
 
     background:
@@ -216,58 +484,83 @@ body {
 
 .neon {
     position: absolute;
+
     border-radius: 50%;
+
     filter: blur(130px);
+
     pointer-events: none;
 }
 
 .neon.one {
     width: 550px;
     height: 550px;
+
     left: -200px;
     top: -180px;
+
     background: rgba(255,180,0,.35);
-    animation: moveOne 11s ease-in-out infinite alternate;
+
+    animation:
+        moveOne 11s ease-in-out infinite alternate;
 }
 
 .neon.two {
     width: 600px;
     height: 600px;
+
     right: -260px;
     top: 120px;
+
     background: rgba(255,210,30,.28);
-    animation: moveTwo 13s ease-in-out infinite alternate;
+
+    animation:
+        moveTwo 13s ease-in-out infinite alternate;
 }
 
 .neon.three {
     width: 500px;
     height: 500px;
+
     left: 35%;
     top: 55%;
+
     background: rgba(255,170,0,.16);
-    animation: moveThree 12s ease-in-out infinite alternate;
+
+    animation:
+        moveThree 12s ease-in-out infinite alternate;
 }
 
 @keyframes moveOne {
+
     to {
-        transform: translate(170px,120px) scale(1.2);
+        transform:
+            translate(170px,120px)
+            scale(1.2);
     }
 }
 
 @keyframes moveTwo {
+
     to {
-        transform: translate(-140px,140px) scale(1.15);
+        transform:
+            translate(-140px,140px)
+            scale(1.15);
     }
 }
 
 @keyframes moveThree {
+
     to {
-        transform: translate(130px,-100px) scale(1.2);
+        transform:
+            translate(130px,-100px)
+            scale(1.2);
     }
 }
 
 .grid {
     position: absolute;
+
     inset: -50%;
 
     background-image:
@@ -292,6 +585,7 @@ body {
 }
 
 @keyframes gridMove {
+
     to {
         transform:
             perspective(700px)
@@ -300,23 +594,28 @@ body {
     }
 }
 
-/* =========================
+/* =========================================================
    NAV
-========================= */
+========================================================= */
 
 nav {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
     height: 74px;
+
     padding: 0 7%;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    background: rgba(7,5,2,.72);
+    background:
+        rgba(7,5,2,.72);
+
     backdrop-filter: blur(22px);
 
     border-bottom:
@@ -328,10 +627,15 @@ nav {
 
 .logo {
     color: white;
+
     text-decoration: none;
+
     font-size: 21px;
+
     font-weight: 900;
+
     letter-spacing: 2px;
+
     transition: .3s;
 }
 
@@ -352,9 +656,13 @@ nav {
 
 .links a {
     position: relative;
+
     color: #9d9588;
+
     text-decoration: none;
+
     font-size: 14px;
+
     transition: .3s;
 }
 
@@ -364,13 +672,17 @@ nav {
 
 .links a::after {
     content: "";
+
     position: absolute;
+
     left: 50%;
     bottom: -9px;
+
     width: 0;
     height: 2px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     background:
         linear-gradient(
@@ -389,9 +701,9 @@ nav {
     width: 100%;
 }
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
     min-height: 100vh;
@@ -400,7 +712,8 @@ nav {
     align-items: center;
     justify-content: center;
 
-    padding: 120px 20px 80px;
+    padding:
+        120px 20px 80px;
 }
 
 .hero-content {
@@ -408,21 +721,29 @@ nav {
     max-width: 1100px;
 
     display: grid;
-    grid-template-columns: 1fr 390px;
+
+    grid-template-columns:
+        1fr 390px;
 
     align-items: center;
+
     gap: 90px;
 }
 
 .small-title {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     color: #9b927f;
+
     font-size: 12px;
+
     text-transform: uppercase;
+
     letter-spacing: 4px;
+
     margin-bottom: 24px;
 }
 
@@ -444,10 +765,15 @@ nav {
 }
 
 h1 {
-    font-size: clamp(65px,9vw,120px);
+    font-size:
+        clamp(65px,9vw,120px);
+
     line-height: .82;
+
     letter-spacing: -7px;
+
     font-weight: 950;
+
     margin-bottom: 35px;
 
     color: transparent;
@@ -472,6 +798,7 @@ h1 {
 }
 
 @keyframes gradientMove {
+
     0% {
         background-position: 0% 50%;
     }
@@ -489,17 +816,23 @@ h1 {
     max-width: 540px;
 
     color: #a59d91;
+
     font-size: 16px;
+
     line-height: 1.85;
+
     margin-bottom: 35px;
 }
 
 .yapistir {
     display: block;
+
     margin-top: 15px;
 
     font-size: 40px;
+
     font-weight: 950;
+
     letter-spacing: 4px;
 
     color: #ffd000;
@@ -514,6 +847,7 @@ h1 {
 }
 
 @keyframes pulse {
+
     to {
         text-shadow:
             0 0 15px #ffe66a,
@@ -522,9 +856,9 @@ h1 {
     }
 }
 
-/* =========================
+/* =========================================================
    BUTTON
-========================= */
+========================================================= */
 
 .buttons {
     display: flex;
@@ -534,6 +868,7 @@ h1 {
 .youtube-btn,
 .about-btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -542,7 +877,9 @@ h1 {
     border-radius: 9px;
 
     text-decoration: none;
+
     font-size: 13px;
+
     font-weight: 800;
 
     transition: .35s;
@@ -563,11 +900,13 @@ h1 {
         rgba(255,179,0,.3);
 
     border: none;
+
     cursor: pointer;
 }
 
 .youtube-btn:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
 
     box-shadow:
         0 15px 45px
@@ -595,9 +934,9 @@ h1 {
         rgba(255,190,0,.08);
 }
 
-/* =========================
+/* =========================================================
    CHANNEL CARD
-========================= */
+========================================================= */
 
 .channel-card {
     padding: 30px;
@@ -625,7 +964,8 @@ h1 {
 }
 
 .channel-card:hover {
-    transform: translateY(-8px);
+    transform:
+        translateY(-8px);
 
     border-color:
         rgba(255,205,80,.35);
@@ -634,6 +974,7 @@ h1 {
 .card-top {
     display: flex;
     align-items: center;
+
     gap: 15px;
 
     padding-bottom: 25px;
@@ -650,6 +991,7 @@ h1 {
     flex-shrink: 0;
 
     border-radius: 50%;
+
     overflow: hidden;
 
     border:
@@ -664,25 +1006,33 @@ h1 {
 .channel-icon img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
 }
 
 .channel-name {
     font-size: 19px;
+
     font-weight: 900;
+
     margin-bottom: 5px;
 }
 
 .channel-handle {
     color: #756d61;
+
     font-size: 12px;
+
     margin-bottom: 7px;
 }
 
 .verified {
     color: #ffc107;
+
     font-size: 11px;
+
     font-weight: 700;
 }
 
@@ -690,7 +1040,10 @@ h1 {
     padding-top: 22px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap: 10px;
 }
 
@@ -707,6 +1060,7 @@ h1 {
         rgba(255,255,255,.055);
 
     transition: .3s;
+
     cursor: pointer;
 }
 
@@ -723,29 +1077,36 @@ h1 {
 
 .info-icon {
     font-size: 17px;
+
     margin-bottom: 9px;
 }
 
 .info-title {
     color: #f4efe5;
+
     font-size: 13px;
+
     font-weight: 800;
+
     margin-bottom: 4px;
 }
 
 .info-text {
     color: #756d61;
+
     font-size: 11px;
 }
 
 .card-button {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     width: 100%;
 
     margin-top: 18px;
+
     padding: 14px;
 
     border-radius: 9px;
@@ -762,6 +1123,7 @@ h1 {
     text-decoration: none;
 
     font-size: 13px;
+
     font-weight: 800;
 
     transition: .35s;
@@ -776,12 +1138,13 @@ h1 {
         );
 
     color: #171000;
+
     border-color: transparent;
 }
 
-/* =========================
+/* =========================================================
    SECTIONS
-========================= */
+========================================================= */
 
 .section {
     position: relative;
@@ -795,29 +1158,38 @@ h1 {
 
 .section-container {
     max-width: 1100px;
+
     margin: auto;
 }
 
 .section-title {
     font-size: 44px;
+
     letter-spacing: -2px;
+
     margin-bottom: 12px;
 }
 
 .section-description {
     color: #756d61;
+
     font-size: 15px;
+
     line-height: 1.7;
 }
 
-/* =========================
+/* =========================================================
    SCROLL ANIMATION
-========================= */
+========================================================= */
 
 .scroll-animate {
     opacity: 0;
-    transform: translateY(55px);
+
+    transform:
+        translateY(55px);
+
     filter: blur(4px);
+
     transition:
         opacity .9s cubic-bezier(.16,1,.3,1),
         transform .9s cubic-bezier(.16,1,.3,1),
@@ -826,7 +1198,10 @@ h1 {
 
 .scroll-animate.show {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
+
     filter: blur(0);
 }
 
@@ -847,17 +1222,21 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .scroll-animate {
         opacity: 1;
+
         transform: none;
+
         filter: none;
+
         transition: none;
     }
 }
 
-/* =========================
+/* =========================================================
    VIDEOS
-========================= */
+========================================================= */
 
 .video-heading {
     margin-bottom: 45px;
@@ -865,7 +1244,10 @@ h1 {
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 20px;
 }
 
@@ -880,16 +1262,19 @@ h1 {
         rgba(255,255,255,.065);
 
     border-radius: 16px;
+
     overflow: hidden;
 
     text-decoration: none;
+
     color: white;
 
     transition: .4s;
 }
 
 .video-card:hover {
-    transform: translateY(-9px);
+    transform:
+        translateY(-9px);
 
     border-color:
         rgba(255,200,50,.35);
@@ -901,27 +1286,35 @@ h1 {
 
 .thumbnail {
     position: relative;
+
     width: 100%;
+
     aspect-ratio: 16 / 9;
+
     overflow: hidden;
+
     background: #050402;
 }
 
 .thumbnail img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
 
     transition: .5s;
 }
 
 .video-card:hover .thumbnail img {
-    transform: scale(1.07);
+    transform:
+        scale(1.07);
 }
 
 .play-button {
     position: absolute;
+
     top: 50%;
     left: 50%;
 
@@ -934,6 +1327,7 @@ h1 {
     border-radius: 50%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -941,6 +1335,7 @@ h1 {
         rgba(255,190,0,.95);
 
     color: #171000;
+
     font-size: 20px;
 
     opacity: 0;
@@ -962,20 +1357,27 @@ h1 {
 
 .video-label {
     color: #ffc107;
+
     font-size: 10px;
+
     font-weight: 900;
+
     letter-spacing: 2px;
+
     margin-bottom: 8px;
 }
 
 .video-content h3 {
     font-size: 17px;
+
     margin-bottom: 15px;
 }
 
 .watch {
     color: #71695d;
+
     font-size: 12px;
+
     font-weight: 700;
 }
 
@@ -987,6 +1389,7 @@ h1 {
     display: inline-flex;
 
     margin-top: 35px;
+
     padding: 14px 22px;
 
     border-radius: 9px;
@@ -1003,6 +1406,7 @@ h1 {
     text-decoration: none;
 
     font-size: 13px;
+
     font-weight: 800;
 
     transition: .35s;
@@ -1022,18 +1426,21 @@ h1 {
         translateY(-4px);
 }
 
-/* =========================
+/* =========================================================
    INSTAGRAM
-========================= */
+========================================================= */
 
 .instagram-card {
     display: flex;
+
     align-items: center;
 
     width: 100%;
+
     max-width: 600px;
 
     margin-top: 35px;
+
     padding: 21px 23px;
 
     background:
@@ -1046,13 +1453,15 @@ h1 {
     border-radius: 16px;
 
     text-decoration: none;
+
     color: white;
 
     transition: .4s;
 }
 
 .instagram-card:hover {
-    transform: translateY(-6px);
+    transform:
+        translateY(-6px);
 
     border-color:
         rgba(255,205,80,.25);
@@ -1067,6 +1476,7 @@ h1 {
     height: 48px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1086,42 +1496,54 @@ h1 {
 .instagram-icon svg {
     width: 26px;
     height: 26px;
+
     color: #171000;
 }
 
 .instagram-info {
     margin-left: 16px;
+
     flex: 1;
 }
 
 .instagram-label {
     color: #766d60;
+
     font-size: 10px;
+
     font-weight: 900;
+
     letter-spacing: 2px;
+
     margin-bottom: 5px;
 }
 
 .instagram-name {
     color: #f5f0e7;
+
     font-size: 17px;
+
     font-weight: 800;
 }
 
 .instagram-arrow {
     color: #71695d;
+
     font-size: 22px;
+
     transition: .3s;
 }
 
 .instagram-card:hover .instagram-arrow {
     color: #ffd000;
-    transform: translateX(6px);
+
+    transform:
+        translateX(6px);
 }
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
     padding: 45px 7%;
@@ -1133,11 +1555,13 @@ footer {
     text-align: center;
 
     color: #514b42;
+
     font-size: 12px;
 }
 
 .developer {
     margin-top: 8px;
+
     color: #8f8679;
 }
 
@@ -1151,9 +1575,9 @@ footer {
         rgba(255,193,7,.5);
 }
 
-/* =========================
+/* =========================================================
    MOUSE GLOW
-========================= */
+========================================================= */
 
 .mouse-glow {
     position: fixed;
@@ -1164,6 +1588,7 @@ footer {
     border-radius: 50%;
 
     pointer-events: none;
+
     z-index: -5;
 
     background:
@@ -1177,20 +1602,23 @@ footer {
         translate(-50%,-50%);
 }
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width:900px) {
 
     .hero-content {
         grid-template-columns: 1fr;
+
         gap: 55px;
+
         max-width: 620px;
     }
 
     .video-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 }
 
@@ -1206,11 +1634,17 @@ footer {
 
     h1 {
         font-size: 58px;
+
         letter-spacing: -4px;
     }
 
     .intro-title {
         letter-spacing: -4px;
+    }
+
+    .intro-subtitle {
+        font-size: 9px;
+        letter-spacing: 3px;
     }
 
     .yapistir {
@@ -1234,44 +1668,86 @@ footer {
         font-size: 34px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
+<!-- =========================================================
+     CINEMATIC INTRO
+========================================================= -->
+
 <div id="intro">
+
+    <div class="intro-light"></div>
+
+    <div class="intro-scan"></div>
+
     <div class="intro-content">
-        <div class="intro-title">BERKEBET</div>
-        <div class="intro-subtitle">OFFICIAL WEBSITE</div>
+
+        <div class="intro-title">
+            BERKEBET
+        </div>
+
+        <div class="intro-subtitle">
+            OFFICIAL WEBSITE
+        </div>
+
         <div class="intro-line"></div>
+
     </div>
+
 </div>
 
-<!-- BACKGROUND -->
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
+
 <div class="background">
+
     <div class="neon one"></div>
     <div class="neon two"></div>
     <div class="neon three"></div>
+
     <div class="grid"></div>
+
 </div>
 
 <div class="mouse-glow" id="mouseGlow"></div>
 
-<!-- NAVBAR -->
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
 <nav>
+
     <a href="#home" class="logo">
         BERKE<span>BET</span>
     </a>
 
     <div class="links">
-        <a href="#home">Ana Sayfa</a>
-        <a href="#kanal">Kanal</a>
-        <a href="#iletisim">İletişim</a>
+
+        <a href="#home">
+            Ana Sayfa
+        </a>
+
+        <a href="#kanal">
+            Kanal
+        </a>
+
+        <a href="#iletisim">
+            İletişim
+        </a>
+
     </div>
+
 </nav>
 
-<!-- HERO -->
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <section class="hero" id="home">
 
     <div class="hero-content">
@@ -1282,9 +1758,12 @@ footer {
                 OFFICIAL WEBSITE
             </div>
 
-            <h1>BERKEBET</h1>
+            <h1>
+                BERKEBET
+            </h1>
 
             <p class="description">
+
                 Berkebet'in resmi internet sitesine hoş geldin.
 
                 Yeni videolar, içerikler ve kanal hakkında
@@ -1297,6 +1776,7 @@ footer {
                 <span class="yapistir">
                     YAPIŞTIR!
                 </span>
+
             </p>
 
             <div class="buttons">
@@ -1321,15 +1801,18 @@ footer {
         </div>
 
         <!-- CHANNEL CARD -->
+
         <div class="channel-card">
 
             <div class="card-top">
 
                 <div class="channel-icon">
+
                     <img
                         src="berkebet.jpg.jpeg"
                         alt="BerkeBet"
                     >
+
                 </div>
 
                 <div>
@@ -1356,7 +1839,10 @@ footer {
                     class="info"
                     onclick="goToVideos()"
                 >
-                    <div class="info-icon">🎥</div>
+
+                    <div class="info-icon">
+                        🎥
+                    </div>
 
                     <div class="info-title">
                         İçerik
@@ -1365,13 +1851,17 @@ footer {
                     <div class="info-text">
                         YouTube videoları
                     </div>
+
                 </div>
 
                 <div
                     class="info"
                     onclick="openChannel()"
                 >
-                    <div class="info-icon">▶️</div>
+
+                    <div class="info-icon">
+                        ▶️
+                    </div>
 
                     <div class="info-title">
                         YouTube
@@ -1380,11 +1870,14 @@ footer {
                     <div class="info-text">
                         Kanalı ziyaret et
                     </div>
+
                 </div>
 
                 <div class="info">
 
-                    <div class="info-icon">🟡</div>
+                    <div class="info-icon">
+                        🟡
+                    </div>
 
                     <div class="info-title">
                         Durum
@@ -1401,7 +1894,9 @@ footer {
                     onclick="openChannel()"
                 >
 
-                    <div class="info-icon">👑</div>
+                    <div class="info-icon">
+                        👑
+                    </div>
 
                     <div class="info-title">
                         Kanal
@@ -1426,9 +1921,13 @@ footer {
         </div>
 
     </div>
+
 </section>
 
-<!-- VIDEOS -->
+<!-- =========================================================
+     VIDEOS
+========================================================= -->
+
 <section class="section" id="kanal">
 
     <div class="section-container">
@@ -1456,6 +1955,7 @@ footer {
                 target="_blank"
                 class="video-card scroll-animate scroll-delay-1"
             >
+
                 <div class="thumbnail">
 
                     <img
@@ -1484,6 +1984,7 @@ footer {
                     </span>
 
                 </div>
+
             </a>
 
             <a
@@ -1491,6 +1992,7 @@ footer {
                 target="_blank"
                 class="video-card scroll-animate scroll-delay-2"
             >
+
                 <div class="thumbnail">
 
                     <img
@@ -1519,6 +2021,7 @@ footer {
                     </span>
 
                 </div>
+
             </a>
 
             <a
@@ -1526,6 +2029,7 @@ footer {
                 target="_blank"
                 class="video-card scroll-animate scroll-delay-3"
             >
+
                 <div class="thumbnail">
 
                     <img
@@ -1554,6 +2058,7 @@ footer {
                     </span>
 
                 </div>
+
             </a>
 
             <a
@@ -1561,6 +2066,7 @@ footer {
                 target="_blank"
                 class="video-card scroll-animate scroll-delay-1"
             >
+
                 <div class="thumbnail">
 
                     <img
@@ -1589,6 +2095,7 @@ footer {
                     </span>
 
                 </div>
+
             </a>
 
             <a
@@ -1596,6 +2103,7 @@ footer {
                 target="_blank"
                 class="video-card scroll-animate scroll-delay-2"
             >
+
                 <div class="thumbnail">
 
                     <img
@@ -1624,6 +2132,7 @@ footer {
                     </span>
 
                 </div>
+
             </a>
 
         </div>
@@ -1637,9 +2146,13 @@ footer {
         </a>
 
     </div>
+
 </section>
 
-<!-- INSTAGRAM -->
+<!-- =========================================================
+     INSTAGRAM
+========================================================= -->
+
 <section class="section" id="iletisim">
 
     <div class="section-container">
@@ -1717,54 +2230,87 @@ footer {
         </a>
 
     </div>
+
 </section>
 
-<!-- FOOTER -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
 
     © 2026 BerkeBet — Tüm hakları saklıdır.
 
     <div class="developer">
+
         SITE DEVELOPED BY
-        <span>VesVese</span>
+
+        <span>
+            VesVese
+        </span>
+
     </div>
 
 </footer>
 
 <script>
 
-/* =========================
-   INTRO
-   İlk girişte gösterilir.
-   F5'te tekrar gösterilmez.
-========================= */
+/* =========================================================
+   CINEMATIC INTRO
+========================================================= */
 
 window.addEventListener("load", function () {
 
-    const intro = document.getElementById("intro");
+    const intro =
+        document.getElementById("intro");
 
-    if (sessionStorage.getItem("introShown") === "true") {
+    /*
+        Daha önce aynı oturumda gösterildiyse
+        intro tekrar açılmaz.
+    */
+
+    if (
+        sessionStorage.getItem("introShown")
+        === "true"
+    ) {
+
         intro.remove();
+
         return;
     }
 
-    sessionStorage.setItem("introShown", "true");
+    sessionStorage.setItem(
+        "introShown",
+        "true"
+    );
+
+    /*
+        Intro yaklaşık 3.4 saniye ekranda kalır.
+    */
 
     setTimeout(function () {
 
         intro.classList.add("hide");
 
-        setTimeout(function () {
-            intro.remove();
-        }, 1000);
+        /*
+            Animasyon tamamen bittikten sonra
+            DOM'dan kaldırıyoruz.
+        */
 
-    }, 2300);
+        setTimeout(function () {
+
+            intro.remove();
+
+        }, 1300);
+
+    }, 3400);
 
 });
 
-/* =========================
+
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 function goToVideos() {
 
@@ -1776,6 +2322,7 @@ function goToVideos() {
 
 }
 
+
 function openChannel() {
 
     window.open(
@@ -1785,12 +2332,15 @@ function openChannel() {
 
 }
 
-/* =========================
+
+/* =========================================================
    MOUSE GLOW
-========================= */
+========================================================= */
 
 const mouseGlow =
-    document.getElementById("mouseGlow");
+    document.getElementById(
+        "mouseGlow"
+    );
 
 document.addEventListener(
     "mousemove",
@@ -1805,12 +2355,15 @@ document.addEventListener(
     }
 );
 
-/* =========================
+
+/* =========================================================
    SMOOTH LINKS
-========================= */
+========================================================= */
 
 document
-    .querySelectorAll('a[href^="#"]')
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
     .forEach(function(link) {
 
         link.addEventListener(
@@ -1819,7 +2372,9 @@ document
 
                 const target =
                     document.querySelector(
-                        this.getAttribute("href")
+                        this.getAttribute(
+                            "href"
+                        )
                     );
 
                 if (!target) return;
@@ -1829,13 +2384,21 @@ document
                 const navbarHeight = 74;
 
                 const position =
-                    target.getBoundingClientRect().top +
-                    window.scrollY -
+                    target
+                        .getBoundingClientRect()
+                        .top
+                    +
+                    window.scrollY
+                    -
                     navbarHeight;
 
                 window.scrollTo({
+
                     top: position,
-                    behavior: "smooth"
+
+                    behavior:
+                        "smooth"
+
                 });
 
             }
@@ -1843,44 +2406,65 @@ document
 
     });
 
-/* =========================
+
+/* =========================================================
    SCROLL ANIMATIONS
-========================= */
+========================================================= */
 
 const scrollElements =
-    document.querySelectorAll(".scroll-animate");
+    document.querySelectorAll(
+        ".scroll-animate"
+    );
 
 const scrollObserver =
     new IntersectionObserver(
+
         function(entries, observer) {
 
-            entries.forEach(function(entry) {
+            entries.forEach(
+                function(entry) {
 
-                if (entry.isIntersecting) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                    entry.target.classList.add("show");
+                        entry.target
+                            .classList
+                            .add("show");
 
-                    observer.unobserve(entry.target);
+                        observer
+                            .unobserve(
+                                entry.target
+                            );
+
+                    }
 
                 }
-
-            });
+            );
 
         },
+
         {
             threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
+
+            rootMargin:
+                "0px 0px -50px 0px"
         }
+
     );
 
-scrollElements.forEach(function(element) {
 
-    scrollObserver.observe(element);
+scrollElements.forEach(
+    function(element) {
 
-});
+        scrollObserver.observe(
+            element
+        );
+
+    }
+);
 
 </script>
 
 </body>
 </html>
-```
