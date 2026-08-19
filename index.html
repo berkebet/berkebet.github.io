@@ -497,7 +497,7 @@ body {
     top: 55%;
 
     background: rgba(255,170,0,.16);
-
+<div class="neon one"></div>
     animation:
         moveThree 12s ease-in-out infinite alternate;
 }
@@ -1998,6 +1998,250 @@ footer {
     }
 }
 
+/* =========================================================
+   YENİ BACKGROUND
+========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -20;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,170,0,.18), transparent 35%),
+        radial-gradient(circle at 80% 30%, rgba(255,210,40,.13), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(255,120,0,.15), transparent 40%),
+        #030201;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 20%,
+            rgba(0,0,0,.25) 70%,
+            rgba(0,0,0,.75) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* IŞIK BULUTLARI */
+
+.neon {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+}
+
+.neon.one {
+    width: 650px;
+    height: 650px;
+
+    left: -250px;
+    top: -200px;
+
+    background: rgba(255,170,0,.30);
+
+    animation: neonOne 12s ease-in-out infinite alternate;
+}
+
+.neon.two {
+    width: 700px;
+    height: 700px;
+
+    right: -300px;
+    top: 10%;
+
+    background: rgba(255,210,30,.22);
+
+    animation: neonTwo 15s ease-in-out infinite alternate;
+}
+
+.neon.three {
+    width: 600px;
+    height: 600px;
+
+    left: 35%;
+    bottom: -350px;
+
+    background: rgba(255,140,0,.18);
+
+    animation: neonThree 13s ease-in-out infinite alternate;
+}
+
+@keyframes neonOne {
+    from {
+        transform: translate(0,0) scale(.9);
+    }
+
+    to {
+        transform: translate(220px,150px) scale(1.2);
+    }
+}
+
+@keyframes neonTwo {
+    from {
+        transform: translate(0,0) scale(1);
+    }
+
+    to {
+        transform: translate(-180px,160px) scale(1.2);
+    }
+}
+
+@keyframes neonThree {
+    from {
+        transform: translate(0,0) scale(.9);
+    }
+
+    to {
+        transform: translate(120px,-150px) scale(1.2);
+    }
+}
+
+
+/* PARÇACIKLAR */
+
+.particles {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,210,80,.6) 1px,
+            transparent 1.5px
+        );
+
+    background-size: 130px 130px;
+
+    opacity: .18;
+
+    animation: particlesMove 25s linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes particlesMove {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(130px);
+    }
+}
+
+
+/* IŞIK HALKALARI */
+
+.light-ring {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,193,7,.08);
+
+    box-shadow:
+        0 0 80px rgba(255,180,0,.04),
+        inset 0 0 80px rgba(255,180,0,.03);
+
+    pointer-events: none;
+
+    animation: ringMove 18s linear infinite;
+}
+
+.light-ring:nth-child(4) {
+    left: 10%;
+    top: 20%;
+}
+
+.light-ring:nth-child(5) {
+    right: 5%;
+    bottom: 5%;
+
+    width: 350px;
+    height: 350px;
+
+    animation-direction: reverse;
+}
+
+@keyframes ringMove {
+    from {
+        transform: rotate(0deg) translateX(0);
+    }
+
+    50% {
+        transform: rotate(180deg) translateX(80px);
+    }
+
+    to {
+        transform: rotate(360deg) translateX(0);
+    }
+}
+
+
+/* IŞIK ŞERİTLERİ */
+
+.beam {
+    position: absolute;
+
+    width: 900px;
+    height: 180px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,190,0,.06),
+            transparent
+        );
+
+    filter: blur(35px);
+
+    transform: rotate(-25deg);
+
+    pointer-events: none;
+
+    animation: beamMove 16s ease-in-out infinite alternate;
+}
+
+.beam:nth-child(7) {
+    top: 20%;
+    left: -300px;
+}
+
+.beam:nth-child(8) {
+    bottom: 15%;
+    right: -350px;
+
+    transform: rotate(25deg);
+}
+
+@keyframes beamMove {
+    from {
+        opacity: .2;
+        transform: translateX(-100px) rotate(-25deg);
+    }
+
+    to {
+        opacity: .7;
+        transform: translateX(350px) rotate(-25deg);
+    }
+}
+
+
 </style>
 </head>
 
@@ -2082,12 +2326,16 @@ footer {
 <div class="background">
 
     <div class="neon one"></div>
-
     <div class="neon two"></div>
-
     <div class="neon three"></div>
 
-    <div class="grid"></div>
+    <div class="light-ring"></div>
+    <div class="light-ring"></div>
+
+    <div class="particles"></div>
+
+    <div class="beam"></div>
+    <div class="beam"></div>
 
 </div>
 
