@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>BerkeBet</title>
-
 <link rel="icon" href="logo.jpeg.jpeg">
 
 <style>
-
-/* =========================
-   TEMEL
-========================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -27,7 +20,7 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     background: #050208;
     color: white;
     overflow-x: hidden;
@@ -46,9 +39,9 @@ body {
     background:
         radial-gradient(
             ellipse at 50% 0%,
-            #25083d 0%,
-            #10051b 38%,
-            #06020a 72%,
+            #21083b 0%,
+            #0c0415 40%,
+            #050208 75%,
             #020103 100%
         );
 }
@@ -65,7 +58,7 @@ body {
     height: 550px;
     left: -180px;
     top: -180px;
-    background: rgba(164, 35, 255, .45);
+    background: rgba(164,35,255,.45);
     animation: move1 10s ease-in-out infinite alternate;
 }
 
@@ -74,7 +67,7 @@ body {
     height: 600px;
     right: -250px;
     top: 100px;
-    background: rgba(99, 25, 255, .38);
+    background: rgba(99,25,255,.38);
     animation: move2 12s ease-in-out infinite alternate;
 }
 
@@ -83,44 +76,29 @@ body {
     height: 500px;
     left: 35%;
     top: 40%;
-    background: rgba(221, 40, 255, .20);
+    background: rgba(221,40,255,.20);
     animation: move3 11s ease-in-out infinite alternate;
 }
 
 @keyframes move1 {
-    to {
-        transform: translate(160px, 120px) scale(1.2);
-    }
+    to { transform: translate(160px,120px) scale(1.2); }
 }
 
 @keyframes move2 {
-    to {
-        transform: translate(-130px, 140px) scale(1.15);
-    }
+    to { transform: translate(-130px,140px) scale(1.15); }
 }
 
 @keyframes move3 {
-    to {
-        transform: translate(120px, -100px) scale(1.2);
-    }
+    to { transform: translate(120px,-100px) scale(1.2); }
 }
-
-/* GRID */
 
 .grid {
     position: absolute;
     inset: -50%;
 
     background-image:
-        linear-gradient(
-            rgba(190, 60, 255, .07) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(190, 60, 255, .07) 1px,
-            transparent 1px
-        );
+        linear-gradient(rgba(190,60,255,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(190,60,255,.07) 1px,transparent 1px);
 
     background-size: 65px 65px;
 
@@ -158,13 +136,10 @@ nav {
     align-items: center;
     justify-content: space-between;
 
-    background: rgba(7, 2, 12, .68);
-
+    background: rgba(7,2,12,.68);
     backdrop-filter: blur(22px);
 
-    border-bottom:
-        1px solid
-        rgba(213, 111, 255, .12);
+    border-bottom: 1px solid rgba(213,111,255,.12);
 
     z-index: 100;
 }
@@ -175,7 +150,6 @@ nav {
 
     font-size: 21px;
     font-weight: 900;
-
     letter-spacing: 2px;
 
     transition: .3s;
@@ -188,7 +162,7 @@ nav {
 .logo:hover {
     text-shadow:
         0 0 15px #c34cff,
-        0 0 35px rgba(195, 76, 255, .5);
+        0 0 35px rgba(195,76,255,.5);
 }
 
 .links {
@@ -200,11 +174,9 @@ nav {
     position: relative;
 
     color: #958ba2;
-
     text-decoration: none;
 
     font-size: 14px;
-
     transition: .3s;
 }
 
@@ -225,15 +197,9 @@ nav {
 
     transform: translateX(-50%);
 
-    background:
-        linear-gradient(
-            90deg,
-            #8b35ff,
-            #e85cff
-        );
+    background: linear-gradient(90deg,#8b35ff,#e85cff);
 
-    box-shadow:
-        0 0 10px #c341ff;
+    box-shadow: 0 0 10px #c341ff;
 
     transition: .3s;
 }
@@ -261,11 +227,9 @@ nav {
     max-width: 1100px;
 
     display: grid;
-
     grid-template-columns: 1fr 390px;
 
     align-items: center;
-
     gap: 90px;
 }
 
@@ -277,9 +241,7 @@ nav {
     color: #988ba7;
 
     font-size: 12px;
-
     text-transform: uppercase;
-
     letter-spacing: 4px;
 
     margin-bottom: 24px;
@@ -291,28 +253,16 @@ nav {
     width: 32px;
     height: 2px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #9a32ff,
-            #e45cff
-        );
+    background: linear-gradient(90deg,#9a32ff,#e45cff);
 
-    box-shadow:
-        0 0 12px #c23fff;
+    box-shadow: 0 0 12px #c23fff;
 }
 
-/* =========================
-   BÜYÜK BERKEBET
-========================= */
-
 h1 {
-    font-size: clamp(65px, 9vw, 120px);
+    font-size: clamp(65px,9vw,120px);
 
     line-height: .82;
-
     letter-spacing: -7px;
-
     font-weight: 950;
 
     margin-bottom: 35px;
@@ -320,42 +270,27 @@ h1 {
     background:
         linear-gradient(
             90deg,
-            #8f32ff,
-            #c83cff,
-            #ff62e8,
-            #9e45ff,
-            #8f32ff
+            #8c35ff,
+            #c84dff,
+            #f17cff,
+            #a13dff,
+            #8c35ff
         );
 
-    background-size: 300% 100%;
+    background-size: 300% auto;
 
     -webkit-background-clip: text;
     background-clip: text;
 
     color: transparent;
 
-    animation: titleGradient 6s ease-in-out infinite;
+    animation: titleRGB 6s linear infinite;
 }
 
-@keyframes titleGradient {
-
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-
+@keyframes titleRGB {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
 }
-
-/* =========================
-   AÇIKLAMA
-========================= */
 
 .description {
     max-width: 540px;
@@ -363,7 +298,6 @@ h1 {
     color: #a196ad;
 
     font-size: 16px;
-
     line-height: 1.85;
 
     margin-bottom: 35px;
@@ -375,7 +309,6 @@ h1 {
     margin-top: 15px;
 
     font-size: 40px;
-
     font-weight: 950;
 
     letter-spacing: 4px;
@@ -384,21 +317,19 @@ h1 {
 
     text-shadow:
         0 0 10px #d54cff,
-        0 0 30px rgba(179, 50, 255, .7),
-        0 0 60px rgba(179, 50, 255, .3);
+        0 0 30px rgba(179,50,255,.7),
+        0 0 60px rgba(179,50,255,.3);
 
     animation: pulse 2s ease-in-out infinite alternate;
 }
 
 @keyframes pulse {
-
     to {
         text-shadow:
             0 0 15px #e66aff,
-            0 0 40px rgba(179, 50, 255, .8),
-            0 0 75px rgba(179, 50, 255, .4);
+            0 0 40px rgba(179,50,255,.8),
+            0 0 75px rgba(179,50,255,.4);
     }
-
 }
 
 /* =========================
@@ -412,7 +343,6 @@ h1 {
 
 .youtube-btn,
 .about-btn {
-
     display: inline-flex;
 
     align-items: center;
@@ -431,50 +361,36 @@ h1 {
 }
 
 .youtube-btn {
-
     color: white;
 
     background:
-        linear-gradient(
-            135deg,
-            #9b31ff,
-            #d34cff
-        );
+        linear-gradient(135deg,#9b31ff,#d34cff);
 
     box-shadow:
-        0 10px 35px
-        rgba(173, 42, 255, .3);
+        0 10px 35px rgba(173,42,255,.3);
 }
 
 .youtube-btn:hover {
-
     transform: translateY(-5px);
 
     box-shadow:
-        0 15px 45px
-        rgba(173, 42, 255, .5);
+        0 15px 45px rgba(173,42,255,.5);
 }
 
 .about-btn {
-
     color: #b6aabd;
 
-    background:
-        rgba(255,255,255,.025);
+    background: rgba(255,255,255,.025);
 
-    border:
-        1px solid
-        rgba(221,146,255,.1);
+    border: 1px solid rgba(221,146,255,.1);
 }
 
 .about-btn:hover {
-
     color: white;
 
     transform: translateY(-5px);
 
-    background:
-        rgba(190,60,255,.08);
+    background: rgba(190,60,255,.08);
 }
 
 /* =========================
@@ -482,7 +398,6 @@ h1 {
 ========================= */
 
 .channel-card {
-
     padding: 30px;
 
     background:
@@ -492,9 +407,7 @@ h1 {
             rgba(7,4,11,.92)
         );
 
-    border:
-        1px solid
-        rgba(221,124,255,.13);
+    border: 1px solid rgba(221,124,255,.13);
 
     border-radius: 22px;
 
@@ -508,11 +421,9 @@ h1 {
 }
 
 .channel-card:hover {
-
     transform: translateY(-8px);
 
-    border-color:
-        rgba(215,103,255,.35);
+    border-color: rgba(215,103,255,.35);
 
     box-shadow:
         0 45px 110px rgba(0,0,0,.7),
@@ -520,151 +431,139 @@ h1 {
 }
 
 .card-top {
-
     display: flex;
-
     align-items: center;
-
     gap: 15px;
 
     padding-bottom: 25px;
 
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
 .channel-icon {
-
     width: 68px;
     height: 68px;
 
     flex-shrink: 0;
 
     border-radius: 50%;
-
     overflow: hidden;
 
-    border:
-        2px solid
-        rgba(207,83,255,.55);
+    border: 2px solid rgba(207,83,255,.55);
 
-    box-shadow:
-        0 0 20px rgba(194,47,255,.35);
+    box-shadow: 0 0 20px rgba(194,47,255,.35);
 }
 
 .channel-icon img {
-
     width: 100%;
     height: 100%;
 
     object-fit: cover;
-
     display: block;
 }
 
 .channel-name {
-
     font-size: 19px;
-
     font-weight: 900;
-
     margin-bottom: 5px;
 }
 
 .channel-handle {
-
     color: #71677b;
-
     font-size: 12px;
-
     margin-bottom: 7px;
 }
 
 .verified {
-
     color: #c24cff;
-
     font-size: 11px;
-
     font-weight: 700;
 }
 
-/* =========================
-   KART BİLGİLERİ
-========================= */
-
 .card-info {
-
     padding-top: 22px;
 
     display: grid;
-
     grid-template-columns: 1fr 1fr;
 
     gap: 10px;
 }
 
 .info {
-
     padding: 17px;
 
     border-radius: 11px;
 
-    background:
-        rgba(255,255,255,.018);
+    background: rgba(255,255,255,.018);
 
-    border:
-        1px solid
-        rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.055);
 
     transition: .3s;
-
-    cursor: pointer;
 }
 
 .info:hover {
+    background: rgba(180,50,255,.07);
 
-    background:
-        rgba(180,50,255,.07);
-
-    border-color:
-        rgba(211,84,255,.2);
-
-    transform: translateY(-3px);
+    border-color: rgba(211,84,255,.2);
 }
 
 .info-icon {
-
     font-size: 17px;
-
     margin-bottom: 9px;
 }
 
 .info-title {
-
     color: #f4eff7;
 
     font-size: 13px;
-
     font-weight: 800;
 
     margin-bottom: 4px;
 }
 
 .info-text {
-
     color: #756b80;
-
     font-size: 11px;
 }
 
+/* TIKLANABILIR RASTGELE KART */
+
+.random-card {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.random-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(190,50,255,.16),
+            transparent 55%
+        );
+
+    opacity: 0;
+    transition: .4s;
+}
+
+.random-card:hover::before {
+    opacity: 1;
+}
+
+.random-card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
 /* =========================
-   KANAL BUTONU
+   CARD BUTTON
 ========================= */
 
 .card-button {
-
     display: flex;
 
     align-items: center;
@@ -680,38 +579,28 @@ h1 {
 
     color: #e3d8e9;
 
-    background:
-        rgba(255,255,255,.025);
+    background: rgba(255,255,255,.025);
 
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.07);
 
     text-decoration: none;
 
     font-size: 13px;
-
     font-weight: 800;
 
     transition: .35s;
 }
 
 .card-button:hover {
-
     background:
-        linear-gradient(
-            135deg,
-            #9b31ff,
-            #d34cff
-        );
+        linear-gradient(135deg,#9b31ff,#d34cff);
 
     color: white;
 
     border-color: transparent;
 
     box-shadow:
-        0 10px 35px
-        rgba(179,45,255,.3);
+        0 10px 35px rgba(179,45,255,.3);
 }
 
 /* =========================
@@ -719,25 +608,19 @@ h1 {
 ========================= */
 
 .section {
-
     position: relative;
 
     padding: 125px 7%;
 
-    border-top:
-        1px solid
-        rgba(230,150,255,.05);
+    border-top: 1px solid rgba(230,150,255,.05);
 }
 
 .section-container {
-
     max-width: 1100px;
-
     margin: auto;
 }
 
 .section-title {
-
     font-size: 44px;
 
     letter-spacing: -2px;
@@ -746,11 +629,9 @@ h1 {
 }
 
 .section-description {
-
     color: #756b80;
 
     font-size: 15px;
-
     line-height: 1.7;
 }
 
@@ -759,48 +640,38 @@ h1 {
 ========================= */
 
 .video-heading {
-
     margin-bottom: 45px;
 }
 
 .video-grid {
-
     display: grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr);
 
     gap: 20px;
 }
 
 .video-card {
-
     display: block;
 
-    background:
-        rgba(10,5,15,.8);
+    background: rgba(10,5,15,.8);
 
-    border:
-        1px solid
-        rgba(255,255,255,.065);
+    border: 1px solid rgba(255,255,255,.065);
 
     border-radius: 16px;
 
     overflow: hidden;
 
     text-decoration: none;
-
     color: white;
 
     transition: .4s;
 }
 
 .video-card:hover {
-
     transform: translateY(-9px);
 
-    border-color:
-        rgba(207,79,255,.35);
+    border-color: rgba(207,79,255,.35);
 
     box-shadow:
         0 25px 60px rgba(0,0,0,.55),
@@ -808,11 +679,9 @@ h1 {
 }
 
 .thumbnail {
-
     position: relative;
 
     width: 100%;
-
     aspect-ratio: 16 / 9;
 
     overflow: hidden;
@@ -821,7 +690,6 @@ h1 {
 }
 
 .thumbnail img {
-
     width: 100%;
     height: 100%;
 
@@ -833,19 +701,16 @@ h1 {
 }
 
 .video-card:hover .thumbnail img {
-
     transform: scale(1.07);
 }
 
 .play-button {
-
     position: absolute;
 
     top: 50%;
     left: 50%;
 
-    transform:
-        translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 
     width: 58px;
     height: 58px;
@@ -857,8 +722,7 @@ h1 {
     align-items: center;
     justify-content: center;
 
-    background:
-        rgba(183,48,255,.95);
+    background: rgba(183,48,255,.95);
 
     color: white;
 
@@ -869,26 +733,21 @@ h1 {
     transition: .3s;
 
     box-shadow:
-        0 0 40px
-        rgba(200,50,255,.6);
+        0 0 40px rgba(200,50,255,.6);
 }
 
 .video-card:hover .play-button {
-
     opacity: 1;
 }
 
 .video-content {
-
     padding: 20px;
 }
 
 .video-label {
-
     color: #c34cff;
 
     font-size: 10px;
-
     font-weight: 900;
 
     letter-spacing: 2px;
@@ -897,81 +756,25 @@ h1 {
 }
 
 .video-content h3 {
-
     font-size: 17px;
-
     margin-bottom: 15px;
 }
 
 .watch {
-
     color: #71687a;
 
     font-size: 12px;
-
     font-weight: 700;
 }
 
-.video-card:hover .watch {
-
-    color: #d24cff;
-}
-
 /* =========================
-   TÜM VİDEOLAR
+   RASTGELE SONUÇ ALANI
 ========================= */
 
-.all-videos {
+.random-result {
+    display: none;
 
-    display: inline-flex;
-
-    margin-top: 35px;
-
-    padding: 14px 22px;
-
-    border-radius: 9px;
-
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    color: #b8adbe;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    transition: .35s;
-}
-
-.all-videos:hover {
-
-    background:
-        linear-gradient(
-            135deg,
-            #9b31ff,
-            #d34cff
-        );
-
-    color: white;
-
-    border-color: transparent;
-
-    transform: translateY(-4px);
-}
-
-/* =========================
-   RASTGELE İZLE
-========================= */
-
-.random-box {
-
-    margin-top: 80px;
+    margin-top: 55px;
 
     padding: 35px;
 
@@ -980,177 +783,25 @@ h1 {
     background:
         linear-gradient(
             145deg,
-            rgba(30,8,45,.85),
-            rgba(8,3,13,.9)
+            rgba(28,10,42,.9),
+            rgba(7,3,12,.95)
         );
 
-    border:
-        1px solid
-        rgba(193,70,255,.18);
+    border: 1px solid rgba(198,76,255,.2);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.45),
-        0 0 60px rgba(160,40,255,.08);
-
-    text-align: center;
-}
-
-.random-title {
-
-    font-size: 28px;
-
-    font-weight: 900;
-
-    margin-bottom: 8px;
-}
-
-.random-subtitle {
-
-    color: #796d83;
-
-    font-size: 13px;
-
-    margin-bottom: 25px;
-}
-
-/* ÇARK BUTONU */
-
-.wheel-button {
-
-    width: 150px;
-    height: 150px;
-
-    margin: 10px auto 25px;
-
-    border-radius: 50%;
-
-    border:
-        5px solid
-        rgba(196,76,255,.25);
-
-    background:
-        conic-gradient(
-            #8d25ff,
-            #d348ff,
-            #7020db,
-            #ef5cff,
-            #8d25ff
-        );
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 25px rgba(181,45,255,.45),
-        0 0 70px rgba(181,45,255,.2);
-
-    transition: .2s;
-}
-
-.wheel-button:hover {
-
-    transform: scale(1.05);
-
-    box-shadow:
-        0 0 35px rgba(181,45,255,.7),
-        0 0 90px rgba(181,45,255,.3);
-}
-
-.wheel-inner {
-
-    width: 112px;
-    height: 112px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #250d36,
-            #0b0411
-        );
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
+        0 30px 100px rgba(0,0,0,.65),
+        0 0 70px rgba(180,45,255,.12);
 
     text-align: center;
 
-    font-size: 15px;
-
-    font-weight: 900;
-
-    box-shadow:
-        inset 0 0 25px rgba(0,0,0,.8);
+    animation: resultIn .5s ease;
 }
 
-.wheel-button.spinning {
-
-    animation:
-        spinWheel 3s cubic-bezier(.12,.8,.2,1);
-}
-
-@keyframes spinWheel {
-
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(1440deg);
-    }
-}
-
-/* =========================
-   RASTGELE SONUÇ
-========================= */
-
-.random-result {
-
-    width: 100%;
-
-    max-width: 650px;
-
-    margin: 25px auto 0;
-}
-
-.random-video {
-
-    display: block;
-
-    text-decoration: none;
-
-    color: white;
-
-    background:
-        rgba(15,5,25,.95);
-
-    border:
-        1px solid
-        rgba(190,70,255,.3);
-
-    border-radius: 18px;
-
-    overflow: hidden;
-
-    transition: .4s;
-
-    box-shadow:
-        0 0 35px rgba(160,40,255,.12);
-
-    animation: resultAppear .6s ease;
-}
-
-@keyframes resultAppear {
-
+@keyframes resultIn {
     from {
         opacity: 0;
-        transform: translateY(15px) scale(.97);
+        transform: translateY(25px) scale(.97);
     }
 
     to {
@@ -1159,105 +810,165 @@ h1 {
     }
 }
 
-.random-video:hover {
+.random-result.show {
+    display: block;
+}
 
-    transform: translateY(-7px) scale(1.01);
+.random-title {
+    color: #c84cff;
 
-    border-color:
-        rgba(210,90,255,.6);
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.wheel-wrap {
+    width: 150px;
+    height: 150px;
+
+    margin: 0 auto 25px;
+
+    position: relative;
+}
+
+.wheel {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    border: 7px solid rgba(255,255,255,.08);
+
+    background:
+        conic-gradient(
+            #8b2cff,
+            #d64cff,
+            #7220ff,
+            #e65cff,
+            #8b2cff
+        );
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,.5),
-        0 0 45px rgba(180,50,255,.25);
+        0 0 25px rgba(180,50,255,.6),
+        0 0 70px rgba(180,50,255,.25);
+
+    transition: transform 4s cubic-bezier(.12,.8,.15,1);
+
+    position: relative;
+}
+
+.wheel::after {
+    content: "★";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #11051b;
+
+    color: #d95cff;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 0 20px rgba(205,76,255,.5);
+}
+
+.pointer {
+    position: absolute;
+
+    top: -12px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-top: 22px solid #ffffff;
+
+    filter:
+        drop-shadow(0 0 8px #d84cff);
+
+    z-index: 5;
+}
+
+.random-status {
+    color: #aaa0b0;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+}
+
+.random-video {
+    display: none;
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    text-decoration: none;
+
+    color: white;
+}
+
+.random-video.show {
+    display: block;
 }
 
 .random-thumbnail {
-
-    position: relative;
-
     width: 100%;
 
     aspect-ratio: 16 / 9;
 
-    overflow: hidden;
-}
-
-.random-thumbnail img {
-
-    width: 100%;
-    height: 100%;
-
     object-fit: cover;
 
-    display: block;
+    border-radius: 17px;
 
-    transition: .5s;
-}
-
-.random-video:hover .random-thumbnail img {
-
-    transform: scale(1.05);
-}
-
-.random-play {
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    width: 65px;
-    height: 65px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #a832ff;
+    border: 1px solid rgba(215,90,255,.25);
 
     box-shadow:
-        0 0 25px #a832ff,
-        0 0 60px rgba(168,50,255,.5);
+        0 20px 60px rgba(0,0,0,.55),
+        0 0 45px rgba(180,40,255,.15);
 
-    font-size: 23px;
+    transition: .4s;
 }
 
-.random-video-text {
+.random-video:hover .random-thumbnail {
+    transform: scale(1.02);
 
-    padding: 20px;
+    border-color: rgba(220,100,255,.55);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65),
+        0 0 65px rgba(190,50,255,.3);
 }
 
-.random-video-text span {
+.random-watch {
+    margin-top: 15px;
 
-    color: #c04cff;
+    color: #c64cff;
 
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-}
-
-.random-video-text h3 {
-
-    margin: 8px 0;
-
-    font-size: 19px;
-}
-
-.random-video-text p {
-
-    margin: 0;
-
-    color: #81728c;
-
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 800;
 }
 
 /* =========================
@@ -1265,41 +976,33 @@ h1 {
 ========================= */
 
 .instagram-card {
-
     display: flex;
 
     align-items: center;
 
     width: 100%;
-
     max-width: 600px;
 
     margin-top: 35px;
 
     padding: 21px 23px;
 
-    background:
-        rgba(12,6,17,.8);
+    background: rgba(12,6,17,.8);
 
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.07);
 
     border-radius: 16px;
 
     text-decoration: none;
-
     color: white;
 
     transition: .4s;
 }
 
 .instagram-card:hover {
-
     transform: translateY(-6px);
 
-    border-color:
-        rgba(235,130,255,.25);
+    border-color: rgba(235,130,255,.25);
 
     box-shadow:
         0 25px 60px rgba(0,0,0,.5),
@@ -1307,7 +1010,6 @@ h1 {
 }
 
 .instagram-icon {
-
     width: 48px;
     height: 48px;
 
@@ -1330,24 +1032,19 @@ h1 {
 }
 
 .instagram-icon svg {
-
     width: 26px;
     height: 26px;
 }
 
 .instagram-info {
-
     margin-left: 16px;
-
     flex: 1;
 }
 
 .instagram-label {
-
     color: #766a7e;
 
     font-size: 10px;
-
     font-weight: 900;
 
     letter-spacing: 2px;
@@ -1356,16 +1053,13 @@ h1 {
 }
 
 .instagram-name {
-
     color: #f5f0f7;
 
     font-size: 17px;
-
     font-weight: 800;
 }
 
 .instagram-arrow {
-
     color: #71687a;
 
     font-size: 22px;
@@ -1374,9 +1068,7 @@ h1 {
 }
 
 .instagram-card:hover .instagram-arrow {
-
     color: white;
-
     transform: translateX(6px);
 }
 
@@ -1385,12 +1077,9 @@ h1 {
 ========================= */
 
 footer {
-
     padding: 40px 7%;
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.045);
+    border-top: 1px solid rgba(255,255,255,.045);
 
     text-align: center;
 
@@ -1403,101 +1092,72 @@ footer {
    MOBİL
 ========================= */
 
-@media (max-width: 900px) {
+@media (max-width:900px) {
 
     .hero-content {
-
         grid-template-columns: 1fr;
-
         gap: 55px;
-
         max-width: 620px;
     }
 
     .video-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
-
 }
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
 
     nav {
-
         padding: 0 25px;
     }
 
     .links {
-
         display: none;
     }
 
     h1 {
-
         font-size: 58px;
-
         letter-spacing: -4px;
     }
 
     .yapistir {
-
         font-size: 28px;
     }
 
     .buttons {
-
         flex-direction: column;
     }
 
     .youtube-btn,
     .about-btn {
-
         width: 100%;
     }
 
     .video-grid {
-
         grid-template-columns: 1fr;
     }
 
     .section-title {
-
         font-size: 34px;
     }
 
-    .random-box {
-
-        padding: 25px 15px;
+    .random-result {
+        padding: 22px;
     }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
-<!-- =========================
-     ARKA PLAN
-========================= -->
-
 <div class="background">
-
     <div class="neon one"></div>
     <div class="neon two"></div>
     <div class="neon three"></div>
-
     <div class="grid"></div>
-
 </div>
 
-
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- NAVBAR -->
 
 <nav>
 
@@ -1507,26 +1167,18 @@ footer {
 
     <div class="links">
 
-        <a href="#home">
-            Ana Sayfa
-        </a>
+        <a href="#home">Ana Sayfa</a>
 
-        <a href="#kanal">
-            Kanal
-        </a>
+        <a href="#kanal">Kanal</a>
 
-        <a href="#iletisim">
-            İletişim
-        </a>
+        <a href="#iletisim">İletişim</a>
 
     </div>
 
 </nav>
 
 
-<!-- =========================
-     ANA SAYFA
-========================= -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -1618,7 +1270,8 @@ footer {
 
                 <div
                     class="info"
-                    onclick="goToVideos()"
+                    onclick="document.getElementById('kanal').scrollIntoView({behavior:'smooth'})"
+                    style="cursor:pointer"
                 >
 
                     <div class="info-icon">
@@ -1630,21 +1283,21 @@ footer {
                     </div>
 
                     <div class="info-text">
-                        YouTube videoları
+                        Videolara git
                     </div>
 
                 </div>
 
 
-                <!-- RASTGELE -->
+                <!-- RASTGELE İZLE -->
 
                 <div
-                    class="info"
+                    class="info random-card"
                     onclick="openRandomWheel()"
                 >
 
                     <div class="info-icon">
-                        🎲
+                        🎰
                     </div>
 
                     <div class="info-title">
@@ -1657,8 +1310,6 @@ footer {
 
                 </div>
 
-
-                <!-- DURUM -->
 
                 <div class="info">
 
@@ -1681,7 +1332,8 @@ footer {
 
                 <div
                     class="info"
-                    onclick="goToYouTube()"
+                    onclick="window.open('https://www.youtube.com/@BerkeBet','_blank')"
+                    style="cursor:pointer"
                 >
 
                     <div class="info-icon">
@@ -1693,7 +1345,7 @@ footer {
                     </div>
 
                     <div class="info-text">
-                        YouTube
+                        YouTube'a git
                     </div>
 
                 </div>
@@ -1716,9 +1368,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     KANAL / VİDEOLAR
-========================= -->
+<!-- KANAL -->
 
 <section class="section" id="kanal">
 
@@ -1744,7 +1394,7 @@ footer {
         <div class="video-grid">
 
 
-            <!-- VIDEO 1 -->
+            <!-- VİDEO 1 -->
 
             <a
                 href="https://www.youtube.com/watch?v=6OySAaaEvHE"
@@ -1756,7 +1406,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/6OySAaaEvHE/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -1784,7 +1434,7 @@ footer {
             </a>
 
 
-            <!-- VIDEO 2 -->
+            <!-- VİDEO 2 -->
 
             <a
                 href="https://www.youtube.com/watch?v=4SiVGLpki0s"
@@ -1796,7 +1446,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/4SiVGLpki0s/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -1824,7 +1474,7 @@ footer {
             </a>
 
 
-            <!-- VIDEO 3 -->
+            <!-- VİDEO 3 -->
 
             <a
                 href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
@@ -1836,7 +1486,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/Ai5G_2FH3hI/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -1864,7 +1514,7 @@ footer {
             </a>
 
 
-            <!-- VIDEO 4 -->
+            <!-- VİDEO 4 -->
 
             <a
                 href="https://www.youtube.com/watch?v=VkUS6WVPWic"
@@ -1876,7 +1526,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/VkUS6WVPWic/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -1904,7 +1554,7 @@ footer {
             </a>
 
 
-            <!-- VIDEO 5 -->
+            <!-- VİDEO 5 -->
 
             <a
                 href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
@@ -1916,7 +1566,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/NawRXjwjtYQ/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -1939,6 +1589,61 @@ footer {
                         Videoyu İzle →
                     </span>
 
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- RASTGELE ÇARK SONUCU -->
+
+        <div
+            class="random-result"
+            id="randomResult"
+        >
+
+            <div class="random-title">
+                🎰 RASTGELE VİDEO
+            </div>
+
+
+            <div class="wheel-wrap">
+
+                <div class="pointer"></div>
+
+                <div
+                    class="wheel"
+                    id="wheel"
+                ></div>
+
+            </div>
+
+
+            <div
+                class="random-status"
+                id="randomStatus"
+            >
+                Çark hazırlanıyor...
+            </div>
+
+
+            <a
+                href="#"
+                target="_blank"
+                class="random-video"
+                id="randomVideo"
+            >
+
+                <img
+                    id="randomThumbnail"
+                    class="random-thumbnail"
+                    src=""
+                    alt="Rastgele video"
+                >
+
+                <div class="random-watch">
+                    Videoyu İzlemek İçin Tıkla →
                 </div>
 
             </a>
@@ -1954,58 +1659,14 @@ footer {
             Tüm Videoları Gör →
         </a>
 
-
-        <!-- =========================
-             RASTGELE VİDEO ÇARKI
-        ========================= -->
-
-        <div
-            class="random-box"
-            id="randomBox"
-        >
-
-            <div class="random-title">
-                🎲 Rasgele İzle!
-            </div>
-
-            <div class="random-subtitle">
-                Çarkı çevir, rastgele bir BerkeBet videosu seçilsin.
-            </div>
-
-
-            <div
-                class="wheel-button"
-                id="wheelButton"
-                onclick="spinWheel()"
-            >
-
-                <div class="wheel-inner">
-                    ÇEVİR
-                </div>
-
-            </div>
-
-
-            <div
-                class="random-result"
-                id="randomResult"
-            ></div>
-
-        </div>
-
     </div>
 
 </section>
 
 
-<!-- =========================
-     İLETİŞİM
-========================= -->
+<!-- İLETİŞİM -->
 
-<section
-    class="section"
-    id="iletisim"
->
+<section class="section" id="iletisim">
 
     <div class="section-container">
 
@@ -2089,210 +1750,146 @@ footer {
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
-
     © 2026 BerkeBet — Tüm hakları saklıdır.
-
 </footer>
 
 
 <script>
 
 /* =========================
-   VİDEOLAR
+   VİDEO LİSTESİ
 ========================= */
 
 const videos = [
 
-    {
-        id: "6OySAaaEvHE",
-        url: "https://www.youtube.com/watch?v=6OySAaaEvHE"
-    },
+    "6OySAaaEvHE",
 
-    {
-        id: "4SiVGLpki0s",
-        url: "https://www.youtube.com/watch?v=4SiVGLpki0s"
-    },
+    "4SiVGLpki0s",
 
-    {
-        id: "Ai5G_2FH3hI",
-        url: "https://www.youtube.com/watch?v=Ai5G_2FH3hI"
-    },
+    "Ai5G_2FH3hI",
 
-    {
-        id: "VkUS6WVPWic",
-        url: "https://www.youtube.com/watch?v=VkUS6WVPWic"
-    },
+    "VkUS6WVPWic",
 
-    {
-        id: "NawRXjwjtYQ",
-        url: "https://www.youtube.com/watch?v=NawRXjwjtYQ"
-    }
+    "NawRXjwjtYQ"
 
 ];
 
 
 /* =========================
-   İÇERİK KARTI
+   RASTGELE ÇARK
 ========================= */
 
-function goToVideos() {
-
-    document
-        .getElementById("kanal")
-        .scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-}
-
-
-/* =========================
-   YOUTUBE KANALI
-========================= */
-
-function goToYouTube() {
-
-    window.open(
-        "https://www.youtube.com/@BerkeBet",
-        "_blank"
-    );
-
-}
-
-
-/* =========================
-   RASTGELE KARTA GİT
-========================= */
+let wheelRunning = false;
 
 function openRandomWheel() {
 
-    const box =
-        document.getElementById("randomBox");
+    const result = document.getElementById("randomResult");
+    const wheel = document.getElementById("wheel");
+    const status = document.getElementById("randomStatus");
+    const randomVideo = document.getElementById("randomVideo");
+    const randomThumbnail = document.getElementById("randomThumbnail");
 
-    box.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+    /* Sonuç alanını aç */
 
-    setTimeout(() => {
+    result.classList.add("show");
 
-        spinWheel();
-
-    }, 650);
-
-}
-
-
-/* =========================
-   ÇARK
-========================= */
-
-let spinning = false;
-
-function spinWheel() {
-
-    if (spinning) return;
-
-    spinning = true;
-
-    const wheel =
-        document.getElementById("wheelButton");
-
-    const result =
-        document.getElementById("randomResult");
-
-    /* eski sonucu temizle */
-
-    result.innerHTML = "";
-
-    /* animasyonu yenile */
-
-    wheel.classList.remove("spinning");
-
-    void wheel.offsetWidth;
-
-    wheel.classList.add("spinning");
-
-
-    /* 3 saniye sonra sonuç */
+    /* Sayfayı sonuca smooth götür */
 
     setTimeout(() => {
-
-        const randomIndex =
-            Math.floor(
-                Math.random() * videos.length
-            );
-
-        const video =
-            videos[randomIndex];
-
-
-        result.innerHTML = `
-
-            <a
-                href="${video.url}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="random-video"
-            >
-
-                <div class="random-thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/${video.id}/maxresdefault.jpg"
-                        alt="Rastgele BerkeBet videosu"
-                    >
-
-                    <div class="random-play">
-                        ▶
-                    </div>
-
-                </div>
-
-
-                <div class="random-video-text">
-
-                    <span>
-                        RASTGELE VİDEO
-                    </span>
-
-                    <h3>
-                        BerkeBet Videosu
-                    </h3>
-
-                    <p>
-                        Videoyu izlemek için tıkla →
-                    </p>
-
-                </div>
-
-            </a>
-
-        `;
-
-
-        wheel.classList.remove("spinning");
-
-        spinning = false;
-
-
-        /* sonuç ekrana yumuşak gelsin */
 
         result.scrollIntoView({
-
             behavior: "smooth",
-
             block: "center"
-
         });
 
-    }, 3000);
+    }, 50);
+
+
+    /* Zaten dönüyorsa tekrar başlatma */
+
+    if (wheelRunning) return;
+
+    wheelRunning = true;
+
+
+    /* Eski sonucu gizle */
+
+    randomVideo.classList.remove("show");
+
+    status.textContent = "Çark dönüyor... 🎰";
+
+
+    /* Rastgele video seç */
+
+    const randomIndex =
+        Math.floor(Math.random() * videos.length);
+
+    const selectedVideo =
+        videos[randomIndex];
+
+
+    /*
+       Her çalıştırmada farklı bir
+       dönüş miktarı.
+    */
+
+    const extraRotation =
+        1440 +
+        Math.floor(Math.random() * 1440);
+
+
+    /*
+       Çarkın mevcut dönüşünü alıyoruz.
+       Böylece her seferinde gerçekten
+       yeniden döner.
+    */
+
+    const currentRotation =
+        parseFloat(
+            wheel.dataset.rotation || "0"
+        );
+
+
+    const newRotation =
+        currentRotation + extraRotation;
+
+
+    wheel.dataset.rotation =
+        newRotation;
+
+
+    wheel.style.transform =
+        `rotate(${newRotation}deg)`;
+
+
+    /* Dönüş bittikten sonra sonucu göster */
+
+    setTimeout(() => {
+
+        status.textContent =
+            "🎉 Rastgele video seçildi!";
+
+
+        randomThumbnail.src =
+            `https://img.youtube.com/vi/${selectedVideo}/maxresdefault.jpg`;
+
+
+        /*
+           Burada doğrudan YouTube linki veriyoruz.
+           Thumbnail'e basınca video açılır.
+        */
+
+        randomVideo.href =
+            `https://www.youtube.com/watch?v=${selectedVideo}`;
+
+
+        randomVideo.classList.add("show");
+
+
+        wheelRunning = false;
+
+    }, 4100);
 
 }
 
@@ -2301,45 +1898,27 @@ function spinWheel() {
    NAVBAR SMOOTH SCROLL
 ========================= */
 
-document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(link => {
+document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-        link.addEventListener(
-            "click",
-            function(event) {
+    link.addEventListener("click", function(event) {
 
-                event.preventDefault();
+        event.preventDefault();
 
-                const target =
-                    document.querySelector(
-                        this.getAttribute("href")
-                    );
+        const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
 
-                if (!target) return;
+        if (!target) return;
 
-                const navbarHeight = 74;
-
-                const position =
-                    target.getBoundingClientRect().top
-                    +
-                    window.scrollY
-                    -
-                    navbarHeight;
-
-
-                window.scrollTo({
-
-                    top: position,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
     });
+
+});
 
 </script>
 
