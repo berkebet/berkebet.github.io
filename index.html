@@ -3,16 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>BerkeBet</title>
 
 <link rel="icon" type="image/jpeg" href="logo.jpeg.jpeg">
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     margin: 0;
@@ -30,7 +25,6 @@ body {
     color: white;
     overflow-x: hidden;
 }
-
 
 /* =========================================================
    CINEMATIC INTRO
@@ -65,12 +59,13 @@ body {
         visibility 1.2s;
 }
 
+/* Üst ve alt sinematik siyah barlar */
+
 #intro::before,
 #intro::after {
     content: "";
     position: absolute;
     left: 0;
-
     width: 100%;
     height: 14vh;
 
@@ -90,6 +85,8 @@ body {
     bottom: 0;
 }
 
+/* Intro kapanırken sinema barları açılır */
+
 #intro.hide::before {
     transform: translateY(-100%);
 }
@@ -103,6 +100,8 @@ body {
     visibility: hidden;
     pointer-events: none;
 }
+
+/* Ortadaki ışık */
 
 .intro-light {
     position: absolute;
@@ -129,6 +128,8 @@ body {
 
     pointer-events: none;
 }
+
+/* Hareket eden ışık çizgisi */
 
 .intro-scan {
     position: absolute;
@@ -158,6 +159,8 @@ body {
     pointer-events: none;
 }
 
+/* Ana içerik */
+
 .intro-content {
     position: relative;
     z-index: 10;
@@ -175,6 +178,8 @@ body {
     animation:
         cinematicEnter 1.5s cubic-bezier(.16,1,.3,1) .15s forwards;
 }
+
+/* BERKEBET */
 
 .intro-title {
     position: relative;
@@ -207,7 +212,12 @@ body {
     animation:
         introGradient 2.5s ease infinite,
         introGlow 1.4s ease-in-out infinite alternate;
+
+    text-shadow:
+        0 0 40px rgba(255,190,0,.25);
 }
+
+/* Başlığın üzerinden geçen parlaklık */
 
 .intro-title::after {
     content: "";
@@ -236,6 +246,8 @@ body {
     pointer-events: none;
 }
 
+/* ALT YAZI */
+
 .intro-subtitle {
     margin-top: 22px;
 
@@ -252,6 +264,8 @@ body {
     animation:
         introSubtitle .8s ease .85s forwards;
 }
+
+/* Çizgi */
 
 .intro-line {
     width: 0;
@@ -276,6 +290,8 @@ body {
     animation:
         introLine 1s ease .7s forwards;
 }
+
+/* Intro giriş */
 
 @keyframes cinematicEnter {
 
@@ -310,6 +326,8 @@ body {
     }
 }
 
+/* Ortadaki ışık */
+
 @keyframes introLight {
 
     0% {
@@ -333,6 +351,8 @@ body {
     }
 }
 
+/* Scan line */
+
 @keyframes introScan {
 
     0% {
@@ -355,6 +375,8 @@ body {
     }
 }
 
+/* Gradient */
+
 @keyframes introGradient {
 
     0% {
@@ -369,6 +391,8 @@ body {
         background-position: 0% 50%;
     }
 }
+
+/* Glow */
 
 @keyframes introGlow {
 
@@ -386,6 +410,8 @@ body {
     }
 }
 
+/* Subtitle */
+
 @keyframes introSubtitle {
 
     from {
@@ -399,6 +425,8 @@ body {
     }
 }
 
+/* Çizgi */
+
 @keyframes introLine {
 
     from {
@@ -410,6 +438,8 @@ body {
     }
 }
 
+/* Parlak geçiş */
+
 @keyframes titleShine {
 
     0% {
@@ -420,7 +450,6 @@ body {
         left: 150%;
     }
 }
-
 
 /* =========================================================
    BACKGROUND
@@ -497,7 +526,7 @@ body {
     top: 55%;
 
     background: rgba(255,170,0,.16);
-<div class="neon one"></div>
+
     animation:
         moveThree 12s ease-in-out infinite alternate;
 }
@@ -529,166 +558,41 @@ body {
     }
 }
 
-
-/* =========================================================
-   YENİ PREMIUM BACKGROUND
-========================================================= */
-
 .grid {
     position: absolute;
 
-    inset: 0;
+    inset: -50%;
 
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(255,193,7,.08),
-            transparent 28%
+    background-image:
+        linear-gradient(
+            rgba(255,190,0,.045) 1px,
+            transparent 1px
         ),
-        radial-gradient(
-            circle at 15% 80%,
-            rgba(255,150,0,.06),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(255,210,40,.06),
-            transparent 30%
-        );
-
-    animation:
-        backgroundBreath 8s ease-in-out infinite alternate;
-}
-
-.grid::before {
-    content: "";
-
-    position: absolute;
-
-    width: 700px;
-    height: 700px;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,193,7,.10),
-            rgba(255,170,0,.035) 35%,
-            transparent 70%
-        );
-
-    filter: blur(30px);
-
-    animation:
-        backgroundOrb 10s ease-in-out infinite alternate;
-}
-
-.grid::after {
-    content: "";
-
-    position: absolute;
-
-    width: 160%;
-    height: 1px;
-
-    left: -30%;
-    top: 55%;
-
-    background:
         linear-gradient(
             90deg,
-            transparent,
-            rgba(255,193,7,.18),
-            rgba(255,224,130,.35),
-            rgba(255,193,7,.18),
-            transparent
+            rgba(255,190,0,.045) 1px,
+            transparent 1px
         );
 
-    filter: blur(1px);
+    background-size: 65px 65px;
 
     transform:
-        rotate(-8deg);
-
-    opacity: .35;
+        perspective(700px)
+        rotateX(62deg);
 
     animation:
-        lightSweep 9s ease-in-out infinite;
+        gridMove 13s linear infinite;
 }
 
-@keyframes backgroundBreath {
+@keyframes gridMove {
 
-    0% {
-        opacity: .75;
-    }
-
-    100% {
-        opacity: 1;
+    to {
+        transform:
+            perspective(700px)
+            rotateX(62deg)
+            translateY(65px);
     }
 }
-
-@keyframes backgroundOrb {
-
-    0% {
-        transform:
-            translate(-50%,-50%)
-            scale(.75);
-
-        opacity: .45;
-    }
-
-    50% {
-        transform:
-            translate(-45%,-55%)
-            scale(1.05);
-
-        opacity: .8;
-    }
-
-    100% {
-        transform:
-            translate(-55%,-45%)
-            scale(.85);
-
-        opacity: .55;
-    }
-}
-
-@keyframes lightSweep {
-
-    0% {
-        transform:
-            translateX(-25%)
-            rotate(-8deg);
-
-        opacity: 0;
-    }
-
-    30% {
-        opacity: .35;
-    }
-
-    70% {
-        opacity: .25;
-    }
-
-    100% {
-        transform:
-            translateX(25%)
-            rotate(-8deg);
-
-        opacity: 0;
-    }
-}
-
 
 /* =========================================================
    NAV
@@ -797,7 +701,6 @@ nav {
     width: 100%;
 }
 
-
 /* =========================================================
    HERO
 ========================================================= */
@@ -813,19 +716,27 @@ nav {
         120px 20px 80px;
 }
 
+.youtube-panel {
+    width: 100%;
+    min-width: 0;
+}
+
 .hero-content {
     width: 100%;
     max-width: 1100px;
 
     display: grid;
 
-    grid-template-columns:
-        1fr 390px;
+    grid-template-columns: 1fr 390px;
 
     align-items: center;
 
     gap: 90px;
 }
+
+.small-tittle {
+
+
 
 .small-title {
     display: flex;
@@ -844,8 +755,11 @@ nav {
     margin-bottom: 24px;
 }
 
-.small-title::before {
-    content: "";
+
+
+::before {
+    
+content: "";
 
     width: 32px;
     height: 2px;
@@ -953,9 +867,8 @@ h1 {
     }
 }
 
-
 /* =========================================================
-   BUTTONS
+   BUTTON
 ========================================================= */
 
 .buttons {
@@ -1032,262 +945,202 @@ h1 {
         rgba(255,190,0,.08);
 }
 
-
 /* =========================================================
-   YOUTUBE PANEL
+   CHANNEL CARD
 ========================================================= */
 
-.youtube-panel {
-    position: relative;
-
-    width: 100%;
-    min-width: 0;
-
-    min-height: 430px;
-
-    padding: 35px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    border-radius: 28px;
+.channel-card {
+    padding: 30px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(30,23,7,.92),
-            rgba(8,6,2,.97)
+            rgba(28,22,8,.82),
+            rgba(7,5,2,.94)
         );
 
     border:
         1px solid
-        rgba(255,193,7,.20);
+        rgba(255,200,70,.15);
 
-    box-shadow:
-        0 35px 90px rgba(0,0,0,.65),
-        0 0 70px rgba(255,180,0,.10);
+    border-radius: 22px;
 
     backdrop-filter: blur(25px);
 
-    transition: .45s ease;
-}
-
-.youtube-panel:hover {
-    transform:
-        translateY(-10px)
-        scale(1.015);
-
-    border-color:
-        rgba(255,205,70,.45);
-
     box-shadow:
-        0 45px 110px rgba(0,0,0,.75),
-        0 0 80px rgba(255,190,0,.18);
-}
-
-.youtube-panel-glow {
-    position: absolute;
-
-    width: 280px;
-    height: 280px;
-
-    top: -100px;
-    right: -90px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,193,7,.28),
-            transparent 70%
-        );
-
-    filter: blur(25px);
-
-    pointer-events: none;
-
-    animation:
-        panelGlow 5s ease-in-out infinite alternate;
-}
-
-@keyframes panelGlow {
-
-    from {
-        transform: scale(.8);
-        opacity: .45;
-    }
-
-    to {
-        transform: scale(1.3);
-        opacity: .8;
-    }
-}
-
-.youtube-panel-top {
-    position: relative;
-
-    z-index: 2;
-
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-    margin-bottom: 25px;
-
-    color: #a69d8d;
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 3px;
-}
-
-.youtube-live-dot {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: #ffc107;
-
-    box-shadow:
-        0 0 8px #ffc107,
-        0 0 18px rgba(255,193,7,.8);
-
-    animation:
-        livePulse 1.5s ease-in-out infinite;
-}
-
-@keyframes livePulse {
-
-    0%,100% {
-        opacity: .45;
-        transform: scale(.8);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-}
-
-.youtube-panel-logo {
-    position: relative;
-
-    z-index: 2;
-
-    width: 92px;
-    height: 65px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff9f00,
-            #ffd000
-        );
-
-    color: #171000;
-
-    font-size: 30px;
-
-    font-weight: 900;
-
-    box-shadow:
-        0 15px 45px rgba(255,180,0,.28),
-        0 0 45px rgba(255,190,0,.12);
+        0 40px 100px rgba(0,0,0,.65),
+        0 0 70px rgba(255,180,0,.08);
 
     transition: .4s;
 }
 
-.youtube-panel:hover .youtube-panel-logo {
+.channel-card:hover {
     transform:
-        scale(1.08)
-        rotate(-2deg);
+        translateY(-8px);
+
+    border-color:
+        rgba(255,205,80,.35);
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding-bottom: 25px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+.channel-icon {
+    width: 68px;
+    height: 68px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border:
+        2px solid
+        rgba(255,193,7,.55);
 
     box-shadow:
-        0 18px 55px rgba(255,190,0,.45),
-        0 0 70px rgba(255,190,0,.20);
+        0 0 20px
+        rgba(255,180,0,.35);
 }
 
-.youtube-panel h2 {
-    position: relative;
+.channel-icon img {
+    width: 100%;
+    height: 100%;
 
-    z-index: 2;
+    object-fit: cover;
 
-    margin-top: 25px;
-    margin-bottom: 10px;
-
-    font-size: 31px;
-
-    letter-spacing: -1px;
-
-    font-weight: 950;
-
-    color: transparent;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff9f00,
-            #ffc107,
-            #ffe082,
-            #ffb300
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
+    display: block;
 }
 
-.youtube-panel p {
-    position: relative;
+.channel-name {
+    font-size: 19px;
 
-    z-index: 2;
+    font-weight: 900;
 
-    max-width: 280px;
+    margin-bottom: 5px;
+}
 
-    margin-bottom: 25px;
-
-    color: #81786a;
+.channel-handle {
+    color: #756d61;
 
     font-size: 12px;
 
-    line-height: 1.7;
+    margin-bottom: 7px;
 }
 
-.youtube-panel-button {
-    position: relative;
+.verified {
+    color: #ffc107;
 
-    z-index: 2;
+    font-size: 11px;
 
-    display: inline-flex;
+    font-weight: 700;
+}
+
+.card-info {
+    padding-top: 22px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+.info {
+    padding: 17px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,.018);
+
+    border:
+        1px solid
+        rgba(255,255,255,.055);
+
+    transition: .3s;
+
+    cursor: pointer;
+}
+
+.info:hover {
+    background:
+        rgba(255,190,0,.07);
+
+    border-color:
+        rgba(255,200,50,.2);
+
+    transform:
+        translateY(-3px);
+}
+
+.info-icon {
+    font-size: 17px;
+
+    margin-bottom: 9px;
+}
+
+.info-title {
+    color: #f4efe5;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    margin-bottom: 4px;
+}
+
+.info-text {
+    color: #756d61;
+
+    font-size: 11px;
+}
+
+.card-button {
+    display: flex;
 
     align-items: center;
     justify-content: center;
 
-    padding: 14px 22px;
+    width: 100%;
 
-    border-radius: 10px;
+    margin-top: 18px;
+
+    padding: 14px;
+
+    border-radius: 9px;
+
+    color: #e3dccc;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
 
     text-decoration: none;
 
-    color: #171000;
+    font-size: 13px;
 
+    font-weight: 800;
+
+    transition: .35s;
+}
+
+.card-button:hover {
     background:
         linear-gradient(
             135deg,
@@ -1295,44 +1148,10 @@ h1 {
             #ffd000
         );
 
-    font-size: 12px;
+    color: #171000;
 
-    font-weight: 900;
-
-    box-shadow:
-        0 12px 35px rgba(255,180,0,.25);
-
-    transition: .35s ease;
+    border-color: transparent;
 }
-
-.youtube-panel-button:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 18px 50px rgba(255,190,0,.45);
-}
-
-.youtube-panel-bottom {
-    position: relative;
-
-    z-index: 2;
-
-    margin-top: 25px;
-
-    color: #625a4e;
-
-    font-size: 10px;
-
-    font-weight: 700;
-}
-
-.youtube-panel-bottom span {
-    color: #ffc107;
-
-    text-shadow:
-        0 0 10px #ffc107;
-}
-
 
 /* =========================================================
    SECTIONS
@@ -1369,7 +1188,6 @@ h1 {
 
     line-height: 1.7;
 }
-
 
 /* =========================================================
    SCROLL ANIMATION
@@ -1414,6 +1232,18 @@ h1 {
     transition-delay: .48s;
 }
 
+@media (prefers-reduced-motion: reduce) {
+
+    .scroll-animate {
+        opacity: 1;
+
+        transform: none;
+
+        filter: none;
+
+        transition: none;
+    }
+}
 
 /* =========================================================
    VIDEOS
@@ -1607,7 +1437,6 @@ h1 {
         translateY(-4px);
 }
 
-
 /* =========================================================
    INSTAGRAM
 ========================================================= */
@@ -1618,6 +1447,7 @@ h1 {
     align-items: center;
 
     width: 100%;
+
     max-width: 600px;
 
     margin-top: 35px;
@@ -1722,7 +1552,6 @@ h1 {
         translateX(6px);
 }
 
-
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -1757,7 +1586,6 @@ footer {
         rgba(255,193,7,.5);
 }
 
-
 /* =========================================================
    MOUSE GLOW
 ========================================================= */
@@ -1785,125 +1613,11 @@ footer {
         translate(-50%,-50%);
 }
 
-
-/* =========================================================
-   MUSIC PLAYER
-========================================================= */
-
-.music-player {
-    position: fixed;
-
-    right: 25px;
-    bottom: 25px;
-
-    z-index: 5000;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding:
-        10px 14px 10px 10px;
-
-    background:
-        rgba(12,9,3,.82);
-
-    border:
-        1px solid
-        rgba(255,200,60,.18);
-
-    border-radius: 18px;
-
-    backdrop-filter: blur(20px);
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.45),
-        0 0 30px rgba(255,190,0,.08);
-
-    transition: .35s ease;
-}
-
-.music-player:hover {
-    border-color:
-        rgba(255,200,60,.35);
-
-    box-shadow:
-        0 18px 55px rgba(0,0,0,.55),
-        0 0 35px rgba(255,190,0,.12);
-}
-
-.music-toggle {
-    width: 42px;
-    height: 42px;
-
-    border: none;
-
-    border-radius: 13px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff9f00,
-            #ffd000
-        );
-
-    color: #171000;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    transition: .3s ease;
-}
-
-.music-toggle:hover {
-    transform:
-        scale(1.08);
-
-    box-shadow:
-        0 0 20px
-        rgba(255,190,0,.45);
-}
-
-.music-controls {
-    min-width: 145px;
-}
-
-.music-title {
-    color: #cfc6b5;
-
-    font-size: 9px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 7px;
-}
-
-#volumeControl {
-    width: 145px;
-
-    height: 4px;
-
-    accent-color: #ffc107;
-
-    cursor: pointer;
-}
-
-
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width:900px) {
 
     .hero-content {
         grid-template-columns: 1fr;
@@ -1919,7 +1633,7 @@ footer {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
 
     nav {
         padding: 0 25px;
@@ -1963,13 +1677,445 @@ footer {
 
     .section-title {
         font-size: 34px;
+      }
+}
+
+.music-player {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 14px 10px 10px;
+
+    background: rgba(12, 9, 3, .82);
+
+    border: 1px solid rgba(255, 200, 60, .18);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.45),
+        0 0 30px rgba(255,190,0,.08);
+
+    transition: .35s ease;
+}
+
+.music-player:hover {
+    border-color: rgba(255, 200, 60, .35);
+
+    box-shadow:
+        0 18px 55px rgba(0,0,0,.55),
+        0 0 35px rgba(255,190,0,.12);
+}
+
+.music-toggle {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #ff9f00,
+        #ffd000
+    );
+
+    color: #171000;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 20px rgba(255,190,0,.45);
+}
+
+.music-controls {
+    min-width: 145px;
+}
+
+.music-title {
+    color: #cfc6b5;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+#volumeControl {
+    width: 145px;
+
+    height: 4px;
+
+    accent-color: #ffc107;
+
+    cursor: pointer;
+}
+
+@media (max-width:600px) {
+
+    .music-player {
+        right: 15px;
+        bottom: 15px;
+
+        padding: 8px 10px 8px 8px;
     }
+
+    .music-controls {
+        min-width: 110px;
+    }
+
+    #volumeControl {
+        width: 110px;
+    }
+
+/* =========================================================
+   YOUTUBE PANEL
+========================================================= */
+
+.youtube-panel {
+    position: relative;
+
+    min-height: 430px;
+
+    padding: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,23,7,.92),
+            rgba(8,6,2,.97)
+        );
+
+    border: 1px solid rgba(255,193,7,.20);
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.65),
+        0 0 70px rgba(255,180,0,.10);
+
+    backdrop-filter: blur(25px);
+
+    transition: .45s ease;
+}
+
+.youtube-panel:hover {
+    transform: translateY(-10px) scale(1.015);
+
+    border-color:
+        rgba(255,205,70,.45);
+
+    box-shadow:
+        0 45px 110px rgba(0,0,0,.75),
+        0 0 80px rgba(255,190,0,.18);
+}
+
+
+/* IŞIK */
+
+.youtube-panel-glow {
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: -100px;
+    right: -90px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,193,7,.28),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    animation:
+        panelGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes panelGlow {
+
+    from {
+        transform: scale(.8);
+        opacity: .45;
+    }
+
+    to {
+        transform: scale(1.3);
+        opacity: .8;
+    }
+}
+
+
+/* ÜST YAZI */
+
+.youtube-panel-top {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+
+    color: #a69d8d;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+.youtube-live-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ffc107;
+
+    box-shadow:
+        0 0 8px #ffc107,
+        0 0 18px rgba(255,193,7,.8);
+
+    animation:
+        livePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+
+    0%,100% {
+        opacity: .45;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+
+/* YOUTUBE LOGO */
+
+.youtube-panel-logo {
+    position: relative;
+
+    z-index: 2;
+
+    width: 92px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9f00,
+            #ffd000
+        );
+
+    color: #171000;
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 15px 45px rgba(255,180,0,.28),
+        0 0 45px rgba(255,190,0,.12);
+
+    transition: .4s;
+}
+
+.youtube-panel:hover .youtube-panel-logo {
+    transform:
+        scale(1.08)
+        rotate(-2deg);
+
+    box-shadow:
+        0 18px 55px rgba(255,190,0,.45),
+        0 0 70px rgba(255,190,0,.20);
+}
+
+
+/* BAŞLIK */
+
+.youtube-panel h2 {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 25px;
+
+    margin-bottom: 10px;
+
+    font-size: 31px;
+
+    letter-spacing: -1px;
+
+    font-weight: 950;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9f00,
+            #ffc107,
+            #ffe082,
+            #ffb300
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+
+/* AÇIKLAMA */
+
+.youtube-panel p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 280px;
+
+    margin-bottom: 25px;
+
+    color: #81786a;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* BUTON */
+
+.youtube-panel-button {
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 22px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #171000;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9f00,
+            #ffd000
+        );
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 12px 35px rgba(255,180,0,.25);
+
+    transition: .35s ease;
+}
+
+.youtube-panel-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 50px rgba(255,190,0,.45);
+}
+
+
+/* ALT YAZI */
+
+.youtube-panel-bottom {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 25px;
+
+    color: #625a4e;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.youtube-panel-bottom span {
+    color: #ffc107;
+
+    text-shadow:
+        0 0 10px #ffc107;
+}
+
+
+/* MOBİL */
+
+@media (max-width: 600px) {
 
     .youtube-panel {
         min-height: 390px;
 
-        padding:
-            28px 20px;
+        padding: 28px 20px;
     }
 
     .youtube-panel-logo {
@@ -1981,294 +2127,18 @@ footer {
         font-size: 27px;
     }
 
-    .music-player {
-        right: 15px;
-        bottom: 15px;
-
-        padding:
-            8px 10px 8px 8px;
-    }
-
-    .music-controls {
-        min-width: 110px;
-    }
-
-    #volumeControl {
-        width: 110px;
-    }
 }
-
-/* =========================================================
-   YENİ BACKGROUND
-========================================================= */
-
-.background {
-    position: fixed;
-    inset: 0;
-    z-index: -20;
-    overflow: hidden;
-
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,170,0,.18), transparent 35%),
-        radial-gradient(circle at 80% 30%, rgba(255,210,40,.13), transparent 35%),
-        radial-gradient(circle at 50% 100%, rgba(255,120,0,.15), transparent 40%),
-        #030201;
-}
-
-.background::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 20%,
-            rgba(0,0,0,.25) 70%,
-            rgba(0,0,0,.75) 100%
-        );
-
-    pointer-events: none;
-}
-
-
-/* IŞIK BULUTLARI */
-
-.neon {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-}
-
-.neon.one {
-    width: 650px;
-    height: 650px;
-
-    left: -250px;
-    top: -200px;
-
-    background: rgba(255,170,0,.30);
-
-    animation: neonOne 12s ease-in-out infinite alternate;
-}
-
-.neon.two {
-    width: 700px;
-    height: 700px;
-
-    right: -300px;
-    top: 10%;
-
-    background: rgba(255,210,30,.22);
-
-    animation: neonTwo 15s ease-in-out infinite alternate;
-}
-
-.neon.three {
-    width: 600px;
-    height: 600px;
-
-    left: 35%;
-    bottom: -350px;
-
-    background: rgba(255,140,0,.18);
-
-    animation: neonThree 13s ease-in-out infinite alternate;
-}
-
-@keyframes neonOne {
-    from {
-        transform: translate(0,0) scale(.9);
-    }
-
-    to {
-        transform: translate(220px,150px) scale(1.2);
-    }
-}
-
-@keyframes neonTwo {
-    from {
-        transform: translate(0,0) scale(1);
-    }
-
-    to {
-        transform: translate(-180px,160px) scale(1.2);
-    }
-}
-
-@keyframes neonThree {
-    from {
-        transform: translate(0,0) scale(.9);
-    }
-
-    to {
-        transform: translate(120px,-150px) scale(1.2);
-    }
-}
-
-
-/* PARÇACIKLAR */
-
-.particles {
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        radial-gradient(
-            circle,
-            rgba(255,210,80,.6) 1px,
-            transparent 1.5px
-        );
-
-    background-size: 130px 130px;
-
-    opacity: .18;
-
-    animation: particlesMove 25s linear infinite;
-
-    pointer-events: none;
-}
-
-@keyframes particlesMove {
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(130px);
-    }
-}
-
-
-/* IŞIK HALKALARI */
-
-.light-ring {
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255,193,7,.08);
-
-    box-shadow:
-        0 0 80px rgba(255,180,0,.04),
-        inset 0 0 80px rgba(255,180,0,.03);
-
-    pointer-events: none;
-
-    animation: ringMove 18s linear infinite;
-}
-
-.light-ring:nth-child(4) {
-    left: 10%;
-    top: 20%;
-}
-
-.light-ring:nth-child(5) {
-    right: 5%;
-    bottom: 5%;
-
-    width: 350px;
-    height: 350px;
-
-    animation-direction: reverse;
-}
-
-@keyframes ringMove {
-    from {
-        transform: rotate(0deg) translateX(0);
-    }
-
-    50% {
-        transform: rotate(180deg) translateX(80px);
-    }
-
-    to {
-        transform: rotate(360deg) translateX(0);
-    }
-}
-
-
-/* IŞIK ŞERİTLERİ */
-
-.beam {
-    position: absolute;
-
-    width: 900px;
-    height: 180px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,190,0,.06),
-            transparent
-        );
-
-    filter: blur(35px);
-
-    transform: rotate(-25deg);
-
-    pointer-events: none;
-
-    animation: beamMove 16s ease-in-out infinite alternate;
-}
-
-.beam:nth-child(7) {
-    top: 20%;
-    left: -300px;
-}
-
-.beam:nth-child(8) {
-    bottom: 15%;
-    right: -350px;
-
-    transform: rotate(25deg);
-}
-
-@keyframes beamMove {
-    from {
-        opacity: .2;
-        transform: translateX(-100px) rotate(-25deg);
-    }
-
-    to {
-        opacity: .7;
-        transform: translateX(350px) rotate(-25deg);
-    }
-}
-
 
 </style>
 </head>
 
-
 <body>
 
+<audio id="bgMusic" src="uzi.mp3" loop></audio>
 
-<!-- =========================================================
-     MUSIC
-========================================================= -->
+<div class="music-player" id="musicPlayer">
 
-<audio
-    id="bgMusic"
-    src="uzi.mp3"
-    loop
-></audio>
-
-<div
-    class="music-player"
-    id="musicPlayer"
->
-
-    <button
-        class="music-toggle"
-        id="musicToggle"
-        title="Müziği Aç/Kapat"
-    >
+    <button class="music-toggle" id="musicToggle" title="Müziği Aç/Kapat">
         🎵
     </button>
 
@@ -2291,9 +2161,8 @@ footer {
 
 </div>
 
-
 <!-- =========================================================
-     INTRO
+     CINEMATIC INTRO
 ========================================================= -->
 
 <div id="intro">
@@ -2318,7 +2187,6 @@ footer {
 
 </div>
 
-
 <!-- =========================================================
      BACKGROUND
 ========================================================= -->
@@ -2329,21 +2197,11 @@ footer {
     <div class="neon two"></div>
     <div class="neon three"></div>
 
-    <div class="light-ring"></div>
-    <div class="light-ring"></div>
-
-    <div class="particles"></div>
-
-    <div class="beam"></div>
-    <div class="beam"></div>
+    <div class="grid"></div>
 
 </div>
 
-<div
-    class="mouse-glow"
-    id="mouseGlow"
-></div>
-
+<div class="mouse-glow" id="mouseGlow"></div>
 
 <!-- =========================================================
      NAVBAR
@@ -2351,10 +2209,7 @@ footer {
 
 <nav>
 
-    <a
-        href="#home"
-        class="logo"
-    >
+    <a href="#home" class="logo">
         BERKE<span>BET</span>
     </a>
 
@@ -2376,15 +2231,11 @@ footer {
 
 </nav>
 
-
 <!-- =========================================================
      HERO
 ========================================================= -->
 
-<section
-    class="hero"
-    id="home"
->
+<section class="hero" id="home">
 
     <div class="hero-content">
 
@@ -2404,6 +2255,14 @@ footer {
 
                 Yeni videolar, içerikler ve kanal hakkında
                 her şeyi burada bulabilirsin.
+
+                <br><br>
+
+                Merhaba kumarbazlar ben BerkeBet
+
+                <span class="yapistir">
+                    YAPIŞTIR!
+                </span>
 
             </p>
 
@@ -2428,67 +2287,51 @@ footer {
 
         </div>
 
-
-        <!-- YOUTUBE PANEL -->
-
         <div class="youtube-panel">
 
-            <div class="youtube-panel-glow"></div>
+    <div class="youtube-panel-glow"></div>
 
-            <div class="youtube-panel-top">
+    <div class="youtube-panel-top">
+        <span class="youtube-live-dot"></span>
+        BERKEBET YOUTUBE
+    </div>
 
-                <span
-                    class="youtube-live-dot"
-                ></span>
+    <div class="youtube-panel-logo">
+        ▶
+    </div>
 
-                BERKEBET YOUTUBE
+    <h2>
+        BERKEBET
+    </h2>
 
-            </div>
+    <p>
+        Yeni videoları kaçırma.
+        Kanalı keşfet ve BerkeBet'e katıl.
+    </p>
 
-            <div class="youtube-panel-logo">
-                ▶
-            </div>
+    <a
+        href="https://www.youtube.com/@BerkeBet"
+        target="_blank"
+        class="youtube-panel-button"
+    >
+        ▶ YouTube Kanalına Git
+    </a>
 
-            <h2>
-                BERKEBET
-            </h2>
+    <div class="youtube-panel-bottom">
+        <span>●</span> Resmi YouTube Kanalı
+    </div>
 
-            <p>
-                Yeni videoları kaçırma.
-                Kanalı keşfet ve YouTube
-                içeriklerine göz at.
-            </p>
-
-            <a
-                href="https://www.youtube.com/@BerkeBet"
-                target="_blank"
-                class="youtube-panel-button"
-            >
-                ▶ YouTube Kanalına Git
-            </a>
-
-            <div class="youtube-panel-bottom">
-
-                <span>●</span>
-                Resmi YouTube Kanalı
-
-            </div>
-
-        </div>
+</div>
 
     </div>
 
 </section>
 
-
 <!-- =========================================================
      VIDEOS
 ========================================================= -->
 
-<section
-    class="section"
-    id="kanal"
->
+<section class="section" id="kanal">
 
     <div class="section-container">
 
@@ -2508,9 +2351,7 @@ footer {
 
         </div>
 
-
         <div class="video-grid">
-
 
             <a
                 href="https://www.youtube.com/watch?v=6OySAaaEvHE"
@@ -2549,7 +2390,6 @@ footer {
 
             </a>
 
-
             <a
                 href="https://www.youtube.com/watch?v=4SiVGLpki0s"
                 target="_blank"
@@ -2586,7 +2426,6 @@ footer {
                 </div>
 
             </a>
-
 
             <a
                 href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
@@ -2625,7 +2464,6 @@ footer {
 
             </a>
 
-
             <a
                 href="https://www.youtube.com/watch?v=VkUS6WVPWic"
                 target="_blank"
@@ -2662,7 +2500,6 @@ footer {
                 </div>
 
             </a>
-
 
             <a
                 href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
@@ -2703,7 +2540,6 @@ footer {
 
         </div>
 
-
         <a
             href="https://www.youtube.com/@BerkeBet"
             target="_blank"
@@ -2716,15 +2552,11 @@ footer {
 
 </section>
 
-
 <!-- =========================================================
      INSTAGRAM
 ========================================================= -->
 
-<section
-    class="section"
-    id="iletisim"
->
+<section class="section" id="iletisim">
 
     <div class="section-container">
 
@@ -2739,7 +2571,6 @@ footer {
         <p class="section-description scroll-animate scroll-delay-2">
             BerkeBet'i sosyal medyada takip et.
         </p>
-
 
         <a
             href="https://www.instagram.com/berkeya_/"
@@ -2783,7 +2614,6 @@ footer {
 
             </div>
 
-
             <div class="instagram-info">
 
                 <div class="instagram-label">
@@ -2796,7 +2626,6 @@ footer {
 
             </div>
 
-
             <div class="instagram-arrow">
                 →
             </div>
@@ -2806,7 +2635,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- =========================================================
      FOOTER
@@ -2828,56 +2656,84 @@ footer {
 
 </footer>
 
-
 <script>
 
 /* =========================================================
    CINEMATIC INTRO
 ========================================================= */
 
-window.addEventListener(
-    "load",
-    function () {
+window.addEventListener("load", function () {
 
-        const intro =
-            document.getElementById("intro");
+    const intro =
+        document.getElementById("intro");
 
-        if (
-            sessionStorage.getItem(
-                "introShown"
-            ) === "true"
-        ) {
+    /*
+        Daha önce aynı oturumda gösterildiyse
+        intro tekrar açılmaz.
+    */
+
+    if (
+        sessionStorage.getItem("introShown")
+        === "true"
+    ) {
+
+        intro.remove();
+
+        return;
+    }
+
+    sessionStorage.setItem(
+        "introShown",
+        "true"
+    );
+
+    /*
+        Intro yaklaşık 3.4 saniye ekranda kalır.
+    */
+
+    setTimeout(function () {
+
+        intro.classList.add("hide");
+
+        /*
+            Animasyon tamamen bittikten sonra
+            DOM'dan kaldırıyoruz.
+        */
+
+        setTimeout(function () {
 
             intro.remove();
 
-            return;
-        }
+        }, 1300);
 
-        sessionStorage.setItem(
-            "introShown",
-            "true"
-        );
+    }, 3400);
 
-        setTimeout(
-            function () {
+});
 
-                intro.classList.add("hide");
 
-                setTimeout(
-                    function () {
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-                        intro.remove();
+function goToVideos() {
 
-                    },
-                    1300
-                );
+    document
+        .getElementById("kanal")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
 
-            },
-            3400
-        );
+}
 
-    }
-);
+
+function openChannel() {
+
+    window.open(
+        "https://www.youtube.com/@BerkeBet",
+        "_blank"
+    );
+
+}
 
 
 /* =========================================================
@@ -2891,7 +2747,7 @@ const mouseGlow =
 
 document.addEventListener(
     "mousemove",
-    function (event) {
+    function(event) {
 
         mouseGlow.style.left =
             event.clientX + "px";
@@ -2911,181 +2767,127 @@ document
     .querySelectorAll(
         'a[href^="#"]'
     )
-    .forEach(
-        function (link) {
+    .forEach(function(link) {
 
-            link.addEventListener(
-                "click",
-                function (event) {
+        link.addEventListener(
+            "click",
+            function(event) {
 
-                    const target =
-                        document.querySelector(
-                            this.getAttribute(
-                                "href"
-                            )
-                        );
+                const target =
+                    document.querySelector(
+                        this.getAttribute(
+                            "href"
+                        )
+                    );
 
-                    if (!target) return;
+                if (!target) return;
 
-                    event.preventDefault();
+                event.preventDefault();
 
-                    const navbarHeight = 74;
+                const navbarHeight = 74;
 
-                    const position =
-                        target
-                            .getBoundingClientRect()
-                            .top
-                        +
-                        window.scrollY
-                        -
-                        navbarHeight;
+                const position =
+                    target
+                        .getBoundingClientRect()
+                        .top
+                    +
+                    window.scrollY
+                    -
+                    navbarHeight;
 
-                    window.scrollTo({
+                window.scrollTo({
 
-                        top: position,
+                    top: position,
 
-                        behavior:
-                            "smooth"
+                    behavior:
+                        "smooth"
 
-                    });
+                });
 
-                }
-            );
+            }
+        );
 
-        }
-    );
+    });
 
 
-/* =========================================================
+/* =========================
    SCROLL ANIMATIONS
-========================================================= */
+   Her ekrana girişte tekrar oynar
+========================= */
 
 const scrollElements =
-    document.querySelectorAll(
-        ".scroll-animate"
-    );
+    document.querySelectorAll(".scroll-animate");
 
 const scrollObserver =
     new IntersectionObserver(
-        function (entries) {
+        function(entries) {
 
-            entries.forEach(
-                function (entry) {
+            entries.forEach(function(entry) {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                if (entry.isIntersecting) {
 
-                        entry.target
-                            .classList
-                            .add("show");
+                    // Görünür olduğunda animasyonu başlat
+                    entry.target.classList.add("show");
 
-                    } else {
+                } else {
 
-                        entry.target
-                            .classList
-                            .remove("show");
-
-                    }
+                    // Ekrandan çıkınca animasyonu sıfırla
+                    entry.target.classList.remove("show");
 
                 }
-            );
+
+            });
 
         },
         {
             threshold: 0.15,
-
-            rootMargin:
-                "0px 0px -50px 0px"
+            rootMargin: "0px 0px -50px 0px"
         }
     );
 
-scrollElements.forEach(
-    function (element) {
+scrollElements.forEach(function(element) {
+    scrollObserver.observe(element);
+});
 
-        scrollObserver.observe(
-            element
-        );
+const bgMusic = document.getElementById("bgMusic");
 
-    }
-);
+document.addEventListener("click", function startMusic() {
+
+    bgMusic.volume = 0.35;
+
+    bgMusic.play().catch(() => {});
+
+    document.removeEventListener("click", startMusic);
+
+});
 
 
-/* =========================================================
-   MUSIC
-========================================================= */
+const musicToggle = document.getElementById("musicToggle");
+const volumeControl = document.getElementById("volumeControl");
 
-const bgMusic =
-    document.getElementById(
-        "bgMusic"
-    );
+musicToggle.addEventListener("click", function(event) {
 
-const musicToggle =
-    document.getElementById(
-        "musicToggle"
-    );
+    event.stopPropagation();
 
-const volumeControl =
-    document.getElementById(
-        "volumeControl"
-    );
+    if (bgMusic.paused) {
 
-bgMusic.volume = 0.35;
+        bgMusic.play();
+        musicToggle.textContent = "🎵";
 
-document.addEventListener(
-    "click",
-    function startMusic() {
+    } else {
 
-        bgMusic
-            .play()
-            .catch(
-                function () {}
-            );
-
-        document.removeEventListener(
-            "click",
-            startMusic
-        );
+        bgMusic.pause();
+        musicToggle.textContent = "🔇";
 
     }
-);
 
-musicToggle.addEventListener(
-    "click",
-    function (event) {
+});
 
-        event.stopPropagation();
+volumeControl.addEventListener("input", function() {
 
-        if (
-            bgMusic.paused
-        ) {
+    bgMusic.volume = this.value;
 
-            bgMusic.play();
-
-            musicToggle.textContent =
-                "🎵";
-
-        } else {
-
-            bgMusic.pause();
-
-            musicToggle.textContent =
-                "🔇";
-
-        }
-
-    }
-);
-
-volumeControl.addEventListener(
-    "input",
-    function () {
-
-        bgMusic.volume =
-            this.value;
-
-    }
-);
+});
 
 </script>
 
