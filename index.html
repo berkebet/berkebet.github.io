@@ -1,9 +1,432 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <title>Sitem</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Berkebet | YouTube</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 140, 255, 0.25), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(120, 0, 255, 0.25), transparent 30%),
+                linear-gradient(135deg, #030712, #07152b, #080414);
+
+            background-size: 200% 200%;
+            animation: backgroundMove 12s ease infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ARKA PLAN IŞIKLARI */
+
+        .light {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .light1 {
+            background: #008cff;
+            top: -100px;
+            left: -100px;
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .light2 {
+            background: #7b00ff;
+            right: -100px;
+            bottom: -100px;
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(100px, 80px);
+            }
+        }
+
+        @keyframes float2 {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-100px, -80px);
+            }
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 8%;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(15px);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: linear-gradient(90deg, #00aaff, #8b5cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* ANA ALAN */
+
+        .hero {
+            min-height: calc(100vh - 80px);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 18px;
+            margin-bottom: 25px;
+
+            border: 1px solid rgba(0, 170, 255, 0.4);
+            border-radius: 50px;
+
+            background: rgba(0, 140, 255, 0.08);
+
+            color: #6bcaff;
+            font-size: 14px;
+
+            box-shadow: 0 0 25px rgba(0, 140, 255, 0.12);
+        }
+
+        h1 {
+            font-size: clamp(65px, 12vw, 150px);
+            line-height: 0.9;
+            font-weight: 900;
+            letter-spacing: -5px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #66c7ff,
+                #a879ff,
+                #ffffff
+            );
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: textMove 6s linear infinite;
+
+            text-shadow: 0 0 60px rgba(0, 150, 255, 0.15);
+        }
+
+        @keyframes textMove {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 300%;
+            }
+        }
+
+        .subtitle {
+            max-width: 600px;
+            margin-top: 30px;
+
+            color: #aeb8c8;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* BUTON */
+
+        .buttons {
+            margin-top: 40px;
+
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .youtube-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 28px;
+
+            border-radius: 12px;
+
+            background: linear-gradient(135deg, #ff1744, #d50000);
+
+            color: white;
+            text-decoration: none;
+
+            font-weight: bold;
+            font-size: 16px;
+
+            box-shadow:
+                0 10px 30px rgba(255, 0, 50, 0.25);
+
+            transition: 0.3s;
+        }
+
+        .youtube-button:hover {
+            transform: translateY(-5px) scale(1.03);
+
+            box-shadow:
+                0 15px 40px rgba(255, 0, 50, 0.4);
+        }
+
+        .more-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 28px;
+
+            border-radius: 12px;
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            background: rgba(255, 255, 255, 0.05);
+
+            color: white;
+            text-decoration: none;
+
+            font-weight: bold;
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.3s;
+        }
+
+        .more-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* ALT BİLGİ */
+
+        .stats {
+            margin-top: 80px;
+
+            display: flex;
+            gap: 60px;
+
+            color: #8994a7;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+
+            color: white;
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .stat span {
+            font-size: 13px;
+        }
+
+        /* MOBİL */
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            nav div:last-child {
+                display: none;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .stats {
+                gap: 25px;
+            }
+
+            .stat strong {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
+    <!-- ARKA PLAN IŞIKLARI -->
+
+    <div class="light light1"></div>
+    <div class="light light2"></div>
+
+
+    <!-- MENÜ -->
+
+    <nav>
+
+        <div class="logo">
+            BERKEBET
+        </div>
+
+        <div>
+            <a href="#anasayfa">Ana Sayfa</a>
+            <a href="#kanal">Kanal</a>
+            <a href="#iletisim">İletişim</a>
+        </div>
+
+    </nav>
+
+
+    <!-- ANA SAYFA -->
+
+    <main class="hero" id="anasayfa">
+
+        <div class="badge">
+            🎬 YouTube Kanalı
+        </div>
+
+        <h1>
+            BERKEBET
+        </h1>
+
+        <p class="subtitle">
+            Eğlence, videolar ve daha fazlası.
+            Berkebet'in resmi internet sitesine hoş geldin.
+        </p>
+
+
+        <div class="buttons">
+
+            <!-- BURAYA KENDİ YOUTUBE LİNKİNİ KOYACAĞIZ -->
+
+            <a
+                class="youtube-button"
+                href="https://youtube.com"
+                target="_blank"
+            >
+                ▶ YouTube Kanalına Git
+            </a>
+
+            <a
+                class="more-button"
+                href="#kanal"
+            >
+                Daha Fazla ↓
+            </a>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>BERKEBET</strong>
+                <span>YouTube</span>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>Eğlence</span>
+            </div>
+
+            <div class="stat">
+                <strong>2026</strong>
+                <span>Yeni Başlangıç</span>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ŞİMDİLİK BOŞ BÖLÜMLER -->
+
+    <section id="kanal"></section>
+    <section id="iletisim"></section>
+
 
 </body>
 </html>
