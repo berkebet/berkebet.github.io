@@ -10,6 +10,10 @@
 
 <style>
 
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -27,8 +31,9 @@ body {
     overflow-x: hidden;
 }
 
+
 /* =========================================================
-   INTRO
+   CINEMATIC INTRO
 ========================================================= */
 
 #intro {
@@ -48,6 +53,11 @@ body {
             rgba(255,190,0,.14),
             transparent 28%
         ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,140,0,.06),
+            transparent 55%
+        ),
         #030201;
 
     transition:
@@ -59,8 +69,8 @@ body {
 #intro::after {
     content: "";
     position: absolute;
-
     left: 0;
+
     width: 100%;
     height: 14vh;
 
@@ -114,7 +124,8 @@ body {
 
     opacity: 0;
 
-    animation: introLight 2.4s ease forwards;
+    animation:
+        introLight 2.4s ease forwards;
 
     pointer-events: none;
 }
@@ -141,7 +152,8 @@ body {
 
     opacity: 0;
 
-    animation: introScan 1.5s ease .4s forwards;
+    animation:
+        introScan 1.5s ease .4s forwards;
 
     pointer-events: none;
 }
@@ -220,6 +232,8 @@ body {
 
     animation:
         titleShine 1.5s ease 1.2s forwards;
+
+    pointer-events: none;
 }
 
 .intro-subtitle {
@@ -367,7 +381,8 @@ body {
     to {
         text-shadow:
             0 0 25px rgba(255,210,60,.8),
-            0 0 65px rgba(255,180,0,.45);
+            0 0 65px rgba(255,180,0,.45),
+            0 0 110px rgba(255,160,0,.2);
     }
 }
 
@@ -405,6 +420,7 @@ body {
         left: 150%;
     }
 }
+
 
 /* =========================================================
    BACKGROUND
@@ -513,41 +529,166 @@ body {
     }
 }
 
+
+/* =========================================================
+   YENİ PREMIUM BACKGROUND
+========================================================= */
+
 .grid {
     position: absolute;
 
-    inset: -50%;
+    inset: 0;
 
-    background-image:
-        linear-gradient(
-            rgba(255,190,0,.045) 1px,
-            transparent 1px
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,193,7,.08),
+            transparent 28%
         ),
-        linear-gradient(
-            90deg,
-            rgba(255,190,0,.045) 1px,
-            transparent 1px
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(255,150,0,.06),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,210,40,.06),
+            transparent 30%
         );
 
-    background-size: 65px 65px;
+    animation:
+        backgroundBreath 8s ease-in-out infinite alternate;
+}
+
+.grid::before {
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 50%;
 
     transform:
-        perspective(700px)
-        rotateX(62deg);
+        translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,193,7,.10),
+            rgba(255,170,0,.035) 35%,
+            transparent 70%
+        );
+
+    filter: blur(30px);
 
     animation:
-        gridMove 13s linear infinite;
+        backgroundOrb 10s ease-in-out infinite alternate;
 }
 
-@keyframes gridMove {
+.grid::after {
+    content: "";
 
-    to {
-        transform:
-            perspective(700px)
-            rotateX(62deg)
-            translateY(65px);
+    position: absolute;
+
+    width: 160%;
+    height: 1px;
+
+    left: -30%;
+    top: 55%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,193,7,.18),
+            rgba(255,224,130,.35),
+            rgba(255,193,7,.18),
+            transparent
+        );
+
+    filter: blur(1px);
+
+    transform:
+        rotate(-8deg);
+
+    opacity: .35;
+
+    animation:
+        lightSweep 9s ease-in-out infinite;
+}
+
+@keyframes backgroundBreath {
+
+    0% {
+        opacity: .75;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
+
+@keyframes backgroundOrb {
+
+    0% {
+        transform:
+            translate(-50%,-50%)
+            scale(.75);
+
+        opacity: .45;
+    }
+
+    50% {
+        transform:
+            translate(-45%,-55%)
+            scale(1.05);
+
+        opacity: .8;
+    }
+
+    100% {
+        transform:
+            translate(-55%,-45%)
+            scale(.85);
+
+        opacity: .55;
+    }
+}
+
+@keyframes lightSweep {
+
+    0% {
+        transform:
+            translateX(-25%)
+            rotate(-8deg);
+
+        opacity: 0;
+    }
+
+    30% {
+        opacity: .35;
+    }
+
+    70% {
+        opacity: .25;
+    }
+
+    100% {
+        transform:
+            translateX(25%)
+            rotate(-8deg);
+
+        opacity: 0;
+    }
+}
+
 
 /* =========================================================
    NAV
@@ -656,6 +797,7 @@ nav {
     width: 100%;
 }
 
+
 /* =========================================================
    HERO
 ========================================================= */
@@ -667,7 +809,8 @@ nav {
     align-items: center;
     justify-content: center;
 
-    padding: 120px 20px 80px;
+    padding:
+        120px 20px 80px;
 }
 
 .hero-content {
@@ -676,7 +819,8 @@ nav {
 
     display: grid;
 
-    grid-template-columns: 1fr 390px;
+    grid-template-columns:
+        1fr 390px;
 
     align-items: center;
 
@@ -809,6 +953,7 @@ h1 {
     }
 }
 
+
 /* =========================================================
    BUTTONS
 ========================================================= */
@@ -887,202 +1032,169 @@ h1 {
         rgba(255,190,0,.08);
 }
 
+
 /* =========================================================
-   ESKİ CHANNEL CARD
+   YOUTUBE PANEL
 ========================================================= */
 
-.channel-card {
-    padding: 30px;
+.youtube-panel {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    min-height: 430px;
+
+    padding: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    border-radius: 28px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(28,22,8,.82),
-            rgba(7,5,2,.94)
+            rgba(30,23,7,.92),
+            rgba(8,6,2,.97)
         );
 
     border:
         1px solid
-        rgba(255,200,70,.15);
+        rgba(255,193,7,.20);
 
-    border-radius: 22px;
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.65),
+        0 0 70px rgba(255,180,0,.10);
 
     backdrop-filter: blur(25px);
 
-    box-shadow:
-        0 40px 100px rgba(0,0,0,.65),
-        0 0 70px rgba(255,180,0,.08);
-
-    transition: .4s;
+    transition: .45s ease;
 }
 
-.channel-card:hover {
+.youtube-panel:hover {
     transform:
-        translateY(-8px);
+        translateY(-10px)
+        scale(1.015);
 
     border-color:
-        rgba(255,205,80,.35);
+        rgba(255,205,70,.45);
+
+    box-shadow:
+        0 45px 110px rgba(0,0,0,.75),
+        0 0 80px rgba(255,190,0,.18);
 }
 
-.card-top {
-    display: flex;
-    align-items: center;
+.youtube-panel-glow {
+    position: absolute;
 
-    gap: 15px;
+    width: 280px;
+    height: 280px;
 
-    padding-bottom: 25px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.06);
-}
-
-.channel-icon {
-    width: 68px;
-    height: 68px;
-
-    flex-shrink: 0;
+    top: -100px;
+    right: -90px;
 
     border-radius: 50%;
 
-    overflow: hidden;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,193,7,.28),
+            transparent 70%
+        );
 
-    border:
-        2px solid
-        rgba(255,193,7,.55);
+    filter: blur(25px);
 
-    box-shadow:
-        0 0 20px
-        rgba(255,180,0,.35);
+    pointer-events: none;
+
+    animation:
+        panelGlow 5s ease-in-out infinite alternate;
 }
 
-.channel-icon img {
-    width: 100%;
-    height: 100%;
+@keyframes panelGlow {
 
-    object-fit: cover;
+    from {
+        transform: scale(.8);
+        opacity: .45;
+    }
 
-    display: block;
+    to {
+        transform: scale(1.3);
+        opacity: .8;
+    }
 }
 
-.channel-name {
-    font-size: 19px;
+.youtube-panel-top {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+
+    color: #a69d8d;
+
+    font-size: 10px;
 
     font-weight: 900;
 
-    margin-bottom: 5px;
+    letter-spacing: 3px;
 }
 
-.channel-handle {
-    color: #756d61;
+.youtube-live-dot {
+    width: 7px;
+    height: 7px;
 
-    font-size: 12px;
+    border-radius: 50%;
 
-    margin-bottom: 7px;
+    background: #ffc107;
+
+    box-shadow:
+        0 0 8px #ffc107,
+        0 0 18px rgba(255,193,7,.8);
+
+    animation:
+        livePulse 1.5s ease-in-out infinite;
 }
 
-.verified {
-    color: #ffc107;
+@keyframes livePulse {
 
-    font-size: 11px;
+    0%,100% {
+        opacity: .45;
+        transform: scale(.8);
+    }
 
-    font-weight: 700;
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
 }
 
-.card-info {
-    padding-top: 22px;
+.youtube-panel-logo {
+    position: relative;
 
-    display: grid;
+    z-index: 2;
 
-    grid-template-columns:
-        1fr 1fr;
+    width: 92px;
+    height: 65px;
 
-    gap: 10px;
-}
-
-.info {
-    padding: 17px;
-
-    border-radius: 11px;
-
-    background:
-        rgba(255,255,255,.018);
-
-    border:
-        1px solid
-        rgba(255,255,255,.055);
-
-    transition: .3s;
-
-    cursor: pointer;
-}
-
-.info:hover {
-    background:
-        rgba(255,190,0,.07);
-
-    border-color:
-        rgba(255,200,50,.2);
-
-    transform:
-        translateY(-3px);
-}
-
-.info-icon {
-    font-size: 17px;
-
-    margin-bottom: 9px;
-}
-
-.info-title {
-    color: #f4efe5;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    margin-bottom: 4px;
-}
-
-.info-text {
-    color: #756d61;
-
-    font-size: 11px;
-}
-
-.card-button {
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    width: 100%;
+    border-radius: 20px;
 
-    margin-top: 18px;
-
-    padding: 14px;
-
-    border-radius: 9px;
-
-    color: #e3dccc;
-
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    transition: .35s;
-}
-
-.card-button:hover {
     background:
         linear-gradient(
             135deg,
@@ -1092,8 +1204,135 @@ h1 {
 
     color: #171000;
 
-    border-color: transparent;
+    font-size: 30px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 15px 45px rgba(255,180,0,.28),
+        0 0 45px rgba(255,190,0,.12);
+
+    transition: .4s;
 }
+
+.youtube-panel:hover .youtube-panel-logo {
+    transform:
+        scale(1.08)
+        rotate(-2deg);
+
+    box-shadow:
+        0 18px 55px rgba(255,190,0,.45),
+        0 0 70px rgba(255,190,0,.20);
+}
+
+.youtube-panel h2 {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    font-size: 31px;
+
+    letter-spacing: -1px;
+
+    font-weight: 950;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9f00,
+            #ffc107,
+            #ffe082,
+            #ffb300
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.youtube-panel p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 280px;
+
+    margin-bottom: 25px;
+
+    color: #81786a;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.youtube-panel-button {
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 22px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #171000;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9f00,
+            #ffd000
+        );
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 12px 35px rgba(255,180,0,.25);
+
+    transition: .35s ease;
+}
+
+.youtube-panel-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 50px rgba(255,190,0,.45);
+}
+
+.youtube-panel-bottom {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 25px;
+
+    color: #625a4e;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.youtube-panel-bottom span {
+    color: #ffc107;
+
+    text-shadow:
+        0 0 10px #ffc107;
+}
+
 
 /* =========================================================
    SECTIONS
@@ -1130,6 +1369,7 @@ h1 {
 
     line-height: 1.7;
 }
+
 
 /* =========================================================
    SCROLL ANIMATION
@@ -1173,6 +1413,7 @@ h1 {
 .scroll-delay-4 {
     transition-delay: .48s;
 }
+
 
 /* =========================================================
    VIDEOS
@@ -1366,6 +1607,7 @@ h1 {
         translateY(-4px);
 }
 
+
 /* =========================================================
    INSTAGRAM
 ========================================================= */
@@ -1376,7 +1618,6 @@ h1 {
     align-items: center;
 
     width: 100%;
-
     max-width: 600px;
 
     margin-top: 35px;
@@ -1481,6 +1722,7 @@ h1 {
         translateX(6px);
 }
 
+
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -1515,6 +1757,7 @@ footer {
         rgba(255,193,7,.5);
 }
 
+
 /* =========================================================
    MOUSE GLOW
 ========================================================= */
@@ -1542,6 +1785,7 @@ footer {
         translate(-50%,-50%);
 }
 
+
 /* =========================================================
    MUSIC PLAYER
 ========================================================= */
@@ -1560,7 +1804,8 @@ footer {
 
     gap: 12px;
 
-    padding: 10px 14px 10px 10px;
+    padding:
+        10px 14px 10px 10px;
 
     background:
         rgba(12,9,3,.82);
@@ -1619,7 +1864,8 @@ footer {
 }
 
 .music-toggle:hover {
-    transform: scale(1.08);
+    transform:
+        scale(1.08);
 
     box-shadow:
         0 0 20px
@@ -1652,11 +1898,12 @@ footer {
     cursor: pointer;
 }
 
+
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media (max-width:900px) {
+@media (max-width: 900px) {
 
     .hero-content {
         grid-template-columns: 1fr;
@@ -1672,7 +1919,7 @@ footer {
     }
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
 
     nav {
         padding: 0 25px;
@@ -1718,11 +1965,28 @@ footer {
         font-size: 34px;
     }
 
+    .youtube-panel {
+        min-height: 390px;
+
+        padding:
+            28px 20px;
+    }
+
+    .youtube-panel-logo {
+        width: 82px;
+        height: 58px;
+    }
+
+    .youtube-panel h2 {
+        font-size: 27px;
+    }
+
     .music-player {
         right: 15px;
         bottom: 15px;
 
-        padding: 8px 10px 8px 8px;
+        padding:
+            8px 10px 8px 8px;
     }
 
     .music-controls {
@@ -1732,24 +1996,29 @@ footer {
     #volumeControl {
         width: 110px;
     }
-
-    .channel-card {
-        padding: 22px;
-    }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<audio id="bgMusic" src="uzi.mp3" loop></audio>
 
 <!-- =========================================================
      MUSIC
 ========================================================= -->
 
-<div class="music-player">
+<audio
+    id="bgMusic"
+    src="uzi.mp3"
+    loop
+></audio>
+
+<div
+    class="music-player"
+    id="musicPlayer"
+>
 
     <button
         class="music-toggle"
@@ -1778,6 +2047,7 @@ footer {
 
 </div>
 
+
 <!-- =========================================================
      INTRO
 ========================================================= -->
@@ -1804,6 +2074,7 @@ footer {
 
 </div>
 
+
 <!-- =========================================================
      BACKGROUND
 ========================================================= -->
@@ -1811,7 +2082,9 @@ footer {
 <div class="background">
 
     <div class="neon one"></div>
+
     <div class="neon two"></div>
+
     <div class="neon three"></div>
 
     <div class="grid"></div>
@@ -1822,6 +2095,7 @@ footer {
     class="mouse-glow"
     id="mouseGlow"
 ></div>
+
 
 <!-- =========================================================
      NAVBAR
@@ -1854,6 +2128,7 @@ footer {
 
 </nav>
 
+
 <!-- =========================================================
      HERO
 ========================================================= -->
@@ -1882,14 +2157,6 @@ footer {
                 Yeni videolar, içerikler ve kanal hakkında
                 her şeyi burada bulabilirsin.
 
-                <br><br>
-
-                Merhaba, ben BerkeBet.
-
-                <span class="yapistir">
-                    YAPIŞTIR!
-                </span>
-
             </p>
 
             <div class="buttons">
@@ -1897,7 +2164,6 @@ footer {
                 <a
                     href="https://www.youtube.com/@BerkeBet"
                     target="_blank"
-                    rel="noopener noreferrer"
                     class="youtube-btn"
                 >
                     ▶ YouTube Kanalı
@@ -1914,132 +2180,58 @@ footer {
 
         </div>
 
-        <!-- =================================================
-             ESKİ CARD
-        ================================================= -->
 
-        <div class="channel-card">
+        <!-- YOUTUBE PANEL -->
 
-            <div class="card-top">
+        <div class="youtube-panel">
 
-                <div class="channel-icon">
+            <div class="youtube-panel-glow"></div>
 
-                    <img
-                        src="berkebet.jpg.jpeg"
-                        alt="BerkeBet"
-                    >
+            <div class="youtube-panel-top">
 
-                </div>
+                <span
+                    class="youtube-live-dot"
+                ></span>
 
-                <div>
-
-                    <div class="channel-name">
-                        BerkeBet
-                    </div>
-
-                    <div class="channel-handle">
-                        @BerkeBet
-                    </div>
-
-                    <div class="verified">
-                        ● Resmi YouTube Kanalı
-                    </div>
-
-                </div>
+                BERKEBET YOUTUBE
 
             </div>
 
-            <div class="card-info">
-
-                <div
-                    class="info"
-                    onclick="goToVideos()"
-                >
-
-                    <div class="info-icon">
-                        🎥
-                    </div>
-
-                    <div class="info-title">
-                        İçerik
-                    </div>
-
-                    <div class="info-text">
-                        YouTube videoları
-                    </div>
-
-                </div>
-
-                <div
-                    class="info"
-                    onclick="openChannel()"
-                >
-
-                    <div class="info-icon">
-                        ▶️
-                    </div>
-
-                    <div class="info-title">
-                        YouTube
-                    </div>
-
-                    <div class="info-text">
-                        Kanalı ziyaret et
-                    </div>
-
-                </div>
-
-                <div class="info">
-
-                    <div class="info-icon">
-                        🟡
-                    </div>
-
-                    <div class="info-title">
-                        Durum
-                    </div>
-
-                    <div class="info-text">
-                        Aktif kanal
-                    </div>
-
-                </div>
-
-                <div
-                    class="info"
-                    onclick="openChannel()"
-                >
-
-                    <div class="info-icon">
-                        👑
-                    </div>
-
-                    <div class="info-title">
-                        Kanal
-                    </div>
-
-                    <div class="info-text">
-                        BerkeBet
-                    </div>
-
-                </div>
-
+            <div class="youtube-panel-logo">
+                ▶
             </div>
+
+            <h2>
+                BERKEBET
+            </h2>
+
+            <p>
+                Yeni videoları kaçırma.
+                Kanalı keşfet ve YouTube
+                içeriklerine göz at.
+            </p>
 
             <a
                 href="https://www.youtube.com/@BerkeBet"
                 target="_blank"
-                rel="noopener noreferrer"
-                class="card-button"
+                class="youtube-panel-button"
             >
-                YouTube Kanalına Git →
+                ▶ YouTube Kanalına Git
             </a>
+
+            <div class="youtube-panel-bottom">
+
+                <span>●</span>
+                Resmi YouTube Kanalı
+
+            </div>
 
         </div>
 
     </div>
 
 </section>
+
 
 <!-- =========================================================
      VIDEOS
@@ -2068,12 +2260,13 @@ footer {
 
         </div>
 
+
         <div class="video-grid">
+
 
             <a
                 href="https://www.youtube.com/watch?v=6OySAaaEvHE"
                 target="_blank"
-                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-1"
             >
 
@@ -2081,7 +2274,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/6OySAaaEvHE/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -2108,10 +2301,10 @@ footer {
 
             </a>
 
+
             <a
                 href="https://www.youtube.com/watch?v=4SiVGLpki0s"
                 target="_blank"
-                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-2"
             >
 
@@ -2119,7 +2312,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/4SiVGLpki0s/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -2146,10 +2339,10 @@ footer {
 
             </a>
 
+
             <a
                 href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
                 target="_blank"
-                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-3"
             >
 
@@ -2157,7 +2350,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/Ai5G_2FH3hI/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -2184,10 +2377,10 @@ footer {
 
             </a>
 
+
             <a
                 href="https://www.youtube.com/watch?v=VkUS6WVPWic"
                 target="_blank"
-                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-1"
             >
 
@@ -2195,7 +2388,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/VkUS6WVPWic/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -2222,10 +2415,10 @@ footer {
 
             </a>
 
+
             <a
                 href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
                 target="_blank"
-                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-2"
             >
 
@@ -2233,7 +2426,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/NawRXjwjtYQ/maxresdefault.jpg"
-                        alt="BerkeBet videosu"
+                        alt="BerkeBet"
                     >
 
                     <div class="play-button">
@@ -2262,10 +2455,10 @@ footer {
 
         </div>
 
+
         <a
             href="https://www.youtube.com/@BerkeBet"
             target="_blank"
-            rel="noopener noreferrer"
             class="all-videos scroll-animate scroll-delay-3"
         >
             Tüm Videoları Gör →
@@ -2274,6 +2467,7 @@ footer {
     </div>
 
 </section>
+
 
 <!-- =========================================================
      INSTAGRAM
@@ -2298,10 +2492,10 @@ footer {
             BerkeBet'i sosyal medyada takip et.
         </p>
 
+
         <a
             href="https://www.instagram.com/berkeya_/"
             target="_blank"
-            rel="noopener noreferrer"
             class="instagram-card scroll-animate scroll-delay-3"
         >
 
@@ -2341,6 +2535,7 @@ footer {
 
             </div>
 
+
             <div class="instagram-info">
 
                 <div class="instagram-label">
@@ -2353,6 +2548,7 @@ footer {
 
             </div>
 
+
             <div class="instagram-arrow">
                 →
             </div>
@@ -2362,6 +2558,7 @@ footer {
     </div>
 
 </section>
+
 
 <!-- =========================================================
      FOOTER
@@ -2383,79 +2580,70 @@ footer {
 
 </footer>
 
+
 <script>
 
 /* =========================================================
-   INTRO
+   CINEMATIC INTRO
 ========================================================= */
 
-window.addEventListener("load", function () {
+window.addEventListener(
+    "load",
+    function () {
 
-    const intro =
-        document.getElementById("intro");
+        const intro =
+            document.getElementById("intro");
 
-    if (
-        sessionStorage.getItem("introShown")
-        === "true"
-    ) {
-
-        intro.remove();
-
-        return;
-    }
-
-    sessionStorage.setItem(
-        "introShown",
-        "true"
-    );
-
-    setTimeout(function () {
-
-        intro.classList.add("hide");
-
-        setTimeout(function () {
+        if (
+            sessionStorage.getItem(
+                "introShown"
+            ) === "true"
+        ) {
 
             intro.remove();
 
-        }, 1300);
+            return;
+        }
 
-    }, 3400);
+        sessionStorage.setItem(
+            "introShown",
+            "true"
+        );
 
-});
+        setTimeout(
+            function () {
 
-/* =========================================================
-   CHANNEL
-========================================================= */
+                intro.classList.add("hide");
 
-function goToVideos() {
+                setTimeout(
+                    function () {
 
-    document
-        .getElementById("kanal")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+                        intro.remove();
 
-}
+                    },
+                    1300
+                );
 
-function openChannel() {
+            },
+            3400
+        );
 
-    window.open(
-        "https://www.youtube.com/@BerkeBet",
-        "_blank"
-    );
+    }
+);
 
-}
 
 /* =========================================================
    MOUSE GLOW
 ========================================================= */
 
 const mouseGlow =
-    document.getElementById("mouseGlow");
+    document.getElementById(
+        "mouseGlow"
+    );
 
 document.addEventListener(
     "mousemove",
-    function(event) {
+    function (event) {
 
         mouseGlow.style.left =
             event.clientX + "px";
@@ -2466,50 +2654,59 @@ document.addEventListener(
     }
 );
 
+
 /* =========================================================
    SMOOTH LINKS
 ========================================================= */
 
 document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(function(link) {
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
+    .forEach(
+        function (link) {
 
-        link.addEventListener(
-            "click",
-            function(event) {
+            link.addEventListener(
+                "click",
+                function (event) {
 
-                const target =
-                    document.querySelector(
-                        this.getAttribute("href")
-                    );
+                    const target =
+                        document.querySelector(
+                            this.getAttribute(
+                                "href"
+                            )
+                        );
 
-                if (!target) return;
+                    if (!target) return;
 
-                event.preventDefault();
+                    event.preventDefault();
 
-                const navbarHeight = 74;
+                    const navbarHeight = 74;
 
-                const position =
-                    target
-                        .getBoundingClientRect()
-                        .top
-                    +
-                    window.scrollY
-                    -
-                    navbarHeight;
+                    const position =
+                        target
+                            .getBoundingClientRect()
+                            .top
+                        +
+                        window.scrollY
+                        -
+                        navbarHeight;
 
-                window.scrollTo({
+                    window.scrollTo({
 
-                    top: position,
+                        top: position,
 
-                    behavior: "smooth"
+                        behavior:
+                            "smooth"
 
-                });
+                    });
 
-            }
-        );
+                }
+            );
 
-    });
+        }
+    );
+
 
 /* =========================================================
    SCROLL ANIMATIONS
@@ -2522,47 +2719,68 @@ const scrollElements =
 
 const scrollObserver =
     new IntersectionObserver(
-        function(entries) {
+        function (entries) {
 
-            entries.forEach(function(entry) {
+            entries.forEach(
+                function (entry) {
 
-                if (entry.isIntersecting) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                    entry.target.classList.add("show");
+                        entry.target
+                            .classList
+                            .add("show");
 
-                } else {
+                    } else {
 
-                    entry.target.classList.remove("show");
+                        entry.target
+                            .classList
+                            .remove("show");
+
+                    }
 
                 }
-
-            });
+            );
 
         },
         {
             threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
+
+            rootMargin:
+                "0px 0px -50px 0px"
         }
     );
 
-scrollElements.forEach(function(element) {
+scrollElements.forEach(
+    function (element) {
 
-    scrollObserver.observe(element);
+        scrollObserver.observe(
+            element
+        );
 
-});
+    }
+);
+
 
 /* =========================================================
    MUSIC
 ========================================================= */
 
 const bgMusic =
-    document.getElementById("bgMusic");
+    document.getElementById(
+        "bgMusic"
+    );
 
 const musicToggle =
-    document.getElementById("musicToggle");
+    document.getElementById(
+        "musicToggle"
+    );
 
 const volumeControl =
-    document.getElementById("volumeControl");
+    document.getElementById(
+        "volumeControl"
+    );
 
 bgMusic.volume = 0.35;
 
@@ -2570,7 +2788,11 @@ document.addEventListener(
     "click",
     function startMusic() {
 
-        bgMusic.play().catch(function() {});
+        bgMusic
+            .play()
+            .catch(
+                function () {}
+            );
 
         document.removeEventListener(
             "click",
@@ -2582,21 +2804,25 @@ document.addEventListener(
 
 musicToggle.addEventListener(
     "click",
-    function(event) {
+    function (event) {
 
         event.stopPropagation();
 
-        if (bgMusic.paused) {
+        if (
+            bgMusic.paused
+        ) {
 
-            bgMusic.play().catch(function() {});
+            bgMusic.play();
 
-            musicToggle.textContent = "🎵";
+            musicToggle.textContent =
+                "🎵";
 
         } else {
 
             bgMusic.pause();
 
-            musicToggle.textContent = "🔇";
+            musicToggle.textContent =
+                "🔇";
 
         }
 
@@ -2605,10 +2831,10 @@ musicToggle.addEventListener(
 
 volumeControl.addEventListener(
     "input",
-    function() {
+    function () {
 
         bgMusic.volume =
-            Number(this.value);
+            this.value;
 
     }
 );
