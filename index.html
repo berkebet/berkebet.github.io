@@ -11,6 +11,10 @@
 
 <style>
 
+/* =====================================================
+   TEMEL
+===================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -30,9 +34,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    ARKA PLAN
-========================= */
+===================================================== */
 
 .background {
     position: fixed;
@@ -62,8 +66,11 @@ body {
     height: 550px;
     left: -180px;
     top: -180px;
+
     background: rgba(164, 35, 255, .45);
-    animation: move1 10s ease-in-out infinite alternate;
+
+    animation:
+        move1 10s ease-in-out infinite alternate;
 }
 
 .neon.two {
@@ -71,8 +78,11 @@ body {
     height: 600px;
     right: -250px;
     top: 100px;
+
     background: rgba(99, 25, 255, .38);
-    animation: move2 12s ease-in-out infinite alternate;
+
+    animation:
+        move2 12s ease-in-out infinite alternate;
 }
 
 .neon.three {
@@ -80,30 +90,44 @@ body {
     height: 500px;
     left: 35%;
     top: 40%;
+
     background: rgba(221, 40, 255, .20);
-    animation: move3 11s ease-in-out infinite alternate;
+
+    animation:
+        move3 11s ease-in-out infinite alternate;
 }
 
 @keyframes move1 {
+
     to {
-        transform: translate(160px, 120px) scale(1.2);
+        transform:
+            translate(160px, 120px)
+            scale(1.2);
     }
 }
 
 @keyframes move2 {
+
     to {
-        transform: translate(-130px, 140px) scale(1.15);
+        transform:
+            translate(-130px, 140px)
+            scale(1.15);
     }
 }
 
 @keyframes move3 {
+
     to {
-        transform: translate(120px, -100px) scale(1.2);
+        transform:
+            translate(120px, -100px)
+            scale(1.2);
     }
 }
 
 
-/* GRID */
+/* =====================================================
+   GRID
+===================================================== */
 
 .grid {
     position: absolute;
@@ -126,25 +150,31 @@ body {
         perspective(700px)
         rotateX(62deg);
 
-    animation: gridMove 12s linear infinite;
+    animation:
+        gridMove 12s linear infinite;
 }
 
 @keyframes gridMove {
+
     to {
+
         transform:
             perspective(700px)
             rotateX(62deg)
             translateY(65px);
+
     }
 }
 
 
-/* =========================
+/* =====================================================
    NAVBAR
-========================= */
+===================================================== */
 
 nav {
+
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -154,10 +184,12 @@ nav {
     padding: 0 7%;
 
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
-    background: rgba(7, 2, 12, .68);
+    background:
+        rgba(7, 2, 12, .68);
 
     backdrop-filter: blur(22px);
 
@@ -169,11 +201,15 @@ nav {
 }
 
 .logo {
+
     color: white;
+
     text-decoration: none;
 
     font-size: 21px;
+
     font-weight: 900;
+
     letter-spacing: 2px;
 
     transition: .3s;
@@ -184,20 +220,25 @@ nav {
 }
 
 .logo:hover {
+
     text-shadow:
         0 0 15px #c34cff,
         0 0 35px rgba(195, 76, 255, .5);
 }
 
 .links {
+
     display: flex;
+
     gap: 34px;
 }
 
 .links a {
+
     position: relative;
 
     color: #958ba2;
+
     text-decoration: none;
 
     font-size: 14px;
@@ -210,6 +251,7 @@ nav {
 }
 
 .links a::after {
+
     content: "";
 
     position: absolute;
@@ -220,7 +262,8 @@ nav {
     width: 0;
     height: 2px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     background:
         linear-gradient(
@@ -240,26 +283,35 @@ nav {
 }
 
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero {
+
     min-height: 100vh;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    padding: 120px 20px 80px;
+    padding:
+        120px
+        20px
+        80px;
 }
 
 .hero-content {
+
     width: 100%;
+
     max-width: 1100px;
 
     display: grid;
-    grid-template-columns: 1fr 390px;
+
+    grid-template-columns:
+        1fr 390px;
 
     align-items: center;
 
@@ -267,20 +319,26 @@ nav {
 }
 
 .small-title {
+
     display: flex;
+
     align-items: center;
+
     gap: 10px;
 
     color: #988ba7;
 
     font-size: 12px;
+
     text-transform: uppercase;
+
     letter-spacing: 4px;
 
     margin-bottom: 24px;
 }
 
 .small-title::before {
+
     content: "";
 
     width: 32px;
@@ -298,12 +356,18 @@ nav {
 }
 
 
-/* =========================
-   BÜYÜK BERKEBET YAZISI
-========================= */
+/* =====================================================
+   BÜYÜK BERKEBET
+===================================================== */
 
 h1 {
-    font-size: clamp(65px, 9vw, 120px);
+
+    font-size:
+        clamp(
+            65px,
+            9vw,
+            120px
+        );
 
     line-height: .82;
 
@@ -312,8 +376,6 @@ h1 {
     font-weight: 950;
 
     margin-bottom: 35px;
-
-    /* MOR GRADIENT */
 
     background:
         linear-gradient(
@@ -327,45 +389,47 @@ h1 {
             #6515ff 100%
         );
 
-    /* GRADIENTİN HAREKET ALANI */
-
-    background-size: 250% 100%;
+    background-size:
+        250% 100%;
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     color: transparent;
 
-    /* SOLDAN SAĞA YUMUŞAK HAREKET */
-
     animation:
-        berkeGradient 6s ease-in-out infinite;
+        berkeGradient
+        6s
+        ease-in-out
+        infinite;
 }
-
-
-/* GRADIENT ANİMASYONU */
 
 @keyframes berkeGradient {
 
     0% {
-        background-position: 0% 50%;
+        background-position:
+            0% 50%;
     }
 
     50% {
-        background-position: 100% 50%;
+        background-position:
+            100% 50%;
     }
 
     100% {
-        background-position: 0% 50%;
+        background-position:
+            0% 50%;
     }
 }
 
 
-/* =========================
+/* =====================================================
    AÇIKLAMA
-========================= */
+===================================================== */
 
 .description {
+
     max-width: 540px;
 
     color: #a196ad;
@@ -378,6 +442,7 @@ h1 {
 }
 
 .yapistir {
+
     display: block;
 
     margin-top: 15px;
@@ -396,7 +461,10 @@ h1 {
         0 0 60px rgba(179, 50, 255, .3);
 
     animation:
-        pulse 2s ease-in-out infinite alternate;
+        pulse
+        2s
+        ease-in-out
+        infinite alternate;
 }
 
 @keyframes pulse {
@@ -412,12 +480,14 @@ h1 {
 }
 
 
-/* =========================
+/* =====================================================
    BUTONLAR
-========================= */
+===================================================== */
 
 .buttons {
+
     display: flex;
+
     gap: 12px;
 }
 
@@ -429,13 +499,16 @@ h1 {
     align-items: center;
     justify-content: center;
 
-    padding: 14px 23px;
+    padding:
+        14px
+        23px;
 
     border-radius: 9px;
 
     text-decoration: none;
 
     font-size: 13px;
+
     font-weight: 800;
 
     transition: .35s;
@@ -459,7 +532,8 @@ h1 {
 
 .youtube-btn:hover {
 
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
 
     box-shadow:
         0 15px 45px
@@ -482,16 +556,17 @@ h1 {
 
     color: white;
 
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
 
     background:
         rgba(190,60,255,.08);
 }
 
 
-/* =========================
+/* =====================================================
    KANAL KARTI
-========================= */
+===================================================== */
 
 .channel-card {
 
@@ -521,7 +596,8 @@ h1 {
 
 .channel-card:hover {
 
-    transform: translateY(-8px);
+    transform:
+        translateY(-8px);
 
     border-color:
         rgba(215,103,255,.35);
@@ -562,7 +638,8 @@ h1 {
         rgba(207,83,255,.55);
 
     box-shadow:
-        0 0 20px rgba(194,47,255,.35);
+        0 0 20px
+        rgba(194,47,255,.35);
 }
 
 .channel-icon img {
@@ -578,6 +655,7 @@ h1 {
 .channel-name {
 
     font-size: 19px;
+
     font-weight: 900;
 
     margin-bottom: 5px;
@@ -600,6 +678,11 @@ h1 {
 
     font-weight: 700;
 }
+
+
+/* =====================================================
+   BİLGİ KARTLARI
+===================================================== */
 
 .card-info {
 
@@ -629,7 +712,50 @@ h1 {
     transition: .3s;
 }
 
-.info:hover {
+
+/* TIKLANABİLİR KART */
+
+.info-link {
+
+    display: block;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    cursor: pointer;
+}
+
+.info-link:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        rgba(180,50,255,.10);
+
+    border-color:
+        rgba(211,84,255,.35);
+
+    box-shadow:
+        0 8px 25px
+        rgba(180,50,255,.12);
+}
+
+.info-link:hover .info-title {
+    color: white;
+}
+
+.info-link:hover .info-icon {
+
+    transform:
+        scale(1.1);
+}
+
+
+/* NORMAL BİLGİ KARTI */
+
+.info:not(.info-link):hover {
 
     background:
         rgba(180,50,255,.07);
@@ -643,6 +769,8 @@ h1 {
     font-size: 17px;
 
     margin-bottom: 9px;
+
+    transition: .3s;
 }
 
 .info-title {
@@ -650,6 +778,7 @@ h1 {
     color: #f4eff7;
 
     font-size: 13px;
+
     font-weight: 800;
 
     margin-bottom: 4px;
@@ -661,6 +790,11 @@ h1 {
 
     font-size: 11px;
 }
+
+
+/* =====================================================
+   KANAL BUTONU
+===================================================== */
 
 .card-button {
 
@@ -689,6 +823,7 @@ h1 {
     text-decoration: none;
 
     font-size: 13px;
+
     font-weight: 800;
 
     transition: .35s;
@@ -713,15 +848,16 @@ h1 {
 }
 
 
-/* =========================
+/* =====================================================
    SECTIONS
-========================= */
+===================================================== */
 
 .section {
 
     position: relative;
 
-    padding: 125px 7%;
+    padding:
+        125px 7%;
 
     border-top:
         1px solid
@@ -754,9 +890,9 @@ h1 {
 }
 
 
-/* =========================
+/* =====================================================
    VİDEOLAR
-========================= */
+===================================================== */
 
 .video-heading {
 
@@ -797,7 +933,8 @@ h1 {
 
 .video-card:hover {
 
-    transform: translateY(-9px);
+    transform:
+        translateY(-9px);
 
     border-color:
         rgba(207,79,255,.35);
@@ -813,11 +950,13 @@ h1 {
 
     width: 100%;
 
-    aspect-ratio: 16 / 9;
+    aspect-ratio:
+        16 / 9;
 
     overflow: hidden;
 
-    background: #050207;
+    background:
+        #050207;
 }
 
 .thumbnail img {
@@ -834,7 +973,8 @@ h1 {
 
 .video-card:hover .thumbnail img {
 
-    transform: scale(1.07);
+    transform:
+        scale(1.07);
 }
 
 .play-button {
@@ -923,7 +1063,8 @@ h1 {
 
     margin-top: 35px;
 
-    padding: 14px 22px;
+    padding:
+        14px 22px;
 
     border-radius: 9px;
 
@@ -958,13 +1099,14 @@ h1 {
 
     border-color: transparent;
 
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 }
 
 
-/* =========================
+/* =====================================================
    INSTAGRAM
-========================= */
+===================================================== */
 
 .instagram-card {
 
@@ -973,11 +1115,13 @@ h1 {
     align-items: center;
 
     width: 100%;
+
     max-width: 600px;
 
     margin-top: 35px;
 
-    padding: 21px 23px;
+    padding:
+        21px 23px;
 
     background:
         rgba(12,6,17,.8);
@@ -997,7 +1141,8 @@ h1 {
 
 .instagram-card:hover {
 
-    transform: translateY(-6px);
+    transform:
+        translateY(-6px);
 
     border-color:
         rgba(235,130,255,.25);
@@ -1078,17 +1223,19 @@ h1 {
 
     color: white;
 
-    transform: translateX(6px);
+    transform:
+        translateX(6px);
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer {
 
-    padding: 40px 7%;
+    padding:
+        40px 7%;
 
     border-top:
         1px solid
@@ -1102,15 +1249,16 @@ footer {
 }
 
 
-/* =========================
+/* =====================================================
    MOBİL
-========================= */
+===================================================== */
 
 @media (max-width: 900px) {
 
     .hero-content {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
         gap: 55px;
 
@@ -1124,12 +1272,12 @@ footer {
     }
 }
 
-
 @media (max-width: 600px) {
 
     nav {
 
-        padding: 0 25px;
+        padding:
+            0 25px;
     }
 
     .links {
@@ -1162,7 +1310,8 @@ footer {
 
     .video-grid {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .section-title {
@@ -1178,9 +1327,9 @@ footer {
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      ARKA PLAN
-========================= -->
+===================================================== -->
 
 <div class="background">
 
@@ -1195,9 +1344,9 @@ footer {
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      NAVBAR
-========================= -->
+===================================================== -->
 
 <nav>
 
@@ -1228,9 +1377,9 @@ footer {
 </nav>
 
 
-<!-- =========================
+<!-- =====================================================
      ANA SAYFA
-========================= -->
+===================================================== -->
 
 <section
     class="hero"
@@ -1295,7 +1444,9 @@ footer {
         </div>
 
 
-        <!-- KANAL KARTI -->
+        <!-- =================================================
+             KANAL KARTI
+        ================================================= -->
 
         <div class="channel-card">
 
@@ -1319,11 +1470,9 @@ footer {
                         BerkeBet
                     </div>
 
-
                     <div class="channel-handle">
                         @BerkeBet
                     </div>
-
 
                     <div class="verified">
                         ● Resmi YouTube Kanalı
@@ -1335,10 +1484,21 @@ footer {
             </div>
 
 
+            <!-- =================================================
+                 BİLGİ KARTLARI
+            ================================================= -->
+
             <div class="card-info">
 
 
-                <div class="info">
+                <!-- İÇERİK
+                     TIKLAYINCA SON VİDEOLARA GİDER
+                -->
+
+                <a
+                    href="#kanal"
+                    class="info info-link"
+                >
 
                     <div class="info-icon">
                         🎥
@@ -1352,8 +1512,10 @@ footer {
                         YouTube videoları
                     </div>
 
-                </div>
+                </a>
 
+
+                <!-- PLATFORM -->
 
                 <div class="info">
 
@@ -1372,6 +1534,8 @@ footer {
                 </div>
 
 
+                <!-- DURUM -->
+
                 <div class="info">
 
                     <div class="info-icon">
@@ -1389,7 +1553,15 @@ footer {
                 </div>
 
 
-                <div class="info">
+                <!-- KANAL
+                     TIKLAYINCA YOUTUBE'A GİDER
+                -->
+
+                <a
+                    href="https://www.youtube.com/@BerkeBet"
+                    target="_blank"
+                    class="info info-link"
+                >
 
                     <div class="info-icon">
                         👑
@@ -1403,11 +1575,13 @@ footer {
                         BerkeBet
                     </div>
 
-                </div>
+                </a>
 
 
             </div>
 
+
+            <!-- KANALA GİT BUTONU -->
 
             <a
                 href="https://www.youtube.com/@BerkeBet"
@@ -1420,15 +1594,14 @@ footer {
 
         </div>
 
-
     </div>
 
 </section>
 
 
-<!-- =========================
-     KANAL
-========================= -->
+<!-- =====================================================
+     KANAL / SON VİDEOLAR
+===================================================== -->
 
 <section
     class="section"
@@ -1685,9 +1858,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      İLETİŞİM
-========================= -->
+===================================================== -->
 
 <section
     class="section"
@@ -1722,7 +1895,6 @@ footer {
 
             <div class="instagram-icon">
 
-
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -1738,7 +1910,6 @@ footer {
                         stroke-width="2"
                     />
 
-
                     <circle
                         cx="12"
                         cy="12"
@@ -1746,7 +1917,6 @@ footer {
                         stroke="currentColor"
                         stroke-width="2"
                     />
-
 
                     <circle
                         cx="17.5"
@@ -1756,7 +1926,6 @@ footer {
                     />
 
                 </svg>
-
 
             </div>
 
@@ -1787,9 +1956,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -1798,9 +1967,9 @@ footer {
 </footer>
 
 
-<!-- =========================
+<!-- =====================================================
      SMOOTH SCROLL
-========================= -->
+===================================================== -->
 
 <script>
 
