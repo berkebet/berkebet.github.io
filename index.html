@@ -3,39 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>BerkeBet</title>
 <link rel="icon" href="logo.jpeg.jpeg">
-
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #050208;
     color: white;
     overflow-x: hidden;
 }
-
 /* ================= INTRO ================= */
-
 #intro {
     position: fixed;
     inset: 0;
     z-index: 99999;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background:
         radial-gradient(
             circle at center,
@@ -43,24 +35,18 @@ body {
             transparent 40%
         ),
         #050208;
-
     animation: introExit 1.2s cubic-bezier(.76,0,.24,1) 2.8s forwards;
 }
-
 .intro-content {
     text-align: center;
-
     animation:
         introContent 1.5s cubic-bezier(.16,1,.3,1) forwards;
 }
-
 .intro-logo {
     font-size: clamp(55px, 10vw, 130px);
     line-height: .9;
-
     font-weight: 950;
     letter-spacing: -7px;
-
     background:
         linear-gradient(
             90deg,
@@ -70,29 +56,21 @@ body {
             #9a39ff,
             #8f31ff
         );
-
     background-size: 300% 100%;
-
     -webkit-background-clip: text;
     background-clip: text;
-
     color: transparent;
-
     filter:
         drop-shadow(0 0 10px rgba(195,76,255,.4))
         drop-shadow(0 0 35px rgba(195,76,255,.3));
-
     animation:
         introGradient 4s ease infinite,
         introGlow 1.5s ease-in-out infinite alternate;
 }
-
 .intro-line {
     width: 0;
     height: 2px;
-
     margin: 25px auto 0;
-
     background:
         linear-gradient(
             90deg,
@@ -102,129 +80,97 @@ body {
             #9b31ff,
             transparent
         );
-
     box-shadow:
         0 0 12px #c34cff,
         0 0 30px #c34cff;
-
     animation:
         introLine 1s cubic-bezier(.16,1,.3,1) .7s forwards;
 }
-
 .intro-subtitle {
     margin-top: 20px;
-
     color: #958ba2;
-
     font-size: 11px;
     font-weight: 800;
-
     letter-spacing: 6px;
-
     opacity: 0;
-
     animation:
         introSubtitle .8s ease 1s forwards;
 }
-
 @keyframes introContent {
-
     0% {
         opacity: 0;
         transform:
             scale(.65)
             translateY(35px);
-
         filter: blur(15px);
     }
-
     60% {
         opacity: 1;
         transform:
             scale(1.05)
             translateY(0);
-
         filter: blur(0);
     }
-
     100% {
         opacity: 1;
         transform:
             scale(1)
             translateY(0);
-
         filter: blur(0);
     }
 }
-
 @keyframes introGradient {
-
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
-
     100% {
         background-position: 0% 50%;
     }
 }
-
 @keyframes introGlow {
-
     from {
         filter:
             drop-shadow(0 0 8px rgba(195,76,255,.4))
             drop-shadow(0 0 25px rgba(195,76,255,.2));
     }
-
     to {
         filter:
             drop-shadow(0 0 18px rgba(195,76,255,.9))
             drop-shadow(0 0 55px rgba(195,76,255,.5));
     }
 }
-
 @keyframes introLine {
-
     from {
         width: 0;
         opacity: 0;
     }
-
     to {
         width: min(320px, 65vw);
         opacity: 1;
     }
 }
-
 @keyframes introSubtitle {
-
     from {
         opacity: 0;
         transform: translateY(12px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
 @keyframes introExit {
-
     0% {
         opacity: 1;
         transform: scale(1);
     }
-
     60% {
         opacity: 1;
         transform: scale(1.02);
     }
-
     100% {
         opacity: 0;
         visibility: hidden;
@@ -232,28 +178,23 @@ body {
         transform: scale(1.08);
     }
 }
-
 /* ================= BACKGROUND ================= */
-
 .background {
     position: fixed;
     inset: 0;
     z-index: -10;
     overflow: hidden;
-
     background:
         radial-gradient(circle at 20% 10%, rgba(165,40,255,.20), transparent 35%),
         radial-gradient(circle at 80% 25%, rgba(105,30,255,.18), transparent 35%),
         radial-gradient(circle at 50% 90%, rgba(220,40,255,.12), transparent 40%),
         #050208;
 }
-
 .neon {
     position: absolute;
     border-radius: 50%;
     filter: blur(130px);
 }
-
 .neon.one {
     width: 550px;
     height: 550px;
@@ -262,7 +203,6 @@ body {
     background: rgba(170,40,255,.42);
     animation: moveOne 11s ease-in-out infinite alternate;
 }
-
 .neon.two {
     width: 600px;
     height: 600px;
@@ -271,7 +211,6 @@ body {
     background: rgba(90,30,255,.34);
     animation: moveTwo 13s ease-in-out infinite alternate;
 }
-
 .neon.three {
     width: 500px;
     height: 500px;
@@ -280,7 +219,6 @@ body {
     background: rgba(230,50,255,.18);
     animation: moveThree 12s ease-in-out infinite alternate;
 }
-
 @keyframes moveOne {
     to {
         transform:
@@ -288,7 +226,6 @@ body {
             scale(1.2);
     }
 }
-
 @keyframes moveTwo {
     to {
         transform:
@@ -296,7 +233,6 @@ body {
             scale(1.15);
     }
 }
-
 @keyframes moveThree {
     to {
         transform:
@@ -304,27 +240,20 @@ body {
             scale(1.2);
     }
 }
-
 .grid {
     position: absolute;
     inset: -50%;
-
     background-image:
         linear-gradient(rgba(190,60,255,.055) 1px, transparent 1px),
         linear-gradient(90deg, rgba(190,60,255,.055) 1px, transparent 1px);
-
     background-size: 65px 65px;
-
     transform:
         perspective(700px)
         rotateX(62deg);
-
     animation:
         gridMove 13s linear infinite;
 }
-
 @keyframes gridMove {
-
     to {
         transform:
             perspective(700px)
@@ -332,140 +261,94 @@ body {
             translateY(65px);
     }
 }
-
 /* ================= NAVBAR ================= */
-
 nav {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 74px;
-
     padding: 0 7%;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     background: rgba(7,2,12,.70);
-
     backdrop-filter: blur(22px);
-
     border-bottom:
         1px solid
         rgba(213,111,255,.12);
-
     z-index: 1000;
 }
-
 .logo {
     color: white;
-
     text-decoration: none;
-
     font-size: 21px;
     font-weight: 900;
-
     letter-spacing: 2px;
 }
-
 .logo span {
     color: #c34cff;
 }
-
 .links {
     display: flex;
     gap: 34px;
 }
-
 .links a {
     color: #958ba2;
-
     text-decoration: none;
-
     font-size: 14px;
-
     transition: .3s;
 }
-
 .links a:hover {
     color: white;
 }
-
 /* ================= HERO ================= */
-
 .hero {
     min-height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 120px 20px 80px;
 }
-
 .hero-content {
     width: 100%;
     max-width: 1100px;
-
     display: grid;
-
     grid-template-columns:
         1fr 390px;
-
     align-items: center;
-
     gap: 90px;
 }
-
 .small-title {
     display: flex;
     align-items: center;
-
     gap: 10px;
-
     color: #988ba7;
-
     font-size: 12px;
-
     text-transform: uppercase;
-
     letter-spacing: 4px;
-
     margin-bottom: 24px;
 }
-
 .small-title::before {
     content: "";
-
     width: 32px;
     height: 2px;
-
     background:
         linear-gradient(
             90deg,
             #9a32ff,
             #e45cff
         );
-
     box-shadow:
         0 0 12px #c23fff;
 }
-
 h1 {
     font-size:
         clamp(65px,9vw,120px);
-
     line-height: .82;
-
     letter-spacing: -7px;
-
     font-weight: 950;
-
     margin-bottom: 35px;
-
     background:
         linear-gradient(
             90deg,
@@ -475,69 +358,46 @@ h1 {
             #9a39ff,
             #8f31ff
         );
-
     background-size: 300% 100%;
-
     -webkit-background-clip: text;
     background-clip: text;
-
     color: transparent;
-
     animation:
         gradientMove 6s ease-in-out infinite;
 }
-
 @keyframes gradientMove {
-
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
-
     100% {
         background-position: 0% 50%;
     }
 }
-
 .description {
     max-width: 540px;
-
     color: #a196ad;
-
     font-size: 16px;
-
     line-height: 1.85;
-
     margin-bottom: 35px;
 }
-
 .yapistir {
     display: block;
-
     margin-top: 15px;
-
     font-size: 40px;
-
     font-weight: 950;
-
     letter-spacing: 4px;
-
     color: #d54cff;
-
     text-shadow:
         0 0 10px #d54cff,
         0 0 30px rgba(179,50,255,.7),
         0 0 60px rgba(179,50,255,.3);
-
     animation:
         pulse 2s ease-in-out infinite alternate;
 }
-
 @keyframes pulse {
-
     to {
         text-shadow:
             0 0 15px #e66aff,
@@ -545,263 +405,178 @@ h1 {
             0 0 75px rgba(179,50,255,.4);
     }
 }
-
 /* ================= BUTTONS ================= */
-
 .buttons {
     display: flex;
     gap: 12px;
 }
-
 .youtube-btn,
 .about-btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     padding: 14px 23px;
-
     border-radius: 9px;
-
     text-decoration: none;
-
     font-size: 13px;
     font-weight: 800;
-
     transition: .35s;
 }
-
 .youtube-btn {
     color: white;
-
     background:
         linear-gradient(
             135deg,
             #9b31ff,
             #d34cff
         );
-
     box-shadow:
         0 10px 35px
         rgba(173,42,255,.3);
-
     border: none;
-
     cursor: pointer;
 }
-
 .youtube-btn:hover {
     transform: translateY(-5px);
-
     box-shadow:
         0 15px 45px
         rgba(173,42,255,.5);
 }
-
 .about-btn {
     color: #b6aabd;
-
     background:
         rgba(255,255,255,.025);
-
     border:
         1px solid
         rgba(221,146,255,.1);
 }
-
 .about-btn:hover {
     color: white;
-
     transform: translateY(-5px);
 }
-
 /* ================= CHANNEL CARD ================= */
-
 .channel-card {
     padding: 30px;
-
     background:
         linear-gradient(
             145deg,
             rgba(22,10,31,.8),
             rgba(7,4,11,.92)
         );
-
     border:
         1px solid
         rgba(221,124,255,.13);
-
     border-radius: 22px;
-
     backdrop-filter: blur(25px);
-
     box-shadow:
         0 40px 100px rgba(0,0,0,.65),
         0 0 70px rgba(147,32,255,.1);
-
     transition: .4s;
 }
-
 .channel-card:hover {
     transform: translateY(-8px);
 }
-
 .card-top {
     display: flex;
     align-items: center;
-
     gap: 15px;
-
     padding-bottom: 25px;
-
     border-bottom:
         1px solid
         rgba(255,255,255,.06);
 }
-
 .channel-icon {
     width: 68px;
     height: 68px;
-
     flex-shrink: 0;
-
     border-radius: 50%;
-
     overflow: hidden;
-
     border:
         2px solid
         rgba(207,83,255,.55);
-
     box-shadow:
         0 0 20px
         rgba(194,47,255,.35);
 }
-
 .channel-icon img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
 }
-
 .channel-name {
     font-size: 19px;
     font-weight: 900;
-
     margin-bottom: 5px;
 }
-
 .channel-handle {
     color: #71677b;
-
     font-size: 12px;
-
     margin-bottom: 7px;
 }
-
 .verified {
     color: #c24cff;
-
     font-size: 11px;
-
     font-weight: 700;
 }
-
 .card-info {
     padding-top: 22px;
-
     display: grid;
-
     grid-template-columns:
         1fr 1fr;
-
     gap: 10px;
 }
-
 .info {
     padding: 17px;
-
     border-radius: 11px;
-
     background:
         rgba(255,255,255,.018);
-
     border:
         1px solid
         rgba(255,255,255,.055);
-
     transition: .3s;
-
     cursor: pointer;
 }
-
 .info:hover {
     background:
         rgba(180,50,255,.07);
-
     border-color:
         rgba(211,84,255,.2);
-
     transform:
         translateY(-3px);
 }
-
 .info-icon {
     font-size: 17px;
-
     margin-bottom: 9px;
 }
-
 .info-title {
     color: #f4eff7;
-
     font-size: 13px;
-
     font-weight: 800;
-
     margin-bottom: 4px;
 }
-
 .info-text {
     color: #756b80;
-
     font-size: 11px;
 }
-
 .card-button {
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     width: 100%;
-
     margin-top: 18px;
-
     padding: 14px;
-
     border-radius: 9px;
-
     color: #e3d8e9;
-
     background:
         rgba(255,255,255,.025);
-
     border:
         1px solid
         rgba(255,255,255,.07);
-
     text-decoration: none;
-
     font-size: 13px;
-
     font-weight: 800;
-
     transition: .35s;
 }
-
 .card-button:hover {
     background:
         linear-gradient(
@@ -809,208 +584,135 @@ h1 {
             #9b31ff,
             #d34cff
         );
-
     color: white;
 }
-
 /* ================= SECTIONS ================= */
-
 .section {
     padding: 125px 7%;
-
     border-top:
         1px solid
         rgba(230,150,255,.05);
 }
-
 .section-container {
     max-width: 1100px;
-
     margin: auto;
 }
-
 .section-title {
     font-size: 44px;
-
     letter-spacing: -2px;
-
     margin-bottom: 12px;
 }
-
 .section-description {
     color: #756b80;
-
     font-size: 15px;
-
     line-height: 1.7;
 }
-
 /* ================= VIDEOS ================= */
-
 .video-heading {
     margin-bottom: 45px;
 }
-
 .video-grid {
     display: grid;
-
     grid-template-columns:
         repeat(3,1fr);
-
     gap: 20px;
 }
-
 .video-card {
     display: block;
-
     background:
         rgba(10,5,15,.8);
-
     border:
         1px solid
         rgba(255,255,255,.065);
-
     border-radius: 16px;
-
     overflow: hidden;
-
     text-decoration: none;
-
     color: white;
-
     transition: .4s;
 }
-
 .video-card:hover {
     transform: translateY(-9px);
-
     border-color:
         rgba(207,79,255,.35);
-
     box-shadow:
         0 25px 60px rgba(0,0,0,.55),
         0 0 40px rgba(176,37,255,.12);
 }
-
 .thumbnail {
     position: relative;
-
     width: 100%;
-
     aspect-ratio: 16 / 9;
-
     overflow: hidden;
 }
-
 .thumbnail img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     transition: .5s;
 }
-
 .video-card:hover .thumbnail img {
     transform: scale(1.07);
 }
-
 .play-button {
     position: absolute;
-
     top: 50%;
     left: 50%;
-
     transform:
         translate(-50%,-50%);
-
     width: 58px;
     height: 58px;
-
     border-radius: 50%;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     background:
         rgba(183,48,255,.95);
-
     color: white;
-
     font-size: 20px;
-
     opacity: 0;
-
     transition: .3s;
 }
-
 .video-card:hover .play-button {
     opacity: 1;
 }
-
 .video-content {
     padding: 20px;
 }
-
 .video-label {
     color: #c34cff;
-
     font-size: 10px;
-
     font-weight: 900;
-
     letter-spacing: 2px;
-
     margin-bottom: 8px;
 }
-
 .video-content h3 {
     font-size: 17px;
-
     margin-bottom: 15px;
 }
-
 .watch {
     color: #71687a;
-
     font-size: 12px;
-
     font-weight: 700;
 }
-
 .video-card:hover .watch {
     color: #d24cff;
 }
-
 .all-videos {
     display: inline-flex;
-
     margin-top: 35px;
-
     padding: 14px 22px;
-
     border-radius: 9px;
-
     background:
         rgba(255,255,255,.025);
-
     border:
         1px solid
         rgba(255,255,255,.08);
-
     color: #b8adbe;
-
     text-decoration: none;
-
     font-size: 13px;
-
     font-weight: 800;
-
     transition: .35s;
 }
-
 .all-videos:hover {
     background:
         linear-gradient(
@@ -1018,57 +720,37 @@ h1 {
             #9b31ff,
             #d34cff
         );
-
     color: white;
-
     transform: translateY(-4px);
 }
-
 /* ================= INSTAGRAM ================= */
-
 .instagram-card {
     display: flex;
-
     align-items: center;
-
     width: 100%;
     max-width: 600px;
-
     margin-top: 35px;
-
     padding: 21px 23px;
-
     background:
         rgba(12,6,17,.8);
-
     border:
         1px solid
         rgba(255,255,255,.07);
-
     border-radius: 16px;
-
     text-decoration: none;
-
     color: white;
-
     transition: .4s;
 }
-
 .instagram-card:hover {
     transform: translateY(-6px);
 }
-
 .instagram-icon {
     width: 48px;
     height: 48px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     border-radius: 13px;
-
     background:
         linear-gradient(
             135deg,
@@ -1077,390 +759,288 @@ h1 {
             #fcb045
         );
 }
-
 .instagram-icon svg {
     width: 26px;
     height: 26px;
 }
-
 .instagram-info {
     margin-left: 16px;
-
     flex: 1;
 }
-
 .instagram-label {
     color: #766a7e;
-
     font-size: 10px;
-
     font-weight: 900;
-
     letter-spacing: 2px;
-
     margin-bottom: 5px;
 }
-
 .instagram-name {
     font-size: 17px;
-
     font-weight: 800;
 }
-
 .instagram-arrow {
     color: #71687a;
-
     font-size: 22px;
 }
-
-/* ================= WHEEL ================= */
-
+/* ================= WHEEL (GÜNCELLENMİŞ) ================= */
 .wheel-overlay {
     position: fixed;
-
     inset: 0;
-
     display: none;
-
     align-items: center;
     justify-content: center;
-
-    background:
-        rgba(2,0,5,.78);
-
-    backdrop-filter: blur(14px);
-
+    background: rgba(2, 0, 5, 0.82);
+    backdrop-filter: blur(18px);
     z-index: 5000;
 }
-
 .wheel-overlay.active {
     display: flex;
 }
-
 .wheel-box {
-    width: min(92%,520px);
-
-    padding: 35px;
-
+    width: min(92%, 520px);
+    padding: 38px 35px 32px;
     text-align: center;
-
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(25,8,35,.98),
-            rgba(7,3,12,.98)
-        );
-
-    border:
-        1px solid
-        rgba(210,80,255,.25);
-
+    border-radius: 26px;
+    background: linear-gradient(
+        145deg,
+        rgba(28, 10, 42, 0.97),
+        rgba(8, 3, 14, 0.98)
+    );
+    border: 1px solid rgba(210, 80, 255, 0.28);
     box-shadow:
-        0 30px 100px rgba(0,0,0,.8),
-        0 0 70px rgba(170,40,255,.15);
+        0 40px 110px rgba(0, 0, 0, 0.85),
+        0 0 80px rgba(170, 40, 255, 0.18),
+        inset 0 0 40px rgba(150, 40, 255, 0.05);
 }
-
 .wheel-title {
-    font-size: 28px;
-
+    font-size: 27px;
     font-weight: 900;
-
-    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+    margin-bottom: 28px;
+    background: linear-gradient(90deg, #c746ff, #f06cff, #c746ff);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 5s ease-in-out infinite;
 }
-
 .wheel {
     position: relative;
-
-    width: 280px;
-    height: 280px;
-
-    margin: 0 auto 25px;
-
+    width: 290px;
+    height: 290px;
+    margin: 0 auto 28px;
     border-radius: 50%;
-
-    background:
-        conic-gradient(
-            #731cff 0deg 72deg,
-            #a936ff 72deg 144deg,
-            #c84cff 144deg 216deg,
-            #8625ff 216deg 288deg,
-            #d04cff 288deg 360deg
-        );
-
-    border:
-        8px solid
-        rgba(255,255,255,.1);
-
+    background: conic-gradient(
+        #9b31ff 0deg 72deg,
+        #c34cff 72deg 144deg,
+        #e05cff 144deg 216deg,
+        #a936ff 216deg 288deg,
+        #d04cff 288deg 360deg
+    );
+    border: 7px solid rgba(255, 255, 255, 0.12);
     box-shadow:
-        0 0 50px
-        rgba(190,50,255,.45);
-
-    transition:
-        transform 4s
-        cubic-bezier(.12,.72,.15,1);
+        0 0 0 6px rgba(155, 49, 255, 0.15),
+        0 0 55px rgba(195, 76, 255, 0.55),
+        0 0 100px rgba(170, 40, 255, 0.25),
+        inset 0 0 30px rgba(0, 0, 0, 0.35);
+    transition: transform 4.2s cubic-bezier(0.12, 0.75, 0.12, 1);
 }
-
 .wheel::before {
     content: "BERKEBET";
-
     position: absolute;
-
     inset: 0;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    font-size: 12px;
-
-    font-weight: 900;
-
+    font-size: 13px;
+    font-weight: 950;
+    letter-spacing: 1.5px;
     color: white;
-
     text-shadow:
-        0 0 10px #fff;
-
+        0 0 10px #fff,
+        0 0 25px rgba(210, 80, 255, 0.9);
     pointer-events: none;
-
     z-index: 2;
 }
-
 .wheel::after {
     content: "";
-
     position: absolute;
-
     left: 50%;
     top: 50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    width: 72px;
-    height: 72px;
-
+    transform: translate(-50%, -50%);
+    width: 78px;
+    height: 78px;
     border-radius: 50%;
-
-    background: #09040e;
-
-    border:
-        2px solid
-        #d04cff;
-
+    background: radial-gradient(circle at 35% 35%, #1a0a24, #09040e);
+    border: 3px solid #d04cff;
     box-shadow:
-        0 0 25px
-        rgba(208,76,255,.7);
+        0 0 25px rgba(208, 76, 255, 0.85),
+        0 0 50px rgba(170, 40, 255, 0.4),
+        inset 0 0 15px rgba(0, 0, 0, 0.6);
 }
-
 .wheel-pointer {
     position: absolute;
-
-    top: -17px;
+    top: -18px;
     left: 50%;
-
-    transform:
-        translateX(-50%);
-
+    transform: translateX(-50%);
     width: 0;
     height: 0;
-
-    border-left:
-        13px solid transparent;
-
-    border-right:
-        13px solid transparent;
-
-    border-top:
-        25px solid white;
-
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 28px solid #f06cff;
+    filter: drop-shadow(0 0 10px rgba(240, 108, 255, 0.9));
     z-index: 10;
 }
-
 .wheel-result {
     display: none;
-
-    margin-top: 20px;
+    margin-top: 22px;
+    animation: resultAppear 0.5s ease forwards;
 }
-
 .wheel-result.show {
     display: block;
 }
-
+@keyframes resultAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .result-thumbnail {
     width: 100%;
-
-    border-radius: 13px;
-
+    border-radius: 14px;
     overflow: hidden;
-
     cursor: pointer;
-
-    border:
-        1px solid
-        rgba(210,80,255,.3);
+    border: 1px solid rgba(210, 80, 255, 0.35);
+    box-shadow: 0 0 30px rgba(170, 40, 255, 0.25);
+    transition: 0.3s;
 }
-
+.result-thumbnail:hover {
+    border-color: rgba(240, 108, 255, 0.6);
+    box-shadow: 0 0 40px rgba(195, 76, 255, 0.4);
+    transform: translateY(-3px);
+}
 .result-thumbnail img {
     display: block;
-
     width: 100%;
 }
-
 .result-title {
-    margin-top: 15px;
-
-    font-size: 17px;
-
+    margin-top: 14px;
+    font-size: 16px;
     font-weight: 800;
+    color: #e8d9f5;
 }
-
 .close-wheel {
-    margin-top: 20px;
-
-    padding: 12px 24px;
-
+    margin-top: 22px;
+    padding: 13px 28px;
     border: none;
-
-    border-radius: 8px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    color: white;
-
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #c9b8d9;
     cursor: pointer;
-
     font-weight: 800;
+    font-size: 13px;
+    transition: 0.3s;
 }
-
 .close-wheel:hover {
-    background: #a936ff;
+    background: linear-gradient(135deg, #9b31ff, #d34cff);
+    color: white;
+    box-shadow: 0 8px 25px rgba(173, 42, 255, 0.4);
 }
-
 /* ================= FOOTER ================= */
-
 footer {
     padding: 45px 7%;
-
     border-top:
         1px solid
         rgba(255,255,255,.045);
-
     text-align: center;
-
     color: #514957;
-
     font-size: 12px;
 }
-
 .developer {
     margin-top: 8px;
-
     color: #8f8198;
 }
-
 .developer span {
     color: #c94cff;
-
     font-weight: 900;
-
     text-shadow:
         0 0 12px
         rgba(201,76,255,.5);
 }
-
 /* ================= MOUSE ================= */
-
 .mouse-glow {
     position: fixed;
-
     width: 300px;
     height: 300px;
-
     border-radius: 50%;
-
     pointer-events: none;
-
     z-index: -5;
-
     background:
         radial-gradient(
             circle,
             rgba(180,50,255,.12),
             transparent 70%
         );
-
     transform:
         translate(-50%,-50%);
 }
-
 /* ================= MOBILE ================= */
-
 @media (max-width:900px) {
-
     .hero-content {
         grid-template-columns: 1fr;
-
         gap: 55px;
-
         max-width: 620px;
     }
-
     .video-grid {
         grid-template-columns:
             repeat(2,1fr);
     }
 }
-
 @media (max-width:600px) {
-
     nav {
         padding: 0 25px;
     }
-
     .links {
         display: none;
     }
-
     h1 {
         font-size: 58px;
-
         letter-spacing: -4px;
     }
-
     .yapistir {
         font-size: 28px;
     }
-
     .buttons {
         flex-direction: column;
     }
-
     .youtube-btn,
     .about-btn {
         width: 100%;
     }
-
     .video-grid {
         grid-template-columns: 1fr;
     }
-
     .section-title {
         font-size: 34px;
     }
-
     .wheel {
-        width: 240px;
-        height: 240px;
+        width: 250px;
+        height: 250px;
     }
-
+    .wheel::after {
+        width: 68px;
+        height: 68px;
+    }
+    .wheel-title {
+        font-size: 23px;
+    }
     .intro-logo {
         letter-spacing: -4px;
     }
-
     .intro-subtitle {
         font-size: 9px;
         letter-spacing: 4px;
@@ -1468,396 +1048,259 @@ footer {
 }
 </style>
 </head>
-
 <body>
-
 <!-- ================= INTRO ================= -->
-
 <div id="intro">
-
     <div class="intro-content">
-
         <div class="intro-logo">
             BERKEBET
         </div>
-
         <div class="intro-line"></div>
-
         <div class="intro-subtitle">
             OFFICIAL WEBSITE
         </div>
-
     </div>
-
 </div>
-
 <!-- ================= BACKGROUND ================= -->
-
 <div class="background">
-
     <div class="neon one"></div>
-
     <div class="neon two"></div>
-
     <div class="neon three"></div>
-
     <div class="grid"></div>
-
 </div>
-
 <div class="mouse-glow" id="mouseGlow"></div>
-
 <!-- ================= NAV ================= -->
-
 <nav>
-
 <a href="#home" class="logo">
     BERKE<span>BET</span>
 </a>
-
 <div class="links">
-
     <a href="#home">
         Ana Sayfa
     </a>
-
     <a href="#kanal">
         Kanal
     </a>
-
     <a href="#iletisim">
         İletişim
     </a>
-
 </div>
-
 </nav>
-
 <!-- ================= HERO ================= -->
-
 <section class="hero" id="home">
-
 <div class="hero-content">
-
 <div>
-
 <div class="small-title">
     OFFICIAL WEBSITE
 </div>
-
 <h1>
     BERKEBET
 </h1>
-
 <p class="description">
-
 Berkebet'in resmi internet sitesine hoş geldin.
-
 Yeni videolar, içerikler ve kanal hakkında her şeyi burada bulabilirsin.
-
 <br><br>
-
 Merhaba kumarbazlar ben BerkeBet
-
 <span class="yapistir">
     YAPIŞTIR!
 </span>
-
 </p>
-
 <div class="buttons">
-
 <a
 href="https://www.youtube.com/@BerkeBet"
 target="_blank"
 class="youtube-btn">
-
 ▶ YouTube Kanalı
-
 </a>
-
 <a
 href="#kanal"
 class="about-btn">
-
 Kanalı Keşfet →
-
 </a>
-
 </div>
-
 </div>
-
 <!-- CARD -->
-
 <div class="channel-card">
-
 <div class="card-top">
-
 <div class="channel-icon">
-
 <img
 src="berkebet.jpg.jpeg"
 alt="BerkeBet">
-
 </div>
-
 <div>
-
 <div class="channel-name">
 BerkeBet
 </div>
-
 <div class="channel-handle">
 @BerkeBet
 </div>
-
 <div class="verified">
 ● Resmi YouTube Kanalı
 </div>
-
 </div>
-
 </div>
-
 <div class="card-info">
-
 <div
 class="info"
 onclick="goToVideos()">
-
 <div class="info-icon">
 🎥
 </div>
-
 <div class="info-title">
 İçerik
 </div>
-
 <div class="info-text">
 YouTube videoları
 </div>
-
 </div>
-
 <div
 class="info"
 onclick="openWheel()">
-
 <div class="info-icon">
 🎰
 </div>
-
 <div class="info-title">
 Rasgele İzle!
 </div>
-
 <div class="info-text">
 Keyfini çıkarın!
 </div>
-
 </div>
-
 <div class="info">
-
 <div class="info-icon">
 🟢
 </div>
-
 <div class="info-title">
 Durum
 </div>
-
 <div class="info-text">
 Aktif kanal
 </div>
-
 </div>
-
 <div
 class="info"
 onclick="openChannel()">
-
 <div class="info-icon">
 👑
 </div>
-
 <div class="info-title">
 Kanal
 </div>
-
 <div class="info-text">
 BerkeBet
 </div>
-
 </div>
-
 </div>
-
 <a
 href="https://www.youtube.com/@BerkeBet"
 target="_blank"
 class="card-button">
-
 YouTube Kanalına Git →
-
 </a>
-
 </div>
-
 </div>
-
 </section>
-
 <!-- ================= VIDEOS ================= -->
-
 <section class="section" id="kanal">
-
 <div class="section-container">
-
 <div class="video-heading">
-
 <div class="small-title">
 BERKEBET
 </div>
-
 <h2 class="section-title">
 Son Videolar
 </h2>
-
 <p class="section-description">
 BerkeBet'in YouTube içeriklerine göz at.
 </p>
-
 </div>
-
 <div class="video-grid">
-
 <script>
-
 const videos = [
-
     {
         id: "6OySAaaEvHE",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=6OySAaaEvHE"
     },
-
     {
         id: "4SiVGLpki0s",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=4SiVGLpki0s"
     },
-
     {
         id: "Ai5G_2FH3hI",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=Ai5G_2FH3hI"
     },
-
     {
         id: "VkUS6WVPWic",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=VkUS6WVPWic"
     },
-
     {
         id: "NawRXjwjtYQ",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=NawRXjwjtYQ"
     }
-
 ];
-
 document.write(
-
     videos.map(video => `
-
         <a
             href="${video.url}"
             target="_blank"
             class="video-card">
-
             <div class="thumbnail">
-
                 <img
                     src="https://img.youtube.com/vi/${video.id}/maxresdefault.jpg"
                     alt="BerkeBet">
-
                 <div class="play-button">
                     ▶
                 </div>
-
             </div>
-
             <div class="video-content">
-
                 <div class="video-label">
                     YOUTUBE
                 </div>
-
                 <h3>
                     ${video.title}
                 </h3>
-
                 <span class="watch">
                     Videoyu İzle →
                 </span>
-
             </div>
-
         </a>
-
     `).join("")
-
 );
-
 </script>
-
 </div>
-
 <a
 href="https://www.youtube.com/@BerkeBet"
 target="_blank"
 class="all-videos">
-
 Tüm Videoları Gör →
-
 </a>
-
 </div>
-
 </section>
-
 <!-- ================= INSTAGRAM ================= -->
-
 <section class="section" id="iletisim">
-
 <div class="section-container">
-
 <div class="small-title">
 BERKEBET
 </div>
-
 <h2 class="section-title">
 İletişim
 </h2>
-
 <p class="section-description">
 BerkeBet'i sosyal medyada takip et.
 </p>
-
 <a
 href="https://www.instagram.com/berkeya_/"
 target="_blank"
 class="instagram-card">
-
 <div class="instagram-icon">
-
 <svg
 viewBox="0 0 24 24"
 fill="none">
-
 <rect
 x="3"
 y="3"
@@ -1866,319 +1309,203 @@ height="18"
 rx="5"
 stroke="currentColor"
 stroke-width="2"/>
-
 <circle
 cx="12"
 cy="12"
 r="4"
 stroke="currentColor"
 stroke-width="2"/>
-
 <circle
 cx="17.5"
 cy="6.5"
 r="1"
 fill="currentColor"/>
-
 </svg>
-
 </div>
-
 <div class="instagram-info">
-
 <div class="instagram-label">
 INSTAGRAM
 </div>
-
 <div class="instagram-name">
 berkeya_
 </div>
-
 </div>
-
 <div class="instagram-arrow">
 →
 </div>
-
 </a>
-
 </div>
-
 </section>
-
 <!-- ================= WHEEL ================= -->
-
 <div
 class="wheel-overlay"
 id="wheelOverlay">
-
 <div class="wheel-box">
-
 <h2 class="wheel-title">
 🎰 Rasgele Video
 </h2>
-
 <div
 class="wheel"
 id="wheel">
-
 <div class="wheel-pointer"></div>
-
 </div>
-
 <button
 class="youtube-btn"
 id="spinButton"
-onclick="spinWheel()">
-
-Çarkı Çevir
-
+onclick="spinWheel()"
+style="min-width: 180px; letter-spacing: 0.5px;">
+🎰 Çarkı Çevir
 </button>
-
 <div
 class="wheel-result"
 id="wheelResult">
-
 <div
 class="result-thumbnail"
 onclick="watchResult()">
-
 <img
 id="resultImage"
 src=""
 alt="Seçilen Video">
-
 </div>
-
 <div
 class="result-title"
 id="resultTitle">
 </div>
-
 </div>
-
 <button
 class="close-wheel"
 onclick="closeWheel()">
-
 Kapat
-
 </button>
-
 </div>
-
 </div>
-
 <!-- ================= FOOTER ================= -->
-
 <footer>
-
 © 2026 BerkeBet — Tüm hakları saklıdır.
-
 <div class="developer">
-
 SITE DEVELOPED BY
-
 <span>
 VesVese
 </span>
-
 </div>
-
 </footer>
-
 <script>
-
 /* ================= GLOBAL ================= */
-
 let selectedVideo = null;
 let spinning = false;
-
 /* ================= NAVIGATION ================= */
-
 function goToVideos() {
-
     document
         .getElementById("kanal")
         .scrollIntoView({
             behavior: "smooth"
         });
-
 }
-
 function openChannel() {
-
     window.open(
         "https://www.youtube.com/@BerkeBet",
         "_blank"
     );
-
 }
-
 /* ================= WHEEL ================= */
-
 function openWheel() {
-
     document
         .getElementById("wheelOverlay")
         .classList.add("active");
-
 }
-
 function closeWheel() {
-
     document
         .getElementById("wheelOverlay")
         .classList.remove("active");
-
 }
-
 function spinWheel() {
-
     if (spinning) return;
-
     spinning = true;
-
     const wheel =
         document.getElementById("wheel");
-
     const button =
         document.getElementById("spinButton");
-
     const result =
         document.getElementById("wheelResult");
-
     result.classList.remove("show");
-
     button.disabled = true;
-
     button.style.opacity = ".5";
-
     const randomIndex =
         Math.floor(
             Math.random() * videos.length
         );
-
     selectedVideo =
         videos[randomIndex];
-
     const segment =
         360 / videos.length;
-
     const randomRotation =
         1440 +
         (360 - randomIndex * segment)
         - segment / 2;
-
     wheel.style.transform =
         `rotate(${randomRotation}deg)`;
-
     setTimeout(() => {
-
         document
             .getElementById("resultImage")
             .src =
             `https://img.youtube.com/vi/${selectedVideo.id}/maxresdefault.jpg`;
-
         document
             .getElementById("resultTitle")
             .textContent =
             "🎥 " + selectedVideo.title;
-
         result.classList.add("show");
-
         spinning = false;
-
         button.disabled = false;
-
         button.style.opacity = "1";
-
     }, 4200);
-
 }
-
 function watchResult() {
-
     if (!selectedVideo) return;
-
     window.open(
         selectedVideo.url,
         "_blank"
     );
-
 }
-
 /* ================= MOUSE ================= */
-
 const mouseGlow =
     document.getElementById("mouseGlow");
-
 document.addEventListener(
     "mousemove",
     function(event) {
-
         mouseGlow.style.left =
             event.clientX + "px";
-
         mouseGlow.style.top =
             event.clientY + "px";
-
     }
 );
-
 /* ================= ESC ================= */
-
 document.addEventListener(
     "keydown",
     function(event) {
-
         if (event.key === "Escape") {
-
             closeWheel();
-
         }
-
     }
 );
-
 /* ================= OUTSIDE CLICK ================= */
-
 document
     .getElementById("wheelOverlay")
     .addEventListener(
         "click",
         function(event) {
-
             if (event.target === this) {
-
                 closeWheel();
-
             }
-
         }
     );
-
 /* ================= INTRO ================= */
-
-/*
-   Animasyon bittikten sonra intro tamamen
-   DOM'dan kaldırılıyor.
-*/
-
 setTimeout(() => {
-
     const intro =
         document.getElementById("intro");
-
     if (intro) {
-
         intro.remove();
-
     }
-
 }, 4300);
-
 </script>
-
 </body>
 </html>
