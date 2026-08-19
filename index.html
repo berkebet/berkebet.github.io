@@ -2407,62 +2407,44 @@ document
     });
 
 
-/* =========================================================
+/* =========================
    SCROLL ANIMATIONS
-========================================================= */
+   Her ekrana girişte tekrar oynar
+========================= */
 
 const scrollElements =
-    document.querySelectorAll(
-        ".scroll-animate"
-    );
+    document.querySelectorAll(".scroll-animate");
 
 const scrollObserver =
     new IntersectionObserver(
+        function(entries) {
 
-        function(entries, observer) {
+            entries.forEach(function(entry) {
 
-            entries.forEach(
-                function(entry) {
+                if (entry.isIntersecting) {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                    // Görünür olduğunda animasyonu başlat
+                    entry.target.classList.add("show");
 
-                        entry.target
-                            .classList
-                            .add("show");
+                } else {
 
-                        observer
-                            .unobserve(
-                                entry.target
-                            );
-
-                    }
+                    // Ekrandan çıkınca animasyonu sıfırla
+                    entry.target.classList.remove("show");
 
                 }
-            );
+
+            });
 
         },
-
         {
             threshold: 0.15,
-
-            rootMargin:
-                "0px 0px -50px 0px"
+            rootMargin: "0px 0px -50px 0px"
         }
-
     );
 
-
-scrollElements.forEach(
-    function(element) {
-
-        scrollObserver.observe(
-            element
-        );
-
-    }
-);
+scrollElements.forEach(function(element) {
+    scrollObserver.observe(element);
+});
 
 </script>
 
