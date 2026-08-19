@@ -12,10 +12,6 @@
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -111,7 +107,6 @@ body {
 }
 
 .intro-title::after {
-
     content: "";
 
     position: absolute;
@@ -137,7 +132,6 @@ body {
 }
 
 .intro-subtitle {
-
     margin-top: 22px;
 
     color: #96889f;
@@ -156,7 +150,6 @@ body {
 }
 
 .intro-line {
-
     width: 0;
     height: 2px;
 
@@ -179,7 +172,6 @@ body {
 }
 
 @keyframes introEnter {
-
     0% {
         opacity: 0;
 
@@ -202,7 +194,6 @@ body {
 }
 
 @keyframes introGradient {
-
     0% {
         background-position: 0% 50%;
     }
@@ -217,7 +208,6 @@ body {
 }
 
 @keyframes introGlow {
-
     from {
         text-shadow:
             0 0 15px rgba(175,50,255,.4),
@@ -232,7 +222,6 @@ body {
 }
 
 @keyframes introLight {
-
     0% {
         left: -35%;
     }
@@ -243,7 +232,6 @@ body {
 }
 
 @keyframes introSubtitle {
-
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -256,7 +244,6 @@ body {
 }
 
 @keyframes introLine {
-
     from {
         width: 0;
     }
@@ -272,7 +259,6 @@ body {
 ===================================================== */
 
 .background {
-
     position: fixed;
     inset: 0;
 
@@ -300,7 +286,6 @@ body {
 }
 
 .neon {
-
     position: absolute;
 
     border-radius: 50%;
@@ -311,7 +296,6 @@ body {
 }
 
 .neon.one {
-
     width: 550px;
     height: 550px;
 
@@ -326,7 +310,6 @@ body {
 }
 
 .neon.two {
-
     width: 600px;
     height: 600px;
 
@@ -341,7 +324,6 @@ body {
 }
 
 .neon.three {
-
     width: 500px;
     height: 500px;
 
@@ -356,7 +338,6 @@ body {
 }
 
 @keyframes moveOne {
-
     to {
         transform:
             translate(170px,120px)
@@ -365,7 +346,6 @@ body {
 }
 
 @keyframes moveTwo {
-
     to {
         transform:
             translate(-140px,140px)
@@ -374,7 +354,6 @@ body {
 }
 
 @keyframes moveThree {
-
     to {
         transform:
             translate(130px,-100px)
@@ -388,7 +367,6 @@ body {
 ===================================================== */
 
 .grid {
-
     position: absolute;
     inset: -50%;
 
@@ -414,9 +392,7 @@ body {
 }
 
 @keyframes gridMove {
-
     to {
-
         transform:
             perspective(700px)
             rotateX(62deg)
@@ -430,7 +406,6 @@ body {
 ===================================================== */
 
 nav {
-
     position: fixed;
 
     top: 0;
@@ -460,7 +435,6 @@ nav {
 }
 
 .logo {
-
     color: white;
 
     text-decoration: none;
@@ -479,21 +453,18 @@ nav {
 }
 
 .logo:hover {
-
     text-shadow:
         0 0 15px #c34cff,
         0 0 35px rgba(195,76,255,.5);
 }
 
 .links {
-
     display: flex;
 
     gap: 34px;
 }
 
 .links a {
-
     position: relative;
 
     color: #958ba2;
@@ -510,7 +481,6 @@ nav {
 }
 
 .links a::after {
-
     content: "";
 
     position: absolute;
@@ -547,7 +517,6 @@ nav {
 ===================================================== */
 
 .hero {
-
     min-height: 100vh;
 
     display: flex;
@@ -560,7 +529,6 @@ nav {
 }
 
 .hero-content {
-
     width: 100%;
 
     max-width: 1100px;
@@ -576,7 +544,6 @@ nav {
 }
 
 .small-title {
-
     display: flex;
 
     align-items: center;
@@ -596,7 +563,6 @@ nav {
 }
 
 .small-title::before {
-
     content: "";
 
     width: 32px;
@@ -614,7 +580,6 @@ nav {
 }
 
 h1 {
-
     font-size:
         clamp(65px,9vw,120px);
 
@@ -650,7 +615,6 @@ h1 {
 }
 
 @keyframes gradientMove {
-
     0% {
         background-position: 0% 50%;
     }
@@ -665,7 +629,6 @@ h1 {
 }
 
 .description {
-
     max-width: 540px;
 
     color: #a196ad;
@@ -678,7 +641,6 @@ h1 {
 }
 
 .yapistir {
-
     display: block;
 
     margin-top: 15px;
@@ -701,9 +663,7 @@ h1 {
 }
 
 @keyframes pulse {
-
     to {
-
         text-shadow:
             0 0 15px #e66aff,
             0 0 40px rgba(179,50,255,.8),
@@ -717,7 +677,6 @@ h1 {
 ===================================================== */
 
 .buttons {
-
     display: flex;
 
     gap: 12px;
@@ -725,7 +684,6 @@ h1 {
 
 .youtube-btn,
 .about-btn {
-
     display: inline-flex;
 
     align-items: center;
@@ -746,7 +704,6 @@ h1 {
 }
 
 .youtube-btn {
-
     color: white;
 
     background:
@@ -766,7 +723,6 @@ h1 {
 }
 
 .youtube-btn:hover {
-
     transform:
         translateY(-5px);
 
@@ -776,7 +732,6 @@ h1 {
 }
 
 .about-btn {
-
     color: #b6aabd;
 
     background:
@@ -788,7 +743,6 @@ h1 {
 }
 
 .about-btn:hover {
-
     color: white;
 
     transform:
@@ -804,7 +758,6 @@ h1 {
 ===================================================== */
 
 .channel-card {
-
     padding: 30px;
 
     background:
@@ -831,7 +784,6 @@ h1 {
 }
 
 .channel-card:hover {
-
     transform:
         translateY(-8px);
 
@@ -840,7 +792,6 @@ h1 {
 }
 
 .card-top {
-
     display: flex;
 
     align-items: center;
@@ -855,7 +806,6 @@ h1 {
 }
 
 .channel-icon {
-
     width: 68px;
     height: 68px;
 
@@ -875,7 +825,6 @@ h1 {
 }
 
 .channel-icon img {
-
     width: 100%;
     height: 100%;
 
@@ -885,7 +834,6 @@ h1 {
 }
 
 .channel-name {
-
     font-size: 19px;
 
     font-weight: 900;
@@ -894,7 +842,6 @@ h1 {
 }
 
 .channel-handle {
-
     color: #71677b;
 
     font-size: 12px;
@@ -903,7 +850,6 @@ h1 {
 }
 
 .verified {
-
     color: #c24cff;
 
     font-size: 11px;
@@ -912,7 +858,6 @@ h1 {
 }
 
 .card-info {
-
     padding-top: 22px;
 
     display: grid;
@@ -924,7 +869,6 @@ h1 {
 }
 
 .info {
-
     padding: 17px;
 
     border-radius: 11px;
@@ -942,7 +886,6 @@ h1 {
 }
 
 .info:hover {
-
     background:
         rgba(180,50,255,.07);
 
@@ -954,14 +897,12 @@ h1 {
 }
 
 .info-icon {
-
     font-size: 17px;
 
     margin-bottom: 9px;
 }
 
 .info-title {
-
     color: #f4eff7;
 
     font-size: 13px;
@@ -972,14 +913,12 @@ h1 {
 }
 
 .info-text {
-
     color: #756b80;
 
     font-size: 11px;
 }
 
 .card-button {
-
     display: flex;
 
     align-items: center;
@@ -1012,7 +951,6 @@ h1 {
 }
 
 .card-button:hover {
-
     background:
         linear-gradient(
             135deg,
@@ -1032,7 +970,6 @@ h1 {
 ===================================================== */
 
 .section {
-
     position: relative;
 
     padding:
@@ -1044,14 +981,12 @@ h1 {
 }
 
 .section-container {
-
     max-width: 1100px;
 
     margin: auto;
 }
 
 .section-title {
-
     font-size: 44px;
 
     letter-spacing: -2px;
@@ -1060,7 +995,6 @@ h1 {
 }
 
 .section-description {
-
     color: #756b80;
 
     font-size: 15px;
@@ -1074,12 +1008,10 @@ h1 {
 ===================================================== */
 
 .video-heading {
-
     margin-bottom: 45px;
 }
 
 .video-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -1089,7 +1021,6 @@ h1 {
 }
 
 .video-card {
-
     display: block;
 
     background:
@@ -1111,7 +1042,6 @@ h1 {
 }
 
 .video-card:hover {
-
     transform:
         translateY(-9px);
 
@@ -1125,7 +1055,6 @@ h1 {
 }
 
 .thumbnail {
-
     position: relative;
 
     width: 100%;
@@ -1139,7 +1068,6 @@ h1 {
 }
 
 .thumbnail img {
-
     width: 100%;
     height: 100%;
 
@@ -1152,13 +1080,11 @@ h1 {
 
 .video-card:hover
 .thumbnail img {
-
     transform:
         scale(1.07);
 }
 
 .play-button {
-
     position: absolute;
 
     top: 50%;
@@ -1195,17 +1121,14 @@ h1 {
 
 .video-card:hover
 .play-button {
-
     opacity: 1;
 }
 
 .video-content {
-
     padding: 20px;
 }
 
 .video-label {
-
     color: #c34cff;
 
     font-size: 10px;
@@ -1218,14 +1141,12 @@ h1 {
 }
 
 .video-content h3 {
-
     font-size: 17px;
 
     margin-bottom: 15px;
 }
 
 .watch {
-
     color: #71687a;
 
     font-size: 12px;
@@ -1235,12 +1156,10 @@ h1 {
 
 .video-card:hover
 .watch {
-
     color: #d24cff;
 }
 
 .all-videos {
-
     display: inline-flex;
 
     margin-top: 35px;
@@ -1269,7 +1188,6 @@ h1 {
 }
 
 .all-videos:hover {
-
     background:
         linear-gradient(
             135deg,
@@ -1289,7 +1207,6 @@ h1 {
 ===================================================== */
 
 .instagram-card {
-
     display: flex;
 
     align-items: center;
@@ -1319,7 +1236,6 @@ h1 {
 }
 
 .instagram-card:hover {
-
     transform:
         translateY(-6px);
 
@@ -1332,7 +1248,6 @@ h1 {
 }
 
 .instagram-icon {
-
     width: 48px;
     height: 48px;
 
@@ -1355,20 +1270,17 @@ h1 {
 }
 
 .instagram-icon svg {
-
     width: 26px;
     height: 26px;
 }
 
 .instagram-info {
-
     margin-left: 16px;
 
     flex: 1;
 }
 
 .instagram-label {
-
     color: #766a7e;
 
     font-size: 10px;
@@ -1381,7 +1293,6 @@ h1 {
 }
 
 .instagram-name {
-
     color: #f5f0f7;
 
     font-size: 17px;
@@ -1390,7 +1301,6 @@ h1 {
 }
 
 .instagram-arrow {
-
     color: #71687a;
 
     font-size: 22px;
@@ -1400,7 +1310,6 @@ h1 {
 
 .instagram-card:hover
 .instagram-arrow {
-
     color: white;
 
     transform:
@@ -1413,7 +1322,6 @@ h1 {
 ===================================================== */
 
 .wheel-overlay {
-
     position: fixed;
 
     inset: 0;
@@ -1433,12 +1341,10 @@ h1 {
 }
 
 .wheel-overlay.active {
-
     display: flex;
 }
 
 .wheel-box {
-
     width:
         min(92%,520px);
 
@@ -1471,7 +1377,6 @@ h1 {
 }
 
 .wheel-title {
-
     font-size: 28px;
 
     font-weight: 900;
@@ -1480,7 +1385,6 @@ h1 {
 }
 
 .wheel {
-
     position: relative;
 
     width: 280px;
@@ -1515,10 +1419,7 @@ h1 {
     overflow: visible;
 }
 
-/* ÇARK ÜZERİNDEKİ YAZILAR */
-
 .wheel-label {
-
     position: absolute;
 
     left: 50%;
@@ -1581,7 +1482,6 @@ h1 {
 }
 
 .wheel::after {
-
     content: "BERKEBET";
 
     position: absolute;
@@ -1623,7 +1523,6 @@ h1 {
 }
 
 .wheel-pointer {
-
     position: absolute;
 
     top: -17px;
@@ -1654,14 +1553,12 @@ h1 {
 }
 
 .wheel-result {
-
     display: none;
 
     margin-top: 20px;
 }
 
 .wheel-result.show {
-
     display: block;
 
     animation:
@@ -1669,7 +1566,6 @@ h1 {
 }
 
 @keyframes resultAppear {
-
     from {
         opacity: 0;
         transform: translateY(15px) scale(.96);
@@ -1682,7 +1578,6 @@ h1 {
 }
 
 .result-thumbnail {
-
     width: 100%;
 
     border-radius: 13px;
@@ -1699,7 +1594,6 @@ h1 {
 }
 
 .result-thumbnail:hover {
-
     transform: scale(1.02);
 
     box-shadow:
@@ -1708,14 +1602,12 @@ h1 {
 }
 
 .result-thumbnail img {
-
     display: block;
 
     width: 100%;
 }
 
 .result-title {
-
     margin-top: 15px;
 
     font-size: 17px;
@@ -1724,7 +1616,6 @@ h1 {
 }
 
 .close-wheel {
-
     margin-top: 20px;
 
     padding:
@@ -1747,7 +1638,6 @@ h1 {
 }
 
 .close-wheel:hover {
-
     background:
         #a936ff;
 }
@@ -1758,7 +1648,6 @@ h1 {
 ===================================================== */
 
 footer {
-
     padding:
         45px 7%;
 
@@ -1774,14 +1663,12 @@ footer {
 }
 
 .developer {
-
     margin-top: 8px;
 
     color: #8f8198;
 }
 
 .developer span {
-
     color: #c94cff;
 
     font-weight: 900;
@@ -1797,7 +1684,6 @@ footer {
 ===================================================== */
 
 .mouse-glow {
-
     position: fixed;
 
     width: 300px;
@@ -1828,7 +1714,6 @@ footer {
 @media (max-width:900px) {
 
     .hero-content {
-
         grid-template-columns: 1fr;
 
         gap: 55px;
@@ -1837,7 +1722,6 @@ footer {
     }
 
     .video-grid {
-
         grid-template-columns:
             repeat(2,1fr);
     }
@@ -1846,55 +1730,45 @@ footer {
 @media (max-width:600px) {
 
     nav {
-
         padding: 0 25px;
     }
 
     .links {
-
         display: none;
     }
 
     h1 {
-
         font-size: 58px;
 
         letter-spacing: -4px;
     }
 
     .intro-title {
-
         letter-spacing: -4px;
     }
 
     .yapistir {
-
         font-size: 28px;
     }
 
     .buttons {
-
         flex-direction: column;
     }
 
     .youtube-btn,
     .about-btn {
-
         width: 100%;
     }
 
     .video-grid {
-
         grid-template-columns: 1fr;
     }
 
     .section-title {
-
         font-size: 34px;
     }
 
     .wheel {
-
         width: 240px;
         height: 240px;
     }
@@ -2009,7 +1883,6 @@ footer {
 
     <div class="hero-content">
 
-
         <div>
 
             <div class="small-title">
@@ -2038,7 +1911,6 @@ footer {
 
             </p>
 
-
             <div class="buttons">
 
                 <a
@@ -2061,10 +1933,7 @@ footer {
         </div>
 
 
-        <!-- CHANNEL CARD -->
-
         <div class="channel-card">
-
 
             <div class="card-top">
 
@@ -2076,7 +1945,6 @@ footer {
                     >
 
                 </div>
-
 
                 <div>
 
@@ -2098,7 +1966,6 @@ footer {
 
 
             <div class="card-info">
-
 
                 <div
                     class="info"
@@ -2176,7 +2043,6 @@ footer {
 
                 </div>
 
-
             </div>
 
 
@@ -2206,7 +2072,6 @@ footer {
 
     <div class="section-container">
 
-
         <div class="video-heading">
 
             <div class="small-title">
@@ -2225,7 +2090,6 @@ footer {
 
 
         <div class="video-grid">
-
 
             <a
                 href="https://www.youtube.com/watch?v=6OySAaaEvHE"
@@ -2416,7 +2280,6 @@ footer {
 
             </a>
 
-
         </div>
 
 
@@ -2444,16 +2307,13 @@ footer {
 
     <div class="section-container">
 
-
         <div class="small-title">
             BERKEBET
         </div>
 
-
         <h2 class="section-title">
             İletişim
         </h2>
-
 
         <p class="section-description">
             BerkeBet'i sosyal medyada takip et.
@@ -2537,7 +2397,6 @@ footer {
 >
 
     <div class="wheel-box">
-
 
         <h2 class="wheel-title">
             🎰 Rasgele Video
@@ -2698,42 +2557,67 @@ const videos = [
 
 ];
 
+
 let selectedVideo = null;
 let spinning = false;
 let currentRotation = 0;
 
 
 /* =====================================================
-   INTRO
+   INTRO — SADECE İLK GİRİŞTE
 ===================================================== */
 
-window.addEventListener(
-    "load",
-    function() {
+const intro =
+    document.getElementById("intro");
 
-        const intro =
-            document.getElementById("intro");
+const introPlayed =
+    sessionStorage.getItem("berkebetIntroPlayed");
 
-        setTimeout(
-            function() {
 
-                intro.classList.add("hide");
+if (introPlayed) {
 
-                setTimeout(
-                    function() {
+    /*
+       Kullanıcı F5 yaptıysa veya
+       aynı sekmede sayfayı tekrar açtıysa
+       intro direkt kaldırılır.
+    */
 
+    intro.remove();
+
+} else {
+
+    /*
+       İlk giriş.
+       Animasyon oynatılır.
+    */
+
+    sessionStorage.setItem(
+        "berkebetIntroPlayed",
+        "true"
+    );
+
+
+    setTimeout(
+        function() {
+
+            intro.classList.add("hide");
+
+            setTimeout(
+                function() {
+
+                    if (intro) {
                         intro.remove();
+                    }
 
-                    },
-                    1000
-                );
+                },
+                1000
+            );
 
-            },
-            2300
-        );
+        },
+        2300
+    );
 
-    }
-);
+}
 
 
 /* =====================================================
@@ -2747,7 +2631,9 @@ function goToVideos() {
         .scrollIntoView({
             behavior: "smooth"
         });
+
 }
+
 
 function openChannel() {
 
@@ -2755,6 +2641,7 @@ function openChannel() {
         "https://www.youtube.com/@BerkeBet",
         "_blank"
     );
+
 }
 
 
@@ -2770,6 +2657,7 @@ function openWheel() {
 
 }
 
+
 function closeWheel() {
 
     document
@@ -2777,6 +2665,7 @@ function closeWheel() {
         .classList.remove("active");
 
 }
+
 
 function spinWheel() {
 
@@ -2793,6 +2682,7 @@ function spinWheel() {
     const result =
         document.getElementById("wheelResult");
 
+
     result.classList.remove("show");
 
     button.disabled = true;
@@ -2804,6 +2694,7 @@ function spinWheel() {
         Math.floor(
             Math.random() * videos.length
         );
+
 
     selectedVideo =
         videos[randomIndex];
@@ -2883,6 +2774,7 @@ const mouseGlow =
         "mouseGlow"
     );
 
+
 document.addEventListener(
     "mousemove",
     function(event) {
@@ -2937,11 +2829,15 @@ document
                             )
                         );
 
+
                     if (!target) return;
+
 
                     event.preventDefault();
 
+
                     const navbarHeight = 74;
+
 
                     const position =
                         target
@@ -2951,6 +2847,7 @@ document
                         window.scrollY
                         -
                         navbarHeight;
+
 
                     window.scrollTo({
 
