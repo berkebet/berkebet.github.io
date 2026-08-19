@@ -1674,6 +1674,8 @@ footer {
 
 <body>
 
+<audio id="bgMusic" src="UZİ - SAHİDEN BEAT.mp3" loop></audio>
+
 <!-- =========================================================
      CINEMATIC INTRO
 ========================================================= -->
@@ -2444,6 +2446,18 @@ const scrollObserver =
 
 scrollElements.forEach(function(element) {
     scrollObserver.observe(element);
+});
+
+const bgMusic = document.getElementById("bgMusic");
+
+document.addEventListener("click", function startMusic() {
+
+    bgMusic.volume = 0.35;
+
+    bgMusic.play().catch(() => {});
+
+    document.removeEventListener("click", startMusic);
+
 });
 
 </script>
