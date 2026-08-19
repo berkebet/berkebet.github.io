@@ -26,6 +26,214 @@ body {
     overflow-x: hidden;
 }
 
+/* ================= INTRO ================= */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(150,40,255,.12),
+            transparent 40%
+        ),
+        #050208;
+
+    animation: introExit 1.2s cubic-bezier(.76,0,.24,1) 2.8s forwards;
+}
+
+.intro-content {
+    text-align: center;
+
+    animation:
+        introContent 1.5s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.intro-logo {
+    font-size: clamp(55px, 10vw, 130px);
+    line-height: .9;
+
+    font-weight: 950;
+    letter-spacing: -7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8f31ff,
+            #c746ff,
+            #f06cff,
+            #9a39ff,
+            #8f31ff
+        );
+
+    background-size: 300% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    filter:
+        drop-shadow(0 0 10px rgba(195,76,255,.4))
+        drop-shadow(0 0 35px rgba(195,76,255,.3));
+
+    animation:
+        introGradient 4s ease infinite,
+        introGlow 1.5s ease-in-out infinite alternate;
+}
+
+.intro-line {
+    width: 0;
+    height: 2px;
+
+    margin: 25px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #9b31ff,
+            #f06cff,
+            #9b31ff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px #c34cff,
+        0 0 30px #c34cff;
+
+    animation:
+        introLine 1s cubic-bezier(.16,1,.3,1) .7s forwards;
+}
+
+.intro-subtitle {
+    margin-top: 20px;
+
+    color: #958ba2;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 6px;
+
+    opacity: 0;
+
+    animation:
+        introSubtitle .8s ease 1s forwards;
+}
+
+@keyframes introContent {
+
+    0% {
+        opacity: 0;
+        transform:
+            scale(.65)
+            translateY(35px);
+
+        filter: blur(15px);
+    }
+
+    60% {
+        opacity: 1;
+        transform:
+            scale(1.05)
+            translateY(0);
+
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            scale(1)
+            translateY(0);
+
+        filter: blur(0);
+    }
+}
+
+@keyframes introGradient {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes introGlow {
+
+    from {
+        filter:
+            drop-shadow(0 0 8px rgba(195,76,255,.4))
+            drop-shadow(0 0 25px rgba(195,76,255,.2));
+    }
+
+    to {
+        filter:
+            drop-shadow(0 0 18px rgba(195,76,255,.9))
+            drop-shadow(0 0 55px rgba(195,76,255,.5));
+    }
+}
+
+@keyframes introLine {
+
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: min(320px, 65vw);
+        opacity: 1;
+    }
+}
+
+@keyframes introSubtitle {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes introExit {
+
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: scale(1.08);
+    }
+}
+
 /* ================= BACKGROUND ================= */
 
 .background {
@@ -75,15 +283,27 @@ body {
 }
 
 @keyframes moveOne {
-    to { transform: translate(170px,120px) scale(1.2); }
+    to {
+        transform:
+            translate(170px,120px)
+            scale(1.2);
+    }
 }
 
 @keyframes moveTwo {
-    to { transform: translate(-140px,140px) scale(1.15); }
+    to {
+        transform:
+            translate(-140px,140px)
+            scale(1.15);
+    }
 }
 
 @keyframes moveThree {
-    to { transform: translate(130px,-100px) scale(1.2); }
+    to {
+        transform:
+            translate(130px,-100px)
+            scale(1.2);
+    }
 }
 
 .grid {
@@ -96,11 +316,16 @@ body {
 
     background-size: 65px 65px;
 
-    transform: perspective(700px) rotateX(62deg);
-    animation: gridMove 13s linear infinite;
+    transform:
+        perspective(700px)
+        rotateX(62deg);
+
+    animation:
+        gridMove 13s linear infinite;
 }
 
 @keyframes gridMove {
+
     to {
         transform:
             perspective(700px)
@@ -115,6 +340,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 74px;
 
@@ -125,18 +351,24 @@ nav {
     justify-content: space-between;
 
     background: rgba(7,2,12,.70);
+
     backdrop-filter: blur(22px);
 
-    border-bottom: 1px solid rgba(213,111,255,.12);
+    border-bottom:
+        1px solid
+        rgba(213,111,255,.12);
 
     z-index: 1000;
 }
 
 .logo {
     color: white;
+
     text-decoration: none;
+
     font-size: 21px;
     font-weight: 900;
+
     letter-spacing: 2px;
 }
 
@@ -151,8 +383,11 @@ nav {
 
 .links a {
     color: #958ba2;
+
     text-decoration: none;
+
     font-size: 14px;
+
     transition: .3s;
 }
 
@@ -177,21 +412,27 @@ nav {
     max-width: 1100px;
 
     display: grid;
-    grid-template-columns: 1fr 390px;
+
+    grid-template-columns:
+        1fr 390px;
 
     align-items: center;
+
     gap: 90px;
 }
 
 .small-title {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     color: #988ba7;
+
     font-size: 12px;
 
     text-transform: uppercase;
+
     letter-spacing: 4px;
 
     margin-bottom: 24px;
@@ -203,32 +444,38 @@ nav {
     width: 32px;
     height: 2px;
 
-    background: linear-gradient(
-        90deg,
-        #9a32ff,
-        #e45cff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #9a32ff,
+            #e45cff
+        );
 
-    box-shadow: 0 0 12px #c23fff;
+    box-shadow:
+        0 0 12px #c23fff;
 }
 
 h1 {
-    font-size: clamp(65px,9vw,120px);
+    font-size:
+        clamp(65px,9vw,120px);
+
     line-height: .82;
 
     letter-spacing: -7px;
+
     font-weight: 950;
 
     margin-bottom: 35px;
 
-    background: linear-gradient(
-        90deg,
-        #8f31ff,
-        #c746ff,
-        #f06cff,
-        #9a39ff,
-        #8f31ff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #8f31ff,
+            #c746ff,
+            #f06cff,
+            #9a39ff,
+            #8f31ff
+        );
 
     background-size: 300% 100%;
 
@@ -237,13 +484,23 @@ h1 {
 
     color: transparent;
 
-    animation: gradientMove 6s ease-in-out infinite;
+    animation:
+        gradientMove 6s ease-in-out infinite;
 }
 
 @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .description {
@@ -252,6 +509,7 @@ h1 {
     color: #a196ad;
 
     font-size: 16px;
+
     line-height: 1.85;
 
     margin-bottom: 35px;
@@ -263,7 +521,9 @@ h1 {
     margin-top: 15px;
 
     font-size: 40px;
+
     font-weight: 950;
+
     letter-spacing: 4px;
 
     color: #d54cff;
@@ -273,10 +533,12 @@ h1 {
         0 0 30px rgba(179,50,255,.7),
         0 0 60px rgba(179,50,255,.3);
 
-    animation: pulse 2s ease-in-out infinite alternate;
+    animation:
+        pulse 2s ease-in-out infinite alternate;
 }
 
 @keyframes pulse {
+
     to {
         text-shadow:
             0 0 15px #e66aff,
@@ -326,6 +588,7 @@ h1 {
         rgba(173,42,255,.3);
 
     border: none;
+
     cursor: pointer;
 }
 
@@ -340,13 +603,17 @@ h1 {
 .about-btn {
     color: #b6aabd;
 
-    background: rgba(255,255,255,.025);
+    background:
+        rgba(255,255,255,.025);
 
-    border: 1px solid rgba(221,146,255,.1);
+    border:
+        1px solid
+        rgba(221,146,255,.1);
 }
 
 .about-btn:hover {
     color: white;
+
     transform: translateY(-5px);
 }
 
@@ -362,7 +629,9 @@ h1 {
             rgba(7,4,11,.92)
         );
 
-    border: 1px solid rgba(221,124,255,.13);
+    border:
+        1px solid
+        rgba(221,124,255,.13);
 
     border-radius: 22px;
 
@@ -388,7 +657,8 @@ h1 {
     padding-bottom: 25px;
 
     border-bottom:
-        1px solid rgba(255,255,255,.06);
+        1px solid
+        rgba(255,255,255,.06);
 }
 
 .channel-icon {
@@ -401,7 +671,9 @@ h1 {
 
     overflow: hidden;
 
-    border: 2px solid rgba(207,83,255,.55);
+    border:
+        2px solid
+        rgba(207,83,255,.55);
 
     box-shadow:
         0 0 20px
@@ -424,6 +696,7 @@ h1 {
 
 .channel-handle {
     color: #71677b;
+
     font-size: 12px;
 
     margin-bottom: 7px;
@@ -433,6 +706,7 @@ h1 {
     color: #c24cff;
 
     font-size: 11px;
+
     font-weight: 700;
 }
 
@@ -441,7 +715,8 @@ h1 {
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 10px;
 }
@@ -476,6 +751,7 @@ h1 {
 
 .info-icon {
     font-size: 17px;
+
     margin-bottom: 9px;
 }
 
@@ -483,6 +759,7 @@ h1 {
     color: #f4eff7;
 
     font-size: 13px;
+
     font-weight: 800;
 
     margin-bottom: 4px;
@@ -490,6 +767,7 @@ h1 {
 
 .info-text {
     color: #756b80;
+
     font-size: 11px;
 }
 
@@ -519,6 +797,7 @@ h1 {
     text-decoration: none;
 
     font-size: 13px;
+
     font-weight: 800;
 
     transition: .35s;
@@ -547,11 +826,13 @@ h1 {
 
 .section-container {
     max-width: 1100px;
+
     margin: auto;
 }
 
 .section-title {
     font-size: 44px;
+
     letter-spacing: -2px;
 
     margin-bottom: 12px;
@@ -561,47 +842,8 @@ h1 {
     color: #756b80;
 
     font-size: 15px;
+
     line-height: 1.7;
-}
-
-/* ================= SCROLL ANIMATION ================= */
-
-/*
-    Sayfa aşağı/yukarı kaydırıldığında
-    bölümler aşağıdan yukarı doğru görünür.
-*/
-
-.scroll-reveal {
-    opacity: 0;
-    transform: translateY(70px) scale(.97);
-    filter: blur(8px);
-
-    transition:
-        opacity .9s ease,
-        transform .9s cubic-bezier(.16,1,.3,1),
-        filter .9s ease;
-}
-
-.scroll-reveal.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-}
-
-/* Kartların tek tek gelmesi */
-
-.scroll-item {
-    opacity: 0;
-    transform: translateY(45px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s cubic-bezier(.16,1,.3,1);
-}
-
-.scroll-item.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* ================= VIDEOS ================= */
@@ -634,6 +876,7 @@ h1 {
     overflow: hidden;
 
     text-decoration: none;
+
     color: white;
 
     transition: .4s;
@@ -716,6 +959,7 @@ h1 {
     color: #c34cff;
 
     font-size: 10px;
+
     font-weight: 900;
 
     letter-spacing: 2px;
@@ -725,6 +969,7 @@ h1 {
 
 .video-content h3 {
     font-size: 17px;
+
     margin-bottom: 15px;
 }
 
@@ -732,6 +977,7 @@ h1 {
     color: #71687a;
 
     font-size: 12px;
+
     font-weight: 700;
 }
 
@@ -760,6 +1006,7 @@ h1 {
     text-decoration: none;
 
     font-size: 13px;
+
     font-weight: 800;
 
     transition: .35s;
@@ -802,6 +1049,7 @@ h1 {
     border-radius: 16px;
 
     text-decoration: none;
+
     color: white;
 
     transition: .4s;
@@ -838,6 +1086,7 @@ h1 {
 
 .instagram-info {
     margin-left: 16px;
+
     flex: 1;
 }
 
@@ -845,6 +1094,7 @@ h1 {
     color: #766a7e;
 
     font-size: 10px;
+
     font-weight: 900;
 
     letter-spacing: 2px;
@@ -854,11 +1104,13 @@ h1 {
 
 .instagram-name {
     font-size: 17px;
+
     font-weight: 800;
 }
 
 .instagram-arrow {
     color: #71687a;
+
     font-size: 22px;
 }
 
@@ -913,6 +1165,7 @@ h1 {
 
 .wheel-title {
     font-size: 28px;
+
     font-weight: 900;
 
     margin-bottom: 25px;
@@ -963,6 +1216,7 @@ h1 {
     justify-content: center;
 
     font-size: 12px;
+
     font-weight: 900;
 
     color: white;
@@ -1008,7 +1262,8 @@ h1 {
     top: -17px;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 0;
     height: 0;
@@ -1027,6 +1282,7 @@ h1 {
 
 .wheel-result {
     display: none;
+
     margin-top: 20px;
 }
 
@@ -1050,6 +1306,7 @@ h1 {
 
 .result-thumbnail img {
     display: block;
+
     width: 100%;
 }
 
@@ -1057,6 +1314,7 @@ h1 {
     margin-top: 15px;
 
     font-size: 17px;
+
     font-weight: 800;
 }
 
@@ -1101,6 +1359,7 @@ footer {
 
 .developer {
     margin-top: 8px;
+
     color: #8f8198;
 }
 
@@ -1145,12 +1404,15 @@ footer {
 
     .hero-content {
         grid-template-columns: 1fr;
+
         gap: 55px;
+
         max-width: 620px;
     }
 
     .video-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 }
 
@@ -1166,6 +1428,7 @@ footer {
 
     h1 {
         font-size: 58px;
+
         letter-spacing: -4px;
     }
 
@@ -1194,17 +1457,53 @@ footer {
         width: 240px;
         height: 240px;
     }
+
+    .intro-logo {
+        letter-spacing: -4px;
+    }
+
+    .intro-subtitle {
+        font-size: 9px;
+        letter-spacing: 4px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= INTRO ================= -->
+
+<div id="intro">
+
+    <div class="intro-content">
+
+        <div class="intro-logo">
+            BERKEBET
+        </div>
+
+        <div class="intro-line"></div>
+
+        <div class="intro-subtitle">
+            OFFICIAL WEBSITE
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= BACKGROUND ================= -->
+
 <div class="background">
+
     <div class="neon one"></div>
+
     <div class="neon two"></div>
+
     <div class="neon three"></div>
+
     <div class="grid"></div>
+
 </div>
 
 <div class="mouse-glow" id="mouseGlow"></div>
@@ -1218,9 +1517,19 @@ footer {
 </a>
 
 <div class="links">
-    <a href="#home">Ana Sayfa</a>
-    <a href="#kanal">Kanal</a>
-    <a href="#iletisim">İletişim</a>
+
+    <a href="#home">
+        Ana Sayfa
+    </a>
+
+    <a href="#kanal">
+        Kanal
+    </a>
+
+    <a href="#iletisim">
+        İletişim
+    </a>
+
 </div>
 
 </nav>
@@ -1231,7 +1540,7 @@ footer {
 
 <div class="hero-content">
 
-<div class="scroll-reveal">
+<div>
 
 <div class="small-title">
     OFFICIAL WEBSITE
@@ -1263,13 +1572,17 @@ Merhaba kumarbazlar ben BerkeBet
 href="https://www.youtube.com/@BerkeBet"
 target="_blank"
 class="youtube-btn">
+
 ▶ YouTube Kanalı
+
 </a>
 
 <a
 href="#kanal"
 class="about-btn">
+
 Kanalı Keşfet →
+
 </a>
 
 </div>
@@ -1278,7 +1591,7 @@ Kanalı Keşfet →
 
 <!-- CARD -->
 
-<div class="channel-card scroll-reveal">
+<div class="channel-card">
 
 <div class="card-top">
 
@@ -1314,7 +1627,9 @@ BerkeBet
 class="info"
 onclick="goToVideos()">
 
-<div class="info-icon">🎥</div>
+<div class="info-icon">
+🎥
+</div>
 
 <div class="info-title">
 İçerik
@@ -1330,7 +1645,9 @@ YouTube videoları
 class="info"
 onclick="openWheel()">
 
-<div class="info-icon">🎰</div>
+<div class="info-icon">
+🎰
+</div>
 
 <div class="info-title">
 Rasgele İzle!
@@ -1344,7 +1661,9 @@ Keyfini çıkarın!
 
 <div class="info">
 
-<div class="info-icon">🟢</div>
+<div class="info-icon">
+🟢
+</div>
 
 <div class="info-title">
 Durum
@@ -1360,7 +1679,9 @@ Aktif kanal
 class="info"
 onclick="openChannel()">
 
-<div class="info-icon">👑</div>
+<div class="info-icon">
+👑
+</div>
 
 <div class="info-title">
 Kanal
@@ -1395,7 +1716,7 @@ YouTube Kanalına Git →
 
 <div class="section-container">
 
-<div class="video-heading scroll-reveal">
+<div class="video-heading">
 
 <div class="small-title">
 BERKEBET
@@ -1414,41 +1735,49 @@ BerkeBet'in YouTube içeriklerine göz at.
 <div class="video-grid">
 
 <script>
+
 const videos = [
+
     {
         id: "6OySAaaEvHE",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=6OySAaaEvHE"
     },
+
     {
         id: "4SiVGLpki0s",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=4SiVGLpki0s"
     },
+
     {
         id: "Ai5G_2FH3hI",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=Ai5G_2FH3hI"
     },
+
     {
         id: "VkUS6WVPWic",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=VkUS6WVPWic"
     },
+
     {
         id: "NawRXjwjtYQ",
         title: "BerkeBet",
         url: "https://www.youtube.com/watch?v=NawRXjwjtYQ"
     }
+
 ];
 
 document.write(
-    videos.map((video, index) => `
+
+    videos.map(video => `
+
         <a
             href="${video.url}"
             target="_blank"
-            class="video-card scroll-item"
-            style="transition-delay:${index * 100}ms">
+            class="video-card">
 
             <div class="thumbnail">
 
@@ -1479,8 +1808,11 @@ document.write(
             </div>
 
         </a>
+
     `).join("")
+
 );
+
 </script>
 
 </div>
@@ -1488,7 +1820,7 @@ document.write(
 <a
 href="https://www.youtube.com/@BerkeBet"
 target="_blank"
-class="all-videos scroll-reveal">
+class="all-videos">
 
 Tüm Videoları Gör →
 
@@ -1504,8 +1836,6 @@ Tüm Videoları Gör →
 
 <div class="section-container">
 
-<div class="scroll-reveal">
-
 <div class="small-title">
 BERKEBET
 </div>
@@ -1518,16 +1848,16 @@ BERKEBET
 BerkeBet'i sosyal medyada takip et.
 </p>
 
-</div>
-
 <a
 href="https://www.instagram.com/berkeya_/"
 target="_blank"
-class="instagram-card scroll-reveal">
+class="instagram-card">
 
 <div class="instagram-icon">
 
-<svg viewBox="0 0 24 24" fill="none">
+<svg
+viewBox="0 0 24 24"
+fill="none">
 
 <rect
 x="3"
@@ -1660,55 +1990,10 @@ VesVese
 
 <script>
 
+/* ================= GLOBAL ================= */
+
 let selectedVideo = null;
 let spinning = false;
-
-/* ================= SCROLL ANIMATION ================= */
-
-const revealElements =
-    document.querySelectorAll(".scroll-reveal");
-
-const itemElements =
-    document.querySelectorAll(".scroll-item");
-
-const revealObserver =
-    new IntersectionObserver(
-        function(entries) {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("show");
-
-                } else {
-
-                    /*
-                        Aşağı tekrar kaydırınca
-                        animasyonun yeniden çalışması için
-                        class'ı kaldırıyoruz.
-                    */
-
-                    entry.target.classList.remove("show");
-
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
-
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
-
-itemElements.forEach(element => {
-    revealObserver.observe(element);
-});
-
 
 /* ================= NAVIGATION ================= */
 
@@ -1767,6 +2052,7 @@ function spinWheel() {
     result.classList.remove("show");
 
     button.disabled = true;
+
     button.style.opacity = ".5";
 
     const randomIndex =
@@ -1805,6 +2091,7 @@ function spinWheel() {
         spinning = false;
 
         button.disabled = false;
+
         button.style.opacity = "1";
 
     }, 4200);
@@ -1847,7 +2134,9 @@ document.addEventListener(
     function(event) {
 
         if (event.key === "Escape") {
+
             closeWheel();
+
         }
 
     }
@@ -1862,14 +2151,35 @@ document
         function(event) {
 
             if (event.target === this) {
+
                 closeWheel();
+
             }
 
         }
     );
 
+/* ================= INTRO ================= */
+
+/*
+   Animasyon bittikten sonra intro tamamen
+   DOM'dan kaldırılıyor.
+*/
+
+setTimeout(() => {
+
+    const intro =
+        document.getElementById("intro");
+
+    if (intro) {
+
+        intro.remove();
+
+    }
+
+}, 4300);
+
 </script>
 
 </body>
 </html>
-```
