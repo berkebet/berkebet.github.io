@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>BerkeBet</title>
 
 <link rel="icon" type="image/jpeg" href="logo.jpeg.jpeg">
@@ -27,7 +28,7 @@ body {
 }
 
 /* =========================================================
-   CINEMATIC INTRO
+   INTRO
 ========================================================= */
 
 #intro {
@@ -47,11 +48,6 @@ body {
             rgba(255,190,0,.14),
             transparent 28%
         ),
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(255,140,0,.06),
-            transparent 55%
-        ),
         #030201;
 
     transition:
@@ -59,12 +55,11 @@ body {
         visibility 1.2s;
 }
 
-/* Üst ve alt sinematik siyah barlar */
-
 #intro::before,
 #intro::after {
     content: "";
     position: absolute;
+
     left: 0;
     width: 100%;
     height: 14vh;
@@ -85,8 +80,6 @@ body {
     bottom: 0;
 }
 
-/* Intro kapanırken sinema barları açılır */
-
 #intro.hide::before {
     transform: translateY(-100%);
 }
@@ -100,8 +93,6 @@ body {
     visibility: hidden;
     pointer-events: none;
 }
-
-/* Ortadaki ışık */
 
 .intro-light {
     position: absolute;
@@ -123,13 +114,10 @@ body {
 
     opacity: 0;
 
-    animation:
-        introLight 2.4s ease forwards;
+    animation: introLight 2.4s ease forwards;
 
     pointer-events: none;
 }
-
-/* Hareket eden ışık çizgisi */
 
 .intro-scan {
     position: absolute;
@@ -153,13 +141,10 @@ body {
 
     opacity: 0;
 
-    animation:
-        introScan 1.5s ease .4s forwards;
+    animation: introScan 1.5s ease .4s forwards;
 
     pointer-events: none;
 }
-
-/* Ana içerik */
 
 .intro-content {
     position: relative;
@@ -178,8 +163,6 @@ body {
     animation:
         cinematicEnter 1.5s cubic-bezier(.16,1,.3,1) .15s forwards;
 }
-
-/* BERKEBET */
 
 .intro-title {
     position: relative;
@@ -212,12 +195,7 @@ body {
     animation:
         introGradient 2.5s ease infinite,
         introGlow 1.4s ease-in-out infinite alternate;
-
-    text-shadow:
-        0 0 40px rgba(255,190,0,.25);
 }
-
-/* Başlığın üzerinden geçen parlaklık */
 
 .intro-title::after {
     content: "";
@@ -242,11 +220,7 @@ body {
 
     animation:
         titleShine 1.5s ease 1.2s forwards;
-
-    pointer-events: none;
 }
-
-/* ALT YAZI */
 
 .intro-subtitle {
     margin-top: 22px;
@@ -264,8 +238,6 @@ body {
     animation:
         introSubtitle .8s ease .85s forwards;
 }
-
-/* Çizgi */
 
 .intro-line {
     width: 0;
@@ -290,8 +262,6 @@ body {
     animation:
         introLine 1s ease .7s forwards;
 }
-
-/* Intro giriş */
 
 @keyframes cinematicEnter {
 
@@ -326,8 +296,6 @@ body {
     }
 }
 
-/* Ortadaki ışık */
-
 @keyframes introLight {
 
     0% {
@@ -351,8 +319,6 @@ body {
     }
 }
 
-/* Scan line */
-
 @keyframes introScan {
 
     0% {
@@ -375,8 +341,6 @@ body {
     }
 }
 
-/* Gradient */
-
 @keyframes introGradient {
 
     0% {
@@ -392,8 +356,6 @@ body {
     }
 }
 
-/* Glow */
-
 @keyframes introGlow {
 
     from {
@@ -405,12 +367,9 @@ body {
     to {
         text-shadow:
             0 0 25px rgba(255,210,60,.8),
-            0 0 65px rgba(255,180,0,.45),
-            0 0 110px rgba(255,160,0,.2);
+            0 0 65px rgba(255,180,0,.45);
     }
 }
-
-/* Subtitle */
 
 @keyframes introSubtitle {
 
@@ -425,8 +384,6 @@ body {
     }
 }
 
-/* Çizgi */
-
 @keyframes introLine {
 
     from {
@@ -437,8 +394,6 @@ body {
         width: 180px;
     }
 }
-
-/* Parlak geçiş */
 
 @keyframes titleShine {
 
@@ -712,8 +667,7 @@ nav {
     align-items: center;
     justify-content: center;
 
-    padding:
-        120px 20px 80px;
+    padding: 120px 20px 80px;
 }
 
 .hero-content {
@@ -722,8 +676,7 @@ nav {
 
     display: grid;
 
-    grid-template-columns:
-        1fr 390px;
+    grid-template-columns: 1fr 390px;
 
     align-items: center;
 
@@ -857,7 +810,7 @@ h1 {
 }
 
 /* =========================================================
-   BUTTON
+   BUTTONS
 ========================================================= */
 
 .buttons {
@@ -935,7 +888,7 @@ h1 {
 }
 
 /* =========================================================
-   CHANNEL CARD
+   ESKİ CHANNEL CARD
 ========================================================= */
 
 .channel-card {
@@ -1219,19 +1172,6 @@ h1 {
 
 .scroll-delay-4 {
     transition-delay: .48s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .scroll-animate {
-        opacity: 1;
-
-        transform: none;
-
-        filter: none;
-
-        transition: none;
-    }
 }
 
 /* =========================================================
@@ -1603,6 +1543,116 @@ footer {
 }
 
 /* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.music-player {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 5000;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 14px 10px 10px;
+
+    background:
+        rgba(12,9,3,.82);
+
+    border:
+        1px solid
+        rgba(255,200,60,.18);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.45),
+        0 0 30px rgba(255,190,0,.08);
+
+    transition: .35s ease;
+}
+
+.music-player:hover {
+    border-color:
+        rgba(255,200,60,.35);
+
+    box-shadow:
+        0 18px 55px rgba(0,0,0,.55),
+        0 0 35px rgba(255,190,0,.12);
+}
+
+.music-toggle {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9f00,
+            #ffd000
+        );
+
+    color: #171000;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: .3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,190,0,.45);
+}
+
+.music-controls {
+    min-width: 145px;
+}
+
+.music-title {
+    color: #cfc6b5;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+#volumeControl {
+    width: 145px;
+
+    height: 4px;
+
+    accent-color: #ffc107;
+
+    cursor: pointer;
+}
+
+/* =========================================================
    MOBILE
 ========================================================= */
 
@@ -1666,105 +1716,7 @@ footer {
 
     .section-title {
         font-size: 34px;
-      }
-}
-
-.music-player {
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
-    
-    z-index: 5000;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    padding: 10px 14px 10px 10px;
-
-    background: rgba(12, 9, 3, .82);
-
-    border: 1px solid rgba(255, 200, 60, .18);
-
-    border-radius: 18px;
-
-    backdrop-filter: blur(20px);
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.45),
-        0 0 30px rgba(255,190,0,.08);
-
-    transition: .35s ease;
-}
-
-.music-player:hover {
-    border-color: rgba(255, 200, 60, .35);
-
-    box-shadow:
-        0 18px 55px rgba(0,0,0,.55),
-        0 0 35px rgba(255,190,0,.12);
-}
-
-.music-toggle {
-    width: 42px;
-    height: 42px;
-
-    border: none;
-    border-radius: 13px;
-
-    background: linear-gradient(
-        135deg,
-        #ff9f00,
-        #ffd000
-    );
-
-    color: #171000;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: .3s ease;
-}
-
-.music-toggle:hover {
-    transform: scale(1.08);
-
-    box-shadow:
-        0 0 20px rgba(255,190,0,.45);
-}
-
-.music-controls {
-    min-width: 145px;
-}
-
-.music-title {
-    color: #cfc6b5;
-
-    font-size: 9px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 7px;
-}
-
-#volumeControl {
-    width: 145px;
-
-    height: 4px;
-
-    accent-color: #ffc107;
-
-    cursor: pointer;
-}
-
-@media (max-width:600px) {
+    }
 
     .music-player {
         right: 15px;
@@ -1781,341 +1733,9 @@ footer {
         width: 110px;
     }
 
-/* =========================================================
-   YOUTUBE PANEL
-========================================================= */
-
-.youtube-panel {
-    position: relative;
-
-    min-height: 430px;
-
-    padding: 35px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    border-radius: 28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(30,23,7,.92),
-            rgba(8,6,2,.97)
-        );
-
-    border: 1px solid rgba(255,193,7,.20);
-
-    box-shadow:
-        0 35px 90px rgba(0,0,0,.65),
-        0 0 70px rgba(255,180,0,.10);
-
-    backdrop-filter: blur(25px);
-
-    transition: .45s ease;
-}
-
-.youtube-panel:hover {
-    transform: translateY(-10px) scale(1.015);
-
-    border-color:
-        rgba(255,205,70,.45);
-
-    box-shadow:
-        0 45px 110px rgba(0,0,0,.75),
-        0 0 80px rgba(255,190,0,.18);
-}
-
-
-/* IŞIK */
-
-.youtube-panel-glow {
-    position: absolute;
-
-    width: 280px;
-    height: 280px;
-
-    top: -100px;
-    right: -90px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,193,7,.28),
-            transparent 70%
-        );
-
-    filter: blur(25px);
-
-    pointer-events: none;
-
-    animation:
-        panelGlow 5s ease-in-out infinite alternate;
-}
-
-@keyframes panelGlow {
-
-    from {
-        transform: scale(.8);
-        opacity: .45;
+    .channel-card {
+        padding: 22px;
     }
-
-    to {
-        transform: scale(1.3);
-        opacity: .8;
-    }
-}
-
-
-/* ÜST YAZI */
-
-.youtube-panel-top {
-    position: relative;
-
-    z-index: 2;
-
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-    margin-bottom: 25px;
-
-    color: #a69d8d;
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 3px;
-}
-
-.youtube-live-dot {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: #ffc107;
-
-    box-shadow:
-        0 0 8px #ffc107,
-        0 0 18px rgba(255,193,7,.8);
-
-    animation:
-        livePulse 1.5s ease-in-out infinite;
-}
-
-@keyframes livePulse {
-
-    0%,100% {
-        opacity: .45;
-        transform: scale(.8);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-}
-
-
-/* YOUTUBE LOGO */
-
-.youtube-panel-logo {
-    position: relative;
-
-    z-index: 2;
-
-    width: 92px;
-    height: 65px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff9f00,
-            #ffd000
-        );
-
-    color: #171000;
-
-    font-size: 30px;
-
-    font-weight: 900;
-
-    box-shadow:
-        0 15px 45px rgba(255,180,0,.28),
-        0 0 45px rgba(255,190,0,.12);
-
-    transition: .4s;
-}
-
-.youtube-panel:hover .youtube-panel-logo {
-    transform:
-        scale(1.08)
-        rotate(-2deg);
-
-    box-shadow:
-        0 18px 55px rgba(255,190,0,.45),
-        0 0 70px rgba(255,190,0,.20);
-}
-
-
-/* BAŞLIK */
-
-.youtube-panel h2 {
-    position: relative;
-
-    z-index: 2;
-
-    margin-top: 25px;
-
-    margin-bottom: 10px;
-
-    font-size: 31px;
-
-    letter-spacing: -1px;
-
-    font-weight: 950;
-
-    color: transparent;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff9f00,
-            #ffc107,
-            #ffe082,
-            #ffb300
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-}
-
-
-/* AÇIKLAMA */
-
-.youtube-panel p {
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 280px;
-
-    margin-bottom: 25px;
-
-    color: #81786a;
-
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-
-/* BUTON */
-
-.youtube-panel-button {
-    position: relative;
-
-    z-index: 2;
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 14px 22px;
-
-    border-radius: 10px;
-
-    text-decoration: none;
-
-    color: #171000;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff9f00,
-            #ffd000
-        );
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    box-shadow:
-        0 12px 35px rgba(255,180,0,.25);
-
-    transition: .35s ease;
-}
-
-.youtube-panel-button:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 18px 50px rgba(255,190,0,.45);
-}
-
-
-/* ALT YAZI */
-
-.youtube-panel-bottom {
-    position: relative;
-
-    z-index: 2;
-
-    margin-top: 25px;
-
-    color: #625a4e;
-
-    font-size: 10px;
-
-    font-weight: 700;
-}
-
-.youtube-panel-bottom span {
-    color: #ffc107;
-
-    text-shadow:
-        0 0 10px #ffc107;
-}
-
-
-/* MOBİL */
-
-@media (max-width: 600px) {
-
-    .youtube-panel {
-        min-height: 390px;
-
-        padding: 28px 20px;
-    }
-
-    .youtube-panel-logo {
-        width: 82px;
-        height: 58px;
-    }
-
-    .youtube-panel h2 {
-        font-size: 27px;
-    }
-
 }
 
 </style>
@@ -2125,9 +1745,17 @@ footer {
 
 <audio id="bgMusic" src="uzi.mp3" loop></audio>
 
-<div class="music-player" id="musicPlayer">
+<!-- =========================================================
+     MUSIC
+========================================================= -->
 
-    <button class="music-toggle" id="musicToggle" title="Müziği Aç/Kapat">
+<div class="music-player">
+
+    <button
+        class="music-toggle"
+        id="musicToggle"
+        title="Müziği Aç/Kapat"
+    >
         🎵
     </button>
 
@@ -2151,7 +1779,7 @@ footer {
 </div>
 
 <!-- =========================================================
-     CINEMATIC INTRO
+     INTRO
 ========================================================= -->
 
 <div id="intro">
@@ -2190,7 +1818,10 @@ footer {
 
 </div>
 
-<div class="mouse-glow" id="mouseGlow"></div>
+<div
+    class="mouse-glow"
+    id="mouseGlow"
+></div>
 
 <!-- =========================================================
      NAVBAR
@@ -2198,7 +1829,10 @@ footer {
 
 <nav>
 
-    <a href="#home" class="logo">
+    <a
+        href="#home"
+        class="logo"
+    >
         BERKE<span>BET</span>
     </a>
 
@@ -2224,7 +1858,10 @@ footer {
      HERO
 ========================================================= -->
 
-<section class="hero" id="home">
+<section
+    class="hero"
+    id="home"
+>
 
     <div class="hero-content">
 
@@ -2247,7 +1884,7 @@ footer {
 
                 <br><br>
 
-                Merhaba kumarbazlar ben BerkeBet
+                Merhaba, ben BerkeBet.
 
                 <span class="yapistir">
                     YAPIŞTIR!
@@ -2260,6 +1897,7 @@ footer {
                 <a
                     href="https://www.youtube.com/@BerkeBet"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="youtube-btn"
                 >
                     ▶ YouTube Kanalı
@@ -2276,41 +1914,128 @@ footer {
 
         </div>
 
-        <div class="youtube-panel">
+        <!-- =================================================
+             ESKİ CARD
+        ================================================= -->
 
-    <div class="youtube-panel-glow"></div>
+        <div class="channel-card">
 
-    <div class="youtube-panel-top">
-        <span class="youtube-live-dot"></span>
-        BERKEBET YOUTUBE
-    </div>
+            <div class="card-top">
 
-    <div class="youtube-panel-logo">
-        ▶
-    </div>
+                <div class="channel-icon">
 
-    <h2>
-        BERKEBET
-    </h2>
+                    <img
+                        src="berkebet.jpg.jpeg"
+                        alt="BerkeBet"
+                    >
 
-    <p>
-        Yeni videoları kaçırma.
-        Kanalı keşfet ve BerkeBet'e katıl.
-    </p>
+                </div>
 
-    <a
-        href="https://www.youtube.com/@BerkeBet"
-        target="_blank"
-        class="youtube-panel-button"
-    >
-        ▶ YouTube Kanalına Git
-    </a>
+                <div>
 
-    <div class="youtube-panel-bottom">
-        <span>●</span> Resmi YouTube Kanalı
-    </div>
+                    <div class="channel-name">
+                        BerkeBet
+                    </div>
 
-</div>
+                    <div class="channel-handle">
+                        @BerkeBet
+                    </div>
+
+                    <div class="verified">
+                        ● Resmi YouTube Kanalı
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card-info">
+
+                <div
+                    class="info"
+                    onclick="goToVideos()"
+                >
+
+                    <div class="info-icon">
+                        🎥
+                    </div>
+
+                    <div class="info-title">
+                        İçerik
+                    </div>
+
+                    <div class="info-text">
+                        YouTube videoları
+                    </div>
+
+                </div>
+
+                <div
+                    class="info"
+                    onclick="openChannel()"
+                >
+
+                    <div class="info-icon">
+                        ▶️
+                    </div>
+
+                    <div class="info-title">
+                        YouTube
+                    </div>
+
+                    <div class="info-text">
+                        Kanalı ziyaret et
+                    </div>
+
+                </div>
+
+                <div class="info">
+
+                    <div class="info-icon">
+                        🟡
+                    </div>
+
+                    <div class="info-title">
+                        Durum
+                    </div>
+
+                    <div class="info-text">
+                        Aktif kanal
+                    </div>
+
+                </div>
+
+                <div
+                    class="info"
+                    onclick="openChannel()"
+                >
+
+                    <div class="info-icon">
+                        👑
+                    </div>
+
+                    <div class="info-title">
+                        Kanal
+                    </div>
+
+                    <div class="info-text">
+                        BerkeBet
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a
+                href="https://www.youtube.com/@BerkeBet"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-button"
+            >
+                YouTube Kanalına Git →
+            </a>
+
+        </div>
 
     </div>
 
@@ -2320,7 +2045,10 @@ footer {
      VIDEOS
 ========================================================= -->
 
-<section class="section" id="kanal">
+<section
+    class="section"
+    id="kanal"
+>
 
     <div class="section-container">
 
@@ -2345,6 +2073,7 @@ footer {
             <a
                 href="https://www.youtube.com/watch?v=6OySAaaEvHE"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-1"
             >
 
@@ -2352,7 +2081,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/6OySAaaEvHE/maxresdefault.jpg"
-                        alt="BerkeBet"
+                        alt="BerkeBet videosu"
                     >
 
                     <div class="play-button">
@@ -2382,6 +2111,7 @@ footer {
             <a
                 href="https://www.youtube.com/watch?v=4SiVGLpki0s"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-2"
             >
 
@@ -2389,7 +2119,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/4SiVGLpki0s/maxresdefault.jpg"
-                        alt="BerkeBet"
+                        alt="BerkeBet videosu"
                     >
 
                     <div class="play-button">
@@ -2419,6 +2149,7 @@ footer {
             <a
                 href="https://www.youtube.com/watch?v=Ai5G_2FH3hI"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-3"
             >
 
@@ -2426,7 +2157,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/Ai5G_2FH3hI/maxresdefault.jpg"
-                        alt="BerkeBet"
+                        alt="BerkeBet videosu"
                     >
 
                     <div class="play-button">
@@ -2456,6 +2187,7 @@ footer {
             <a
                 href="https://www.youtube.com/watch?v=VkUS6WVPWic"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-1"
             >
 
@@ -2463,7 +2195,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/VkUS6WVPWic/maxresdefault.jpg"
-                        alt="BerkeBet"
+                        alt="BerkeBet videosu"
                     >
 
                     <div class="play-button">
@@ -2493,6 +2225,7 @@ footer {
             <a
                 href="https://www.youtube.com/watch?v=NawRXjwjtYQ"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="video-card scroll-animate scroll-delay-2"
             >
 
@@ -2500,7 +2233,7 @@ footer {
 
                     <img
                         src="https://img.youtube.com/vi/NawRXjwjtYQ/maxresdefault.jpg"
-                        alt="BerkeBet"
+                        alt="BerkeBet videosu"
                     >
 
                     <div class="play-button">
@@ -2532,6 +2265,7 @@ footer {
         <a
             href="https://www.youtube.com/@BerkeBet"
             target="_blank"
+            rel="noopener noreferrer"
             class="all-videos scroll-animate scroll-delay-3"
         >
             Tüm Videoları Gör →
@@ -2545,7 +2279,10 @@ footer {
      INSTAGRAM
 ========================================================= -->
 
-<section class="section" id="iletisim">
+<section
+    class="section"
+    id="iletisim"
+>
 
     <div class="section-container">
 
@@ -2564,6 +2301,7 @@ footer {
         <a
             href="https://www.instagram.com/berkeya_/"
             target="_blank"
+            rel="noopener noreferrer"
             class="instagram-card scroll-animate scroll-delay-3"
         >
 
@@ -2648,18 +2386,13 @@ footer {
 <script>
 
 /* =========================================================
-   CINEMATIC INTRO
+   INTRO
 ========================================================= */
 
 window.addEventListener("load", function () {
 
     const intro =
         document.getElementById("intro");
-
-    /*
-        Daha önce aynı oturumda gösterildiyse
-        intro tekrar açılmaz.
-    */
 
     if (
         sessionStorage.getItem("introShown")
@@ -2676,18 +2409,9 @@ window.addEventListener("load", function () {
         "true"
     );
 
-    /*
-        Intro yaklaşık 3.4 saniye ekranda kalır.
-    */
-
     setTimeout(function () {
 
         intro.classList.add("hide");
-
-        /*
-            Animasyon tamamen bittikten sonra
-            DOM'dan kaldırıyoruz.
-        */
 
         setTimeout(function () {
 
@@ -2699,9 +2423,8 @@ window.addEventListener("load", function () {
 
 });
 
-
 /* =========================================================
-   NAVIGATION
+   CHANNEL
 ========================================================= */
 
 function goToVideos() {
@@ -2714,7 +2437,6 @@ function goToVideos() {
 
 }
 
-
 function openChannel() {
 
     window.open(
@@ -2724,15 +2446,12 @@ function openChannel() {
 
 }
 
-
 /* =========================================================
    MOUSE GLOW
 ========================================================= */
 
 const mouseGlow =
-    document.getElementById(
-        "mouseGlow"
-    );
+    document.getElementById("mouseGlow");
 
 document.addEventListener(
     "mousemove",
@@ -2747,15 +2466,12 @@ document.addEventListener(
     }
 );
 
-
 /* =========================================================
    SMOOTH LINKS
 ========================================================= */
 
 document
-    .querySelectorAll(
-        'a[href^="#"]'
-    )
+    .querySelectorAll('a[href^="#"]')
     .forEach(function(link) {
 
         link.addEventListener(
@@ -2764,9 +2480,7 @@ document
 
                 const target =
                     document.querySelector(
-                        this.getAttribute(
-                            "href"
-                        )
+                        this.getAttribute("href")
                     );
 
                 if (!target) return;
@@ -2788,8 +2502,7 @@ document
 
                     top: position,
 
-                    behavior:
-                        "smooth"
+                    behavior: "smooth"
 
                 });
 
@@ -2798,14 +2511,14 @@ document
 
     });
 
-
-/* =========================
+/* =========================================================
    SCROLL ANIMATIONS
-   Her ekrana girişte tekrar oynar
-========================= */
+========================================================= */
 
 const scrollElements =
-    document.querySelectorAll(".scroll-animate");
+    document.querySelectorAll(
+        ".scroll-animate"
+    );
 
 const scrollObserver =
     new IntersectionObserver(
@@ -2815,12 +2528,10 @@ const scrollObserver =
 
                 if (entry.isIntersecting) {
 
-                    // Görünür olduğunda animasyonu başlat
                     entry.target.classList.add("show");
 
                 } else {
 
-                    // Ekrandan çıkınca animasyonu sıfırla
                     entry.target.classList.remove("show");
 
                 }
@@ -2835,48 +2546,72 @@ const scrollObserver =
     );
 
 scrollElements.forEach(function(element) {
+
     scrollObserver.observe(element);
-});
-
-const bgMusic = document.getElementById("bgMusic");
-
-document.addEventListener("click", function startMusic() {
-
-    bgMusic.volume = 0.35;
-
-    bgMusic.play().catch(() => {});
-
-    document.removeEventListener("click", startMusic);
 
 });
 
+/* =========================================================
+   MUSIC
+========================================================= */
 
-const musicToggle = document.getElementById("musicToggle");
-const volumeControl = document.getElementById("volumeControl");
+const bgMusic =
+    document.getElementById("bgMusic");
 
-musicToggle.addEventListener("click", function(event) {
+const musicToggle =
+    document.getElementById("musicToggle");
 
-    event.stopPropagation();
+const volumeControl =
+    document.getElementById("volumeControl");
 
-    if (bgMusic.paused) {
+bgMusic.volume = 0.35;
 
-        bgMusic.play();
-        musicToggle.textContent = "🎵";
+document.addEventListener(
+    "click",
+    function startMusic() {
 
-    } else {
+        bgMusic.play().catch(function() {});
 
-        bgMusic.pause();
-        musicToggle.textContent = "🔇";
+        document.removeEventListener(
+            "click",
+            startMusic
+        );
 
     }
+);
 
-});
+musicToggle.addEventListener(
+    "click",
+    function(event) {
 
-volumeControl.addEventListener("input", function() {
+        event.stopPropagation();
 
-    bgMusic.volume = this.value;
+        if (bgMusic.paused) {
 
-});
+            bgMusic.play().catch(function() {});
+
+            musicToggle.textContent = "🎵";
+
+        } else {
+
+            bgMusic.pause();
+
+            musicToggle.textContent = "🔇";
+
+        }
+
+    }
+);
+
+volumeControl.addEventListener(
+    "input",
+    function() {
+
+        bgMusic.volume =
+            Number(this.value);
+
+    }
+);
 
 </script>
 
