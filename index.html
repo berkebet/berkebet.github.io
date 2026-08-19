@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Berkebet</title>
+    <title>BerkeBet</title>
 
     <style>
 
@@ -121,8 +121,6 @@
 
 
         .logo:hover {
-            transform: translateY(-1px);
-
             text-shadow:
                 0 0 15px rgba(22,140,255,0.5);
         }
@@ -169,6 +167,7 @@
             max-width: 1050px;
 
             display: grid;
+
             grid-template-columns: 1fr 380px;
 
             align-items: center;
@@ -190,6 +189,7 @@
             color: #6d7480;
 
             font-size: 13px;
+
             text-transform: uppercase;
 
             letter-spacing: 3px;
@@ -389,7 +389,40 @@
         }
 
 
-        /* KART ÜSTÜ */
+        /* =========================
+           PROFİL FOTOĞRAFI
+        ========================= */
+
+        .channel-icon {
+            width: 64px;
+            height: 64px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            border: 2px solid rgba(22,140,255,0.35);
+
+            box-shadow:
+                0 0 30px rgba(0,126,255,0.22);
+        }
+
+
+        .channel-icon img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        /* =========================
+           KART ÜSTÜ
+        ========================= */
 
         .card-top {
             display: flex;
@@ -401,35 +434,6 @@
             padding-bottom: 25px;
 
             border-bottom: 1px solid #181b21;
-        }
-
-
-        .channel-icon {
-            width: 64px;
-            height: 64px;
-
-            flex-shrink: 0;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #087eff,
-                    #0054b8
-                );
-
-            font-size: 25px;
-
-            font-weight: 900;
-
-            box-shadow:
-                0 0 30px rgba(0,126,255,0.22);
         }
 
 
@@ -452,12 +456,6 @@
 
 
         .verified {
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 5px;
-
             color: #168cff;
 
             font-size: 11px;
@@ -793,8 +791,15 @@
 
                 <div class="card-top">
 
+                    <!-- PROFİL FOTOĞRAFIN BURADA -->
+
                     <div class="channel-icon">
-                        <img src="berkebet.jpeg" alt="BerkeBet">
+
+                        <img
+                            src="berkebet.jpeg"
+                            alt="BerkeBet profil fotoğrafı"
+                        >
+
                     </div>
 
 
