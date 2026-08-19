@@ -81,7 +81,6 @@
 
         nav {
             position: fixed;
-
             top: 0;
             left: 0;
 
@@ -95,7 +94,6 @@
             padding: 0 7%;
 
             background: rgba(3, 4, 6, 0.78);
-
             backdrop-filter: blur(18px);
 
             border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -104,15 +102,11 @@
         }
 
 
-        /* SOL ÜST BERKEBET */
-
         .logo {
             color: white;
-
             text-decoration: none;
 
             font-size: 21px;
-
             font-weight: 800;
 
             letter-spacing: 2px;
@@ -134,18 +128,14 @@
         }
 
 
-        /* MENÜ */
-
         nav .links {
             display: flex;
-
             gap: 34px;
         }
 
 
         nav .links a {
             color: #858b98;
-
             text-decoration: none;
 
             font-size: 14px;
@@ -167,9 +157,7 @@
             min-height: 100vh;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             padding: 120px 20px 70px;
@@ -178,11 +166,9 @@
 
         .hero-content {
             width: 100%;
-
             max-width: 1050px;
 
             display: grid;
-
             grid-template-columns: 1fr 380px;
 
             align-items: center;
@@ -197,7 +183,6 @@
 
         .small-title {
             display: flex;
-
             align-items: center;
 
             gap: 10px;
@@ -205,7 +190,6 @@
             color: #6d7480;
 
             font-size: 13px;
-
             text-transform: uppercase;
 
             letter-spacing: 3px;
@@ -218,7 +202,6 @@
             content: "";
 
             width: 25px;
-
             height: 1px;
 
             background: #168cff;
@@ -239,8 +222,6 @@
             margin-bottom: 30px;
         }
 
-
-        /* AÇIKLAMA */
 
         .description {
             max-width: 520px;
@@ -302,7 +283,6 @@
 
         .buttons {
             display: flex;
-
             gap: 12px;
         }
 
@@ -311,7 +291,6 @@
             display: inline-flex;
 
             align-items: center;
-
             justify-content: center;
 
             padding: 14px 22px;
@@ -325,7 +304,6 @@
             border-radius: 8px;
 
             font-size: 14px;
-
             font-weight: 700;
 
             box-shadow:
@@ -349,7 +327,6 @@
             display: inline-flex;
 
             align-items: center;
-
             justify-content: center;
 
             padding: 14px 22px;
@@ -365,7 +342,6 @@
             border-radius: 8px;
 
             font-size: 14px;
-
             font-weight: 600;
 
             transition: 0.25s;
@@ -382,24 +358,38 @@
 
 
         /* =========================
-           SAĞ KANAL KARTI
+           YOUTUBE KARTI
         ========================= */
 
         .channel-card {
-            padding: 32px;
+            padding: 30px;
 
-            background: rgba(8,10,14,0.85);
+            background: rgba(8,10,14,0.88);
 
             border: 1px solid #191d24;
 
             border-radius: 18px;
 
             box-shadow:
-                0 30px 80px rgba(0,0,0,0.45);
+                0 30px 80px rgba(0,0,0,0.5);
 
             backdrop-filter: blur(20px);
+
+            transition: 0.3s;
         }
 
+
+        .channel-card:hover {
+            border-color: #252b34;
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 35px 90px rgba(0,0,0,0.6);
+        }
+
+
+        /* KART ÜSTÜ */
 
         .card-top {
             display: flex;
@@ -415,16 +405,16 @@
 
 
         .channel-icon {
-            width: 58px;
+            width: 64px;
+            height: 64px;
 
-            height: 58px;
+            flex-shrink: 0;
 
             border-radius: 50%;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             background:
@@ -434,28 +424,45 @@
                     #0054b8
                 );
 
-            font-size: 22px;
+            font-size: 25px;
 
             font-weight: 900;
 
             box-shadow:
-                0 0 30px rgba(0,126,255,0.18);
+                0 0 30px rgba(0,126,255,0.22);
         }
 
 
         .channel-name {
-            font-weight: 700;
+            font-weight: 800;
 
-            font-size: 17px;
+            font-size: 19px;
 
             margin-bottom: 5px;
         }
 
 
-        .channel-label {
-            color: #656c78;
+        .channel-handle {
+            color: #606875;
 
             font-size: 12px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .verified {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            color: #168cff;
+
+            font-size: 11px;
+
+            font-weight: 600;
         }
 
 
@@ -464,13 +471,13 @@
         ========================= */
 
         .card-info {
-            padding-top: 25px;
+            padding-top: 22px;
 
             display: grid;
 
             grid-template-columns: 1fr 1fr;
 
-            gap: 20px;
+            gap: 10px;
         }
 
 
@@ -481,16 +488,34 @@
 
             border-radius: 10px;
 
-            padding: 17px;
+            padding: 16px;
+
+            transition: 0.25s;
         }
 
 
-        .info-number {
-            font-size: 20px;
+        .info:hover {
+            background: #0e1116;
 
-            font-weight: 800;
+            border-color: #202630;
+        }
 
-            margin-bottom: 5px;
+
+        .info-icon {
+            font-size: 17px;
+
+            margin-bottom: 9px;
+        }
+
+
+        .info-title {
+            color: #f0f2f5;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 4px;
         }
 
 
@@ -498,10 +523,52 @@
             color: #626a76;
 
             font-size: 11px;
+        }
 
-            text-transform: uppercase;
 
-            letter-spacing: 1px;
+        /* =========================
+           KANALA GİT
+        ========================= */
+
+        .card-button {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+
+            margin-top: 18px;
+
+            padding: 13px;
+
+            border-radius: 9px;
+
+            background: #101318;
+
+            border: 1px solid #20242b;
+
+            color: #dce2ea;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+
+        .card-button:hover {
+            background: #087eff;
+
+            border-color: #087eff;
+
+            color: white;
+
+            box-shadow:
+                0 8px 25px rgba(0,126,255,0.2);
         }
 
 
@@ -613,7 +680,7 @@
 
 
             .card-info {
-                gap: 10px;
+                gap: 8px;
             }
         }
 
@@ -625,12 +692,10 @@
 
 
     <!-- =========================
-         ÜST MENÜ
+         NAVBAR
     ========================= -->
 
     <nav>
-
-        <!-- BURAYA BASINCA ANA SAYFAYA GİDER -->
 
         <a href="#home" class="logo">
             BERKE<span>BET</span>
@@ -697,8 +762,6 @@
 
                 <div class="buttons">
 
-                    <!-- GERÇEK YOUTUBE KANALIN -->
-
                     <a
                         href="https://www.youtube.com/@BerkeBet"
                         target="_blank"
@@ -722,7 +785,7 @@
 
 
             <!-- =========================
-                 SAĞ KART
+                 YOUTUBE KARTI
             ========================= -->
 
             <div class="channel-card">
@@ -738,12 +801,17 @@
                     <div>
 
                         <div class="channel-name">
-                            Berkebet
+                            BerkeBet
                         </div>
 
 
-                        <div class="channel-label">
-                            Official YouTube Channel
+                        <div class="channel-handle">
+                            @BerkeBet
+                        </div>
+
+
+                        <div class="verified">
+                            ● Resmi YouTube Kanalı
                         </div>
 
                     </div>
@@ -757,25 +825,33 @@
 
                     <div class="info">
 
-                        <div class="info-number">
-                            YouTube
+                        <div class="info-icon">
+                            🎥
+                        </div>
+
+                        <div class="info-title">
+                            İçerik
                         </div>
 
                         <div class="info-text">
+                            YouTube videoları
+                        </div>
+
+                    </div>
+
+
+                    <div class="info">
+
+                        <div class="info-icon">
+                            ▶
+                        </div>
+
+                        <div class="info-title">
                             Platform
                         </div>
 
-                    </div>
-
-
-                    <div class="info">
-
-                        <div class="info-number">
-                            2026
-                        </div>
-
                         <div class="info-text">
-                            Since
+                            YouTube
                         </div>
 
                     </div>
@@ -783,30 +859,47 @@
 
                     <div class="info">
 
-                        <div class="info-number">
-                            ∞
-                        </div>
-
-                        <div class="info-text">
-                            Content
-                        </div>
-
-                    </div>
-
-
-                    <div class="info">
-
-                        <div class="info-number">
+                        <div class="info-icon">
                             🔵
                         </div>
 
+                        <div class="info-title">
+                            Durum
+                        </div>
+
                         <div class="info-text">
-                            Online
+                            Aktif kanal
+                        </div>
+
+                    </div>
+
+
+                    <div class="info">
+
+                        <div class="info-icon">
+                            👑
+                        </div>
+
+                        <div class="info-title">
+                            Kanal
+                        </div>
+
+                        <div class="info-text">
+                            BerkeBet
                         </div>
 
                     </div>
 
                 </div>
+
+
+                <a
+                    href="https://www.youtube.com/@BerkeBet"
+                    target="_blank"
+                    class="card-button"
+                >
+                    YouTube Kanalına Git →
+                </a>
 
             </div>
 
@@ -830,7 +923,7 @@
 
 
             <p class="section-description">
-                Berkebet içerikleri burada olacak.
+                BerkeBet'in YouTube içerikleri burada olacak.
             </p>
 
         </div>
